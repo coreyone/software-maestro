@@ -1,6 +1,6 @@
 ---
 name: peekaboo
-description: Capture and automate macOS UI with the Peekaboo CLI.
+description: "Trigger: macOS UI, screen recording, simulator UI, desktop app click, capture screen, system dialog, macOS clipboard, menu bar, drag drop. Scope: Automate macOS GUI applications, drive input events, list windows/spaces, and capture visual state via Peekaboo CLI. Boundary: Excludes pure browser-level automation (use agent-browser instead) or headless server tasks."
 homepage: https://peekaboo.boo
 metadata:
   {
