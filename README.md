@@ -17,7 +17,7 @@ curl -sSL https://www.skills.sh/install.sh | sh -s -- coreyone/software-maestro
 *   **data-and-api/**: Contract-first endpoints & persistence schemas (api-design-guidelines, data-persistence-caching). Bypasses client-state latency using local memory replication.
 *   **security/**: Identity & sandbox trust boundaries (developer-security, developer-web-security, auth-and-identity-rules). Isolates tokens (Keychain/HttpOnly cookies) and cryptographically validates JWTs.
 *   **growth/**: Conversions & behavioral loops (commerce-ux, cro-commerce-audit, design-forms, marketing-copy, elements-of-style, analytics-event-tracking). Single-column input metrics. Standardizes event tracking (`object:action`) without namespace pollution.
-*   **quality/**: Graceful degradation, APM telemetry, and edge deployments (a11y-debugging, web-performance, telemetry, web-deployment, peekaboo). Replaces loaders with layout-matching skeletons. Enforces zero-downtime database migrations (Expand/Contract).
+*   **quality/**: Graceful degradation, APM telemetry, and edge deployments (a11y-debugging, web-performance, telemetry, web-deployment, peekaboo, chrome-devtools). Replaces loaders with layout-matching skeletons. Enforces zero-downtime database migrations (Expand/Contract).
 
 ## Taxonomy
 
@@ -28,5 +28,5 @@ curl -sSL https://www.skills.sh/install.sh | sh -s -- coreyone/software-maestro
 ├── data-and-api/     # REST/GraphQL API design, database schemas, ORM models, caching
 ├── security/         # Authentication protocols, identity keys, secure cookies, keychain
 ├── growth/           # Commerce UX optimization, conversions audit, copywriting principles, event tracking
-└── quality/          # Performance debugging, telemetry observability, deployments, a11y audit
+└── quality/          # Performance debugging, telemetry observability, deployments, a11y audit, chrome automation
 ```

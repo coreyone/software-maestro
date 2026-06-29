@@ -114,7 +114,7 @@ When told to "Initialize Project":
 
 ## 📋 Skill Selection & Swarm Subagent Checklist
 
-When initiating a project phase or decomposing complex tasks, run this systematic audit across the **36 available skills** to designate relevant guardrails and delegate tasks to subagents following `michael-bolton-rule` and `swarm-rules`:
+When initiating a project phase or decomposing complex tasks, run this systematic audit across the **37 available skills** to designate relevant guardrails and delegate tasks to subagents following `michael-bolton-rule` and `swarm-rules`:
 
 ### 1. Identify & Select Relevant Skills
 Map the active task requirements against the seven operational domains. Check every skill in this list; if relevant, load its context and apply its guidelines to the implementation plan:
@@ -161,6 +161,8 @@ Map the active task requirements against the seven operational domains. Check ev
   - [ ] `developer-web-performance`: Use for Core Web Vitals (LCP, INP), image optimization, and bundle sizes.
   - [ ] `observability-telemetry`: Use for log structures, distributed tracing, and system alerts.
   - [ ] `web-deployment-rules`: Use for container builds, CI/CD pipelines, and zero-downtime database migrations.
+  - [ ] `peekaboo`: Use for macOS native desktop GUI automation, window/app listing, and system dialog inputs.
+  - [ ] `chrome-devtools`: Use for headless browser automation, page element snapshot interactions, and network inspects.
 
 ### 2. Swarm Subagent Spawning Protocol
 For every selected skill that requires a dedicated domain expert, spawn a subagent following these guidelines:
