@@ -1,10 +1,9 @@
 # AI Agent Skills
 
-Capability deck for AI IDE agents and assistants (e.g. OpenAI, Anthropic, Antigravity). Syncs product, design, and engineering contexts.
+Capability deck for AI IDE agents and assistants. Syncs product strategy, design systems, and engineering execution.
 
 ## Install
 
-Run:
 ```bash
 curl -sSL https://www.skills.sh/install.sh | sh -s -- coreyone/ai-agent-skills
 ```
@@ -12,12 +11,17 @@ curl -sSL https://www.skills.sh/install.sh | sh -s -- coreyone/ai-agent-skills
 
 ## PM Core Rules (First Principles)
 
-*   **Structure > polish**: Confusing models fail. Clear architecture scales; UI updates don't fix broken logic.
+*   **Customer truth > roadmaps**: Validate user behavior before coding features. Strategy is deciding what *not* to build. Radical execution transparency.
+*   **High-intent strategy**: Maximize goal certainty, minimize user effort. Quality is a non-negotiable product feature.
 *   **Decouple or cascade**: Isolate dependencies (API, DB, UI). Timeout early, retry with jitter, circuit-break external integrations. Keep failures local.
-*   **Data = truth**: Standardize event naming (`object:action`). Consolidate namespaces by pushing variations to event properties. Strip PII at boundaries.
-*   **Fallback UX**: Skeletons must match active layout dimensions (spinners increase perceived wait time). Empty states need motivation + CTA. offline actions require auto-caching.
-*   **Zero-Downtime database changes**: Run database migrations via Expand/Contract. Code must support both old and new schema structures simultaneously during deploy windows.
-*   **Security isolation**: Access tokens belong in secure sandboxes (iOS Keychain or HttpOnly/Secure cookies). Block XSS local storage extraction. Cryptographically verify JWT signatures.
+*   **Visual density & hierarchy**: Typography-first, strict grids, size/weight/whitespace hierarchy. Every element earns its spot.
+*   **Wayfinding (IA)**: Structure for instant orientation. Clear answers: Where am I? What’s here? What’s next? Predictable labels, map to mental maps.
+*   **Tactile interaction**: Don't make them think. Recognition over recall. Max 5–7 choice boundaries. Design for "good enough" selection (satisficing).
+*   **Inclusive/A11y**: WCAG AA (4.5:1 contrast). Min 48px touch zones. Full keyboard/ARIA support.
+*   **Responsive density**: Desktop F-pattern. Mobile thumb zones. Tablet: hover-independent layouts.
+*   **Inputs & Conversion**: Single-column forms. Labels over inputs. Validate on blur. One primary CTA. Failures must preserve user data and provide immediate recovery options (RFC 7807).
+*   **Data = truth**: Standardize event naming (`object:action`). Consolidate namespaces; push variations to properties. Strip PII at boundaries.
+*   **Zero-Downtime changes**: Database migrations via Expand/Contract. Code must support both old and new schemas during deploy windows.
 
 ## Taxonomy
 
