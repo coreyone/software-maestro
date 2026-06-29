@@ -112,4 +112,65 @@ When told to "Initialize Project":
 
 ---
 
+## 📋 Skill Selection & Swarm Subagent Checklist
+
+When initiating a project phase or decomposing complex tasks, run this systematic audit across the **36 available skills** to designate relevant guardrails and delegate tasks to subagents following `michael-bolton-rule` and `swarm-rules`:
+
+### 1. Identify & Select Relevant Skills
+Map the active task requirements against the seven operational domains. Check every skill in this list; if relevant, load its context and apply its guidelines to the implementation plan:
+
+- **Product & Governance (`/product`)**
+  - [ ] `create-prd`: Use if writing specs, framing problems, or setting MLP/MEP goals.
+  - [ ] `product-management`: Use for task coordination, scoping, and roadmaps.
+  - [ ] `michael-bolton-rule`: Use to establish standard work, feedback loops, and decision delegation.
+  - [ ] `swarm-rules`: Use to coordinate multiple concurrent agents and avoid race conditions.
+  - [ ] `god-marduk`: Use to sequence project task lists and govern phased execution.
+- **Design & Layout (`/design`)**
+  - [ ] `aesthetic-rules`: Use for visual systems, typography, color harmony, and micro-animations.
+  - [ ] `aesthetic-science`: Use for math-based UI design, spacing, layouts, and physics.
+  - [ ] `design-animation`: Use for motion choreography, transitions, state changes, and Lottie assets.
+  - [ ] `design-information-architecture-rules`: Use for wayfinding, sitemaps, sitemap navigation, and labels.
+  - [ ] `design-responsive-rules`: Use for mobile thumb zones, desktop F-patterns, and hover adjustments.
+  - [ ] `design-review-rules`: Use for visual QA, auditing layouts, and testing aesthetics.
+  - [ ] `design-system-rules`: Use for managing UI tokens, variables, and typography scale.
+  - [ ] `design-usability-rules`: Use for interface recognition over recall, satisfying choice limits.
+  - [ ] `failure-states-empty-states`: Use for skeletons, error copy, and fallback empty states.
+- **Core Engineering (`/engineering`)**
+  - [ ] `developer-development-rules`: Use for code style, structure, formatting, and linting.
+  - [ ] `developer-code-review-rules`: Use for code review checklists and reviewing pull requests.
+  - [ ] `developer-test-driven-development`: Use for writing test-first code, units, and integration specs.
+  - [ ] `tech-stack-preferences`: Use for aligning tools with your preferred stack (SvelteKit, SolidJS, Bun, etc.).
+  - [ ] `system-architecture-rules`: Use for Clean/Hexagonal boundaries, domain logic, and state management.
+  - [ ] `resiliency-circuit-breakers`: Use for timeouts, jittered exponential backoffs, and circuit-breaker states.
+- **API & Data Caching (`/data-and-api`)**
+  - [ ] `api-design-guidelines`: Use for API verbs, RFC 7807 error patterns, and endpoint structures.
+  - [ ] `data-persistence-caching`: Use for indexing, cache-aside patterns, database queries, and sync engines.
+- **Security & Session Control (`/security`)**
+  - [ ] `developer-security`: Use for backend security, credential scanning, and server sandboxing.
+  - [ ] `developer-web-security`: Use for web security, XSS mitigation, secure cookies, and CORS limits.
+  - [ ] `auth-and-identity-rules`: Use for OAuth 2.1 PKCE, session management, and Better Auth implementation.
+- **Conversion & Growth (`/growth`)**
+  - [ ] `commerce-ux-rules`: Use for cart UI, payment paths, trust badges, and conversion rates.
+  - [ ] `cro-commerce-audit`: Use for auditing conversion paths and diagnosing checkout friction.
+  - [ ] `design-forms-wizards-checkout`: Use for multi-step form structures and input validation models.
+  - [ ] `marketing-copy-emotion-provoking-action-driven`: Use for value propositions and emotion-led landing page text.
+  - [ ] `the-elements-of-style-principles`: Use for clean, simple writing style and maximizing copy clarity.
+  - [ ] `analytics-event-tracking`: Use for event tracking taxonomies (`object:action`) and PostHog properties.
+- **Quality & Delivery (`/quality`)**
+  - [ ] `a11y-debugging`: Use for keyboard focus, screen-reader support, tap targets, and ARIA labels.
+  - [ ] `developer-web-performance`: Use for Core Web Vitals (LCP, INP), image optimization, and bundle sizes.
+  - [ ] `observability-telemetry`: Use for log structures, distributed tracing, and system alerts.
+  - [ ] `web-deployment-rules`: Use for container builds, CI/CD pipelines, and zero-downtime database migrations.
+
+### 2. Swarm Subagent Spawning Protocol
+For every selected skill that requires a dedicated domain expert, spawn a subagent following these guidelines:
+
+1.  **Define Subagent Role**: Bind the subagent to one or more of the selected skills. (e.g., spawn a `Database Architect` subagent with `data-persistence-caching` and `tech-stack-preferences` contexts).
+2.  **Define Decision Rights (`michael-bolton-rule`)**: Document who owns the state of the task and who can make technical trade-off decisions.
+3.  **Atomic Task Assignment (`swarm-rules`)**: Assign exactly one subagent per branch/component task. Prevent two subagents from editing the same file concurrently.
+4.  **Verification Loop**: Every subagent task must include a verification checkpoint (e.g., unit test, UI screenshot, compilation log) that is reported back to the conductor before integration.
+
+---
+
 **"The system is not what we say it is. The system is what the code DOES."**
+
