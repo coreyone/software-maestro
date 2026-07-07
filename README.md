@@ -11,7 +11,7 @@ npx skills add coreyone/software-maestro
 
 ## Lifecycle Structure
 
-*   **product/**: Strategy & execution governance (create-prd, product-management, michael-bolton-rule, swarm-rules, god-marduk). Validates customer truth before roadmaps. Decides what not to build.
+*   **product/**: Strategy & execution governance (create-prd, product-management, product-management-press-memo, product-strategy-outcome-vision, ux-discovery-artifacts, michael-bolton-rule, swarm-rules, god-marduk). Validates customer truth before roadmaps. Decides what not to build.
 *   **design/**: Wayfinding & visual systems (aesthetic-rules, responsive-rules, design-animation, design-system-rules, design-usability-rules). Structures for instant orientation (IA), WCAG AA typography-first layout, and tactile microinteractions.
 *   **engineering/**: Clean code & architecture (developer-development, code-review, TDD, system-architecture, resiliency, tech-stack). Isolates components, decouples modules, and enforces local-first spring reactivity.
 *   **data-and-api/**: Contract-first endpoints & persistence schemas (api-design-guidelines, data-persistence-caching). Bypasses client-state latency using local memory replication.
@@ -22,7 +22,7 @@ npx skills add coreyone/software-maestro
 ## Taxonomy
 
 ```
-├── product/          # Strategy & execution (create-prd, product-management, michael-bolton-rule, swarm-rules, god-marduk)
+├── product/          # Strategy & execution (create-prd, product-management, product-management-press-memo, product-strategy-outcome-vision, ux-discovery-artifacts, michael-bolton-rule, swarm-rules, god-marduk)
 ├── design/           # Aesthetic rules, responsive layout, motion, skeletons, empty states
 ├── engineering/      # Code quality, system architecture, resiliency, test-driven dev, tech-stack
 ├── data-and-api/     # REST/GraphQL API design, database schemas, ORM models, caching
