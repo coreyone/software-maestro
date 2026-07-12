@@ -1,6 +1,6 @@
 ---
 name: developer-code-review-rules
-description: "Trigger: code review, PR check, refactoring checklist, code quality audit, pull request review. Scope: Architectural, testing, security, and performance review checks. Boundary: Excludes product roadmap planning or UX aesthetic design."
+description: Review pull requests or audit repositories for correctness, security, performance, test risk, architecture, dependencies, developer experience, documentation, and grounded product direction. Use for code review, repository audits, evidence-backed findings, false-positive vetting, risk assessment, prioritization, or deciding which improvements should become implementation plans.
 ---
 
 # 🔍 The Architect's Guide to Code Review: Philosophy & Tactics

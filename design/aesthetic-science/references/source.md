@@ -367,3 +367,43 @@ Rule: Don’t rely on color alone to convey meaning; add redundant encoding.
 Rule: Provide keyboard access and visible focus for all interactive controls.
 Rule: Ensure minimum interactive target size (with exceptions clearly justified by layout constraints).
 Rule: Avoid interaction-triggered animation unless it can be disabled or reduced.
+
+---
+
+## Color Engineering: OKLCH, Contrast, and Gamut
+
+Use this section when generating, converting, auditing, or implementing interface colors.
+
+### Perceptual color model
+
+- Prefer `oklch(L C H / alpha)` for new color systems: lightness, chroma, and hue can be adjusted independently and palette steps remain perceptually predictable.
+- Preserve hue across a single-hue scale. Treat a hue spread greater than 10 degrees as visible drift unless the shift is intentional.
+- Normalize vividness across different hues by using a comparable percentage of each hue's maximum available chroma, not the same absolute chroma value.
+- Format L and C to at most three decimals, omit trailing zeroes, and use slash syntax for alpha.
+
+### Palette generation
+
+1. Choose a scale of 5, 9, or 11 steps; use familiar labels such as `50` through `950` for token compatibility.
+2. Define the lightness curve first, with more resolution near the steps used for text and surfaces.
+3. Define chroma separately: reduce it near white and black where the displayable gamut narrows.
+4. Keep hue stable unless a deliberate multi-hue ramp is part of the visual language.
+5. Derive dark-mode roles from the same semantic palette and reversed lightness relationships; do not merely invert pixels or hand-pick unrelated colors.
+6. Validate every foreground/background pair in its actual context.
+
+### Contrast procedure
+
+- Use WCAG 2 ratios when conformance requires them: 4.5:1 for normal text, 3:1 for large text and UI component boundaries, and 7:1 for enhanced normal-text contrast.
+- Use APCA as an additional perceptual check where tooling supports it. Initial targets: absolute `Lc >= 60` for normal text, `Lc >= 45` for large text, and `Lc >= 30` for UI components; prefer `Lc >= 75` for high-confidence normal text.
+- Repair a failing pair by adjusting OKLCH lightness first while holding hue and chroma stable where possible. Recheck after every change.
+- Heuristic only: on very light backgrounds (`L > 0.85`), begin with foreground `L < 0.45`; on very dark backgrounds (`L < 0.25`), begin with foreground `L > 0.75`. Measurement remains authoritative.
+
+### Gamut and delivery
+
+- Check every generated color against sRGB. Clamp chroma for the selected lightness and hue rather than accepting clipping or hue distortion.
+- Treat Display P3 as progressive enhancement. Provide an sRGB declaration first, then override inside `@media (color-gamut: p3)`.
+- In Tailwind v4, expose OKLCH colors through semantic `@theme` tokens and preserve opacity-modifier compatibility.
+- During migrations, convert tokens before components; preserve semantic names and compare rendered states in light, dark, and high-contrast modes.
+
+### Color review evidence
+
+Report every changed color in a `Before | After` table. Include the token or selector, old value, new value, measured contrast, gamut status, and affected modes. Do not claim improvement from visual inspection alone.

@@ -1,6 +1,6 @@
 ---
 name: developer-development-rules
-description: "Trigger: coding style, formatting, linting rules, code comments, file naming, codebase standards. Scope: Engineering best practices, standards, and code styles. Boundary: Excludes UX aesthetics or continuous integration configurations."
+description: Design and implement clear, modular, resilient software and create executor-grade implementation plans with explicit scope, drift checks, verification gates, tests, STOP conditions, dependencies, and delegated-work review. Use for development, refactoring, architecture, implementation planning, safe migrations, handoffs to another engineer or agent, or verifying delegated code changes.
 ---
 
 # 🏗️ Core Philosophy: Build small, clear, composable pieces.
