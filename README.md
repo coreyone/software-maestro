@@ -13,7 +13,7 @@ npx skills add coreyone/software-maestro
 
 *   **product/**: Strategy & execution governance (create-prd, product-management, product-management-press-memo, product-strategy-outcome-vision, ux-discovery-artifacts, michael-bolton-rule, swarm-rules, god-marduk). Validates customer truth before roadmaps. Decides what not to build.
 *   **design/**: Wayfinding & visual systems (aesthetic-rules, responsive-rules, design-animation, design-system-rules, design-usability-rules). Structures for instant orientation (IA), WCAG AA typography-first layout, and tactile microinteractions.
-*   **engineering/**: Clean code & architecture (developer-development, code-review, TDD, system-architecture, resiliency, tech-stack). Isolates components, decouples modules, and enforces local-first spring reactivity.
+*   **engineering/**: Clean code, architecture, and governed improvement workflows (developer-development, code-review, improve-codebase, TDD, system-architecture, resiliency, tech-stack). Isolates components, decouples modules, and turns vetted findings into drift-aware plans with verified delegated execution.
 *   **data-and-api/**: Contract-first endpoints & persistence schemas (api-design-guidelines, data-persistence-caching). Bypasses client-state latency using local memory replication.
 *   **security/**: Identity & sandbox trust boundaries (developer-security, developer-web-security, auth-and-identity-rules). Isolates tokens (Keychain/HttpOnly cookies) and cryptographically validates JWTs.
 *   **growth/**: Conversions & behavioral loops (commerce-ux, cro-commerce-audit, design-forms, marketing-copy, elements-of-style, analytics-event-tracking). Single-column input metrics. Standardizes event tracking (`object:action`) without namespace pollution.
@@ -24,7 +24,7 @@ npx skills add coreyone/software-maestro
 ```
 ├── product/          # Strategy & execution (create-prd, product-management, product-management-press-memo, product-strategy-outcome-vision, ux-discovery-artifacts, michael-bolton-rule, swarm-rules, god-marduk)
 ├── design/           # Aesthetic rules, responsive layout, motion, skeletons, empty states
-├── engineering/      # Code quality, system architecture, resiliency, test-driven dev, tech-stack
+├── engineering/      # Code quality, audits, implementation planning, verified delegation, architecture, resiliency, TDD
 ├── data-and-api/     # REST/GraphQL API design, database schemas, ORM models, caching
 ├── security/         # Authentication protocols, identity keys, secure cookies, keychain
 ├── growth/           # Commerce UX optimization, conversions audit, copywriting principles, event tracking

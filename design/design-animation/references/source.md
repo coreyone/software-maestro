@@ -247,3 +247,149 @@ motion.ease = { standard: [0.2, 0.0, 0.0, 1.0], exit: [0.4, 0.0, 1.0, 1.0] }
 motion.distance = { 1: 4, 2: 8, 3: 16 }
 
 Rule: ship tokens first. Then tune per component only when you can prove a usability reason.
+
+---
+
+## 13) Motion Audit and Planning Amendment
+
+Use this protocol for codebase-wide animation audits or when handing motion improvements to another engineer or agent. For a single component, apply only the relevant checks.
+
+### 13.1 Recon: map the motion surface
+
+Before judging animation quality:
+
+1. Identify the framework, rendering model, component library, and installed motion tools: CSS, WAAPI, Svelte transitions, Motion, Framer Motion, React Spring, GSAP, or equivalents.
+2. Locate motion tokens, global CSS, Tailwind configuration, keyframes, transition declarations, motion props, layout-animation code, and gesture handlers.
+3. Record existing easing, duration, distance, and spring conventions. Extend the established system instead of creating a parallel vocabulary.
+4. Describe the product's motion personality: crisp, calm, expressive, playful, cinematic, or utilitarian.
+5. Build a frequency map. Distinguish interactions repeated constantly, regularly, occasionally, and rarely.
+
+Useful searches include `transition`, `transition: all`, `animation`, `@keyframes`, `@starting-style`, `motion.`, `animate=`, `useSpring`, `ease-in`, `scale(0)`, `prefers-reduced-motion`, `transform-origin`, `requestAnimationFrame`, and animated layout properties.
+
+### 13.2 Frequency as a motion budget
+
+- Constantly repeated actions such as keyboard navigation, command palettes, and dense list operations should normally have no animation or nearly instant feedback.
+- Regular hover, selection, and navigation effects must be short and quiet.
+- Occasional dialogs, drawers, disclosures, and toasts may use the standard motion system.
+- Rare onboarding, success, and celebration moments may spend more of the delight budget.
+- Treat frequency thresholds as review triggers, not universal failures. Retain motion when it materially improves orientation, causality, or accessibility without slowing expert use.
+
+### 13.3 Eight-pass audit
+
+Review motion in these independent passes:
+
+1. **Purpose and frequency**: remove motion whose repeated cost exceeds its explanatory value.
+2. **Easing and duration**: verify responsiveness, distance-duration coupling, and token use.
+3. **Physicality and origin**: verify scale ranges, anchoring, transform origin, and spatial continuity.
+4. **Interruptibility**: rapidly reverse toggles, disclosures, toasts, and gestures; motion must continue from current state rather than restart visibly.
+5. **Performance**: find unintended transitions, layout animation, excessive blur, style-recalculation fanout, and unnecessary JavaScript-driven predetermined motion.
+6. **Accessibility**: verify reduced motion, hover capability, keyboard behavior, focus stability, and non-motion state cues.
+7. **Cohesion and tokens**: identify near-duplicate curves, durations, springs, or mismatched personality.
+8. **Missed opportunities**: report only grounded state changes or spatial relationships that currently teleport or become hard to understand.
+
+Every finding must cite `file:line`, observable impact, frequency, severity, confidence, and a concise fix direction. Reopen every cited location before presenting it. Keep additive opportunities separate from defects.
+
+### 13.4 Easing review triggers
+
+Use these as strong starting curves when the product lacks an established motion system:
+
+```css
+--ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+--ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
+--ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+```
+
+- Prefer strong ease-out for responsive arrivals and many interactive dismissals.
+- Prefer ease-in-out for movement or morphing that remains visible throughout.
+- Use linear only for genuinely constant or scrubbed motion.
+- Flag `ease-in` on interactive UI for review because its slow start can delay visible response; retain it only when a fast committed departure clearly benefits from it.
+- Preserve the repo's established curves when they already produce coherent, responsive motion.
+
+### 13.5 Physicality and transform origin
+
+- Do not enter from `scale(0)` unless disappearance into a literal point is part of the model. Start most scale entrances around `0.9–0.97` with opacity zero.
+- Keep press feedback subtle, usually within `0.95–0.98`, adjusted for control size and platform conventions.
+- Anchor popovers, dropdowns, and tooltips to their trigger. Use library-provided origins when available:
+
+```css
+transform-origin: var(--radix-popover-content-transform-origin);
+transform-origin: var(--transform-origin);
+```
+
+- A centered modal may correctly use `transform-origin: center`; do not treat all centered origins as defects.
+- Prefer percentages such as `translateY(100%)` when travel should track the element's own size. Consider `clip-path: inset()` when a reveal should expose rather than move content.
+
+### 13.6 Interruptibility and gesture physics
+
+- Use CSS transitions or springs for reversible dynamic interactions; reserve keyframes for finite staged sequences.
+- For CSS entry transitions, prefer `@starting-style` where supported and provide a mounted-state fallback only when required by the browser baseline.
+- Springs should carry gesture velocity through interruption. Starting range for restrained interactive motion: bounce `0.1–0.3`; tune against product personality and real-device behavior.
+- Judge drag dismissal with velocity and distance together. A starting velocity heuristic is `abs(distance) / elapsedMilliseconds > 0.11`, but tune it to device scale and task risk.
+- Add increasing resistance near drag boundaries instead of an abrupt hard stop.
+- Use asymmetric timing when intent and response are different phases: deliberate press or hold may take longer; confirmed system response should feel immediate.
+
+### 13.7 Additional performance checks
+
+- Treat `transition: all` as a finding unless a narrowly justified case proves otherwise. List only properties that actually change.
+- Prefer CSS or WAAPI for predetermined motion; use JavaScript and springs for dynamic, gesture, or layout-dependent behavior.
+- Avoid propagating high-frequency animation through parent CSS variables when it forces broad descendant style recalculation; update the animated element directly when profiling shows fanout.
+- Keep transition-time blur restrained. Treat blur near or above `20px` as a profiling trigger, especially in Safari.
+- Verify current library behavior before claiming a framework shorthand is not composited. Profile rather than enforcing stale implementation folklore.
+
+### 13.8 Hover and reduced-motion capability
+
+Gate decorative hover motion to devices that actually support precise hover:
+
+```css
+@media (hover: hover) and (pointer: fine) {
+  .control:hover { transform: scale(1.05); }
+}
+```
+
+Reduced motion means less spatial movement, not loss of feedback:
+
+- Remove parallax, large translation, zoom, and vestibularly risky movement.
+- Retain brief opacity, color, outline, or other non-spatial state feedback when it aids comprehension.
+- In JavaScript, branch motion values through the framework's reduced-motion API.
+- Test both the OS preference and the existing `data-motion="off"` debugging path.
+
+### 13.9 Cohesion recipes
+
+- Use approximately `30–80ms` staggering only when sequencing communicates grouping or hierarchy. Never let stagger delay interaction readiness.
+- For visibly double-exposed crossfades, test a subtle blur near `2px` as a mask; remove it if performance or legibility suffers.
+- Consolidate repeated near-identical curves, durations, distances, and springs into tokens after confirming they express the same intent.
+
+### 13.10 Mandatory perceptual verification
+
+Separate mechanical checks from feel checks.
+
+Mechanical checks:
+
+- Typecheck, lint, and test with the repository's exact commands.
+- Confirm only expected properties animate.
+- Verify no unexpected layout shift, focus movement, or blocked input.
+- Exercise reduced motion and fine-pointer capability conditions.
+
+Feel checks:
+
+- Run the actual interaction, not an isolated still state.
+- Use the browser Animations panel at roughly 10% playback to inspect origin, overlap, sequencing, and exit behavior frame by frame.
+- Spam reversible controls to verify interruption does not restart from zero.
+- Test touch gestures on a real device or representative simulator and check velocity, resistance, cancellation, and accidental activation.
+- Record when code inspection cannot establish feel; require rendered evidence instead of guessing.
+
+### 13.11 Animation implementation-plan contract
+
+When handing work to an executor with no prior context, include:
+
+1. Commit stamp and drift check.
+2. Problem, frequency, user impact, and exact `file:line` evidence.
+3. Current code excerpt and exact target values: duration, curve, origin, spring, and reduced-motion behavior.
+4. Repository tokens and one exemplar to follow.
+5. Explicit in-scope and out-of-scope files; no new dependency unless authorized.
+6. Ordered edits with a verification gate after each step.
+7. Mechanical checks and the concrete slow-motion feel check.
+8. Machine- or eye-checkable done criteria.
+9. STOP conditions for code drift, false assumptions, unexpected scope expansion, or repeated verification failure.
+
+Write one plan per coherent finding. Merge findings only when they share the same files, intent, and fix pattern. Do not ask a weaker executor to choose values by taste.

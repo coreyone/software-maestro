@@ -56,3 +56,37 @@ Purpose: Quickly assess what a design system includes, how mature it is, and how
 - [ ] Overlays: Modal, Drawer, Popover, Tooltip, Menu
 - [ ] Navigation: Tabs, Breadcrumbs, Side nav, Top nav, Pagination
 - [ ] Layout: Grid, Stack, Box,
+
+---
+
+## 4) Surface, Motion, and Implementation Quality
+
+### 4.1 Surface geometry
+
+- [ ] Nested rounded surfaces use concentric geometry: `outer radius = inner radius + intervening padding`, with optical correction when the mathematical result looks wrong.
+- [ ] Icons and asymmetric shapes are optically aligned; play triangles, carets, arrows, and icon/text buttons are not accepted solely because their bounding boxes are centered.
+- [ ] Borders and shadows have explicit roles. Use borders for boundaries, inputs, dividers, and dense data; use layered low-opacity shadows for elevation and depth.
+- [ ] Images use a subtle neutral outline when edge separation is needed: pure black at low opacity in light mode and pure white at low opacity in dark mode, avoiding tinted edge contamination.
+- [ ] Interactive hit areas are at least 44x44 px for touch contexts and 40x40 px for desktop controls; invisible hit-area extensions never overlap adjacent controls.
+
+### 4.2 Motion behavior
+
+- [ ] Interactive state changes use interruptible transitions; fixed keyframes are reserved for staged, one-shot sequences.
+- [ ] Entrance motion is divided into semantic chunks and staggered only when sequencing adds hierarchy; exits are quieter and travel less than entrances.
+- [ ] State-changing icons preserve object continuity through opacity, scale, or blur rather than abrupt unmount/remount swaps.
+- [ ] Default-state components do not replay entrance animation on initial page load unless that entrance is intentional.
+- [ ] Press feedback is subtle; begin near `scale(0.96)` and adjust for component size, platform conventions, accessibility, and product tone. Never encode a universal value where context requires another behavior.
+- [ ] Every animated component has a reduced-motion equivalent and remains understandable with motion removed.
+
+### 4.3 Motion performance
+
+- [ ] No `transition: all`; list only the properties that change.
+- [ ] Prefer composited properties such as transform and opacity. Avoid animating layout properties when a transform can express the same result.
+- [ ] Add `will-change` only after observing first-frame stutter, only to the affected element, and remove it when the animation is no longer imminent.
+- [ ] Existing project dependencies determine implementation. Use the installed motion system when appropriate; otherwise prefer platform CSS rather than adding a dependency for a minor effect.
+
+### 4.4 Review contract
+
+- [ ] Every implemented change is recorded in a `Before | After` table with component, token/property, and verification evidence.
+- [ ] Review output omits categories with no findings and never hides changed values behind a representative subset.
+- [ ] Visual QA covers light, dark, high-contrast, reduced-motion, touch, keyboard, and representative responsive states.

@@ -489,3 +489,43 @@ Variable fonts: Reduce files; improve performance; increase control.
 - Donald Wexler
 - William F. Cody
 - Susan Kare
+
+---
+
+## Web Typography Engineering
+
+Use these implementation rules after establishing the visual typographic direction.
+
+### Font delivery and fidelity
+
+- Serve web fonts as `.woff2`; use `.woff` only for an explicitly supported legacy browser. Do not ship raw `.ttf` or `.otf` files as the default web format.
+- Load every weight and style the interface uses, and set `font-synthesis: none` so missing bold or italic faces fail visibly instead of being fabricated by the browser.
+- Prefer dedicated CSS properties over raw OpenType tags: use `font-weight`, `font-optical-sizing`, and `font-variant-*`. Reserve `font-variation-settings` and `font-feature-settings` for axes or features without a dedicated property.
+- Apply font smoothing once at the application root when the chosen rendering direction requires it; do not scatter platform-specific smoothing declarations across components.
+
+### Type system implementation
+
+- Name team-scale typography tokens by role (`body-sm`, `label-md`, `display-lg`) rather than physical size alone.
+- Use unitless line-height: approximately `1.1` for display headings and `1.5–1.6` for body copy, then verify against the actual typeface.
+- Use slightly negative tracking on large headings and modest positive tracking on small uppercase labels. Leave reading-size body copy near the font default.
+- Enable `font-variant-numeric: tabular-nums` for prices, counters, timers, tables, and other values whose changing digit widths would cause layout movement.
+- Use real small caps, superscripts, fractions, and slashed zero through `font-variant-*` when the font supports them; do not simulate them by shrinking or repositioning ordinary glyphs.
+
+### Wrapping, overflow, and punctuation
+
+- Use `text-wrap: balance` for short headings and `text-wrap: pretty` for short descriptions. Do not apply balancing indiscriminately to long-form text.
+- Use `overflow-wrap: break-word` where URLs, IDs, or long unbroken strings may escape their container; use `white-space: nowrap` only where a break would destroy meaning.
+- Use single-line ellipsis or multi-line clamping only when the complete value remains reachable through expansion, disclosure, or another accessible view.
+- Store copy in natural case and apply visual casing with CSS. Use language-appropriate smart punctuation, nonbreaking spaces for inseparable values, and discretionary hyphens only where useful.
+- Set `lang`; use `dir="rtl"` when required; favor logical properties and `text-align: start` so the system survives localization.
+
+### Text interaction and accessibility
+
+- Tune underlines with font metrics where supported: `text-underline-position: from-font`, `text-decoration-thickness: from-font`, and `text-decoration-skip-ink: auto`. Use a separate element for underline animations beyond color changes.
+- Keep mobile input text at least `16px` to avoid iOS input zoom. Do not block pinch zoom with `maximum-scale=1`.
+- Ensure selection, caret, placeholder, disabled, and focus treatments remain legible. Disable text selection only for controls where selection has no user value.
+- Match the project's existing styling system. Express fixes in its CSS, Tailwind, CSS Modules, CSS-in-JS, or component-token conventions rather than introducing a second styling approach.
+
+### Typography review evidence
+
+Report each change in a `Before | After` table grouped by principle. Cite the component or token and the exact property. Omit empty categories, and verify wrapping, truncation, zoom, contrast, and localization behavior in the rendered interface.

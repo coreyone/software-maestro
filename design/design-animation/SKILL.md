@@ -1,6 +1,6 @@
 ---
 name: design-animation
-description: "Trigger: animation, CSS transitions, keyframes, motion curves, micro-interactions, spring curves. Scope: Designing UI animations, state transitions, and interactive motion rules. Boundary: Excludes core application state machines or API fetch logic."
+description: Design, implement, audit, and plan interface animation and motion systems. Use for animation reviews, motion audits, easing and duration decisions, gesture physics, transform origins, reduced-motion behavior, animation performance, SvelteKit or Motion integration, perceptual feel checks, or self-contained animation improvement plans.
 ---
 
 # ▣ Key takeaway

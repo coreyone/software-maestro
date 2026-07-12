@@ -1,6 +1,6 @@
 ---
 name: design-usability-rules
-description: "Trigger: usability guidelines, choice limits, recognition over recall, visual hierarchy, cognitive load. Scope: Usability heuristics, interface clarity, choice limits. Boundary: Excludes styling CSS declarations or backend endpoints."
+description: Use when task matches design-usability-rules design guidance for IA, usability, responsiveness, systems, motion, and visual QA.
 ---
 
 # 🗺️ Layout & Navigation

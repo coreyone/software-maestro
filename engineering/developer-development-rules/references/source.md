@@ -318,3 +318,56 @@ CHECKLIST (before you ship)
 
 One-line takeaway
 Anti-fragile code treats real-world chaos as a feedback loop: detect → contain → learn → harden.
+
+---
+
+## Executor-Grade Implementation Plans
+
+Use this protocol when work will be handed to another engineer or agent, especially a cheaper model with no prior conversation context.
+
+### Plan invariants
+
+- Make each plan self-contained. Inline the intent, relevant current-state facts, exact file paths and symbols, applicable conventions, and short code excerpts needed to verify context.
+- Record the Git commit against which the plan was written. Begin execution with a path-scoped drift check for every in-scope file.
+- Define explicit in-scope and out-of-scope files. State related work that must not be touched.
+- Break work into ordered, independently verifiable steps. Keep the repository working between steps where practical by using expand-switch-contract sequencing.
+- End every step with an exact command and expected result. Never use “make sure it works” as a verification gate.
+- Specify tests by file, case, assertion, and existing exemplar. Cover the regression or risk that justified the change.
+- Provide machine-checkable done criteria, maintenance notes, and plan-specific STOP conditions.
+
+### Required plan structure
+
+1. **Status**: priority, effort, risk, dependencies, category, and planned-at commit.
+2. **Why this matters**: concrete problem, cost, and intended outcome.
+3. **Current state**: paths, symbols, excerpts, repository conventions, and relevant architectural/product constraints.
+4. **Commands**: install, build, lint, typecheck, test, and any focused verification commands with expected results.
+5. **Scope**: files allowed to change and files explicitly excluded.
+6. **Steps**: imperative changes with a verification gate after each step.
+7. **Test plan**: new tests, exact cases, existing pattern to follow, and command.
+8. **Done criteria**: commands, assertions, searches, and clean-scope checks.
+9. **STOP conditions**: drift, false assumptions, repeated verification failure, or required out-of-scope work.
+10. **Maintenance notes**: future interactions, reviewer focus, and deliberately deferred follow-up.
+
+### Drift and escape behavior
+
+- Compare in-scope paths from the planned-at commit to current `HEAD` before editing.
+- If current code does not match the plan's excerpts or assumptions, stop and refresh the plan; do not force the stale approach onto new code.
+- Stop when a required change crosses an explicit scope boundary, a key assumption is false, or a verification gate fails twice after a reasonable correction.
+- Require the executor to report the observed condition and evidence instead of improvising silently.
+
+### Plan backlog
+
+- Store one plan per file with monotonic numbering and a short imperative slug.
+- Maintain an index with execution order, dependency edges, and one of: `TODO`, `IN PROGRESS`, `DONE`, `BLOCKED`, or `REJECTED`.
+- Record rejected approaches and independently fixed findings so they are not repeatedly rediscovered.
+- Before starting a dependent plan, verify its prerequisites are `DONE` and still hold.
+- Reconcile periodically: verify cheap DONE criteria, investigate BLOCKED plans, refresh drifted TODO plans, and retire obsolete work without deleting the historical record.
+
+### Delegated execution review
+
+- Execute delegated implementation in an isolated branch or worktree when the environment supports it. Keep merging, pushing, and production changes under the user's control.
+- Treat the executor's report and diff as untrusted until independently reviewed.
+- Re-run every done criterion, compare changed files against scope, read the full diff, and inspect whether new tests assert meaningful behavior.
+- Render one verdict: `APPROVE`, `REVISE`, or `BLOCK`.
+- For `REVISE`, give specific evidence-backed corrections. Allow at most two revision rounds before blocking and refining the plan.
+- Never approve merely because the executor reports success or the test command exits zero.

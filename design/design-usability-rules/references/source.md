@@ -945,3 +945,42 @@ subscription
 tax
 transaction
 wishlist
+
+---
+
+## Implementation Safeguards for Text, Touch, and Motion
+
+### Content continuity
+
+- Never truncate meaningful content without an accessible way to reveal the complete value.
+- Use single-line ellipsis only with overflow clipping and no wrapping; use line clamping for bounded multi-line previews.
+- Break long URLs, identifiers, and unspaced strings before they force horizontal overflow.
+- Preserve natural copy in the source and apply capitalization as presentation, so redesign and localization do not require rewriting content.
+- Set document language and text direction. Use logical inline/block properties so layouts work in both left-to-right and right-to-left contexts.
+
+### Mobile text entry
+
+- Keep editable input text at least 16px on mobile Safari to prevent automatic viewport zoom.
+- Do not disable user zoom with restrictive viewport metadata.
+- Keep labels, helper text, errors, selection, caret, and placeholders legible in every state.
+- Use tabular numerals for changing numeric values when proportional digit widths would cause distracting movement.
+
+### Hit-area integrity
+
+- Require a 44x44px minimum touch target and a 40x40px desktop target unless a documented platform exception applies.
+- When the visible control is smaller, extend its hit area with layout or a pseudo-element without changing the visual size.
+- Check collision boundaries: invisible hit areas must not overlap or make neighboring actions ambiguous.
+
+### Motion usability and performance
+
+- Use interruptible transitions for hover, press, toggle, disclosure, and other state changes that users may reverse mid-animation.
+- Use keyframes for finite staged sequences, not ordinary interactive state transitions.
+- Keep exits quieter and shorter in travel than entrances; preserve object permanence during icon and state swaps.
+- Never use `transition: all`. Declare only the changing properties so unexpected state changes do not animate.
+- Prefer transform and opacity for motion. Use `will-change` only to correct an observed rendering problem, never as a blanket optimization.
+- Suppress unrequested entrance animations on initial render. Respect reduced-motion preferences and preserve equivalent feedback without motion.
+
+### Verification
+
+- Test at keyboard, touch, pointer, reduced-motion, zoomed-text, RTL, and narrow-viewport boundaries.
+- Record concrete changes in a `Before | After` table, including the affected component, property, and evidence. Include every changed item rather than a representative sample.
