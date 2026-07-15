@@ -15,6 +15,7 @@ Use these for the comprehensive strategy-before-tactics scope: search behavior, 
 - SEO Starter Guide: https://developers.google.com/search/docs/fundamentals/seo-starter-guide
 - Helpful, reliable, people-first content: https://developers.google.com/search/docs/fundamentals/creating-helpful-content
 - AI features and websites: https://developers.google.com/search/docs/appearance/ai-features
+- Generative AI optimization guide (includes July 2026 mythbusting, Search Console AI reporting, and agentic experiences): https://developers.google.com/search/docs/fundamentals/ai-optimization-guide
 - Crawling and indexing index: https://developers.google.com/search/docs/crawling-indexing
 - JavaScript SEO: https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics
 - Structured data policies and gallery: https://developers.google.com/search/docs/appearance/structured-data/sd-policies and https://developers.google.com/search/docs/appearance/structured-data/search-gallery
@@ -37,6 +38,20 @@ Use these for the comprehensive strategy-before-tactics scope: search behavior, 
 - Anthropic crawler controls: https://support.anthropic.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler
 
 Bot names, IP ranges, and product semantics are volatile. Verify immediately before production changes.
+
+## Agent-readable representations and actions
+
+- HTTP semantics: content negotiation, `Accept`, quality values, `Vary`, and `406`: https://www.rfc-editor.org/rfc/rfc9110.html
+- Markdown media type: https://www.rfc-editor.org/rfc/rfc7763.html
+- Cloudflare Markdown for Agents: https://developers.cloudflare.com/fundamentals/reference/markdown-for-agents/
+- Vercel content negotiation implementation: https://vercel.com/blog/making-agent-friendly-pages-with-content-negotiation
+- Vercel agent-readable documentation guidance: https://vercel.com/kb/guide/make-your-documentation-readable-by-ai-agents
+- Chrome WebMCP overview and current origin-trial status: https://developer.chrome.com/docs/ai/webmcp
+- Chrome WebMCP imperative API: https://developer.chrome.com/docs/ai/webmcp/imperative-api
+- Chrome WebMCP tool security: https://developer.chrome.com/docs/ai/webmcp/secure-tools
+- WebMCP draft specification: https://webmachinelearning.github.io/webmcp/
+
+As of July 2026, negotiated Markdown is deployed by major web platforms but is not a universal crawler contract or Google ranking requirement. WebMCP is a proposed standard under active development. Verify current consumer behavior, browser status, APIs, security guidance, and cache semantics immediately before implementation.
 
 ## Web standards and performance
 

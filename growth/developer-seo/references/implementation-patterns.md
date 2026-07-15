@@ -14,6 +14,7 @@ Express SEO behavior as testable page-type invariants:
 - localized alternates form valid reciprocal clusters;
 - structured data matches visible page facts;
 - important content and links exist in rendered HTML;
+- negotiated representations come from the same source, preserve material facts, and cannot cross-contaminate caches;
 - staging requires authentication and cannot leak into production discovery.
 
 Test invariants at the shared template/router/content-model layer.
@@ -147,6 +148,8 @@ After deploy:
 - check logs for crawler blocks/errors;
 - submit/inspect critical URLs only when useful;
 - monitor template-level search and business metrics through the expected recrawl/index window.
+
+When negotiated Markdown or agent actions are in scope, also verify representation-specific content types, `Vary` and CDN keys, source invalidation, semantic parity, private-data exclusion, request logs, feature detection, authorization, and confirmation behavior. Do not infer that every site needs these features.
 
 ## 12. Finding format for code reviews
 

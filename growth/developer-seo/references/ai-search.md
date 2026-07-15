@@ -32,6 +32,8 @@ AI visibility usually depends on the same durable prerequisites:
 
 Do not replace these with speculative AEO/GEO hacks.
 
+Negotiated Markdown can make retrieval smaller and cleaner for clients that request it, but it is not required for Google Search visibility and is not a substitute for an accessible, indexable HTML page. Use it only from the canonical source with correct negotiation, caching, parity, and measurement. Treat emerging browser-agent action protocols as a separate progressive-enhancement decision.
+
 ## 3. Crawler policy
 
 Create a policy matrix before editing robots.txt:
@@ -109,7 +111,7 @@ Do not equate mention share with revenue or citation count with authority. Use r
 
 ## 8. Myths and anti-patterns
 
-- `llms.txt` is not a universal inclusion requirement. Implement only for a defined consumer/use case, and never instead of crawl/index fundamentals.
+- `llms.txt` and Markdown are not Google Search inclusion or ranking requirements. Implement negotiated Markdown or generated agent indexes only for a defined consumer/use case and never instead of crawl/index fundamentals.
 - There is no universal “AI schema.” Use supported schema that truthfully describes visible content.
 - Keyword stuffing for embeddings harms clarity and trust.
 - Publishing generic AI summaries adds little retrievable value.

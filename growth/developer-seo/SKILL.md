@@ -1,6 +1,7 @@
 ---
 name: developer-seo
-description: Build, audit, debug, and migrate websites for durable organic discovery in search engines and AI answer systems. Use for SEO audits or implementation; new sites, routes, templates, CMSs, ecommerce catalogs, or content programs; crawlability, rendering, indexing, robots.txt, meta robots, canonicals, redirects, sitemaps, hreflang, structured data, metadata, internal links, faceted navigation, JavaScript SEO, Core Web Vitals, or site migrations; keyword, intent, information-architecture, content, local, image, video, news, or authority work; ranking, traffic, CTR, or indexation losses; and AEO, GEO, LLM visibility, AI Overviews, AI Mode, ChatGPT search, or AI crawler controls. Trigger whenever code or architecture can materially affect public discoverability, even if the user does not say SEO. Do not use for paid-search campaign management alone.
+description: >-
+  Build, audit, debug, and migrate websites for durable organic discovery and reliable use by search engines, LLMs, and browser agents. Use for SEO audits or implementation; new sites, routes, templates, CMSs, catalogs, or content programs; crawling, rendering, indexing, robots, canonicals, redirects, sitemaps, hreflang, structured data, metadata, links, faceted navigation, JavaScript SEO, Core Web Vitals, or migrations; keyword, intent, architecture, content, local, media, or authority work; traffic, ranking, CTR, or indexation losses; AEO, GEO, AI Overviews, AI Mode, ChatGPT search, crawler controls, agent-readable pages, Markdown representations, `Accept: text/markdown` content negotiation, `llms.txt`, WebMCP, or agent interaction design. Trigger whenever code or architecture can materially affect public discoverability or machine usability, even if the user does not say SEO. Do not use for paid-search management alone.
 ---
 
 # Developer SEO
@@ -105,11 +106,13 @@ Define leading indicators, outcome metrics, segments, annotations, and decision 
 
 Read [measurement-diagnostics.md](references/measurement-diagnostics.md).
 
-### 7. Cover AI-mediated discovery
+### 7. Cover AI-mediated discovery and agent use
 
-Treat AI visibility as an extension of technical access, retrieval, brand/entity authority, and information quality—not a bag of magic markup. Distinguish search crawling, model-training controls, and user-triggered fetching. Design answerable passages only when they improve human comprehension.
+Treat AI visibility as an extension of technical access, retrieval, brand/entity authority, and information quality—not a bag of magic markup. Distinguish search crawling, model-training controls, user-triggered fetching, negotiated representations, and browser-agent actions. Design answerable passages only when they improve human comprehension.
 
 Read [ai-search.md](references/ai-search.md).
+
+When agents need a cleaner representation or reliable action surface, read [agent-readable-web.md](references/agent-readable-web.md). Prefer standards-based `Accept` negotiation, one source of truth, semantic parity, correct `Vary` behavior, measured adoption, and progressive enhancement. Do not claim that Markdown or WebMCP improves Google rankings.
 
 ### 8. Implement safely
 
@@ -157,6 +160,9 @@ For implementation work, also report changed files, tests run, production checks
 - Never ship mass AI-generated pages without a value model, source provenance, QA, ownership, and indexation controls.
 - Never change production directives, redirects, domain routing, or bulk URLs without impact analysis and rollback.
 - Never treat `llms.txt`, arbitrary AI schema, keyword density, word count, Domain Authority, or an audit score as a universal requirement.
+- Never return HTML with `Content-Type: text/markdown`, ignore `Accept` quality values, or share an unvaried cache entry across HTML and Markdown.
+- Never create a second editorial source for an agent representation or silently serve stale Markdown.
+- Never expose an agent action that bypasses the authorization, validation, confirmation, rate-limit, or audit controls of the human workflow.
 - Never optimize only for bots. Preserve accessibility, conversion, brand voice, privacy, and editorial integrity.
 
 ## Source posture
