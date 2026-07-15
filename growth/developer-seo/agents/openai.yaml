@@ -1,0 +1,7 @@
+interface:
+  display_name: "Developer SEO"
+  short_description: "Build and debug durable search visibility"
+  default_prompt: "Use $developer-seo to audit and improve this site’s technical SEO and AI-search visibility."
+
+policy:
+  allow_implicit_invocation: true
