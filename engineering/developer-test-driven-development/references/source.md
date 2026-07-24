@@ -35,14 +35,30 @@ This is the "Nano-cycle" of development. Stick to the beat.
 Your test suite is your system's immune system. SURPRISES BECOME TESTS.
 
 1. **Unit Tests (The Foundation)**: Test core logic and edge cases in isolation. Fast, deterministic, frequent.
-2. **Contract Tests**: Ensure your API request/response shapes don't drift. Use these at the boundaries.
-3. **Integration Tests**: Verify that your code actually talks to the Database or Proxy. Use sandboxes, not mocks here.
-4. **E2E Smoke Tests**: The "Happy Path." If these fail, the business is losing money.
-5. **“Failure Tests” (The Anti-Fragile Edge)**:
+2. **Behavior-Driven Development (BDD / Gherkin)**: Translate product Gherkin scenarios (`Given / When / Then`) directly into executable feature/integration tests. Ensures technical suites map 1-to-1 with business acceptance criteria.
+3. **Property-Based Testing & Fuzzing**: Use generative input suites (e.g., Hypothesis, Fast-Check, QuickCheck, or native fuzzers) to test invariants across thousands of randomized inputs without being overly prescriptive.
+4. **Contract Tests**: Ensure your API request/response shapes don't drift. Use these at the boundaries.
+5. **Integration Tests**: Verify that your code actually talks to the Database or Proxy. Use sandboxes, not mocks here.
+6. **E2E Smoke Tests**: The "Happy Path." If these fail, the business is losing money.
+7. **Mutation Testing (Assertion Quality)**: Run mutation testing tools (e.g., Stryker, cargo-mutants, PIT) to inject deliberate code faults (mutants) into green builds. Ensures test suites actually fail when bugs are introduced (aiming for high mutant kill rate).
+8. **“Failure Tests” (The Anti-Fragile Edge)**:
    - Simulate **Timeouts** (Does the system hang or report?).
    - Simulate **500 Errors** from dependencies (Does the circuit breaker trip?).
    - **Malformed Inputs** (Does the boundary reject the mess?).
    - **High Latency** (Is the UX resilient or blocked?).
+
+---
+
+### VI. QUANTITATIVE QUALITY METRICS & GATES (TECH-AGNOSTIC)
+Before code is considered production-ready, it must clear non-negotiable quality gates regardless of technology stack:
+
+- **Cyclomatic & Cognitive Complexity Caps**: Keep functions small and readable (e.g., max cyclomatic complexity ≤ 10 per function).
+- **Line & Branch Coverage Thresholds**: Maintain high coverage standards (e.g., ≥85% branch coverage on core logic), backed by mutation testing to prevent empty assertions.
+- **Zero Critical Static Analysis Violations**: Pass all linters, type checks, and static analysis security tools with zero critical or high-severity errors.
+- **Zero Unhandled Vulnerabilities**: Clear dependency vulnerability checks (e.g., `npm audit`, `cargo audit`, `pip audit`).
+- **High Mutant Kill Rate**: Ensure mutation testing kills the vast majority of injected mutants in core business logic.
+
+---
 
 ### THE FINAL RULE
 **Every production bug produces: a fix, a test, and a monitor.** 

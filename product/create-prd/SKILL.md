@@ -17,11 +17,11 @@ Do not use this skill as the primary guide when another skill has a tighter doma
 
 - Request explicitly references `create-prd` or this source file.
 - Request language includes terms like: create, prd.
-- Keywords include: PRD, success metrics, goals/non-goals, user journey, roadmap, launch memo.
+- Keywords include: PRD, success metrics, goals/non-goals, user journey, roadmap, launch memo, BDD, Gherkin, acceptance criteria.
 
 ## Routing boundary
 
-- Primary for problem definition, PRD scope, metrics, and product narrative.
+- Primary for problem definition, PRD scope, metrics, BDD acceptance criteria, and product narrative.
 - Do not use as primary for deep UI styling or low-level code implementation.
 
 ## Inputs required
@@ -35,13 +35,14 @@ Do not use this skill as the primary guide when another skill has a tighter doma
 
 1. Read [references/source.md](references/source.md) first.
 2. Extract the non-negotiable rules and translate them into a short execution checklist.
-3. Apply the checklist to the current task, produce concrete outputs, and avoid abstract recommendations.
-4. Validate outcomes with evidence (tests, screenshots, logs, diffs, or written audit findings).
-5. Record decisions and tradeoffs so another engineer can continue without re-discovery.
+3. Include unambiguous BDD/Gherkin scenarios (`Given / When / Then`) under Acceptance Criteria as a bridge to implementation test suites.
+4. Apply the checklist to the current task, produce concrete outputs, and avoid abstract recommendations.
+5. Validate outcomes with evidence (tests, screenshots, logs, diffs, or written audit findings).
+6. Record decisions and tradeoffs so another engineer can continue without re-discovery.
 
 ## Output format
 
-- Primary decision/output: Problem scope, measurable outcomes, and what not to build yet.
+- Primary decision/output: Problem scope, measurable outcomes, BDD/Gherkin acceptance criteria, and what not to build yet.
 - Summary: one-paragraph decision or result
 - Actions: compact checklist with owners and status
 - Evidence: links/paths to artifacts proving completion

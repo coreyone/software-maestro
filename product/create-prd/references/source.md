@@ -24,7 +24,7 @@ The AI should adapt its questions based on the prompt, but here are some common 
 *   **Target User:** "Who is the primary user of this feature?"
 *   **Core Functionality:** "Can you describe the key actions a user should be able to perform with this feature?"
 *   **User Stories:** "Could you provide a few user stories? (e.g., As a [type of user], I want to [perform an action] so that [benefit].)"
-*   **Acceptance Criteria:** "How will we know when this feature is successfully implemented? What are the key success criteria?"
+*   **Acceptance Criteria & BDD Scenarios:** "How will we know when this feature is successfully implemented? Can you outline key Given/When/Then scenarios?"
 *   **Scope/Boundaries:** "Are there any specific things this feature *should not* do (non-goals)?"
 *   **Data Requirements:** "What kind of data does this feature need to display or manipulate?"
 *   **Design/UI:** "Are there any existing design mockups or UI guidelines to follow?" or "Can you describe the desired look and feel?"
@@ -37,12 +37,13 @@ The generated PRD should include the following sections:
 1.  **Introduction/Overview:** Briefly describe the feature and the problem it solves. State the goal.
 2.  **Goals:** List the specific, measurable objectives for this feature.
 3.  **User Stories:** Detail the user narratives describing feature usage and benefits.
-4.  **Functional Requirements:** List the specific functionalities the feature must have. Use clear, concise language (e.g., "The system must allow users to upload a profile picture."). Number these requirements.
-5.  **Technical Approach:** Detail the specific technical approach that best serves the functional requirements. Use clear, concise language (e.g., "The system must allow users to upload a profile picture."). 
-6.  **Non-Goals (Out of Scope):** Clearly state what this feature will *not* include to manage scope.
-7.  **Design Considerations (Optional):** Link to mockups, describe UI/UX requirements, or mention relevant components/styles if applicable.
-8.  **Technical Considerations (Optional):** Mention any known technical constraints, dependencies, or suggestions (e.g., "Should integrate with the existing Auth module").
-9.  **Open Questions:** List any remaining questions or areas needing further clarification.
+4.  **Acceptance Criteria & BDD Scenarios (Gherkin):** Define unambiguous acceptance criteria formatted as Gherkin scenarios (`Given [context] / When [action] / Then [expected outcome]`). This section acts as a direct, seamless bridge from product specification to developer test suites (TDD/BDD).
+5.  **Functional Requirements:** List the specific functionalities the feature must have. Use clear, concise language (e.g., "The system must allow users to upload a profile picture."). Number these requirements.
+6.  **Technical Approach:** Detail the specific technical approach that best serves the functional requirements.
+7.  **Non-Goals (Out of Scope):** Clearly state what this feature will *not* include to manage scope.
+8.  **Design Considerations (Optional):** Link to mockups, describe UI/UX requirements, or mention relevant components/styles if applicable.
+9.  **Technical Considerations (Optional):** Mention any known technical constraints, dependencies, or suggestions (e.g., "Should integrate with the existing Auth module").
+10. **Open Questions:** List any remaining questions or areas needing further clarification.
 
 ## Target Audience
 
