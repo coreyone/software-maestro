@@ -1,0 +1,4 @@
+interface:
+  display_name: "Eval-Driven Development"
+  short_description: "Build AI systems with measurable eval loops"
+  default_prompt: "Use $developer-eval-driven-development to define, baseline, and improve this AI behavior with reproducible evaluations."
