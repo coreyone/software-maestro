@@ -1,0 +1,41 @@
+{
+  "skill": "design-forms-wizards-checkout",
+  "version": 1,
+  "trigger_cases": [
+    {"prompt": "Redesign this mobile checkout form.", "trigger": true},
+    {"prompt": "Fix validation and recovery in this multi-step wizard.", "trigger": true},
+    {"prompt": "Audit form labels, focus, and tap targets.", "trigger": true},
+    {"prompt": "Design the payment gateway API.", "trigger": false},
+    {"prompt": "Create a database schema for orders.", "trigger": false},
+    {"prompt": "Write an OAuth threat model.", "trigger": false}
+  ],
+  "binary_cases": [
+    {
+      "id": "local-recoverable-errors",
+      "prompt": "Specify validation behavior for checkout fields.",
+      "pass_rule": "Errors are local, actionable, announced, and preserve completed non-sensitive input.",
+      "must": [["next to the field", "inline"], ["exact fix", "actionable"], ["announce", "programmatically"], ["preserve", "never clear"]],
+      "must_not": ["clear all fields", "something went wrong"],
+      "pass_fixture": "Show an actionable inline error next to the field, announce it programmatically, and preserve completed non-sensitive input.",
+      "fail_fixture": "Show something went wrong at the top and clear all fields."
+    },
+    {
+      "id": "mobile-form-baseline",
+      "prompt": "Define the mobile form layout.",
+      "pass_rule": "The layout is single-column, uses persistent labels, and has targets at least 44x44.",
+      "must": ["single-column", ["persistent labels", "persistent label"], "44x44"],
+      "must_not": ["placeholder-only"],
+      "pass_fixture": "Use a single-column layout with persistent labels and tap targets at least 44x44.",
+      "fail_fixture": "Use placeholder-only labels and compact 28px icon buttons."
+    },
+    {
+      "id": "checkout-certainty",
+      "prompt": "Reduce abandonment at final confirmation.",
+      "pass_rule": "The flow exposes total cost early, avoids forced accounts, and uses an outcome-specific CTA.",
+      "must": [["total", "cost"], ["guest", "avoid forced account"], ["Place Order", "Pay"]],
+      "must_not": ["surprise fees", "forced account creation", "Next"],
+      "pass_fixture": "Show the total cost before commitment, allow guest checkout, and label the action Place Order.",
+      "fail_fixture": "Require forced account creation, reveal surprise fees at the end, and label the CTA Next."
+    }
+  ]
+}

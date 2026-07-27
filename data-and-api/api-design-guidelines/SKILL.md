@@ -38,6 +38,10 @@ Do not use this skill for frontend state management, local storage layout, or la
 5. Standardize error formats using RFC 7807 problem details.
 6. Define clear query filters, sorting, and cursor-based pagination parameters.
 
+## Completion gate
+
+Before reporting completion, verify the applicable binary contracts in `evals/cases.json`: RFC 7807 errors, bounded cursor pagination with explicit filtering and sorting, and a contract expressed in the project's existing API stack.
+
 ## Output format
 
 - Primary decision/output: API Endpoint specifications, JSON schema definition, and versioning rules.

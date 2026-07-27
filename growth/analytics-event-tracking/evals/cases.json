@@ -1,0 +1,41 @@
+{
+  "skill": "analytics-event-tracking",
+  "version": 1,
+  "trigger_cases": [
+    {"prompt": "Create a PostHog tracking plan for checkout.", "trigger": true},
+    {"prompt": "Standardize our product event taxonomy.", "trigger": true},
+    {"prompt": "Instrument the onboarding conversion funnel.", "trigger": true},
+    {"prompt": "Add OpenTelemetry traces to API calls.", "trigger": false},
+    {"prompt": "Design a database audit log.", "trigger": false},
+    {"prompt": "Fix this checkout form's visual hierarchy.", "trigger": false}
+  ],
+  "binary_cases": [
+    {
+      "id": "object-action-taxonomy",
+      "prompt": "Define events for a checkout funnel.",
+      "pass_rule": "Stable milestones use Object:Action names and variants are properties rather than duplicate events.",
+      "must": [["checkout:started", "order:completed"], ["properties", "property"]],
+      "must_not": ["checkout_started_mobile", "checkout_started_desktop"],
+      "pass_fixture": "Track checkout:started and order:completed. Put device, plan, and experiment variant in properties.",
+      "fail_fixture": "Create checkout_started_mobile and checkout_started_desktop as separate event names."
+    },
+    {
+      "id": "raw-pii-block",
+      "prompt": "Add useful identity context to analytics events.",
+      "pass_rule": "The plan explicitly excludes raw passwords and full names from event payloads.",
+      "must": [["never track", "exclude"], "password", "full name"],
+      "must_not": ["password property", "full_name property"],
+      "pass_fixture": "Exclude raw PII: never track a password or full name in event properties. Use an approved opaque user identifier.",
+      "fail_fixture": "Add a password property and full_name property so analysts can debug individual sessions."
+    },
+    {
+      "id": "retain-existing-tracker",
+      "prompt": "The app already uses PostHog. Add one funnel.",
+      "pass_rule": "The implementation retains the existing analytics stack rather than introducing a migration.",
+      "must": ["PostHog", ["existing", "retain"]],
+      "must_not": ["migrate to Segment", "replace PostHog"],
+      "pass_fixture": "Retain the existing PostHog integration and add the funnel with the current capture helper.",
+      "fail_fixture": "Replace PostHog and migrate to Segment before adding the funnel."
+    }
+  ]
+}

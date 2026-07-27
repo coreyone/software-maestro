@@ -35,9 +35,13 @@ Do not use this skill for styling layout states, analytics event naming schemas,
 2. **Do Not Migrate**: Never propose or force a technology stack change. Apply the principles in this skill using the project's current tooling.
 3. Read [references/source.md](references/source.md) to understand timeouts, retries, jitters, and circuit breakers.
 4. Set explicit request timeouts on all network clients to prevent resources from locking up.
-5. Implement exponential backoff with random jitter for all retry operations.
+5. Bound retries by attempts or elapsed time. Retry only operations that are safe or protected by idempotency, using exponential backoff with random jitter.
 6. Design circuit-breaker wrappers (Closed, Open, Half-Open states) around downstream services.
 7. Outline clear fallback behaviors (serving stale cache, cached user configurations, or empty lists).
+
+## Completion gate
+
+Before reporting completion, verify the applicable binary contracts in `evals/cases.json`: explicit timeout, bounded safe retries with backoff and jitter, all three circuit states with a recovery probe, and a visible bounded fallback.
 
 ## Output format
 
