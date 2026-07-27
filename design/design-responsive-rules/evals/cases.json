@@ -1,0 +1,41 @@
+{
+  "skill": "design-responsive-rules",
+  "version": 1,
+  "trigger_cases": [
+    {"prompt": "Make this dashboard responsive across phone, tablet, and desktop.", "trigger": true},
+    {"prompt": "Replace device-specific media queries with a breakpoint strategy.", "trigger": true},
+    {"prompt": "Audit this component for container-query behavior.", "trigger": true},
+    {"prompt": "Scale the database for mobile traffic.", "trigger": false},
+    {"prompt": "Design a REST pagination contract.", "trigger": false},
+    {"prompt": "Add JWT authorization.", "trigger": false}
+  ],
+  "binary_cases": [
+    {
+      "id": "target-width-baseline",
+      "prompt": "Define responsive completion criteria.",
+      "pass_rule": "Every target width has no horizontal scrolling and retains the core task.",
+      "must": [["no horizontal scroll", "without horizontal scroll"], ["core task", "primary task"], ["target widths", "phone"]],
+      "must_not": ["desktop only"],
+      "pass_fixture": "Verify all target widths, including phone, have no horizontal scroll and keep the core task visible and usable.",
+      "fail_fixture": "Test desktop only and let mobile users pan horizontally."
+    },
+    {
+      "id": "break-on-content",
+      "prompt": "Choose responsive breakpoints.",
+      "pass_rule": "Breakpoints follow content failure rather than named devices and remain minimal.",
+      "must": [["content", "design breaks"], ["fewer breakpoints", "minimal breakpoints"]],
+      "must_not": ["iPhone 14 breakpoint", "device-specific rules"],
+      "pass_fixture": "Add minimal breakpoints only where content or interaction design breaks; prefer fewer breakpoints.",
+      "fail_fixture": "Add an iPhone 14 breakpoint and other device-specific rules."
+    },
+    {
+      "id": "portable-components",
+      "prompt": "Make a reusable card adapt inside grids and sidebars.",
+      "pass_rule": "Component behavior follows container width, uses a fluid layout, and preserves touch usability.",
+      "must": [["container query", "container width"], ["fluid", "flexible"], ["tap target", "touch"]],
+      "must_not": ["fixed card width"],
+      "pass_fixture": "Use a container query so the card adapts to container width, keep the layout fluid, and preserve usable tap targets.",
+      "fail_fixture": "Give every card a fixed card width and change it only from viewport media queries."
+    }
+  ]
+}

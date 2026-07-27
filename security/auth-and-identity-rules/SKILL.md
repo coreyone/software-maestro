@@ -39,6 +39,10 @@ Do not use this skill for basic visual layout of forms, telemetry logs, or gener
 6. Store client-side credentials in secure sandboxes (iOS Keychain or HttpOnly/Secure/SameSite cookies).
 7. Enforce Passkey support using WebAuthn APIs for high-security, passwordless entry.
 
+## Completion gate
+
+Before reporting completion, verify the applicable binary contracts in `evals/cases.json`: complete JWT validation, Authorization Code with PKCE for public clients, no embedded public-client secret, and platform-appropriate secure credential storage.
+
 ## Output format
 
 - Primary decision/output: Authentication flow diagrams, token storage design, and authorization policy code.

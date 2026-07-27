@@ -30,3 +30,17 @@ npx skills add coreyone/software-maestro
 ├── growth/           # SEO and AI discovery, commerce UX, conversions, copywriting, event tracking
 └── quality/          # Performance debugging, telemetry observability, deployments, a11y audit, chrome automation
 ```
+
+## Binary evals
+
+Ten high-contract skills include `evals/cases.json` suites with positive and negative trigger prompts, atomic pass/fail rules, and known-pass/known-fail fixtures. Validate every suite:
+
+```bash
+python scripts/check_binary_evals.py
+```
+
+Score a candidate response against one case:
+
+```bash
+python scripts/check_binary_evals.py path/to/skill --case case-id --response response.txt
+```

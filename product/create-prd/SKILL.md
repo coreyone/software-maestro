@@ -40,6 +40,10 @@ Do not use this skill as the primary guide when another skill has a tighter doma
 5. Validate outcomes with evidence (tests, screenshots, logs, diffs, or written audit findings).
 6. Record decisions and tradeoffs so another engineer can continue without re-discovery.
 
+## Completion gate
+
+Before reporting completion, verify the applicable binary contracts in `evals/cases.json`: explicit problem and measurable outcome, non-goals, unambiguous `Given / When / Then` acceptance behavior, and visible unknowns rather than invented facts.
+
 ## Output format
 
 - Primary decision/output: Problem scope, measurable outcomes, BDD/Gherkin acceptance criteria, and what not to build yet.

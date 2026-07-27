@@ -38,6 +38,10 @@ Do not use this skill for internal application performance monitoring (APM), dat
 5. Log high-cardinality metadata in event property blocks instead of creating duplicate events.
 6. Verify client-side privacy safeguards (never track raw PII like passwords or full names).
 
+## Completion gate
+
+Before reporting completion, verify the applicable binary contracts in `evals/cases.json`: stable `Object:Action` milestones, variants in properties, no raw PII, and no unnecessary analytics-stack migration.
+
 ## Output format
 
 - Primary decision/output: Tracking plan definition, event instrumentation code snippets, and property models.

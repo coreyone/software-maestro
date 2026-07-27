@@ -41,6 +41,10 @@ Do not use this skill as the primary guide when another skill has a tighter doma
 6. Validate outcomes with evidence (test runs, mutant kill reports, static analysis logs, diffs, or written audit findings).
 7. Record decisions and tradeoffs so another engineer can continue without re-discovery.
 
+## Completion gate
+
+Before reporting completion, verify the applicable binary contracts in `evals/cases.json`: the new test failed before the fix and passed afterward, assertion strength was tested where appropriate, and every production bug produces a fix, regression test, and monitor.
+
 ## Output format
 
 - Primary decision/output: Implementation approach, test coverage & mutation results, quality gate audit, and risk controls.

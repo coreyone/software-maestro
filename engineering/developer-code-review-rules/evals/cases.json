@@ -1,0 +1,41 @@
+{
+  "skill": "developer-code-review-rules",
+  "version": 1,
+  "trigger_cases": [
+    {"prompt": "Review this pull request for correctness and security issues.", "trigger": true},
+    {"prompt": "Audit this repository and prioritize evidence-backed findings.", "trigger": true},
+    {"prompt": "Check whether this proposed finding is a false positive.", "trigger": true},
+    {"prompt": "Implement the approved refactor.", "trigger": false},
+    {"prompt": "Write a PRD for the next release.", "trigger": false},
+    {"prompt": "Create a visual design system.", "trigger": false}
+  ],
+  "binary_cases": [
+    {
+      "id": "complete-finding-contract",
+      "prompt": "Report a verified code-review defect.",
+      "pass_rule": "The finding includes severity, precise evidence, impact, effort, fix risk, confidence, and a fix sketch.",
+      "must": ["severity", "evidence", "impact", "effort", "fix risk", "confidence", ["fix sketch", "suggested fix"]],
+      "must_not": ["might be bad"],
+      "pass_fixture": "Severity: P1. Evidence: src/auth.ts:42. Impact: expired tokens remain valid. Effort: S. Fix risk: LOW. Confidence: HIGH. Fix sketch: reject exp <= now and add a boundary test.",
+      "fail_fixture": "This might be bad; consider changing it."
+    },
+    {
+      "id": "secret-redaction",
+      "prompt": "Review a file containing a committed API credential.",
+      "pass_rule": "The finding names credential type and location without reproducing the secret, and recommends rotation.",
+      "must": [["API credential", "secret"], ["config.ts:8", "file:line"], "rotate"],
+      "must_not": ["sk_live_example_secret_value"],
+      "pass_fixture": "A Stripe API credential appears at config.ts:8. Remove it, rotate the secret, and load it from protected configuration; do not reproduce its value.",
+      "fail_fixture": "The leaked value is sk_live_example_secret_value; copy it into the issue so the team can find it."
+    },
+    {
+      "id": "evidence-over-style",
+      "prompt": "Decide whether to block a pull request.",
+      "pass_rule": "Blocking feedback is tied to a concrete failure and style preferences remain non-blocking.",
+      "must": [["concrete failure", "correctness"], ["non-blocking", "nit"]],
+      "must_not": ["block because I prefer"],
+      "pass_fixture": "Block on the concrete correctness failure with file evidence. Mark the naming preference as a non-blocking nit.",
+      "fail_fixture": "Block because I prefer a different naming style."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "skill": "api-design-guidelines",
+  "version": 1,
+  "trigger_cases": [
+    {"prompt": "Design a paginated REST endpoint and OpenAPI contract.", "trigger": true},
+    {"prompt": "Standardize our API error responses.", "trigger": true},
+    {"prompt": "Review this GraphQL schema for evolution risk.", "trigger": true},
+    {"prompt": "Choose a client-side state library.", "trigger": false},
+    {"prompt": "Style the table that displays API data.", "trigger": false},
+    {"prompt": "Tune this PostgreSQL index.", "trigger": false}
+  ],
+  "binary_cases": [
+    {
+      "id": "problem-details-errors",
+      "prompt": "Specify errors for a REST API.",
+      "pass_rule": "Errors use RFC 7807 problem details with stable machine-readable fields.",
+      "must": ["RFC 7807", ["type", "problem type"], "status", ["detail", "title"]],
+      "must_not": ["200 OK for every error"],
+      "pass_fixture": "Use RFC 7807 with type, title, status, and detail fields; preserve stable problem types for clients.",
+      "fail_fixture": "Return 200 OK for every error with a free-form message string."
+    },
+    {
+      "id": "cursor-pagination-contract",
+      "prompt": "Design a scalable list endpoint.",
+      "pass_rule": "The contract defines cursor pagination plus explicit filtering and sorting.",
+      "must": ["cursor", "filter", "sort"],
+      "must_not": ["return every record"],
+      "pass_fixture": "Define cursor and limit parameters, explicit filter fields, and a stable sort order.",
+      "fail_fixture": "Return every record and let the client sort and filter the full collection."
+    },
+    {
+      "id": "retain-existing-api-stack",
+      "prompt": "Add an endpoint to an existing FastAPI service.",
+      "pass_rule": "The design uses the existing framework and produces its native contract artifact.",
+      "must": ["FastAPI", ["OpenAPI", "schema"]],
+      "must_not": ["rewrite in Express", "migrate to GraphQL"],
+      "pass_fixture": "Keep FastAPI and define the request, response, and OpenAPI schema with its existing models.",
+      "fail_fixture": "Rewrite in Express and migrate to GraphQL before adding the endpoint."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "skill": "auth-and-identity-rules",
+  "version": 1,
+  "trigger_cases": [
+    {"prompt": "Add OAuth login with PKCE to this native app.", "trigger": true},
+    {"prompt": "Review our JWT validation middleware.", "trigger": true},
+    {"prompt": "Where should this iOS app store refresh tokens?", "trigger": true},
+    {"prompt": "Style the sign-in form.", "trigger": false},
+    {"prompt": "Add an index to the users table.", "trigger": false},
+    {"prompt": "Create product analytics events for onboarding.", "trigger": false}
+  ],
+  "binary_cases": [
+    {
+      "id": "complete-jwt-validation",
+      "prompt": "Implement JWT verification for an API.",
+      "pass_rule": "JWTs are cryptographically verified with issuer, audience, and an explicit allowed algorithm.",
+      "must": [["signature", "cryptographically"], "issuer", "audience", ["allowed algorithm", "algorithm allowlist"]],
+      "must_not": ["decode without verification", "accept any algorithm"],
+      "pass_fixture": "Verify the signature cryptographically, require the expected issuer and audience, and enforce an allowed algorithm allowlist.",
+      "fail_fixture": "Decode without verification and trust the claims when the token parses."
+    },
+    {
+      "id": "public-client-pkce",
+      "prompt": "Design OAuth for a mobile public client.",
+      "pass_rule": "The flow uses Authorization Code with PKCE and does not embed a client secret.",
+      "must": [["Authorization Code", "authorization-code"], "PKCE"],
+      "must_not": ["store the client secret in the app", "ship the client secret"],
+      "pass_fixture": "Use Authorization Code with PKCE. A public mobile client cannot protect an embedded client secret.",
+      "fail_fixture": "Store the client secret in the app and use it to exchange the authorization code."
+    },
+    {
+      "id": "secure-token-storage",
+      "prompt": "Persist sessions for web and iOS clients.",
+      "pass_rule": "Web credentials use hardened cookies and iOS credentials use Keychain rather than general storage.",
+      "must": ["Keychain", "HttpOnly", "Secure", "SameSite"],
+      "must_not": ["localStorage", "UserDefaults"],
+      "pass_fixture": "Store iOS credentials in Keychain. Use HttpOnly, Secure, SameSite cookies for the web session.",
+      "fail_fixture": "Put the web token in localStorage and the iOS refresh token in UserDefaults."
+    }
+  ]
+}

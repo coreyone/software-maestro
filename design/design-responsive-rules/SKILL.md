@@ -39,6 +39,10 @@ Do not use this skill as the primary guide when another skill has a tighter doma
 4. Validate outcomes with evidence (tests, screenshots, logs, diffs, or written audit findings).
 5. Record decisions and tradeoffs so another engineer can continue without re-discovery.
 
+## Completion gate
+
+Before reporting completion, verify the applicable binary contracts in `evals/cases.json`: no horizontal scrolling at target widths, core tasks remain usable, breakpoints follow content failure rather than named devices, and reusable components adapt to their containers.
+
 ## Output format
 
 - Primary decision/output: User flow clarity, interaction model, and visual system constraints.

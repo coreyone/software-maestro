@@ -165,6 +165,10 @@ For implementation work, also report changed files, tests run, production checks
 - Never expose an agent action that bypasses the authorization, validation, confirmation, rate-limit, or audit controls of the human workflow.
 - Never optimize only for bots. Preserve accessibility, conversion, brand voice, privacy, and editorial integrity.
 
+## Completion gate
+
+Before reporting completion, verify the applicable binary contracts in `evals/cases.json`: evidence before prescription, `robots.txt` is not privacy or reliable deindexing, and migrations include parity checks, monitoring, and rollback. Treat these as minimum gates, not a substitute for judgment.
+
 ## Source posture
 
 The practice is an original synthesis inspired by the comprehensive, strategy-before-tactics tradition of *The Art of SEO, Fourth Edition* and by modern search-everywhere thinking. Use [sources.md](references/sources.md) to refresh volatile claims from primary sources. Do not reproduce copyrighted book text.
