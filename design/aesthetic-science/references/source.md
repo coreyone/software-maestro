@@ -77,6 +77,16 @@ Rule: Use overlays to reduce background variance (lower RMS contrast) behind imp
 Rule: Gradients should be computed in perceptual spaces to reduce banding and “dirty” midtones.
 Rule: Keep background luminance stable across a reading block; avoid hotspots behind text.
 
+§ Generative gradient validation
+Rule: Generate palette stops in OKLCH/OKLab, then render the spatial field separately.
+Rule: Keep randomness inside a declared token envelope; record the seed and generator parameters.
+Rule: Test palette generation and spatial field generation independently.
+Rule: Reject abrupt lightness jumps, muddy midtones, out-of-gamut clipping, and visible banding.
+Rule: Sample the actual composed gradient beneath text, controls, overlays, and focus indicators.
+Rule: Keep luminance stable across reading blocks; add an overlay when the field creates hotspots.
+Rule: Do not use generated gradients as the sole encoding for semantic state.
+Rule: Validate light, dark, high-contrast, grayscale, reduced-motion, and static-fallback modes.
+
 § Typography (legibility: the physics of reading)
 Rule: Legibility depends on visual angle; size text so x-height clears critical print size for your context.
 Rule: For typical fluent reading, avoid sizes near acuity limits; keep body text comfortably above threshold.

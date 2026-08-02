@@ -216,6 +216,20 @@ Design is not decoration. It is problem-solving made visible. Every aesthetic ch
   – gradients adapt to content (dominant image colors) while staying on-brand
   – limit adaptation to 1–2 parameters (hue shift + intensity), not full chaos
 
+## 2.1) CONSTRAINED GENERATIVE GRADIENTS (PALETTE + FIELD)
+• Treat randomness as a bounded search mechanism, not a visual style.
+• Separate the system into:
+  – Palette: a small set of approved color stops and roles.
+  – Field: how those stops occupy space.
+• Generate palette stops in a perceptual color space (prefer OKLCH); validate them with the aesthetic-science rules.
+• Use heightmaps for organic, textured visual fields.
+• Use layered radial gradients for lightweight, responsive ambient backgrounds.
+• Use AI-generated gradients for mood exploration only; extract and approve tokens before production.
+• Prefer deterministic seeds for repeatable review, caching, and visual regression testing.
+• Randomize only declared parameters: hue range, chroma, lightness, stop position, scale, and rotation.
+• Runtime variation is acceptable only for non-semantic ambient decoration.
+• Always provide a static, neutral fallback.
+
 ## 3) COLOR (BOLD, HIGH-CONTRAST, BUT DISCIPLINED)
 • Design for contrast as the aesthetic:
   – dark neutrals + bright accents reads modern and confident

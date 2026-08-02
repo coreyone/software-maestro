@@ -17,12 +17,19 @@ Do not use this skill as the primary guide when another skill has a tighter doma
 
 - Request explicitly references `aesthetic-rules` or this source file.
 - Request language includes terms like: aesthetic, rules.
-- Keywords include: IA, usability, responsive layout, design system, aesthetic direction, motion.
+- Keywords include: IA, usability, responsive layout, design system, aesthetic direction, motion, gradient palette, generative gradient, ambient background, color system.
 
 ## Routing boundary
 
 - Primary for UX architecture, visual hierarchy, responsiveness, and interface behavior.
 - Do not use as primary for backend architecture, threat modeling, or release operations.
+
+## Iconography (non-negotiable)
+
+- Do not create custom SVG icons or hand-drawn icon shapes.
+- Use an established icon library already appropriate to the platform and product, or a system-built-in option such as SF Symbols.
+- Unicode symbols are acceptable when they are semantically clear and render reliably; do not use emoji glyphs.
+- Keep icon families consistent in stroke, fill, optical weight, sizing, and alignment. If no suitable icon exists, use a text label rather than inventing a new icon.
 
 ## Inputs required
 
