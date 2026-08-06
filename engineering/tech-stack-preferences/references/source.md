@@ -129,6 +129,7 @@ Note: Lucia v3 is deprecated. Plan migrations accordingly.
 ## Content
 
 - **Markdown**: MDsveX — svelte + markdown
+- **Prose linting**: [Vale](https://github.com/vale-cli/vale) — fast, markup-aware, extensible linting for documentation prose, including spelling and style checks
 - **CMS**: Decap CMS — git-based, Netlify-friendly
   - **CMS**: [astro.build](https://astro.build)
 
