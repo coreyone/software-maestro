@@ -96,6 +96,20 @@ Rule: Avoid long all-caps passages; reduce word-shape cues and slow reading.
 Rule: Use consistent heading hierarchy (H1–H6) → predictable scanning and information scent.
 Rule: Apply clear typographic contrast (size/weight/spacing) to encode hierarchy, not random styling.
 
+§ Line-wrap quality (responsive typographic composition)
+Rule: Treat line wrapping as part of the UI composition, not a browser accident; inspect headings, labels, buttons, cards, and prominent body copy at target widths.
+Rule: Prevent widows and orphans where practical → do not leave a single word, short fragment, or semantically incomplete phrase alone at the edge of a text block; use `widows: 2` and `orphans: 2` as progressive hints for multi-line prose, never as guarantees.
+Rule: Use a short-final-line check as an optical heuristic, not a hard constraint → a final line shorter than roughly 25–35% of the preceding line is a review signal; accept it when the phrase is semantically complete or the alternative harms hierarchy, measure, or accessibility.
+Rule: Prefer `text-wrap: balance` for short headings and display copy → it distributes a small number of lines more evenly; scope it to short text and do not apply it indiscriminately to long-form prose or labels that need stable geometry.
+Rule: Prefer `text-wrap: pretty` for paragraphs and short descriptions where supported → treat it as progressive enhancement for awkward final lines, not a substitute for a sensible measure, type scale, or fallback.
+Rule: Do not insert arbitrary `<br>` tags to patch a responsive wrap; use an explicit break only when the copy is intentionally art-directed, stable across the intended layout, and tested at the surrounding widths.
+Rule: Repair awkward wraps in this order: rewrite or shorten the copy; preserve meaningful units; adjust max-inline-size or container width; tune type size, tracking, or line-height; then add wrapping hints. Optimize for optical balance, not mathematically equal lines.
+Rule: Keep atomic units together only when meaning requires it (e.g., proper names, dates, values with units, or a short action phrase); use semantic markup or non-breaking treatment sparingly because over-constraining text creates overflow.
+Rule: Keep ordinary prose breakable; reserve `overflow-wrap: anywhere` for bounded escape hatches such as untrusted URLs or IDs, not as a global typography fix.
+Rule: For controls, preserve action + object clarity and touch-target geometry; if a label wraps awkwardly, widen or reword the control before using `white-space: nowrap`, which can create overflow at narrow widths.
+Rule: If hyphenation is appropriate for body copy, set the correct language and use `hyphens: auto`; do not hyphenate headings, labels, or buttons by default.
+Rule: Test common and edge-case container widths, including just before and after content-fit breakpoints; recheck narrow mobile, wide desktop, zoom, localization, and dynamic type where applicable.
+
 § Type scales (math-driven hierarchy)
 Rule: Use a modular scale (ratio-based) so sizes relate predictably (e.g., 1.125, 1.2, 1.25, 1.333).
 Rule: Limit the number of sizes in a UI to reduce visual entropy; reuse tokens.
