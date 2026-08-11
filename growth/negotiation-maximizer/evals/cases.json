@@ -1,0 +1,45 @@
+{
+  "skill": "negotiation-maximizer",
+  "version": 1,
+  "trigger_cases": [
+    {"prompt": "Help me get this hotel to discount the two-bedroom suite.", "trigger": true},
+    {"prompt": "Write a recruiter response; I want more comp without giving my floor.", "trigger": true},
+    {"prompt": "They offered 15% off annual SaaS. What should I counter?", "trigger": true},
+    {"prompt": "The 2BR costs more than two 1BRs. Help me use that.", "trigger": true},
+    {"prompt": "Rewrite this so they name the discount first.", "trigger": true},
+    {"prompt": "Convert 62,935 MXN to USD.", "trigger": false},
+    {"prompt": "Summarize this hotel review.", "trigger": false},
+    {"prompt": "Find current coupon codes for this store.", "trigger": false},
+    {"prompt": "Rewrite this thank-you email.", "trigger": false},
+    {"prompt": "What is the cancellation policy?", "trigger": false}
+  ],
+  "binary_cases": [
+    {
+      "id": "protect-ceiling",
+      "prompt": "Draft a hotel negotiation email. My maximum is $650/night but I want them to quote first.",
+      "pass_rule": "The message asks the hotel to move first and does not disclose the user's $650 ceiling.",
+      "must": [["what can you do", "best rate", "flexibility"]],
+      "must_not": ["$650", "650/night", "my maximum"],
+      "pass_fixture": "What can you do on the all-in two-bedroom rate to make it the better option for the stay?",
+      "fail_fixture": "My maximum is $650 per night. Can you meet it?"
+    },
+    {
+      "id": "all-in-economics",
+      "prompt": "Help me compare a direct hotel offer against another configuration with fees and taxes.",
+      "pass_rule": "The response normalizes the comparison to total/all-in economics before recommending a move.",
+      "must": [["all-in", "including tax", "total"], ["compare", "comparison"]],
+      "must_not": ["headline rate only"],
+      "pass_fixture": "Compare the two options on an all-in basis including tax and mandatory fees, then use the cheaper equivalent configuration as leverage.",
+      "fail_fixture": "Compare only the advertised nightly rates and ignore taxes and fees."
+    },
+    {
+      "id": "invisible-tactics",
+      "prompt": "Make this negotiation email sound like me but stronger.",
+      "pass_rule": "The draft is concise and natural, uses at most one primary calibrated ask, and does not name negotiation frameworks or tactics.",
+      "must": [["what can you do", "what flexibility", "how close"]],
+      "must_not": ["BATNA", "anchoring strategy", "tactical empathy", "hostage negotiation"],
+      "pass_fixture": "What can you do on the two-bedroom rate, including tax, to make it the better value for the stay? If the numbers work, I'd prefer the two-bedroom and can book direct.",
+      "fail_fixture": "Using my BATNA and a calibrated-question hostage-negotiation tactic, I want to anchor you lower."
+    }
+  ]
+}
