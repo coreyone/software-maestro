@@ -1,13 +1,13 @@
 # Software Maestro
 
-Capability orchestra for AI IDE agents. Conducts product strategy, design systems, and engineering execution from a single developer baton.
+Capability orchestra for AI IDE agents. Conducts product strategy, design systems, engineering execution, growth, and negotiation from a single developer baton.
 
 ## Install
 
 ```bash
 npx skills add coreyone/software-maestro
 ```
-*(Alternative: clone directly to target AI IDE config/skills directory)*
+*(Alternative: clone directly to the target AI IDE config/skills directory. The shared Agent Skills format is intended to work across Claude Code, Gemini CLI, OpenAI Codex, and other compatible runtimes.)*
 
 ## Lifecycle Structure
 
@@ -16,7 +16,7 @@ npx skills add coreyone/software-maestro
 *   **engineering/**: Clean code, architecture, and governed improvement workflows (developer-development, code-review, improve-codebase, TDD, eval-driven development, system-architecture, resiliency, tech-stack). Isolates components, decouples modules, and improves probabilistic behavior through versioned baselines, calibrated evaluators, and regression datasets.
 *   **data-and-api/**: Contract-first endpoints & persistence schemas (api-design-guidelines, data-persistence-caching). Bypasses client-state latency using local memory replication.
 *   **security/**: Identity & sandbox trust boundaries (developer-security, developer-web-security, auth-and-identity-rules). Isolates tokens (Keychain/HttpOnly cookies) and cryptographically validates JWTs.
-*   **growth/**: Organic discovery, conversions & behavioral loops (developer-seo, commerce-ux, cro-commerce-audit, design-forms, marketing-copy, elements-of-style, analytics-event-tracking). Builds durable search and AI-answer visibility, qualifies traffic by business outcomes, and standardizes event tracking (`object:action`) without namespace pollution.
+*   **growth/**: Organic discovery, conversions, behavioral loops & commercial negotiation (developer-seo, commerce-ux, cro-commerce-audit, design-forms, marketing-copy, elements-of-style, analytics-event-tracking, negotiation-maximizer). Builds durable search and AI-answer visibility, qualifies traffic by business outcomes, standardizes event tracking (`object:action`), and maximizes negotiated value while keeping tactics invisible.
 *   **quality/**: Graceful degradation, APM telemetry, and edge deployments (a11y-debugging, web-performance, telemetry, web-deployment, peekaboo, chrome-devtools). Replaces loaders with layout-matching skeletons. Enforces zero-downtime database migrations (Expand/Contract).
 
 ## Taxonomy
@@ -27,13 +27,13 @@ npx skills add coreyone/software-maestro
 ├── engineering/      # Code quality, audits, implementation planning, architecture, resiliency, TDD, eval-driven development
 ├── data-and-api/     # REST/GraphQL API design, database schemas, ORM models, caching
 ├── security/         # Authentication protocols, identity keys, secure cookies, keychain
-├── growth/           # SEO and AI discovery, commerce UX, conversions, copywriting, event tracking
+├── growth/           # SEO, commerce UX, CRO, copywriting, analytics, negotiation maximization
 └── quality/          # Performance debugging, telemetry observability, deployments, a11y audit, chrome automation
 ```
 
 ## Binary evals
 
-Ten high-contract skills include `evals/cases.json` suites with positive and negative trigger prompts, atomic pass/fail rules, and known-pass/known-fail fixtures. Validate every suite:
+High-contract skills include `evals/cases.json` suites with positive and negative trigger prompts, atomic pass/fail rules, and known-pass/known-fail fixtures. Validate every suite:
 
 ```bash
 python scripts/check_binary_evals.py
