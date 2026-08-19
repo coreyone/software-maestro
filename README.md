@@ -17,7 +17,7 @@ npx skills add coreyone/software-maestro
 *   **data-and-api/**: Contract-first endpoints & persistence schemas (api-design-guidelines, data-persistence-caching). Bypasses client-state latency using local memory replication.
 *   **security/**: Identity & sandbox trust boundaries (developer-security, developer-web-security, auth-and-identity-rules). Isolates tokens (Keychain/HttpOnly cookies) and cryptographically validates JWTs.
 *   **growth/**: Organic discovery, conversions, behavioral loops & commercial negotiation (developer-seo, commerce-ux, cro-commerce-audit, design-forms, marketing-copy, elements-of-style, analytics-event-tracking, negotiation-maximizer). Builds durable search and AI-answer visibility, qualifies traffic by business outcomes, standardizes event tracking (`object:action`), and maximizes negotiated value while keeping tactics invisible.
-*   **quality/**: Graceful degradation, APM telemetry, edge deployments, and reusable design/art-direction systems (a11y-debugging, web-performance, telemetry, web-deployment, peekaboo, chrome-devtools, create-design-art-direction). Replaces loaders with layout-matching skeletons. Enforces zero-downtime database migrations (Expand/Contract).
+*   **quality/**: Graceful degradation, APM telemetry, headless browser inspection, endpoint discovery, edge deployments, and reusable design/art-direction systems (a11y-debugging, web-performance, telemetry, web-deployment, peekaboo, chrome-devtools, web-endpoint-documenter, create-design-art-direction). Replaces loaders with layout-matching skeletons. Enforces zero-downtime database migrations (Expand/Contract).
 
 ## Taxonomy
 
@@ -28,7 +28,7 @@ npx skills add coreyone/software-maestro
 ├── data-and-api/     # REST/GraphQL API design, database schemas, ORM models, caching
 ├── security/         # Authentication protocols, identity keys, secure cookies, keychain
 ├── growth/           # SEO, commerce UX, CRO, copywriting, analytics, negotiation maximization
-└── quality/          # Performance debugging, telemetry observability, deployments, a11y audit, chrome automation, design/art direction
+└── quality/          # Performance debugging, telemetry observability, deployments, a11y audit, chrome automation, endpoint discovery, design/art direction
 ```
 
 ## Binary evals

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Web Endpoint Documenter"
+  short_description: "Map a page’s observable API traffic"
+  default_prompt: "Use $web-endpoint-documenter to explore this URL and document its observable endpoints in Markdown."
