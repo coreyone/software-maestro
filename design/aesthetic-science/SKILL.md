@@ -17,7 +17,7 @@ Do not use this skill as the primary guide when another skill has a tighter doma
 
 - Request explicitly references `aesthetic-science` or this source file.
 - Request language includes terms like: aesthetic, science.
-- Keywords include: IA, usability, responsive layout, design system, aesthetic direction, motion.
+- Keywords include: IA, usability, responsive layout, design system, aesthetic direction, motion, OKLCH, perceptual color, gradient palette validation, luminance, contrast.
 
 ## Routing boundary
 
