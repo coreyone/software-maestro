@@ -2,6 +2,14 @@
 
 Use this rubric while reviewing a report. It is deliberately separate from the execution workflow so it can be loaded for quality review without adding exploration instructions to every run.
 
+## Mode discipline
+
+The report must state whether it used `observe`, `harvest`, or `probe` mode. `observe` is the default. `harvest` may only describe browser-loaded resources. `probe` must include explicit authorization, target safety assumptions, and the exact bounded probe. Do not treat a higher mode as better evidence automatically.
+
+## Exploration coverage
+
+Check that the report records a state-and-action graph rather than only a request list. Each explored action should have a stable ID, source state, result state or failure, request window, and deduplication fingerprint. Coverage should name discovered-but-unexplored states and explain the stopping rule.
+
 ## Endpoint identity
 
 An endpoint entry should be stable enough to compare across runs while retaining a concrete redacted observation. Include method, normalized URL, content type, and normalized request shape. Do not merge requests merely because their paths match when their operations, bodies, or response contracts differ.
@@ -13,6 +21,8 @@ An endpoint entry should be stable enough to compare across runs while retaining
 - **Unknown**: not exposed, not exercised, blocked, or ambiguous.
 
 Every field in a detailed endpoint entry should use one of these levels when it is not self-evident from the capture.
+
+Static bundle strings, source-map interfaces, embedded routes, and inferred path templates are candidates unless browser traffic or an authorized probe confirms them. Keep them out of the observed usable-endpoint count.
 
 ## Contract quality
 
@@ -27,6 +37,8 @@ Check that the report answers:
 7. Can it be replayed safely, and what prevents that conclusion?
 8. What pagination, filtering, sorting, versioning, caching, or rate-limit behavior was actually observed?
 
+If a schema or generated artifact is present, verify that fields and variants retain evidence IDs, status/content-type partitions, and replayability limitations.
+
 ## API-design interpretation
 
 Use API design concepts as an analysis lens, not as a reason to retrofit an undocumented contract:
@@ -40,4 +52,4 @@ Use API design concepts as an analysis lens, not as a reason to retrofit an undo
 
 ## Safety review
 
-Reject or revise a report that exposes credentials, claims unobserved endpoints are complete, provides unsafe mutation recipes without authorization, confuses telemetry with a reusable API, or presents inferred schemas as verified facts.
+Reject or revise a report that exposes credentials, claims unobserved endpoints are complete, provides unsafe mutation recipes without authorization, performs introspection or header stripping without probe authorization, confuses telemetry with a reusable API, presents inferred schemas as verified facts, or calls an observation-derived spec production-ready without separate validation.
