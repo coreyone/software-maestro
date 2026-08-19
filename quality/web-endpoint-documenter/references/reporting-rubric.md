@@ -4,7 +4,7 @@ Use this rubric while reviewing a report. It is deliberately separate from the e
 
 ## Mode discipline
 
-The report must state whether it used `observe`, `harvest`, or `probe` mode. `observe` is the default. `harvest` may only describe browser-loaded resources. `probe` must include explicit authorization, target safety assumptions, and the exact bounded probe. Do not treat a higher mode as better evidence automatically.
+The report must state whether it used `observe`, `harvest`, `probe`, or `assess` mode. `observe` is the default. `harvest` may only describe browser-loaded resources. `probe` must include explicit authorization, target safety assumptions, and the exact bounded probe. `assess` additionally requires an authorized safe environment, test principals, synthetic canary data, an expected policy matrix, an allowlist, and stop conditions. Do not treat a higher mode as better evidence automatically.
 
 ## Exploration coverage
 
@@ -23,6 +23,12 @@ An endpoint entry should be stable enough to compare across runs while retaining
 Every field in a detailed endpoint entry should use one of these levels when it is not self-evident from the capture.
 
 Static bundle strings, source-map interfaces, embedded routes, and inferred path templates are candidates unless browser traffic or an authorized probe confirms them. Keep them out of the observed usable-endpoint count.
+
+## Security assessment validity
+
+For BOLA/BFLA claims, require a control case, at least one contrasting test principal or object, an expected authorization policy, and a fresh server-side state check. Status, response length, timing, or JSON-key differences alone are differential signals, not proof.
+
+For authentication, method/content negotiation, mass-assignment, and parameter tests, verify that the target and data were explicitly allowlisted and synthetic or disposable. Never treat a blocked, untested, or production-inappropriate probe as evidence of either presence or absence of a vulnerability.
 
 ## Contract quality
 
@@ -52,4 +58,4 @@ Use API design concepts as an analysis lens, not as a reason to retrofit an undo
 
 ## Safety review
 
-Reject or revise a report that exposes credentials, claims unobserved endpoints are complete, provides unsafe mutation recipes without authorization, performs introspection or header stripping without probe authorization, confuses telemetry with a reusable API, presents inferred schemas as verified facts, or calls an observation-derived spec production-ready without separate validation.
+Reject or revise a report that exposes credentials, claims unobserved endpoints are complete, provides unsafe mutation recipes without authorization, performs introspection, token tampering, header stripping, verb testing, or mass-assignment testing without assess authorization, confuses telemetry with a reusable API, presents inferred schemas as verified facts, or calls an observation-derived spec production-ready without separate validation.

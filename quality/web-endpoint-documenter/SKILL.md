@@ -1,6 +1,6 @@
 ---
 name: web-endpoint-documenter
-description: "Explore a URL with headless Chrome DevTools/CDP, build a bounded SPA state-and-action graph, capture and classify browser traffic, optionally harvest browser-loaded static evidence, and produce evidence-aware Markdown, OpenAPI, or GraphQL endpoint documentation. Use when reverse-engineering an authorized web page's REST, GraphQL, RPC, streaming, form, pagination, authentication, error, or request/response behavior without native GUI automation or direct HTTP crawling."
+description: "Explore an authorized URL with headless Chrome DevTools/CDP, build a bounded SPA state-and-action graph, capture and classify browser traffic, optionally harvest browser-loaded static evidence, and run a guarded security-assessment mode with test principals and synthetic data. Produce evidence-aware Markdown, OpenAPI, or GraphQL endpoint documentation for REST, GraphQL, RPC, streaming, form, pagination, authentication, authorization, and request/response behavior without native GUI automation or direct HTTP crawling."
 ---
 
 # Web Endpoint Documenter
@@ -10,10 +10,11 @@ Turn a user-authorized URL into a reproducible, evidence-backed Markdown descrip
 ## Boundaries
 
 - Use headless Chrome DevTools/CDP tools only. Do not use native GUI automation, direct HTTP crawling, filesystem source downloads, or alternate browser automation unless the user explicitly changes the constraint.
-- Keep the default mode `observe`: capture browser behavior without active probing or mutation. Allow `harvest` only for browser-mediated inspection of resources the page actually loads. Allow `probe` only after explicit authorization for a safe, read-only target or test environment.
+- Keep the default mode `observe`: capture browser behavior without active probing or mutation. Allow `harvest` only for browser-mediated inspection of resources the page actually loads. Allow `probe` only after explicit authorization for a safe, read-only target or test environment. Allow `assess` only with explicit authorization, a defined target scope, test principals, synthetic canary data, and an allowlisted probe plan.
 - Inspect only targets the user is authorized to analyze. Never bypass authentication, bot controls, paywalls, rate limits, origin policy, or access controls.
 - Treat `GET`, `HEAD`, and `OPTIONS` as safe to observe. Do not submit forms or invoke `POST`, `PUT`, `PATCH`, `DELETE`, payments, account changes, uploads, or other mutations unless the user explicitly authorizes that action and it is clearly safe in the target environment.
 - Redact cookies, authorization values, API keys, CSRF tokens, personal data, and secret-looking query/body values. Preserve header names and explain authentication requirements without emitting credentials.
+- Never bypass authentication, authorization, anti-bot controls, or frontend guards. Never downgrade or strip live credentials, inject privileged fields into real records, or probe production state-changing endpoints by default.
 - Do not claim backend completeness. Report the explored state/action surface, observed requests, static candidates, excluded actions, blocked paths, and remaining unknowns.
 
 ## Evidence modes
@@ -23,6 +24,7 @@ Record the selected mode in the report:
 - **Observe**: default. Capture navigation, visible non-destructive interactions, request/response events, console errors, and stream messages.
 - **Harvest**: opt-in. Inspect only browser-loaded script, module, manifest, and source-map resources through the browser/CDP layer when the tool exposes their bodies. Treat route strings, client code, and schemas as `static-candidate` evidence until dynamically confirmed.
 - **Probe**: explicit opt-in. Perform narrowly bounded, authorized read-only probes such as GraphQL introspection or controlled header-necessity tests. Do not probe live mutations, credentials, access controls, or anti-bot defenses.
+- **Assess**: explicit security-assurance mode. Require an authorized test/staging target, test principals and expected policy matrix, synthetic canary objects, a request/parameter allowlist, rate limits, and stop conditions. Compare server behavior across principals and controlled inputs; do not claim a vulnerability from a single response difference.
 
 Never use a static candidate or an inferred template as proof that an endpoint is callable. Never call a generated specification production-ready solely because it was derived from browser evidence.
 
@@ -34,9 +36,10 @@ Before browsing, resolve or state defaults for:
 2. Allowed origins: same-origin by default; label first-party subdomains and third-party traffic separately.
 3. Authentication state: public session or an already-authorized browser profile. Never request secrets in chat.
 4. Interaction budget: default to the initial load plus visible, non-destructive controls, with bounded depth, actions, and wait time.
-5. Evidence mode: default `observe`; require explicit authorization for `harvest` or `probe`.
+5. Evidence mode: default `observe`; require explicit authorization for `harvest`, `probe`, or `assess`.
 6. Mutation policy: default `observe-only`; require explicit opt-in for safe test mutations.
 7. Output path and report name. Use a Markdown file unless the user requests another format.
+8. For `assess`, record authorization, environment, principals, tenants, synthetic objects, expected authorization matrix, allowlisted probes, request budget, and stop conditions before browsing.
 
 If a missing choice materially changes safety or coverage, ask one focused question before acting. Otherwise use the defaults above and record them in the report.
 
@@ -54,6 +57,7 @@ Use the `chrome-devtools` workflow:
 8. Use `evaluate_script` only for page-observable data needed to understand behavior, such as form values, route state, resource entries, or embedded configuration. Treat page JavaScript as evidence, not proof of a callable endpoint.
 9. In `harvest` mode, inspect only resources observed as loaded by the page. Record resource URL, origin, hash, timestamp, and evidence location. Do not fetch arbitrary guessed assets or read source outside the browser boundary.
 10. In `probe` mode, record the exact authorization, target environment, probe request, expected safety property, and result. Stop on an unexpected status, side effect, auth challenge, rate limit, or ambiguity.
+11. In `assess` mode, execute only the predeclared allowlist. Capture the control request, test variant, principal/object context, response differential, and a fresh server-side state check. Stop on an unexpected side effect, real-user data, privilege change, rate limit, auth anomaly, or scope violation.
 
 When a tool cannot expose a required request or response detail, mark it `unknown` and explain the limitation. Do not fill gaps from guesses or undocumented assumptions.
 
@@ -89,6 +93,7 @@ Assign an evidence class to every candidate:
 - `static-candidate`: found in a browser-loaded resource but not confirmed by traffic;
 - `inferred-template`: normalized from repeated observations with supporting evidence;
 - `actively-probed`: confirmed or rejected by an explicitly authorized probe;
+- `assess-signal`: a security-relevant behavioral differential found during an authorized assessment;
 - `third-party`: outside the allowed first-party origin set;
 - `blocked-or-unknown`: not exposed, not exercised, or ambiguous.
 
@@ -148,6 +153,19 @@ Describe browser state, cookies, CSRF, authorization, signatures, timestamps, id
 
 In `probe` mode only, a header-necessity matrix may test non-sensitive browser hints in an authorized read-only environment. Record each variant and result. Classify a requirement as `required`, `not demonstrated`, `sensitive`, or `unknown`; never recommend retries or header removal for an unknown mutation.
 
+## Run an authorized security assessment
+
+Use `assess` only when the exploration contract includes explicit authorization, a safe environment, test principals, synthetic data, an expected policy matrix, an allowlist, and bounded stop conditions. Keep all activity headless and browser-mediated.
+
+- **Hidden surfaces**: inspect browser-loaded chunks, manifests, source maps, route strings, feature flags, and client guards for `/admin/`, `/debug/`, `/metrics/`, export, or unlinked capabilities. Record these as `static-candidate`; do not auto-visit, bypass a guard, or infer authorization from frontend code.
+- **Method/content variants**: use safe read-only controls first. Test alternate `Accept` or request content types only on allowlisted read endpoints. Do not send alternate verbs or state-changing bodies to live endpoints unless the user has explicitly authorized that exact test fixture.
+- **BOLA/BFLA differentials**: require at least two test principals and an expected matrix covering principal, tenant, object, operation, and expected result. Compare status, body shape, sensitive keys, and timing only as signals; confirm with a fresh server-side read or state check. Label results `candidate`, `confirmed-in-fixture`, `inconclusive`, `rejected`, or `blocked`.
+- **Authentication enforcement**: never strip or downgrade live credentials and never request tokens in chat. In a synthetic fixture only, compare control and malformed/absent-auth variants against an expected reject policy, recording whether the server—not only the frontend router—enforces it.
+- **Mass assignment**: identify protected-looking fields such as role, admin, verification, tenant, or balance from observed schemas, then use harmless synthetic canary fields and isolated records. Verify before/after state; never inject privilege fields into real user or financial records.
+- **Blind parameters**: apply a small, documented parameter corpus only to allowlisted read-only endpoints or fixtures. Treat changes in status, response length, JSON keys, timing, or content type as leads requiring confirmation, not findings.
+
+Do not label a security issue confirmed unless the result is reproducible within the authorized scope and supported by the expected-policy matrix and state evidence. Do not infer absence of a vulnerability from a blocked or untested case.
+
 ## Produce the Markdown report
 
 Write a single report with this structure:
@@ -158,7 +176,7 @@ Write a single report with this structure:
 ## Scope and evidence
 - Target, final URL, timestamp, browser/session assumptions
 - Allowed origins and mutation policy
-- Mode: observe / harvest / probe and authorization basis
+- Mode: observe / harvest / probe / assess and authorization basis
 - Coverage summary: states/actions discovered and explored, requests observed, endpoints deduplicated
 - Evidence labels: Observed / Inferred / Unknown
 
@@ -174,6 +192,12 @@ Write a single report with this structure:
 
 ## Interaction coverage
 | State/action | Result | Requests | Status |
+
+## Security assessment scope
+<authorization, environment, principals, tenants, synthetic objects, allowlist, budgets, and stop conditions; omit when not using assess mode>
+
+## Authorization matrix and assessment results
+| Principal/object/operation | Expected | Observed | State check | Result | Evidence |
 
 ## Static candidates and unconfirmed routes
 | Candidate | Evidence resource | Why it is a candidate | Confirmation status |
@@ -201,8 +225,10 @@ Before reporting completion, verify:
 
 - the page was navigated and settled in headless Chrome;
 - the selected evidence mode, authorization basis, budgets, and initial snapshot are recorded;
+- `assess` runs include explicit scope, test principals, synthetic data, expected policy matrix, allowlist, and stop conditions;
 - discovered and explored interaction states are recorded with stable state/action IDs and loop-bounded coverage;
 - every documented endpoint has a trigger, classification, normalized identity, evidence class, and confidence;
+- every `assess-signal` has a control case, test variant, expected result, observed result, and state evidence;
 - static candidates and inferred templates are separated from observed usable endpoints;
 - secrets and personal data are redacted;
 - safe and mutating methods are distinguished;
@@ -210,6 +236,7 @@ Before reporting completion, verify:
 - generated OpenAPI/GraphQL artifacts, if any, carry evidence scope and replayability limitations;
 - third-party and non-API traffic is separated;
 - blocked, untested, and unknown behavior is explicit;
+- security results are labeled candidate, confirmed-in-fixture, inconclusive, rejected, or blocked, never overstated as production vulnerabilities;
 - the Markdown file exists at the requested output path and is internally consistent.
 
 The final response should link the Markdown report and summarize coverage, major endpoint families, safety restrictions, and unresolved gaps.
