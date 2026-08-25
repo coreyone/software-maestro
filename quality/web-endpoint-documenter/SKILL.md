@@ -1,6 +1,6 @@
 ---
 name: web-endpoint-documenter
-description: "Explore an authorized URL with headless Chrome DevTools/CDP, build a bounded SPA state-and-action graph, capture and classify browser traffic, optionally harvest browser-loaded static evidence, and run a guarded security-assessment mode with test principals and synthetic data. Produce evidence-aware Markdown, OpenAPI, or GraphQL endpoint documentation for REST, GraphQL, RPC, streaming, form, pagination, authentication, authorization, and request/response behavior without native GUI automation or direct HTTP crawling."
+description: "Explore an authorized URL with headless Chrome DevTools/CDP, seed first-party host perimeters with passive subdomain enumeration, build a bounded SPA state-and-action graph, capture and classify browser traffic, optionally harvest browser-loaded static evidence, and run a guarded security-assessment mode with test principals and synthetic data. Produce evidence-aware Markdown, OpenAPI, or GraphQL endpoint documentation for REST, GraphQL, RPC, streaming, form, pagination, authentication, authorization, and request/response behavior without native GUI automation or direct HTTP crawling."
 ---
 
 # Web Endpoint Documenter
@@ -9,7 +9,7 @@ Turn a user-authorized URL into a reproducible, evidence-backed Markdown descrip
 
 ## Boundaries
 
-- Use headless Chrome DevTools/CDP tools only. Do not use native GUI automation, direct HTTP crawling, filesystem source downloads, or alternate browser automation unless the user explicitly changes the constraint.
+- Use headless Chrome DevTools/CDP tools for dynamic page exploration. Passive OSINT reconnaissance (e.g., querying Certificate Transparency logs or passive DNS sources via `subfinder` or `crt.sh`) is permitted during pre-flight discovery to map first-party origin perimeters. Do not use native GUI automation, active port/vulnerability scanners, aggressive DNS brute-forcing, direct HTTP crawling, filesystem source downloads, or alternate browser automation unless the user explicitly changes the constraint.
 - Keep the default mode `observe`: capture browser behavior without active probing or mutation. Allow `harvest` only for browser-mediated inspection of resources the page actually loads. Allow `probe` only after explicit authorization for a safe, read-only target or test environment. Allow `assess` only with explicit authorization, a defined target scope, test principals, synthetic canary data, and an allowlisted probe plan.
 - Inspect only targets the user is authorized to analyze. Never bypass authentication, bot controls, paywalls, rate limits, origin policy, or access controls.
 - Treat `GET`, `HEAD`, and `OPTIONS` as safe to observe. Do not submit forms or invoke `POST`, `PUT`, `PATCH`, `DELETE`, payments, account changes, uploads, or other mutations unless the user explicitly authorizes that action and it is clearly safe in the target environment.
@@ -26,14 +26,17 @@ Record the selected mode in the report:
 - **Probe**: explicit opt-in. Perform narrowly bounded, authorized read-only probes such as GraphQL introspection or controlled header-necessity tests. Do not probe live mutations, credentials, access controls, or anti-bot defenses.
 - **Assess**: explicit security-assurance mode. Require an authorized test/staging target, test principals and expected policy matrix, synthetic canary objects, a request/parameter allowlist, rate limits, and stop conditions. Compare server behavior across principals and controlled inputs; do not claim a vulnerability from a single response difference.
 
-Never use a static candidate or an inferred template as proof that an endpoint is callable. Never call a generated specification production-ready solely because it was derived from browser evidence.
+Never use a static candidate, an enumerated origin, or an inferred template as proof that an endpoint is callable. Never call a generated specification production-ready solely because it was derived from browser evidence.
 
 ## Establish the exploration contract
 
 Before browsing, resolve or state defaults for:
 
 1. Starting URL and whether redirects may be followed.
-2. Allowed origins: same-origin by default; label first-party subdomains and third-party traffic separately.
+2. Allowed origins & Subdomain Perimeter:
+   - Run passive subdomain enumeration on the base domain (e.g., `subfinder -d <domain> -silent -json` or via crt.sh/Certificate Transparency).
+   - Group discovered hosts into first-party API origins (`api.*`, `graphql.*`), web app hosts (`app.*`, `admin.*`), and static/CDN services.
+   - Seed the allowed origin filter so cross-subdomain dynamic requests (e.g., `app.example.com` calling `api.example.com`) are captured and classified as first-party rather than third-party.
 3. Authentication state: public session or an already-authorized browser profile. Never request secrets in chat.
 4. Interaction budget: default to the initial load plus visible, non-destructive controls, with bounded depth, actions, and wait time.
 5. Evidence mode: default `observe`; require explicit authorization for `harvest`, `probe`, or `assess`.
@@ -43,10 +46,11 @@ Before browsing, resolve or state defaults for:
 
 If a missing choice materially changes safety or coverage, ask one focused question before acting. Otherwise use the defaults above and record them in the report.
 
-## Explore with Chrome DevTools
+## Explore with Chrome DevTools and Passive Perimeter Discovery
 
-Use the `chrome-devtools` workflow:
+Use the `chrome-devtools` workflow alongside passive perimeter mapping:
 
+0. **Pre-flight perimeter discovery**: Execute passive subdomain enumeration on the root domain (e.g., `subfinder -d <target-domain> -silent -json` or `curl -s "https://crt.sh/?q=%25.<target-domain>&output=json" | jq -r '.[].name_value' | sort -u`). Document discovered subdomains to establish the first-party ecosystem and distinguish internal API origins from third-party vendor traffic.
 1. List and select the target page, navigate to the URL, and wait for load/settling signals.
 2. Capture an initial accessibility snapshot. Record title, final URL, visible routes, forms, controls, pagination, dialogs, tabs, and stateful UI.
 3. Build a state-and-action graph. Give each state a stable hash from URL/history, accessibility structure, relevant route/DOM state, and selected controls. Give each action an ID, source state, target state, and request window.
@@ -55,7 +59,7 @@ Use the `chrome-devtools` workflow:
 6. Exercise visible, non-destructive paths systematically: navigation, tabs, accordions, search/filter controls, pagination, sorting, dialogs, login-state branches already available, and bounded scrolling/infinite lists.
 7. Refresh or revisit a state when needed to distinguish initial-load traffic from interaction traffic. Avoid duplicate actions once their request behavior is established.
 8. Use `evaluate_script` only for page-observable data needed to understand behavior, such as form values, route state, resource entries, or embedded configuration. Treat page JavaScript as evidence, not proof of a callable endpoint.
-9. In `harvest` mode, inspect only resources observed as loaded by the page. Record resource URL, origin, hash, timestamp, and evidence location. Do not fetch arbitrary guessed assets or read source outside the browser boundary.
+9. In `harvest` mode, inspect only resources observed as loaded by the page. Record resource URL, origin, hash, timestamp, and evidence location. Cross-reference endpoints found in scripts against enumerated first-party subdomains. Do not fetch arbitrary guessed assets or read source outside the browser boundary.
 10. In `probe` mode, record the exact authorization, target environment, probe request, expected safety property, and result. Stop on an unexpected status, side effect, auth challenge, rate limit, or ambiguity.
 11. In `assess` mode, execute only the predeclared allowlist. Capture the control request, test variant, principal/object context, response differential, and a fresh server-side state check. Stop on an unexpected side effect, real-user data, privilege change, rate limit, auth anomaly, or scope violation.
 
@@ -90,14 +94,15 @@ Assign an evidence class to every candidate:
 - `observed-dynamic`: captured during page navigation or an interaction;
 - `observed-stream`: captured from a WebSocket or Server-Sent Events channel;
 - `observed-error`: captured as an error response or browser failure;
-- `static-candidate`: found in a browser-loaded resource but not confirmed by traffic;
+- `enumerated-origin`: first-party host/subdomain discovered passively via OSINT;
+- `static-candidate`: found in a browser-loaded resource or associated with an enumerated host but not confirmed by live traffic;
 - `inferred-template`: normalized from repeated observations with supporting evidence;
 - `actively-probed`: confirmed or rejected by an explicitly authorized probe;
 - `assess-signal`: a security-relevant behavioral differential found during an authorized assessment;
 - `third-party`: outside the allowed first-party origin set;
 - `blocked-or-unknown`: not exposed, not exercised, or ambiguous.
 
-Keep static candidates and inferred templates out of the primary usable-endpoint count unless the report explicitly labels the count as broader discovery coverage.
+Keep static candidates, enumerated origins, and inferred templates out of the primary usable-endpoint count unless the report explicitly labels the count as broader discovery coverage.
 
 Document the distinction between an endpoint observed in the browser and an endpoint demonstrated as safely replayable. A request that requires browser state, a signed URL, a short-lived token, or an opaque generated value is not automatically a generally usable API.
 
@@ -180,6 +185,10 @@ Write a single report with this structure:
 - Coverage summary: states/actions discovered and explored, requests observed, endpoints deduplicated
 - Evidence labels: Observed / Inferred / Unknown
 
+## Host and subdomain perimeter
+| Host | Category | Discovery source | Session role | Status |
+| :--- | :--- | :--- | :--- | :--- |
+
 ## Executive summary
 <what the page appears to use and what is safe or unsafe to reuse>
 
@@ -223,13 +232,14 @@ For a final quality pass, read [references/reporting-rubric.md](references/repor
 
 Before reporting completion, verify:
 
+- the first-party subdomain perimeter was passively mapped and origin classifications are recorded;
 - the page was navigated and settled in headless Chrome;
 - the selected evidence mode, authorization basis, budgets, and initial snapshot are recorded;
 - `assess` runs include explicit scope, test principals, synthetic data, expected policy matrix, allowlist, and stop conditions;
 - discovered and explored interaction states are recorded with stable state/action IDs and loop-bounded coverage;
 - every documented endpoint has a trigger, classification, normalized identity, evidence class, and confidence;
 - every `assess-signal` has a control case, test variant, expected result, observed result, and state evidence;
-- static candidates and inferred templates are separated from observed usable endpoints;
+- static candidates, enumerated origins, and inferred templates are separated from observed usable endpoints;
 - secrets and personal data are redacted;
 - safe and mutating methods are distinguished;
 - observed error payloads, pagination/filter/sort behavior, auth signals, and replay limits are documented;

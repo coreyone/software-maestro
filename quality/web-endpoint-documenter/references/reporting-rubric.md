@@ -22,7 +22,7 @@ An endpoint entry should be stable enough to compare across runs while retaining
 
 Every field in a detailed endpoint entry should use one of these levels when it is not self-evident from the capture.
 
-Static bundle strings, source-map interfaces, embedded routes, and inferred path templates are candidates unless browser traffic or an authorized probe confirms them. Keep them out of the observed usable-endpoint count.
+Static bundle strings, source-map interfaces, embedded routes, enumerated origins, and inferred path templates are candidates unless browser traffic or an authorized probe confirms them. Keep them out of the observed usable-endpoint count.
 
 ## Security assessment validity
 
