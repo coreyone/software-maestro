@@ -65,10 +65,46 @@ When you need full control:
 - **Icons**: Lucide or iconoir
 - **Animation**: Motion (motion.dev)
 - **3D**: Three.js
+- **Canvas & Shader Effects**: [Canvas UI](https://github.com/DavidHDev/canvas-ui) — WebGL shader effects over live, interactive HTML/DOM elements
 - **Charts**: LayerChart
 - **Maps**: MapLibre GL JS
 - **Loading Spinners**  Unicode Animations (https://www.npmjs.com/package/unicode-animations)
 - **Haptics** Mobile web haptics (https://github.com/lochie/web-haptics)
+
+### UI Libraries
+
+- **Canvas UI** — for interactive WebGL shader overlays on DOM elements (https://github.com/DavidHDev/canvas-ui)
+- **NumberFlow** — for animating numbers
+- **Driver.js** — for user onboarding, guided tours, and feature spotlights (https://github.com/kamranahmedse/driver.js)
+- **input-otp** — for one-time passwords
+- **Liveline** — for real-time charts
+- **Leva** — for customizable GUIs
+- **cmdk** — for command menus
+- **Virtuoso** — for virtualization
+- **dnd kit** — for drag and drop
+- **Sonner** — for notifications
+
+### UI library selection rules
+
+Prefer the smallest tool that solves a demonstrated interaction. Do not add a UI library just because it is available.
+
+- **Canvas UI — when to use**: Use for high-impact landing pages, creative hero sections, interactive showcases, or micro-interactions requiring WebGL shader effects (e.g., glass refraction, shatter, rain droplets, hex float) layered directly over live, accessible, interactive DOM elements across React, Svelte, Vue, Solid, or Vanilla JS.
+- **Canvas UI — when not to use**: Do not use for standard application layouts, dense data tables, administrative interfaces, or low-end mobile experiences where standard CSS (like `backdrop-filter`) is sufficient and WebGL overhead would hurt performance or battery life.
+- **Driver.js — when to use**: Use for lightweight, interactive product walkthroughs, feature highlight tours, or guided onboarding steps. It is MIT-licensed, zero-dependency, vanilla TS (~5 KB gzip), and framework-agnostic (works with SvelteKit, Solid, React, or static HTML).
+- **Driver.js — when not to use**: Do not use when native headless primitives (e.g. Bits UI / Base UI dialogs, popovers, or step checklists) offer a better inline UX than full-screen spotlight overlays. Avoid heavy dual-licensed alternatives like Intro.js.
+
+#### 415FC live draft companion
+
+- **NumberFlow — consider later.** Useful for refreshed roster counts, pick totals, and status metrics when a value change needs emphasis. Keep the dense player tables static; manual refresh does not need realtime number motion.
+- **cmdk — consider later.** A good fit for a keyboard-first “jump to player,” “change view,” or “refresh” command surface. Do not add it until those commands are numerous enough to justify a palette. `cmdk` is React-oriented, so use a Svelte-native equivalent if the app moves to SvelteKit. [cmdk](https://github.com/dip/cmdk)
+- **Sonner — do not add now.** The app has one small inline toast surface and should keep it local and visually restrained. Sonner is React-oriented; if notification volume grows, choose a framework-native equivalent before introducing a global toast system. [Sonner](https://www.npmjs.com/package/sonner)
+- **Virtuoso — not needed now.** The draft board and cheat sheet are small enough for normal rendering, and virtualization would work against positional scanning. Reconsider only for a much larger player-search surface or a full multi-season dataset.
+- **input-otp — not applicable.** V1 has no OTP or authentication flow.
+- **Liveline — not applicable now.** V1 is manual-refresh and has no realtime chart feed. Use a static table or compact trend treatment if draft-history analysis is added later.
+- **Leva — not for the product UI.** It is a developer control surface, not an owner-facing settings pattern. Use the existing settings surface or a normal form for user controls.
+- **dnd kit — not needed now.** Draft order and picks come from Sleeper; drag-and-drop would create a second source of truth. Reconsider only for an explicitly user-authored board or lineup workflow.
+
+Default for this app: keep the current dependency set. Add a library only with a named user task, a measurable interaction benefit, and a fallback plan for the app’s current framework/runtime.
 ---
 
 ## Forms + Data
@@ -184,6 +220,15 @@ Note: Lucia v3 is deprecated. Plan migrations accordingly.
 - **Local Pipelines**: ComfyUI — full control when needed
 
 ---
+
+## AI — Web Search / Grounding
+
+- **Default**: `ground.py` at `~/.claude/tools/ground-search/` — a ddgs-backed, zero-key, free web search primitive callable identically from Claude Code skills (shell out) and any app (spawn a subprocess). Confirmed live 2026-08-24.
+  - Call: `~/.claude/tools/ground-search/venv/bin/python3 ~/.claude/tools/ground-search/ground.py "<query>" [max_results]` → `{"ok": true, "results": [{title, url, snippet}]}` on stdout, or `{"ok": false, "error": "..."}` (exit 1) on failure. `ok:true` with an empty `results` array means "searched, found nothing" — not a failure.
+  - App consumer, not a Claude-skill router: `headless-browsing`'s own scope explicitly excludes ordinary web search ("prefer an existing search or fetch tool"), so this stays a plain callable dependency for app backends (SvelteKit routes, adapters) — not wired into any skill's routing table.
+  - Why this over the obvious "AI grounding" options: Gemini's Google Search grounding tool 429s on the free-tier API key (requires real billing even to try, confirmed live); OpenRouter's `web` plugin (Exa-backed) requires paid account credits (confirmed live, 402 on a $0 account). Both are marketed as free-tier accessible but are not, in practice.
+  - Returns snippets only, not full page text — pair with a plain HTTP fetch + text extraction (see `reddit-rss.ts`'s pattern in the editorial-desk project for a proven, zero-dependency example) when an app needs the actual page content, not just a result list.
+  - Upgrade path once Docker/Ollama are actually installed on the machine: self-hosted SearXNG (meta-search, no API key, aggregates multiple engines) as a richer discovery layer, and local Qwen via Ollama as the summarizing model — neither is installed as of 2026-08-24, so don't assume they're available without checking first.
 
 ## AI — Tooling
 

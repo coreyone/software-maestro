@@ -1,6 +1,6 @@
 ---
 name: tech-stack-preferences
-description: "Trigger: tech stack, preferred tools, SvelteKit, Bun, Drizzle, Zero Sync, Better Auth, Vite. Scope: Project tooling preferences, framework selections. Boundary: Excludes application logic or visual styling guidelines."
+description: Align architecture and implementation decisions to the preferred technology stack.
 ---
 
 # Tech Stack Preferences
