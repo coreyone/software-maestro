@@ -1,0 +1,4 @@
+interface:
+  display_name: "How Might We"
+  short_description: "Frame evidence-backed design opportunities"
+  default_prompt: "Use $how-might-we to turn this research insight into strong, testable HMW questions."

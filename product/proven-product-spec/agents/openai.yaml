@@ -1,0 +1,4 @@
+interface:
+  display_name: "Proven Product Spec"
+  short_description: "Build specs from proven market patterns"
+  default_prompt: "Use $proven-product-spec to create an evidence-backed product spec from successful market patterns."

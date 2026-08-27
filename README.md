@@ -11,7 +11,7 @@ npx skills add coreyone/software-maestro
 
 ## Lifecycle Structure
 
-*   **product/**: Strategy & execution governance (create-prd, product-management, product-management-press-memo, product-strategy-outcome-vision, ux-discovery-artifacts, michael-bolton-rule, swarm-rules, god-marduk). Validates customer truth before roadmaps. Decides what not to build.
+*   **product/**: Strategy & execution governance (continuous-product-loop, create-prd, product-management, product-management-press-memo, product-strategy-outcome-vision, proven-product-spec, ux-discovery-artifacts, how-might-we, michael-bolton-rule, swarm-rules, god-marduk). Validates customer truth before roadmaps. Decides what not to build.
 *   **design/**: Wayfinding & visual systems (aesthetic-rules, responsive-rules, design-animation, design-system-rules, design-usability-rules, chart-communication). Structures for instant orientation (IA), WCAG AA typography-first layout, and tactile microinteractions.
 *   **engineering/**: Clean code, architecture, and governed improvement workflows (developer-development, code-review, improve-codebase, TDD, eval-driven development, system-architecture, resiliency, tech-stack). Isolates components, decouples modules, and improves probabilistic behavior through versioned baselines, calibrated evaluators, and regression datasets.
 *   **data-and-api/**: Contract-first endpoints & persistence schemas (api-design-guidelines, data-persistence-caching). Bypasses client-state latency using local memory replication.
@@ -22,7 +22,7 @@ npx skills add coreyone/software-maestro
 ## Taxonomy
 
 ```
-├── product/          # Strategy & execution (create-prd, product-management, product-management-press-memo, product-strategy-outcome-vision, ux-discovery-artifacts, michael-bolton-rule, swarm-rules, god-marduk)
+├── product/          # Strategy & execution (continuous-product-loop, create-prd, product-management, product-management-press-memo, product-strategy-outcome-vision, proven-product-spec, ux-discovery-artifacts, how-might-we, michael-bolton-rule, swarm-rules, god-marduk)
 ├── design/           # Aesthetic rules, responsive layout, motion, chart communication, skeletons, empty states
 ├── engineering/      # Code quality, audits, implementation planning, architecture, resiliency, TDD, eval-driven development
 ├── data-and-api/     # REST/GraphQL API design, database schemas, ORM models, caching
