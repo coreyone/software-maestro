@@ -1,16 +1,16 @@
 # User Onboarding & First-Time User Experience (FTUX) Master Reference
-_Source spine: Nielsen Norman Group (NN/g), O'Reilly Media, MIT Press, The Pragmatic Bookshelf, and Behavioral Usability Research._
+_Source spine: Nielsen Norman Group (NN/g), O'Reilly Media, MIT Press, The Pragmatic Bookshelf, Stanford Behavior Design Lab, and Evaluation-Driven Development (EDD)._
 
 ---
 
-## 0) North Star & Fundamental Equations
+## 0) North Star, System Equations & Core Philosophy
 
 ### First-Principles (Why)
-- **The Fire Flower Principle** (*Samuel Hulick / UserOnboard*): Users do not want to become experts at your tool; they want to become better at their own superpowers. Mario does not care about the fire flower itself; he cares about throwing fireballs and rescuing the princess.
-- **Minimum Viable Instruction (MVI)** (*Kathy Sierra / O'Reilly*): Cognitive resources, willpower, and working memory degrade rapidly during initial encounters with new software. Every unnecessary explanation or non-essential field depletes the user's ability to reach their goal.
-- **Behavior Equation** (*Dr. BJ Fogg / Stanford*):
+- **The Fire Flower Principle** (*Samuel Hulick / UserOnboard*): Users do not want to become experts at your tool; they want to become better at their own superpowers. Mario does not care about the fire flower itself; he cares about throwing fireballs and rescuing the princess. Onboarding must focus on the user's superpower, not the product's buttons.
+- **Minimum Viable Instruction (MVI)** (*Kathy Sierra / O'Reilly*): Cognitive resources, focus, and working memory degrade rapidly during initial encounters with new software. Every unnecessary explanation, tooltip, or configuration field depletes the user's cognitive budget before they experience value.
+- **Fogg Behavior Model** (*Dr. BJ Fogg / Stanford Behavior Design Lab*):
   $$B = MAP \quad (\text{Behavior} = \text{Motivation} \times \text{Ability} \times \text{Prompt})$$
-  Because user motivation is volatile and naturally decays after landing, onboarding must **radically maximize Ability** by driving friction toward zero.
+  Because consumer motivation is highly volatile and quickly decays after landing, onboarding must **radically maximize Ability** by driving friction toward zero.
 
 ### The System Equation
 $$\text{Activation Rate} = \frac{\text{Perceived Value} + \text{Momentum} + \text{Immediate Feedback}}{\text{Time-to-Value (TTV)} + \text{Cognitive Load} + \text{Setup Friction} + \text{Uncertainty}}$$
@@ -27,7 +27,7 @@ $$\text{Activation Rate} = \frac{\text{Perceived Value} + \text{Momentum} + \tex
 ### B. Contextual "Learn by Doing" (Just-in-Time Guidance)
 - **Usability Finding**: Guidance is effective only when attached to the user's immediate intent.
 - **Rule**: Present prompts, hints, and inline microcopy strictly when the user focuses on or triggers the relevant action.
-- **Limit**: Maximum 1 contextual callout visible at any given time. Never stack tooltips.
+- **Limit**: Maximum 1 contextual callout visible at any given time. Never stack tooltips or blanket the interface in callout overlays.
 
 ### C. Empty States as Primary Onboarding Catalysts
 - **Usability Finding**: Blank screens ("No projects created yet") produce choice paralysis and abandonment.
@@ -51,6 +51,7 @@ $$\text{Activation Rate} = \frac{\text{Perceived Value} + \text{Momentum} + \tex
 ### Kathy Sierra (*Badass: Making Users Awesome*)
 - **Post-Heroic Design**: The product is not the hero; the user is the hero. Remove all self-congratulatory marketing copy from onboarding screens.
 - **Compilations of Skills**: Scaffold complex applications by breaking them into automatic micro-skills. Let the user master step 1 before exposing step 2.
+- **Protect the Cognitive Budget**: Willpower and focus burn out in minutes. Deliver a capability win within 60 seconds.
 
 ### Stephen Wendel (*Designing for Behavior Change*) — The CREATE Framework
 - **Cue**: Provide an intuitive, unambiguous prompt to start.
@@ -76,7 +77,7 @@ $$\text{Activation Rate} = \frac{\text{Perceived Value} + \text{Momentum} + \tex
 - **Level 1 Design**: Super Mario World 1-1 teaches jumping, dodging, and collecting mushrooms without a single word of tutorial text.
 - **Sandboxed Failure**: Create safe boundaries where first-time mistakes have zero destructive consequences (e.g., auto-saving drafts, non-destructive sample workspaces).
 
-### Seymour Papert & Mitchel Resnick (*Mindstorms* / Constructionism)
+### Seymour Papert & Mitchel Resnick (*Mindstorms* / Lifelong Kindergarten)
 - **Low Floor, High Ceiling, Wide Walls**:
   - *Low Floor*: Getting started takes < 60 seconds with zero prerequisites.
   - *High Ceiling*: Advanced power users can scale to maximum complexity over time.
@@ -138,7 +139,19 @@ $$\text{Activation Rate} = \frac{\text{Perceived Value} + \text{Momentum} + \tex
 
 ---
 
-## 7) Tactical Onboarding Checklist
+## 7) Eval-Driven Development (EDD) Matrix for Onboarding
+
+| Dimension | Deterministic Check | Semantic Evaluator | Pass Threshold |
+| :--- | :--- | :--- | :--- |
+| **Time-to-Value** | Seconds from launch to first core artifact output | Interaction trace review | $\le 60$ seconds (Consumer), $\le 5$ min (Dev) |
+| **Cognitive Load** | Total visible input fields & mandatory screens | Working memory chunk audit | $\le 3$ inputs on first screen; 0 modal carousels |
+| **Autonomy** | Presence of unskippable full-screen modal traps | Dismissal & skip test | 100% of guidance flows skippable |
+| **Zero-State** | Blank whitespace check on fresh accounts | Starter template & CTA audit | 0 unpopulated blank states |
+| **Error Recovery** | State preservation test on cancelled steps | Non-destructive draft audit | 0 user data loss on flow exit |
+
+---
+
+## 8) Tactical Onboarding Checklist
 
 ### First 10 Seconds (Orientation & Low Floor)
 - [ ] User lands immediately on the workspace or active creation canvas.
@@ -157,7 +170,7 @@ $$\text{Activation Rate} = \frac{\text{Perceived Value} + \text{Momentum} + \tex
 
 ---
 
-## 8) Do Not Ship List (Anti-Patterns)
+## 9) Do Not Ship List (Anti-Patterns)
 
 - **Do Not Ship** forced multi-slide modal carousels ("Welcome to version 2.0! Slide 1 of 5").
 - **Do Not Ship** compulsory upfront profile questionnaires before demonstrating any product value.

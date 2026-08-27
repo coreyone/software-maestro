@@ -7,28 +7,67 @@
     {"prompt": "Redesign empty states and interactive checklists for new users.", "trigger": true},
     {"prompt": "Apply the bowling alley framework to shorten time-to-value.", "trigger": true},
     {"prompt": "Build a zero-to-hello-world onboarding experience for our developer SDK.", "trigger": true},
+    {"prompt": "Apply Kathy Sierra's minimum viable instruction to our app walkthrough.", "trigger": true},
+    {"prompt": "Implement an invisible level-one tutorial for our interactive workspace.", "trigger": true},
     {"prompt": "Write database migration scripts for user accounts.", "trigger": false},
     {"prompt": "Configure an OAuth 2.1 authorization server.", "trigger": false},
-    {"prompt": "Implement a Stripe payment webhook handler.", "trigger": false}
+    {"prompt": "Implement a Stripe payment webhook handler.", "trigger": false},
+    {"prompt": "Create an API schema for customer order receipts.", "trigger": false}
   ],
   "binary_cases": [
     {
-      "id": "ban-modal-carousel",
+      "id": "nng-anti-carousel-just-in-time",
       "prompt": "Specify the welcome experience for first-time app users.",
       "pass_rule": "Eliminate frontloaded modal carousels and use contextual just-in-time guidance or actionable empty states.",
       "must": [["contextual", "just-in-time", "interactive"], ["empty state", "learn by doing", "actionable"]],
-      "must_not": ["5-step carousel", "welcome carousel", "unskippable modal"],
+      "must_not": ["5-step carousel", "welcome carousel", "unskippable modal", "slide 1 of 5"],
       "pass_fixture": "Deliver contextual just-in-time guidance and an actionable empty state that encourages learning by doing instead of modal tours.",
       "fail_fixture": "Show a 5-step carousel modal explaining the whole UI before users can enter."
     },
     {
-      "id": "time-to-value-straight-line",
+      "id": "kathy-sierra-mvi",
+      "prompt": "Design onboarding instructions for a creative editing tool.",
+      "pass_rule": "Apply minimum viable instruction to deliver a capability win within 60 seconds without self-congratulatory marketing copy.",
+      "must": [["minimum viable instruction", "mvi", "essential instruction"], ["60 seconds", "immediate", "instant win"], ["capability", "user awesome", "badass"]],
+      "must_not": ["15-minute training video", "read full documentation", "learn all 40 features"],
+      "pass_fixture": "Provide minimum viable instruction so the user achieves an instant win and unlocks new capability in under 60 seconds.",
+      "fail_fixture": "Require the user to watch a 15-minute training video and read full documentation to learn all 40 features first."
+    },
+    {
+      "id": "bowling-alley-straight-line",
       "prompt": "Optimize user onboarding to reach the Aha! moment faster.",
       "pass_rule": "Implement straight-line onboarding by pruning non-essential steps and providing sensible defaults.",
       "must": [["straight-line", "shortest path"], ["Aha", "first value"], ["prune", "defaults"]],
       "must_not": ["mandatory profile survey", "10-step wizard"],
       "pass_fixture": "Adopt straight-line onboarding to guide the user to the Aha! moment on the shortest path by using sensible defaults and pruning extraneous setup questions.",
       "fail_fixture": "Force a mandatory profile survey and a 10-step wizard before showing any product output."
+    },
+    {
+      "id": "mit-press-level-one-tutorial",
+      "prompt": "Design the first interaction with an interactive simulation canvas.",
+      "pass_rule": "Create an invisible level-one tutorial with safe sandboxed failure and implicit learning.",
+      "must": [["level 1", "level-1", "invisible tutorial"], ["sandbox", "safe", "non-destructive"], ["implicit", "learn by doing", "explore"]],
+      "must_not": ["blocking popups", "quiz before access"],
+      "pass_fixture": "Structure the canvas as an invisible tutorial like level 1 of a game, with a safe sandbox where users learn by doing through non-destructive actions.",
+      "fail_fixture": "Present 10 blocking popups and require a quiz before access to the canvas."
+    },
+    {
+      "id": "pragprog-zero-to-hello-world",
+      "prompt": "Design the developer onboarding quickstart for a new CLI tool.",
+      "pass_rule": "Enable zero to hello-world in under 5 minutes with single-command setup and actionable error messages.",
+      "must": [["hello world", "hello-world", "first run"], ["5 minutes", "single command", "one command"], ["actionable", "copy-paste"]],
+      "must_not": ["manual compilation", "edit 6 config files"],
+      "pass_fixture": "Ensure zero to hello world in under 5 minutes using a single command setup with sensible defaults and actionable copy-paste error recovery.",
+      "fail_fixture": "Require manual compilation from source and tell the developer to edit 6 config files manually."
+    },
+    {
+      "id": "bj-fogg-friction-elimination",
+      "prompt": "Redesign a signup flow experiencing 70% drop-off.",
+      "pass_rule": "Maximize ability by removing friction fields, social login, and lazy registration.",
+      "must": [["ability", "friction"], ["lazy registration", "delay", "social login", "defaults"], ["motivation", "fogg"]],
+      "must_not": ["12 required fields", "mandatory credit card upfront"],
+      "pass_fixture": "In line with the Fogg behavior model, maximize user ability at peak motivation by eliminating form friction and using lazy registration.",
+      "fail_fixture": "Add 12 required fields and demand a mandatory credit card upfront before any value is delivered."
     },
     {
       "id": "user-autonomy-and-resumption",
@@ -38,6 +77,15 @@
       "must_not": ["trap user", "no skip", "unskippable"],
       "pass_fixture": "Ensure the flow is skippable at all times with a prominent dismiss action and allow users to resume later from a persistent checklist.",
       "fail_fixture": "Create an unskippable tutorial and trap user until all tasks are finished."
+    },
+    {
+      "id": "actionable-empty-states",
+      "prompt": "Design the dashboard view for a newly registered user.",
+      "pass_rule": "Replace blank empty states with starter templates, sample data, or a single high-contrast primary CTA.",
+      "must": [["empty state", "zero-data"], ["starter template", "sample data", "template"], ["CTA", "primary action", "call to action"]],
+      "must_not": ["blank page", "nothing here yet", "no data found"],
+      "pass_fixture": "Transform the empty state by pre-populating starter templates and sample data alongside a prominent primary CTA to create a new project.",
+      "fail_fixture": "Render a blank page with static text stating no data found."
     }
   ]
 }
