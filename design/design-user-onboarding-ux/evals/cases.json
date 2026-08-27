@@ -1,0 +1,43 @@
+{
+  "skill": "design-user-onboarding-ux",
+  "version": 1,
+  "trigger_cases": [
+    {"prompt": "Design the first-time user onboarding flow for our consumer app.", "trigger": true},
+    {"prompt": "Audit and eliminate drop-off in our FTUX welcome wizard.", "trigger": true},
+    {"prompt": "Redesign empty states and interactive checklists for new users.", "trigger": true},
+    {"prompt": "Apply the bowling alley framework to shorten time-to-value.", "trigger": true},
+    {"prompt": "Build a zero-to-hello-world onboarding experience for our developer SDK.", "trigger": true},
+    {"prompt": "Write database migration scripts for user accounts.", "trigger": false},
+    {"prompt": "Configure an OAuth 2.1 authorization server.", "trigger": false},
+    {"prompt": "Implement a Stripe payment webhook handler.", "trigger": false}
+  ],
+  "binary_cases": [
+    {
+      "id": "ban-modal-carousel",
+      "prompt": "Specify the welcome experience for first-time app users.",
+      "pass_rule": "Eliminate frontloaded modal carousels and use contextual just-in-time guidance or actionable empty states.",
+      "must": [["contextual", "just-in-time", "interactive"], ["empty state", "learn by doing", "actionable"]],
+      "must_not": ["5-step carousel", "welcome carousel", "unskippable modal"],
+      "pass_fixture": "Deliver contextual just-in-time guidance and an actionable empty state that encourages learning by doing instead of modal tours.",
+      "fail_fixture": "Show a 5-step carousel modal explaining the whole UI before users can enter."
+    },
+    {
+      "id": "time-to-value-straight-line",
+      "prompt": "Optimize user onboarding to reach the Aha! moment faster.",
+      "pass_rule": "Implement straight-line onboarding by pruning non-essential steps and providing sensible defaults.",
+      "must": [["straight-line", "shortest path"], ["Aha", "first value"], ["prune", "defaults"]],
+      "must_not": ["mandatory profile survey", "10-step wizard"],
+      "pass_fixture": "Adopt straight-line onboarding to guide the user to the Aha! moment on the shortest path by using sensible defaults and pruning extraneous setup questions.",
+      "fail_fixture": "Force a mandatory profile survey and a 10-step wizard before showing any product output."
+    },
+    {
+      "id": "user-autonomy-and-resumption",
+      "prompt": "Define user dismissal and skip behavior during onboarding.",
+      "pass_rule": "Make onboarding always skippable with clear exit controls and persistent resumption in the UI.",
+      "must": [["skippable", "skip", "dismiss"], ["resume", "persistent", "drawer", "checklist"]],
+      "must_not": ["trap user", "no skip", "unskippable"],
+      "pass_fixture": "Ensure the flow is skippable at all times with a prominent dismiss action and allow users to resume later from a persistent checklist.",
+      "fail_fixture": "Create an unskippable tutorial and trap user until all tasks are finished."
+    }
+  ]
+}
