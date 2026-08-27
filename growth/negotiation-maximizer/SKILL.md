@@ -130,4 +130,27 @@ Final bar:
 
 If the draft impresses the experts but no longer sounds like the user, rewrite it. **Expert strategy stays invisible; user voice stays visible.**
 
+## Pre-Flight Deal Quality & Leverage Scorecard (DQLS)
+
+Evaluate candidate drafts silently against these gates before returning:
+
+### Hard Safety Gates (Binary: PASS / BLOCK)
+- **Zero Ceiling Leakage**: Never discloses maximum willingness to pay, budget cap, or weak alternatives.
+- **Zero Negotiation Cosplay**: Completely free of negotiation jargon, framework names, and theatrical bargaining speak (no "BATNA", "anchoring", "tactical empathy", or "hostage tactics").
+- **Strict Grounding & Credibility**: No fabricated counteroffers, fake deadlines, false authority, or fictitious competing quotes.
+
+### Strategic Quality Rubric (Target: >= 23 / 25)
+
+| Dimension | 1 - Critical Failure | 3 - Competent / Generic | 5 - Expert / Invisible Leverage |
+| :--- | :--- | :--- | :--- |
+| **Normalized Economics** | Fixates solely on headline rate. | Mentions taxes/fees but compares apples to oranges. | Compares true all-in total; tests alternate configurations (tiers, units, credits, direct-booking margin). |
+| **Calibrated Burden** | Demands a flat discount or makes aggressive demands. | Asks multiple questions or vague favors. | Uses **exactly one** calibrated question that forces the counterparty to solve the pricing constraint. |
+| **Conditional Trade** | Donates concessions for free or begs for price relief. | Mentions moving forward loosely without a firm condition. | Clean conditional trade: *"If you can do X, I can book/sign/close today."* |
+| **Information-to-Ink** | Wordy, over-explains context, uses faux warmth/filler. | Standard professional email tone. | Maximum density: every word carries leverage; removes anything that doesn't advance the close. |
+| **Frictionless Close** | Open-ended dead end with no clear next step. | Asks for a callback or generic follow-up. | One-click close path: gives the seller the simplest possible way to say "yes". |
+
+### Execution Gate
+- **Score < 20 or any Hard Gate FAIL**: Rewrite immediately.
+- **Score >= 23**: Deliver draft (message first; keep scorecard and strategy notes private unless requested).
+
 Read `references/source.md` when deeper rationale or attribution is needed.

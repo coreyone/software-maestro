@@ -1,0 +1,164 @@
+{
+  "skill": "product-pricing-strategy",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Design a pricing model and tier packaging for a new B2B AI agent platform.",
+      "trigger": true
+    },
+    {
+      "prompt": "Audit our SaaS pricing page and help us transition from seat-based to usage-based pricing.",
+      "trigger": true
+    },
+    {
+      "prompt": "Determine the Willingness-to-Pay and Good-Better-Best packaging for our DTC beauty subscription.",
+      "trigger": true
+    },
+    {
+      "prompt": "We are suffering from heavy sales discounting. Help us build a Pocket Price Waterfall and governance matrix.",
+      "trigger": true
+    },
+    {
+      "prompt": "How should we price our F2P mobile game battle pass and in-game economy?",
+      "trigger": true
+    },
+    {
+      "prompt": "Calculate the state sales tax and VAT on this accounting ledger.",
+      "trigger": false
+    },
+    {
+      "prompt": "Fix the CSS flexbox layout on our checkout modal button.",
+      "trigger": false
+    },
+    {
+      "prompt": "Write a PostgreSQL migration for user password hashes.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "evc-grounding-before-pricing",
+      "prompt": "How should we price our new enterprise workflow automation tool?",
+      "pass_rule": "The approach anchors price on Economic Value to Customer (EVC) and Next Best Alternative rather than cost-plus or arbitrary competitor copying.",
+      "must": [
+        [
+          "EVC",
+          "Economic Value"
+        ],
+        [
+          "Next Best Alternative",
+          "reference value"
+        ],
+        "differentiation",
+        [
+          "willingness-to-pay",
+          "WTP"
+        ]
+      ],
+      "must_not": [
+        "cost-plus is the best way"
+      ],
+      "pass_fixture": "First quantify the Economic Value to Customer (EVC) and Willingness-to-Pay (WTP) by establishing the Next Best Alternative and positive differentiation value, then target capturing 20-40% of the surplus.",
+      "fail_fixture": "Calculate our server hosting costs and add a 30% markup to set the price."
+    },
+    {
+      "id": "ai-metric-alignment",
+      "prompt": "We built an autonomous AI coding agent that completes tasks in seconds. How should we price it?",
+      "pass_rule": "The recommendation avoids pure seat-based pricing that penalizes efficiency and selects work-units, tasks, or a two-part tariff.",
+      "must": [
+        [
+          "work-unit",
+          "task",
+          "outcome",
+          "two-part tariff",
+          "consumption",
+          "hybrid"
+        ],
+        [
+          "seat",
+          "per-user"
+        ]
+      ],
+      "must_not": [
+        "use flat per-seat pricing only"
+      ],
+      "pass_fixture": "Avoid pure seat-based pricing because efficiency reduces user headcount. Use an outcome/work-unit model or a two-part tariff (base platform fee plus metered tasks/compute).",
+      "fail_fixture": "Price per seat at $30/user/month so that larger teams pay more."
+    },
+    {
+      "id": "mussa-rosen-fencing",
+      "prompt": "Our enterprise customers keep signing up for our $20/mo starter plan. How do we fix this?",
+      "pass_rule": "The strategy builds hard feature and governance fences (SSO, audit logs, SLAs, compliance, user limits) that prevent high-WTP buyers from using lower tiers.",
+      "must": [
+        [
+          "fence",
+          "fencing"
+        ],
+        [
+          "SSO",
+          "SAML",
+          "compliance",
+          "audit",
+          "SLA",
+          "governance"
+        ],
+        [
+          "cannibaliz",
+          "self-select"
+        ]
+      ],
+      "must_not": [
+        "ask enterprise customers nicely to pay more"
+      ],
+      "pass_fixture": "Implement strict feature and governance fences such as SAML SSO, SOC2 audit logs, dedicated support SLAs, and usage caps that force enterprise buyers to self-select into the Enterprise tier.",
+      "fail_fixture": "Leave the features unchanged and add a note asking enterprises to contact sales."
+    },
+    {
+      "id": "pocket-price-waterfall",
+      "prompt": "Our sales team is giving away 40% discounts to close deals. How do we regain margin control?",
+      "pass_rule": "The solution implements a Pocket Price Waterfall, strict discount authority bands, and mandatory quid-pro-quo concessions.",
+      "must": [
+        [
+          "pocket price",
+          "waterfall"
+        ],
+        [
+          "discount matrix",
+          "approval",
+          "governance"
+        ],
+        [
+          "quid-pro-quo",
+          "concession",
+          "trade"
+        ]
+      ],
+      "must_not": [
+        "let sales reps discount freely without limits"
+      ],
+      "pass_fixture": "Implement a Pocket Price Waterfall and a structured discount matrix with tiered approval thresholds, requiring mandatory quid-pro-quo concessions (e.g., annual prepay, multi-year term, logo rights) for any discount above 10%.",
+      "fail_fixture": "Give sales reps unlimited discount freedom so they can close quarterly numbers at all costs."
+    },
+    {
+      "id": "behavioral-framing-and-decoupling",
+      "prompt": "How can we structure pricing for our consumer gaming or micro-transaction app to maximize conversion?",
+      "pass_rule": "The strategy applies behavioral economics (Thaler mental accounting decoupling, dual-currency abstractions, or loss-aversion framing).",
+      "must": [
+        [
+          "mental accounting",
+          "decoupling",
+          "virtual currency",
+          "gems",
+          "credits",
+          "loss aversion",
+          "prospect theory"
+        ]
+      ],
+      "must_not": [
+        "charge a direct per-click credit card fee for every single action"
+      ],
+      "pass_fixture": "Apply mental accounting decoupling using pre-funded virtual currency bundles (gems/credits) to separate the pain of paying from the moment of in-game consumption.",
+      "fail_fixture": "Charge the user's credit card directly $0.10 for each individual in-game move."
+    }
+  ]
+}
