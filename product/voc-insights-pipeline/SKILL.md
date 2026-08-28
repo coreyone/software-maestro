@@ -1,6 +1,6 @@
 ---
 name: voc-insights-pipeline
-description: "Trigger: Voice of Customer, VoC aggregation, feedback tagging, customer signal synthesis, customer problem repository, win/loss feedback, feedback taxonomy. Scope: Ingesting, deduplicating, and synthesizing qualitative feedback from Sales (Salesforce/Gong), Support (Zendesk), and UXR into atomized, tagged customer problem theses linked to revenue and customer segments. Boundary: Excludes live user interview conducting or marketing copywriting."
+description: "Trigger: Voice of Customer, VoC aggregation, feedback tagging, customer signal synthesis, customer problem repository, win/loss feedback, feedback taxonomy, PostHog feedback correlation, n8n feedback triage. Scope: Ingesting, deduplicating, and synthesizing qualitative feedback from Sales (CRM/Gong), Support (Zendesk), and UXR into atomized, tagged customer problem theses linked to revenue and customer segments using OSS and preferred stack architectures. Boundary: Excludes live user interview conducting or marketing copywriting."
 ---
 
 # Rule: Voice of Customer (VoC) Aggregation & Feedback Synthesis
@@ -16,7 +16,7 @@ Do not use this skill for conducting live user interviews directly or writing cu
 ## Trigger cues
 
 - Request explicitly references `voc-insights-pipeline` or Voice of Customer synthesis.
-- Keywords: VoC, customer feedback synthesis, feedback taxonomy, problem repository, win/loss analysis, customer pain points, feature request tagging, Zendesk feedback triage.
+- Keywords: VoC, customer feedback synthesis, feedback taxonomy, problem repository, win/loss analysis, customer pain points, feature request tagging, Zendesk feedback triage, PostHog qualitative correlation.
 
 ## Routing boundary
 
@@ -25,31 +25,41 @@ Do not use this skill for conducting live user interviews directly or writing cu
 
 ## Inputs required
 
-- Raw feedback sources (Sales CRM notes, Support Zendesk exports, Gong call transcripts, user survey results)
+- Raw feedback sources (Sales CRM notes, Support Zendesk exports, Gong/call transcripts, user survey results)
 - Customer segmentation dimensions (SMB vs Mid-Market vs Enterprise, Tier, Geography)
+- Preferred stack architecture guidelines (n8n/Trigger.dev, PostHog, Drizzle + Supabase/Neon, Qwen/Gemini via LiteLLM)
 - Source of truth: [references/source.md](references/source.md)
 
 ## Instructions
 
 1. Read [references/source.md](references/source.md) first.
-2. Ingest qualitative inputs and extract **Atomized Problem Statements** (focus on underlying pain, not requested feature solutions).
-3. Tag each problem by **Segment** (SMB, Mid-Market, Enterprise), **Channel** (Sales, Support, UXR, Account Management), and **Frequency/ARR Weight**.
-4. Conduct a **Usefulness Assessment** across the core user jobs:
+2. Structure the **Ingestion & Automation Flow**:
+   - Ingest signals via webhooks/connectors (n8n, Trigger.dev) from CRM, Support, and User Research.
+   - Transcribe audio/video interviews using transcription APIs (e.g., ElevenLabs / Whisper).
+3. Process raw feedback with **AI Synthesis & Classification**:
+   - Use fast, low-cost LLMs (Qwen, Gemini Flash via LiteLLM) to extract **Atomized Problem Statements** (focus on root friction, not feature requests).
+   - Deduplicate and cluster problem entities using semantic vector similarity (pgvector in Postgres).
+4. Tag and Enrich signals:
+   - Categorize by **Customer Segment** (SMB, Mid-Market, Enterprise), **Channel** (Sales, Support, UXR, Account Management), and **Revenue Weight (ARR/MRR)**.
+   - Correlate qualitative complaints with **PostHog** product telemetry (session replays, error rates, drop-off funnels).
+5. Conduct a **Usefulness Assessment Matrix** across core user jobs:
    - *Fully Met*: Existing solution solves the problem friction-free.
    - *Partially Met*: Workarounds or usability issues exist.
    - *Not Met*: Severe blocker with high churn/loss risk.
-5. Generate a **Synthesized VoC Problem Digest** linking customer evidence directly to strategic product initiatives.
+6. Generate the **Synthesized VoC Problem Digest & Repository Schema**.
 
 ## Completion gate
 
 Before reporting completion, verify against `evals/cases.json`:
 - Explicit atomized problem statements (separated from solution requests).
-- Customer segment and source channel tagging.
-- Clear prioritization matrix based on frequency and revenue impact.
+- Customer segment, source channel, and revenue impact tagging.
+- Correlation with product analytics (e.g. PostHog) and pipeline automation (e.g. n8n / Trigger.dev).
+- Clear Usefulness Assessment ratings (Fully Met, Partially Met, Not Met).
 
 ## Output format
 
 - **Problem Theses**: Atomized statements of user friction.
 - **Signal Breakdown by Channel**: Data from Sales, Support, Account Management, and UXR.
-- **Segment Impact Analysis**: Weight by customer tier and revenue risk.
-- **Actionable Strategic Insights**: Prioritized problem opportunities for product roadmaps.
+- **Segment & Revenue Impact Analysis**: Weight by customer tier and ARR risk.
+- **Usefulness Assessment Matrix**: Status across critical user jobs.
+- **Architecture & Tooling Alignment**: Ingestion workflows (n8n/Trigger.dev), storage schema (Drizzle + Postgres), and analytics telemetry (PostHog).

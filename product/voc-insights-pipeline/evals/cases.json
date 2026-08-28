@@ -3,11 +3,11 @@
   "version": 1,
   "trigger_cases": [
     {
-      "prompt": "We have 150 Zendesk tickets, 20 Gong sales call transcripts, and 10 churn survey responses. How do we synthesize this Voice of Customer data into a structured problem repository?",
+      "prompt": "We have 150 Zendesk tickets, 20 Gong sales call transcripts, and 10 PostHog survey responses. How do we synthesize this Voice of Customer data into a structured problem repository using our preferred stack?",
       "trigger": true
     },
     {
-      "prompt": "Build a VoC feedback tagging taxonomy and customer problem usefulness assessment matrix.",
+      "prompt": "Build a VoC feedback tagging taxonomy and customer problem usefulness assessment matrix connected with PostHog and n8n pipelines.",
       "trigger": true
     },
     {
@@ -22,39 +22,19 @@
   "binary_cases": [
     {
       "id": "voc-synthesis-and-usefulness-matrix",
-      "prompt": "Synthesize customer feedback regarding export failures, missing multi-currency support, and slow dashboard loading into atomized problems with a usefulness assessment and segment breakdown.",
-      "pass_rule": "Must separate problem statements from feature requests, categorize by customer segment/channel, and assign usefulness ratings.",
+      "prompt": "Synthesize customer feedback regarding export failures, missing multi-currency support, and slow dashboard loading into atomized problems with a usefulness assessment and preferred stack architecture.",
+      "pass_rule": "Must separate problem statements from feature requests, categorize by customer segment/channel, assign usefulness ratings, and reference preferred pipeline components (e.g. PostHog, n8n/Trigger.dev, or Drizzle/Postgres).",
       "must": [
-        [
-          "Voice of Customer",
-          "VoC",
-          "Feedback"
-        ],
-        [
-          "Atomized Problem",
-          "Problem Statement",
-          "problem"
-        ],
-        [
-          "Segment",
-          "segment",
-          "Enterprise",
-          "SMB"
-        ],
-        [
-          "Usefulness",
-          "Fully Met",
-          "Partially Met",
-          "Not Met"
-        ]
+        ["Voice of Customer", "VoC", "Feedback"],
+        ["Atomized Problem", "Problem Statement", "problem"],
+        ["Segment", "segment", "Enterprise", "SMB"],
+        ["Usefulness", "Fully Met", "Partially Met", "Not Met"],
+        ["PostHog", "n8n", "Trigger.dev", "Drizzle", "PostgreSQL"]
       ],
       "must_not": [
-        [
-          "ignore customer feedback",
-          "only implement whatever feature user asked for"
-        ]
+        ["ignore customer feedback", "only implement whatever feature user asked for"]
       ],
-      "pass_fixture": "### Voice of Customer (VoC) Synthesis\n\n#### 1. Atomized Problem Statements\n- **Problem 1 (Reporting & Export)**: Financial analysts cannot export audit data in CSV/PDF formats without page timeouts on datasets >10k rows.\n- **Problem 2 (Internationalization)**: Multi-national enterprise clients cannot invoice clients in non-USD currencies.\n- **Problem 3 (Performance)**: Dashboard initial load exceeds 8 seconds on slow connections.\n\n#### 2. Segment & Channel Breakdown\n- **Export Friction**: High severity in Mid-Market & Enterprise (Source: Support Zendesk tickets & CS renewals).\n- **Multi-Currency**: Deal blocker in 45% of European Enterprise sales opportunities (Source: Salesforce Win/Loss).\n\n#### 3. Usefulness Assessment\n| User Need | Current Status | Impact |\n| :--- | :--- | :--- |\n| Timely Audit Export | Partially Met | Workarounds required via manual API calls |\n| Multi-Currency Invoicing | Not Met | Top driver of lost enterprise deals |\n| Real-Time Dashboard View | Partially Met | Latency causes user frustration |",
+      "pass_fixture": "### Voice of Customer (VoC) Synthesis & Architecture\n\n#### 1. Atomized Problem Statements\n- **Problem 1 (Reporting & Export)**: Financial analysts cannot export audit data in CSV/PDF formats without page timeouts on datasets >10k rows.\n- **Problem 2 (Internationalization)**: Multi-national enterprise clients cannot invoice clients in non-USD currencies.\n- **Problem 3 (Performance)**: Dashboard initial load exceeds 8 seconds on slow connections.\n\n#### 2. Segment & Channel Breakdown\n- **Export Friction**: High severity in Mid-Market & Enterprise (Source: Support Zendesk tickets & CS renewals via n8n webhook).\n- **Multi-Currency**: Deal blocker in 45% of European Enterprise sales opportunities (Source: Salesforce Win/Loss).\n\n#### 3. Usefulness Assessment\n| User Need | Current Status | Impact |\n| :--- | :--- | :--- |\n| Timely Audit Export | Partially Met | Workarounds required via manual API calls |\n| Multi-Currency Invoicing | Not Met | Top driver of lost enterprise deals |\n| Real-Time Dashboard View | Partially Met | Latency causes user frustration |\n\n#### 4. Tech Stack Architecture Alignment\n- **Automation**: Ingestion via n8n webhooks and Trigger.dev background tasks.\n- **Storage**: Persisted with Drizzle ORM in PostgreSQL with pgvector for deduplication.\n- **Telemetry**: Correlated with PostHog session replays to inspect timeout errors.",
       "fail_fixture": "Users asked for an export button and multi-currency. Let's just build what they asked for."
     }
   ]
