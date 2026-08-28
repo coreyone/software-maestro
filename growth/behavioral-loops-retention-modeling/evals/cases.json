@@ -3,11 +3,11 @@
   "version": 1,
   "trigger_cases": [
     {
-      "prompt": "Our SaaS product has a Day-30 retention rate of 18% that drops to zero by Day-90. How do we model our retention curve, discover our Aha moment threshold, and design a habit loop to flatten the curve?",
+      "prompt": "Our SaaS product has a Day-30 retention rate of 18% that drops to zero by Day-90. How do we apply BJ Fogg's B=MAP and Nir Eyal's Hooked model to find our Aha moment and design compounding habit loops?",
       "trigger": true
     },
     {
-      "prompt": "Analyze our user onboarding drop-off and define the predictive activation metric formula (X actions in Y days).",
+      "prompt": "Diagnose our cohort retention curve and build a behavioral habit loop using Fogg simplicity factors and variable rewards of tribe/hunt/self.",
       "trigger": true
     },
     {
@@ -22,8 +22,8 @@
   "binary_cases": [
     {
       "id": "retention-curve-and-habit-loop",
-      "prompt": "Analyze a B2B analytics tool with a bleeding retention curve. Define the Aha moment metric threshold and design a 4-part habit formation loop to achieve a flat retention baseline.",
-      "pass_rule": "Must diagnose retention curve, define quantified Aha moment (X actions in Y days), and specify all 4 habit loop steps (Trigger, Action, Variable Reward, Investment).",
+      "prompt": "Analyze a B2B analytics tool with a bleeding retention curve. Apply BJ Fogg's B=MAP behavior model to optimize the core action, define the predictive Aha moment threshold, and design a 4-part Hooked habit loop with variable rewards and stored value investment.",
+      "pass_rule": "Must diagnose retention curve, define quantified Aha moment (X actions in Y days), break down Fogg's B=MAP (Motivation, Ability/Simplicity, Prompt), and specify all 4 Hooked steps (Internal Trigger, Action, Variable Reward of Tribe/Hunt/Self, Investment).",
       "must": [
         [
           "Retention",
@@ -37,21 +37,33 @@
           "activation threshold"
         ],
         [
-          "Trigger",
-          "trigger"
+          "Fogg",
+          "B = MAP",
+          "B=MAP",
+          "Motivation",
+          "Ability",
+          "Prompt"
         ],
         [
-          "Action",
-          "action"
+          "Simplicity",
+          "Cognitive Load",
+          "Time"
+        ],
+        [
+          "Trigger",
+          "Internal Trigger",
+          "itch"
         ],
         [
           "Variable Reward",
-          "Reward",
-          "reward"
+          "Tribe",
+          "Hunt",
+          "Self"
         ],
         [
           "Investment",
-          "investment"
+          "Stored Value",
+          "stored value"
         ]
       ],
       "must_not": [
@@ -60,7 +72,7 @@
           "ignore habit loop"
         ]
       ],
-      "pass_fixture": "### Cohort Retention & Behavioral Loop Model\n\n#### 1. Retention Curve Diagnosis\n- **Current State**: Bleeding Curve (Day 1: 45% -> Day 7: 20% -> Day 30: 10% -> Day 90: 2%).\n- **Target State**: Flat Curve stabilizing at >=25% Day-90 retention for core cohort.\n\n#### 2. The Aha Moment Formula\n- **Empirical Threshold**: *Create 1 custom dashboard and share with >=2 team members within the first 5 days*.\n- **Rationale**: Users who share a dashboard have a 78% Day-60 retention rate vs 8% for solo creators.\n\n#### 3. The 4-Part Habit Loop Design\n1. **Trigger**:\n   - *External*: Weekly Slack digest highlighting top metric shifts.\n   - *Internal*: Morning operational anxiety around daily revenue numbers.\n2. **Action**: 1-click drill down from Slack notification into the live report.\n3. **Variable Reward**: Instant visibility into unexpected anomalies and top growth drivers.\n4. **Investment**: Annotating charts and tagging colleagues, accumulating historical team context and locking in high switching costs.",
+      "pass_fixture": "### Cohort Retention & Behavioral Engineering Model (Fogg \u00d7 Eyal)\n\n#### 1. Retention Curve Diagnosis\n- **Current State**: Bleeding Curve (Day 1: 45% -> Day 7: 20% -> Day 30: 10% -> Day 90: 2%).\n- **Target State**: Flat Curve stabilizing at >=25% Day-90 retention for core cohort.\n\n#### 2. The Predictive Aha Moment Formula\n- **Quantitative Threshold**: *Create 1 custom dashboard and share with >=2 team members within the first 5 days*.\n- **Separation Lift**: Users crossing this threshold exhibit a 78% Day-60 retention rate vs 8% for those who do not (\u0394 = 70%).\n\n#### 3. BJ Fogg Behavior Model (B = MAP) Action Optimization\n- **Motivation (M)**: Hope for business clarity / Fear of unseen revenue drops.\n- **Ability (A) & Simplicity**: Eliminate Cognitive Load and Time friction with 1-click pre-built dashboard templates (0 SQL required).\n- **Prompt (P)**: Contextual Facilitator prompt placed immediately upon first data source connection.\n\n#### 4. Nir Eyal 4-Phase Hooked Architecture\n1. **Trigger**:\n   - *External*: Automated weekly Slack digest highlighting anomalous revenue shifts.\n   - *Internal*: Morning operational anxiety around team performance numbers.\n2. **Action**: 1-click drill-down from Slack notification directly into the anomalous metric.\n3. **Variable Reward**:\n   - *Reward of the Hunt*: Discovering unexpected revenue growth drivers.\n   - *Reward of the Tribe*: Peer validation when sharing insights with leadership.\n   - *Reward of the Self*: Clearing all operational red flags.\n4. **Investment (Stored Value)**: Annotating metric spikes and saving custom filters, which stores institutional knowledge and loads the next automated Slack alert trigger.",
       "fail_fixture": "Our retention is low. We should just send more marketing emails and run Google Ads."
     }
   ]
