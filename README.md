@@ -11,7 +11,7 @@ npx skills add coreyone/software-maestro
 
 ## Lifecycle Structure
 
-*   **product/**: Strategy & execution governance (continuous-product-loop, create-prd, product-pricing-strategy, product-management, product-management-press-memo, product-strategy-outcome-vision, proven-product-spec, ux-discovery-artifacts, how-might-we, michael-bolton-rule, swarm-rules, god-marduk). Validates customer truth before roadmaps. Decides what not to build.
+*   **product/**: Strategy, Product Operations & execution governance (continuous-product-loop, create-prd, product-pricing-strategy, product-management, product-management-press-memo, product-strategy-outcome-vision, proven-product-spec, ux-discovery-artifacts, how-might-we, michael-bolton-rule, swarm-rules, god-marduk, release-readiness-gtm, voc-insights-pipeline, portfolio-allocation-capitalization, decision-stack-governance, systems-retro-pruning). Validates customer truth before roadmaps. Connects financial decisions to product investments, gates cross-functional GTM releases, synthesizes multi-channel VoC, and prunes operational waste.
 *   **design/**: Wayfinding, onboarding & visual systems (design-user-onboarding-ux, aesthetic-rules, responsive-rules, design-animation, design-system-rules, design-usability-rules, chart-communication, failure-states-empty-states). Structures for instant orientation (IA), cognitive friction-free onboarding, WCAG AA typography-first layout, and tactile microinteractions.
 *   **engineering/**: Clean code, architecture, and governed improvement workflows (developer-development, code-review, improve-codebase, TDD, eval-driven development, system-architecture, resiliency, tech-stack). Isolates components, decouples modules, and improves probabilistic behavior through versioned baselines, calibrated evaluators, and regression datasets.
 *   **data-and-api/**: Contract-first endpoints & persistence schemas (api-design-guidelines, data-persistence-caching). Bypasses client-state latency using local memory replication.
@@ -22,7 +22,7 @@ npx skills add coreyone/software-maestro
 ## Taxonomy
 
 ```
-├── product/          # Strategy & execution (continuous-product-loop, create-prd, product-pricing-strategy, product-management, product-management-press-memo, product-strategy-outcome-vision, proven-product-spec, ux-discovery-artifacts, how-might-we, michael-bolton-rule, swarm-rules, god-marduk)
+├── product/          # Strategy, ProdOps & execution (continuous-product-loop, create-prd, product-pricing-strategy, product-management, product-management-press-memo, product-strategy-outcome-vision, proven-product-spec, ux-discovery-artifacts, how-might-we, michael-bolton-rule, swarm-rules, god-marduk, release-readiness-gtm, voc-insights-pipeline, portfolio-allocation-capitalization, decision-stack-governance, systems-retro-pruning)
 ├── design/           # User onboarding & FTUX, aesthetic rules, responsive layout, motion, chart communication, skeletons, empty states
 ├── engineering/      # Code quality, audits, implementation planning, architecture, resiliency, TDD, eval-driven development
 ├── data-and-api/     # REST/GraphQL API design, database schemas, ORM models, caching

@@ -1,0 +1,62 @@
+{
+  "skill": "decision-stack-governance",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "How do we structure our annual product planning using Melissa Perri's Decision Stack to connect executive goals down to team roadmaps?",
+      "trigger": true
+    },
+    {
+      "prompt": "Establish a governance cadence for quarterly QBRs, roadmap reviews, and demo days.",
+      "trigger": true
+    },
+    {
+      "prompt": "Debug an async database connection pool timeout in Node.js.",
+      "trigger": false
+    },
+    {
+      "prompt": "Write a bash script to parse JSON logs from standard input.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "decision-stack-cascade",
+      "prompt": "Create a complete Decision Stack cascade for a SaaS recruiting platform aiming to increase mid-market revenue by 30% through improved network adoption.",
+      "pass_rule": "Must define Company Vision, Strategic Intent, Product Initiative, and Squad Options, along with strategic review cadence.",
+      "must": [
+        [
+          "Company Vision",
+          "Vision",
+          "vision"
+        ],
+        [
+          "Strategic Intent",
+          "strategic intent"
+        ],
+        [
+          "Product Initiative",
+          "product initiative"
+        ],
+        [
+          "Option",
+          "Options",
+          "experiment"
+        ],
+        [
+          "Cadence",
+          "QBR",
+          "Roadmap Review"
+        ]
+      ],
+      "must_not": [
+        [
+          "jump straight to feature list without strategic intent",
+          "no vision"
+        ]
+      ],
+      "pass_fixture": "### Decision Stack Architecture\n\n1. **Company Vision (5\u201310 Years)**: Become the premier talent network empowering recruiters and candidates with instant, verified job matching.\n2. **Strategic Intent (1\u20133 Years)**: Shore up mid-market market share and accelerate revenue growth by 30% over the next 18 months.\n3. **Product Initiative (6\u201312 Months)**: Increase adoption of candidate network features in the mid-market segment by 60%.\n4. **Squad Options (3\u20136 Months)**:\n   - *Option A*: Streamline employer candidate-search workflow with 1-click candidate outreach.\n   - *Option B*: Redesign onboarding to demonstrate instant network candidate matches.\n\n### Strategic Governance Cadence\n- **Quarterly QBR**: Executive review of strategic intent progress and portfolio ROI.\n- **Monthly Roadmap Sync**: Cross-functional review of option experiments and delivery risks.\n- **Monthly Demo Day**: Enablement session for Sales and CS on Alpha/Beta features.",
+      "fail_fixture": "Let's build a new search button, an export tab, and a settings page for our sprint."
+    }
+  ]
+}

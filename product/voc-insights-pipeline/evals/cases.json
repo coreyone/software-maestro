@@ -1,0 +1,61 @@
+{
+  "skill": "voc-insights-pipeline",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "We have 150 Zendesk tickets, 20 Gong sales call transcripts, and 10 churn survey responses. How do we synthesize this Voice of Customer data into a structured problem repository?",
+      "trigger": true
+    },
+    {
+      "prompt": "Build a VoC feedback tagging taxonomy and customer problem usefulness assessment matrix.",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a GraphQL schema for querying user profile records from Postgres.",
+      "trigger": false
+    },
+    {
+      "prompt": "Optimize our AWS Lambda cold start latency using provisioned concurrency.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "voc-synthesis-and-usefulness-matrix",
+      "prompt": "Synthesize customer feedback regarding export failures, missing multi-currency support, and slow dashboard loading into atomized problems with a usefulness assessment and segment breakdown.",
+      "pass_rule": "Must separate problem statements from feature requests, categorize by customer segment/channel, and assign usefulness ratings.",
+      "must": [
+        [
+          "Voice of Customer",
+          "VoC",
+          "Feedback"
+        ],
+        [
+          "Atomized Problem",
+          "Problem Statement",
+          "problem"
+        ],
+        [
+          "Segment",
+          "segment",
+          "Enterprise",
+          "SMB"
+        ],
+        [
+          "Usefulness",
+          "Fully Met",
+          "Partially Met",
+          "Not Met"
+        ]
+      ],
+      "must_not": [
+        [
+          "ignore customer feedback",
+          "only implement whatever feature user asked for"
+        ]
+      ],
+      "pass_fixture": "### Voice of Customer (VoC) Synthesis\n\n#### 1. Atomized Problem Statements\n- **Problem 1 (Reporting & Export)**: Financial analysts cannot export audit data in CSV/PDF formats without page timeouts on datasets >10k rows.\n- **Problem 2 (Internationalization)**: Multi-national enterprise clients cannot invoice clients in non-USD currencies.\n- **Problem 3 (Performance)**: Dashboard initial load exceeds 8 seconds on slow connections.\n\n#### 2. Segment & Channel Breakdown\n- **Export Friction**: High severity in Mid-Market & Enterprise (Source: Support Zendesk tickets & CS renewals).\n- **Multi-Currency**: Deal blocker in 45% of European Enterprise sales opportunities (Source: Salesforce Win/Loss).\n\n#### 3. Usefulness Assessment\n| User Need | Current Status | Impact |\n| :--- | :--- | :--- |\n| Timely Audit Export | Partially Met | Workarounds required via manual API calls |\n| Multi-Currency Invoicing | Not Met | Top driver of lost enterprise deals |\n| Real-Time Dashboard View | Partially Met | Latency causes user frustration |",
+      "fail_fixture": "Users asked for an export button and multi-currency. Let's just build what they asked for."
+    }
+  ]
+}
