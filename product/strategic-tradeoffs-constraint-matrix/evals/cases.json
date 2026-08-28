@@ -1,0 +1,58 @@
+{
+  "skill": "strategic-tradeoffs-constraint-matrix",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "An enterprise prospect offers $150k ARR if we build custom on-premise deployment support. How do we evaluate this against our self-serve SaaS strategy and formulate our 'where not to play' constraint matrix?",
+      "trigger": true
+    },
+    {
+      "prompt": "Create a strategic trade-off matrix and anti-persona definition for our developer CLI product.",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a script to upload images to an AWS S3 bucket with signed URLs.",
+      "trigger": false
+    },
+    {
+      "prompt": "Add a linter configuration file for ESLint and Prettier.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "strategic-constraint-and-tradeoffs",
+      "prompt": "Formulate a strategic trade-off matrix and 'where not to play' boundaries for a developer-focused API product rejecting bespoke enterprise custom work.",
+      "pass_rule": "Must define where not to play, establish anti-personas, define paired trade-offs (X over Y), and state non-goals.",
+      "must": [
+        [
+          "Where NOT to play",
+          "where not to play",
+          "Where we do not play"
+        ],
+        [
+          "Anti-Persona",
+          "anti-persona"
+        ],
+        [
+          "Trade-off",
+          "trade-off",
+          "over"
+        ],
+        [
+          "Non-Goals",
+          "non-goals",
+          "refusal"
+        ]
+      ],
+      "must_not": [
+        [
+          "accept all enterprise requests",
+          "build custom features for single clients"
+        ]
+      ],
+      "pass_fixture": "### Strategic Constraint & Trade-off Matrix\n\n#### 1. Where We Do NOT Play\n- **Excluded Domain**: On-premise single-tenant deployments, bespoke professional services, and custom legacy database connectors.\n- **Anti-Persona**: Legacy enterprise procurement officers seeking multi-year on-premise installation and dedicated field engineers.\n\n#### 2. Strategic Trade-off Matrix (Paired Principles)\n- **Self-Serve Standardized API *over* Bespoke Enterprise Forks**: We build only multi-tenant, public API capabilities. We will not fork code for individual clients regardless of contract size.\n- **Developer Ergonomics *over* GUI Configurator Wizards**: We optimize for CLI/SDK developer workflows over point-and-click non-technical admin portals.\n\n#### 3. Explicit Non-Goals\n- We will *not* build custom UI dashboards for one-off clients.\n- We will *not* support private air-gapped data centers.\n\n#### 4. Strategic Refusal Decision\n- **Decision**: Decline the $150k on-premise request. Direct client to our public cloud API with VPC peering.",
+      "fail_fixture": "Let's accept the enterprise request and build whatever they need to get the revenue."
+    }
+  ]
+}

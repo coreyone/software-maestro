@@ -1,0 +1,60 @@
+{
+  "skill": "incentive-design-metric-trees",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Our executive team wants to decompose our North Star Metric of 'Monthly Transacting Merchants' into squad-level input metrics with guardrails to avoid Goodhart's law. How do we design the metric tree?",
+      "trigger": true
+    },
+    {
+      "prompt": "Construct a metric tree and incentive guardrail pairing table for an e-commerce marketplace.",
+      "trigger": true
+    },
+    {
+      "prompt": "Deploy a Redis cache instance on Docker Compose.",
+      "trigger": false
+    },
+    {
+      "prompt": "Create an automated test suite for an iOS Swift app.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "metric-tree-and-guardrail-pairing",
+      "prompt": "Decompose a North Star Metric of 'Weekly Active Transacting Merchants' for a B2B SaaS platform into input metric branches and establish anti-gaming guardrails.",
+      "pass_rule": "Must define North Star Metric, decompose into input metrics across breadth/depth/frequency, and pair every input with an anti-Goodhart guardrail metric.",
+      "must": [
+        [
+          "North Star Metric",
+          "North Star",
+          "NSM"
+        ],
+        [
+          "Input Metric",
+          "input metrics",
+          "Input"
+        ],
+        [
+          "Guardrail",
+          "guardrail",
+          "Goodhart"
+        ],
+        [
+          "Breadth",
+          "Depth",
+          "Frequency",
+          "Retention"
+        ]
+      ],
+      "must_not": [
+        [
+          "reward ticket output instead of outcome",
+          "no guardrail metrics"
+        ]
+      ],
+      "pass_fixture": "### Metric Tree & Incentive Architecture\n\n#### 1. North Star Metric (NSM)\n- **Metric**: Weekly Active Transacting Merchants (WATM) \u2014 defined as merchants processing >=3 customer orders per week.\n- **Duality**: Customer gets sales revenue; platform captures transaction fee revenue.\n\n#### 2. Metric Tree Decomposition\n- **Breadth Branch**: New Merchant Onboarding Completion % (Squad: Merchant Activation).\n- **Depth Branch**: Average Catalog Items Listed per Merchant (Squad: Catalog & Inventory).\n- **Frequency Branch**: Days per week merchant logs in to fulfill orders (Squad: Merchant Operations).\n\n#### 3. Anti-Goodhart Guardrail Pairings\n| Input Metric | Gaming Risk | Paired Guardrail Metric |\n| :--- | :--- | :--- |\n| Onboarding Conversion Rate | Onboarding fraudulent/empty stores | **Day-30 Chargeback Rate & KYC Failure Rate** |\n| Transaction Volume Growth | Discounting to zero-margin orders | **Gross Margin per Transaction** |\n| Email Re-engagement Rate | Spamming merchant inbox | **Email Unsubscribe & Complaint Rate** |",
+      "fail_fixture": "Let's track story points completed per sprint and reward the team that closes the most Jira tickets."
+    }
+  ]
+}

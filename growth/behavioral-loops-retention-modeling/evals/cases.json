@@ -1,0 +1,67 @@
+{
+  "skill": "behavioral-loops-retention-modeling",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Our SaaS product has a Day-30 retention rate of 18% that drops to zero by Day-90. How do we model our retention curve, discover our Aha moment threshold, and design a habit loop to flatten the curve?",
+      "trigger": true
+    },
+    {
+      "prompt": "Analyze our user onboarding drop-off and define the predictive activation metric formula (X actions in Y days).",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a SQL query to join orders with customers on customer_id.",
+      "trigger": false
+    },
+    {
+      "prompt": "Configure an SSL certificate using Let's Encrypt and certbot.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "retention-curve-and-habit-loop",
+      "prompt": "Analyze a B2B analytics tool with a bleeding retention curve. Define the Aha moment metric threshold and design a 4-part habit formation loop to achieve a flat retention baseline.",
+      "pass_rule": "Must diagnose retention curve, define quantified Aha moment (X actions in Y days), and specify all 4 habit loop steps (Trigger, Action, Variable Reward, Investment).",
+      "must": [
+        [
+          "Retention",
+          "retention curve",
+          "Bleeding",
+          "Flat"
+        ],
+        [
+          "Aha Moment",
+          "Aha moment",
+          "activation threshold"
+        ],
+        [
+          "Trigger",
+          "trigger"
+        ],
+        [
+          "Action",
+          "action"
+        ],
+        [
+          "Variable Reward",
+          "Reward",
+          "reward"
+        ],
+        [
+          "Investment",
+          "investment"
+        ]
+      ],
+      "must_not": [
+        [
+          "just spend more money on ads without fixing retention",
+          "ignore habit loop"
+        ]
+      ],
+      "pass_fixture": "### Cohort Retention & Behavioral Loop Model\n\n#### 1. Retention Curve Diagnosis\n- **Current State**: Bleeding Curve (Day 1: 45% -> Day 7: 20% -> Day 30: 10% -> Day 90: 2%).\n- **Target State**: Flat Curve stabilizing at >=25% Day-90 retention for core cohort.\n\n#### 2. The Aha Moment Formula\n- **Empirical Threshold**: *Create 1 custom dashboard and share with >=2 team members within the first 5 days*.\n- **Rationale**: Users who share a dashboard have a 78% Day-60 retention rate vs 8% for solo creators.\n\n#### 3. The 4-Part Habit Loop Design\n1. **Trigger**:\n   - *External*: Weekly Slack digest highlighting top metric shifts.\n   - *Internal*: Morning operational anxiety around daily revenue numbers.\n2. **Action**: 1-click drill down from Slack notification into the live report.\n3. **Variable Reward**: Instant visibility into unexpected anomalies and top growth drivers.\n4. **Investment**: Annotating charts and tagging colleagues, accumulating historical team context and locking in high switching costs.",
+      "fail_fixture": "Our retention is low. We should just send more marketing emails and run Google Ads."
+    }
+  ]
+}

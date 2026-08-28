@@ -1,0 +1,60 @@
+{
+  "skill": "platform-enablement-internal-leverage",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Multiple product squads are building their own custom billing and export integrations from scratch. How do we design an internal platform primitive and measure our leverage multiplier?",
+      "trigger": true
+    },
+    {
+      "prompt": "Create an internal developer platform strategy using the Thinnest Viable Platform (TVP) framework.",
+      "trigger": true
+    },
+    {
+      "prompt": "Configure an Nginx reverse proxy for WebSocket traffic.",
+      "trigger": false
+    },
+    {
+      "prompt": "Write a unit test for a React button component in Vitest.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "internal-platform-primitive-and-leverage",
+      "prompt": "Design a self-serve unified notifications & webhooks platform primitive for 6 stream-aligned product squads. Detail the TVP scope, DX integration contract, and leverage multiplier metrics.",
+      "pass_rule": "Must identify cross-squad redundancy, define the self-serve platform primitive (TVP), specify developer experience SLAs (e.g. TTFI), and detail leverage multiplier metrics.",
+      "must": [
+        [
+          "Platform",
+          "platform primitive",
+          "TVP"
+        ],
+        [
+          "Self-Serve",
+          "self-serve",
+          "SDK"
+        ],
+        [
+          "Stream-Aligned",
+          "stream squads",
+          "squads"
+        ],
+        [
+          "Leverage",
+          "leverage multiplier",
+          "Time-to-First-Integration",
+          "TTFI"
+        ]
+      ],
+      "must_not": [
+        [
+          "require manual ticket approvals for every API call",
+          "build custom one-off solutions for each team"
+        ]
+      ],
+      "pass_fixture": "### Internal Platform Primitive: Unified Notifications & Webhook Engine\n\n#### 1. Problem & Redundancy Audit\n- **Current Breakdown**: 5 different squads maintain 5 divergent email/SMS/webhook retry queues, resulting in duplicate infrastructure costs and high incident rates.\n\n#### 2. Thinnest Viable Platform (TVP) Scope\n- **Core Primitives**:\n  - Typed TypeScript/Go SDK with automatic retries and exponential backoff.\n  - Multi-channel routing engine (Email via Resend, SMS, Webhooks).\n  - Dead-letter queue UI with 1-click event replay.\n- **Out-of-Scope**: Custom template design (owned by individual squads).\n\n#### 3. Developer Experience (DX) & Integration Contract\n- **Self-Serve Standard**: Single npm package (`@company/notifications`) configured via environment variable.\n- **Time-to-First-Integration (TTFI)**: <15 minutes with zero platform team tickets required.\n\n#### 4. Leverage Multiplier Scorecard\n- **Engineering Savings**: Eliminates ~600 hours of annual duplicate webhook maintenance across 6 squads.\n- **Leverage Ratio**: 6:1 (100 hours of platform maintenance saves 600 squad hours).",
+      "fail_fixture": "Every team should just keep building their own notification queues whenever they need one."
+    }
+  ]
+}

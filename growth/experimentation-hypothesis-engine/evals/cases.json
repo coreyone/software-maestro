@@ -1,0 +1,62 @@
+{
+  "skill": "experimentation-hypothesis-engine",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "We want to test a new checkout flow on mobile to see if it improves conversion. How do we design the experiment hypothesis, metric scorecard, sample size, and kill criteria?",
+      "trigger": true
+    },
+    {
+      "prompt": "Calculate the sample size and MDE for an A/B test on our landing page pricing table.",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a terraform script to deploy an AWS RDS Postgres cluster.",
+      "trigger": false
+    },
+    {
+      "prompt": "Fix a CSS z-index stacking context bug in our dropdown menu.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "experiment-scorecard-and-decision-matrix",
+      "prompt": "Design an A/B testing experiment for a simplified 1-step onboarding flow. Provide the hypothesis, primary metric, guardrail metrics, and explicit rollout vs kill criteria.",
+      "pass_rule": "Must provide a structured hypothesis, define primary and guardrail metrics, estimate runtime/sample requirements, and detail rollout vs kill criteria.",
+      "must": [
+        [
+          "Hypothesis",
+          "hypothesis"
+        ],
+        [
+          "Primary Metric",
+          "primary metric",
+          "Conversion"
+        ],
+        [
+          "Guardrail",
+          "guardrail",
+          "latency",
+          "support"
+        ],
+        [
+          "Rollout",
+          "rollout"
+        ],
+        [
+          "Kill",
+          "kill"
+        ]
+      ],
+      "must_not": [
+        [
+          "ship without testing",
+          "peek at p-values and stop early"
+        ]
+      ],
+      "pass_fixture": "### Experiment Design: 1-Step Onboarding Flow\n\n#### 1. Hypothesis Statement\n*If we* reduce onboarding from 4 steps to a 1-step profile creation, *then* new signups will complete registration faster, *resulting in* a 12% lift in User Activation Rate, *because* drop-off is driven by initial cognitive load.\n\n#### 2. Metric Scorecard\n- **Primary Metric**: Day-7 User Activation Rate (Completed setup).\n- **Secondary Metric**: Time to complete onboarding (seconds).\n- **Guardrail Metrics**: Day-14 Retention rate and Support ticket submission rate.\n\n#### 3. Sample Sizing & Duration\n- **Target MDE**: 10% relative lift ($\u0007lpha = 0.05$, Power = 80%).\n- **Sample Size**: 15,000 visitors per variant.\n- **Minimum Runtime**: 14 full days (2 business cycles to eliminate seasonality).\n\n#### 4. Decision Matrix\n- **100% Rollout**: Statistically significant lift in Day-7 Activation ($p < 0.05$) with no drop in Day-14 Retention.\n- **Kill / Rollback**: Any statistically significant decrease in Activation or >5% increase in Support tickets.",
+      "fail_fixture": "Let's turn on the 1-step flow for 50% of users and if numbers look good after 2 days we ship it."
+    }
+  ]
+}
