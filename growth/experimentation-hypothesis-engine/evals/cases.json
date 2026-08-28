@@ -3,11 +3,11 @@
   "version": 1,
   "trigger_cases": [
     {
-      "prompt": "We want to test a new checkout flow on mobile to see if it improves conversion. How do we design the experiment hypothesis, metric scorecard, sample size, and kill criteria?",
+      "prompt": "We want to test a viral invite prompt on our new workspace creation flow to see if it accelerates our growth loop. How do we design the experiment hypothesis, loop step mapping, qualitative gate, sample size, and post-mortem taxonomy?",
       "trigger": true
     },
     {
-      "prompt": "Calculate the sample size and MDE for an A/B test on our landing page pricing table.",
+      "prompt": "Calculate the sample size and MDE for an A/B test on our landing page pricing table with pre-experiment qualitative gating and post-mortem rules.",
       "trigger": true
     },
     {
@@ -21,10 +21,20 @@
   ],
   "binary_cases": [
     {
-      "id": "experiment-scorecard-and-decision-matrix",
-      "prompt": "Design an A/B testing experiment for a simplified 1-step onboarding flow. Provide the hypothesis, primary metric, guardrail metrics, and explicit rollout vs kill criteria.",
-      "pass_rule": "Must provide a structured hypothesis, define primary and guardrail metrics, estimate runtime/sample requirements, and detail rollout vs kill criteria.",
+      "id": "growth-experiment-scorecard-and-post-mortem",
+      "prompt": "Design a growth loop experiment for a collaborative workspace invite flow. Provide the work classification, growth loop mapping, qualitative evidence gate, formal hypothesis, primary/guardrail metrics, 14-day runtime, and 3-way post-mortem criteria.",
+      "pass_rule": "Must classify work type, map to growth loop step, require qualitative pre-test evidence, structure the hypothesis, define primary and guardrail metrics, enforce minimum 14-day duration, and define the 3-way post-mortem taxonomy.",
       "must": [
+        [
+          "Growth Loop",
+          "growth loop",
+          "Loop Step"
+        ],
+        [
+          "Qualitative",
+          "qualitative gate",
+          "evidence"
+        ],
         [
           "Hypothesis",
           "hypothesis"
@@ -32,7 +42,7 @@
         [
           "Primary Metric",
           "primary metric",
-          "Conversion"
+          "Activation"
         ],
         [
           "Guardrail",
@@ -41,22 +51,26 @@
           "support"
         ],
         [
-          "Rollout",
-          "rollout"
+          "14-Day",
+          "14 days",
+          "duration"
         ],
         [
-          "Kill",
-          "kill"
+          "Post-Mortem",
+          "post-mortem",
+          "Invalidated Mental Model",
+          "Execution Mismatch"
         ]
       ],
       "must_not": [
         [
           "ship without testing",
-          "peek at p-values and stop early"
+          "peek at p-values and stop early",
+          "no qualitative check"
         ]
       ],
-      "pass_fixture": "### Experiment Design: 1-Step Onboarding Flow\n\n#### 1. Hypothesis Statement\n*If we* reduce onboarding from 4 steps to a 1-step profile creation, *then* new signups will complete registration faster, *resulting in* a 12% lift in User Activation Rate, *because* drop-off is driven by initial cognitive load.\n\n#### 2. Metric Scorecard\n- **Primary Metric**: Day-7 User Activation Rate (Completed setup).\n- **Secondary Metric**: Time to complete onboarding (seconds).\n- **Guardrail Metrics**: Day-14 Retention rate and Support ticket submission rate.\n\n#### 3. Sample Sizing & Duration\n- **Target MDE**: 10% relative lift ($\u0007lpha = 0.05$, Power = 80%).\n- **Sample Size**: 15,000 visitors per variant.\n- **Minimum Runtime**: 14 full days (2 business cycles to eliminate seasonality).\n\n#### 4. Decision Matrix\n- **100% Rollout**: Statistically significant lift in Day-7 Activation ($p < 0.05$) with no drop in Day-14 Retention.\n- **Kill / Rollback**: Any statistically significant decrease in Activation or >5% increase in Support tickets.",
-      "fail_fixture": "Let's turn on the 1-step flow for 50% of users and if numbers look good after 2 days we ship it."
+      "pass_fixture": "### Growth Experiment Design: Collaborative Workspace Invite Flow\n\n#### 1. Work Classification & Loop Mapping\n- **Work Type**: Growth Loop Accelerator.\n- **Target Loop Step**: User Activation -> Team Invite (Output of new workspace creation generates downstream input of new team signups).\n\n#### 2. Pre-Experiment Qualitative Gate\n- **Evidence**: 8 recorded user onboarding sessions and 12 Zendesk tickets showed users struggled to find the team invite button after setup.\n\n#### 3. Formal Hypothesis Statement\n*If we* introduce an inline team member invite modal immediately after workspace creation, *then* new workspace creators will invite colleagues during peak setup motivation, *resulting in* a 15% lift in Day-7 Team Activation Rate, *because* collaboration intent is highest right after initial workspace configuration.\n\n#### 4. Metric Scorecard\n- **Primary Metric**: Day-7 Team Activation Rate (Workspaces with >=2 active members).\n- **Secondary Metric**: Invites sent per workspace creator.\n- **Guardrail Metrics**: Workspace creation drop-off rate and user invite spam complaint rate.\n\n#### 5. Statistical Sizing & Runtime\n- **Target MDE**: 10% relative lift (alpha = 0.05, Power = 80%).\n- **Sample Size**: 12,000 creators per variant.\n- **Duration**: 14-day minimum duration (2 full business cycles to smooth day-of-week seasonality).\n\n#### 6. Decision Rubric & 3-Way Post-Mortem\n- **100% Rollout**: Statistically significant lift in Day-7 Activation (p < 0.05) with zero breach in guardrails.\n- **Post-Mortem Classification on Failure**:\n  - *Invalidated Mental Model*: Creators do not want to invite teammates before configuring content (stop invite flow tests).\n  - *Execution Mismatch*: Modal was dismissed because copy was vague (redesign variant UI).\n  - *Under-Powered*: Lift was +4% but sample size was insufficient to reach statistical significance.",
+      "fail_fixture": "Let's turn on the invite modal for 50% of users and if numbers look good after 2 days we ship it."
     }
   ]
 }
