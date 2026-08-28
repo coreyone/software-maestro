@@ -3,11 +3,11 @@
   "version": 1,
   "trigger_cases": [
     {
-      "prompt": "We have 150 Zendesk tickets, 20 Gong sales call transcripts, and 10 PostHog survey responses. How do we synthesize this Voice of Customer data into a structured problem repository using our preferred stack?",
+      "prompt": "We have 150 customer support tickets, 20 sales call recordings, and 10 in-app feedback responses. How do we build an end-to-end Voice of Customer pipeline to synthesize these into a structured problem repository?",
       "trigger": true
     },
     {
-      "prompt": "Build a VoC feedback tagging taxonomy and customer problem usefulness assessment matrix connected with PostHog and n8n pipelines.",
+      "prompt": "Design a VoC feedback tagging taxonomy and customer problem usefulness assessment matrix connected with an automated ingestion and telemetry pipeline.",
       "trigger": true
     },
     {
@@ -22,19 +22,19 @@
   "binary_cases": [
     {
       "id": "voc-synthesis-and-usefulness-matrix",
-      "prompt": "Synthesize customer feedback regarding export failures, missing multi-currency support, and slow dashboard loading into atomized problems with a usefulness assessment and preferred stack architecture.",
-      "pass_rule": "Must separate problem statements from feature requests, categorize by customer segment/channel, assign usefulness ratings, and reference preferred pipeline components (e.g. PostHog, n8n/Trigger.dev, or Drizzle/Postgres).",
+      "prompt": "Synthesize customer feedback regarding export timeouts, missing multi-currency support, and slow dashboard loading into atomized problems with a usefulness assessment and pipeline architecture.",
+      "pass_rule": "Must separate problem statements from feature requests, categorize by customer segment/channel, assign usefulness ratings, and outline the abstract pipeline stages with illustrative technology examples.",
       "must": [
         ["Voice of Customer", "VoC", "Feedback"],
         ["Atomized Problem", "Problem Statement", "problem"],
         ["Segment", "segment", "Enterprise", "SMB"],
         ["Usefulness", "Fully Met", "Partially Met", "Not Met"],
-        ["PostHog", "n8n", "Trigger.dev", "Drizzle", "PostgreSQL"]
+        ["Ingestion", "Synthesis", "Persistence", "Telemetry", "Interface", "Pipeline", "pipeline"]
       ],
       "must_not": [
         ["ignore customer feedback", "only implement whatever feature user asked for"]
       ],
-      "pass_fixture": "### Voice of Customer (VoC) Synthesis & Architecture\n\n#### 1. Atomized Problem Statements\n- **Problem 1 (Reporting & Export)**: Financial analysts cannot export audit data in CSV/PDF formats without page timeouts on datasets >10k rows.\n- **Problem 2 (Internationalization)**: Multi-national enterprise clients cannot invoice clients in non-USD currencies.\n- **Problem 3 (Performance)**: Dashboard initial load exceeds 8 seconds on slow connections.\n\n#### 2. Segment & Channel Breakdown\n- **Export Friction**: High severity in Mid-Market & Enterprise (Source: Support Zendesk tickets & CS renewals via n8n webhook).\n- **Multi-Currency**: Deal blocker in 45% of European Enterprise sales opportunities (Source: Salesforce Win/Loss).\n\n#### 3. Usefulness Assessment\n| User Need | Current Status | Impact |\n| :--- | :--- | :--- |\n| Timely Audit Export | Partially Met | Workarounds required via manual API calls |\n| Multi-Currency Invoicing | Not Met | Top driver of lost enterprise deals |\n| Real-Time Dashboard View | Partially Met | Latency causes user frustration |\n\n#### 4. Tech Stack Architecture Alignment\n- **Automation**: Ingestion via n8n webhooks and Trigger.dev background tasks.\n- **Storage**: Persisted with Drizzle ORM in PostgreSQL with pgvector for deduplication.\n- **Telemetry**: Correlated with PostHog session replays to inspect timeout errors.",
+      "pass_fixture": "### Voice of Customer (VoC) Synthesis & Pipeline Architecture\n\n#### 1. Atomized Problem Statements\n- **Problem 1 (Reporting & Export)**: Financial analysts cannot export audit data in CSV/PDF formats without page timeouts on datasets >10k rows.\n- **Problem 2 (Internationalization)**: Multi-national enterprise clients cannot invoice clients in non-USD currencies.\n- **Problem 3 (Performance)**: Dashboard initial load exceeds 8 seconds on slow connections.\n\n#### 2. Segment & Channel Breakdown\n- **Export Friction**: High severity in Mid-Market & Enterprise (Source: Support tickets & CS renewals).\n- **Multi-Currency**: Deal blocker in 45% of European Enterprise sales opportunities (Source: Sales Win/Loss notes).\n\n#### 3. Usefulness Assessment\n| User Need | Current Status | Impact |\n| :--- | :--- | :--- |\n| Timely Audit Export | Partially Met | Workarounds required via manual API calls |\n| Multi-Currency Invoicing | Not Met | Top driver of lost enterprise deals |\n| Real-Time Dashboard View | Partially Met | Latency causes user frustration |\n\n#### 4. Abstract Pipeline Architecture (with Illustrative Examples)\n1. **Ingestion & Automation**: Event-driven webhooks and background workers (e.g., n8n, Trigger.dev, custom webhooks) with audio transcription (e.g., ElevenLabs, Whisper).\n2. **AI Synthesis**: LLM layer (e.g., Qwen, Gemini, Claude) extracting root problems and vector embeddings for deduplication.\n3. **Persistence & Telemetry**: Typed relational/vector storage (e.g., PostgreSQL with Drizzle, SQLite) correlated with product telemetry (e.g., PostHog, Amplitude).\n4. **Interface**: Interactive discovery UI (e.g., SvelteKit, React, Notion, Dovetail) for querying problem theses.",
       "fail_fixture": "Users asked for an export button and multi-currency. Let's just build what they asked for."
     }
   ]

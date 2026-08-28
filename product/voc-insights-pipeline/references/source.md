@@ -1,90 +1,78 @@
 # Voice of Customer (VoC) Pipeline & ResearchOps Architecture
 
-## 1. Technical Pipeline & Preferred Stack Integration
+## 1. Abstract Pipeline Architecture
 
-To avoid expensive enterprise SaaS lock-in and high cognitive friction, operationalize the VoC pipeline using the modern, OSS-first, high-velocity stack:
+The Voice of Customer pipeline transforms unstructured qualitative feedback across the organization into structured, prioritized product intelligence. Specific tools and vendors are examples of how each functional stage can be implemented:
 
 ```mermaid
 flowchart TD
-    subgraph Ingestion ["1. Multi-Channel Ingestion & Automation"]
-        S1["<b>Sales / CRM</b><br/>Win/Loss, deal notes"]
-        S2["<b>Support / Helpdesk</b><br/>Zendesk/Intercom tickets"]
-        S3["<b>User Interviews</b><br/>Audio/Video calls"]
-        S4["<b>In-App Surveys</b><br/>PostHog feedback widgets"]
-        
-        W["<b>n8n Webhooks & Trigger.dev</b><br/>Event-driven ETL & batch polling"]
-        T["<b>ElevenLabs / Whisper</b><br/>Call transcription"]
-        
-        S1 & S2 & S4 --> W
-        S3 --> T --> W
+    subgraph S1 ["Stage 1: Multi-Channel Ingestion"]
+        In1["<b>Inbound Channels</b><br/>Sales CRM, Support Tickets, Call Audio, In-App Surveys"]
+        In2["<b>Ingestion & Automation Engine</b><br/><i>(e.g., n8n, Trigger.dev, webhooks, Lambdas)</i>"]
+        In3["<b>Audio Transcription</b><br/><i>(e.g., ElevenLabs, Whisper)</i>"]
+        In1 --> In2
+        In1 --> In3 --> In2
     end
 
-    subgraph Processing ["2. AI Synthesis & Extraction"]
-        LLM["<b>LiteLLM Gateway</b><br/>Qwen-Coder / Gemini Flash"]
-        Ext["<b>Atomization & Classification</b><br/>• Problem thesis extraction<br/>• Sentiment & severity scoring<br/>• Feature taxonomy mapping"]
-        Lang["<b>Langfuse</b><br/>Prompt evals & drift monitoring"]
-        
-        W --> LLM --> Ext
-        LLM -.-> Lang
+    subgraph S2 ["Stage 2: AI Synthesis & Atomization"]
+        Ext1["<b>LLM Processing Layer</b><br/><i>(e.g., Qwen, Gemini, Claude, OpenAI)</i>"]
+        Ext2["<b>Problem Atomization</b><br/>• Extract root friction (not solutions)<br/>• Score severity & sentiment<br/>• Map to product taxonomy"]
+        In2 --> Ext1 --> Ext2
     end
 
-    subgraph Storage ["3. Storage & Analytics Correlation"]
-        DB["<b>PostgreSQL (Supabase / Neon)</b><br/>Drizzle ORM + pgvector clustering"]
-        PH["<b>PostHog Analytics</b><br/>Session replays & drop-off funnels"]
-        
-        Ext --> DB
-        Ext --> PH
+    subgraph S3 ["Stage 3: Persistence & Telemetry Correlation"]
+        Store["<b>Relational & Vector Storage</b><br/><i>(e.g., PostgreSQL + Drizzle + pgvector, SQLite, Qdrant)</i>"]
+        Telem["<b>Product Telemetry Correlation</b><br/><i>(e.g., PostHog, Amplitude, Mixpanel, Datadog)</i>"]
+        Ext2 --> Store
+        Ext2 --> Telem
     end
 
-    subgraph Interface ["4. Discovery & Exploration UI"]
-        UI["<b>SvelteKit + Bits UI / Tailwind</b><br/>• TanStack Table (Zero sync)<br/>• Usefulness Assessment Matrix<br/>• Live VoC Digest Dashboard"]
-        
-        DB & PH --> UI
+    subgraph S4 ["Stage 4: Exploration & Decision Interface"]
+        UI["<b>Insight Repository & Matrix</b><br/><i>(e.g., SvelteKit, React, Next.js, Notion, Dovetail)</i><br/>• Usefulness Assessment Matrix<br/>• Prioritized Problem Theses<br/>• ARR-Weighted Digest"]
+        Store & Telem --> UI
     end
 ```
 
 ---
 
-## 2. Multi-Channel Signal Ingestion Matrix
+## 2. The 4 Functional Pipeline Stages
 
-| Channel | Ingestion Tool | Data Ingested | Ingestion Cadence | Primary Signal Extracted |
-| :--- | :--- | :--- | :--- | :--- |
-| **Sales** | n8n $\rightarrow$ CRM | Win/Loss notes, competitor feature gaps | Real-time / Daily | Purchase blockers, missing enterprise capabilities |
-| **Account Management** | n8n $\rightarrow$ CRM | Churn exit surveys, upsell blockers | Monthly | Retention risks, expansion constraints |
-| **Support** | Trigger.dev $\rightarrow$ Zendesk | Bug tickets, UX confusion, workarounds | Hourly batch | Usability defects, onboarding friction points |
-| **Product & UXR** | ElevenLabs $\rightarrow$ S3 | In-depth interviews, recorded tests | Weekly | Deep Jobs-to-be-Done (JTBD) needs |
-| **In-App Feedback** | PostHog Surveys | Direct user feedback & satisfaction | Real-time | Feature-specific sentiment & immediate friction |
+| Stage | Operational Purpose | Key Responsibilities | Illustrative Tech Examples |
+| :--- | :--- | :--- | :--- |
+| **1. Ingestion & Automation** | Centralize incoming feedback from distributed teams without manual data entry. | • Listen to webhook events<br/>• Transcribe recorded calls<br/>• Poll customer support queues | • n8n, Trigger.dev, Zapier, custom HTTP webhooks<br/>• ElevenLabs, OpenAI Whisper, Deepgram |
+| **2. AI Synthesis & Extraction** | Convert raw complaints and transcripts into structured problem entities. | • Separate user friction from requested solutions<br/>• Tag sentiment and severity<br/>• Semantic vector deduplication | • LiteLLM gateway, Qwen, Gemini Flash, Claude, GPT-4o<br/>• Langfuse, Promptfoo for eval monitoring |
+| **3. Persistence & Telemetry** | Store relational records and connect qualitative claims to quantitative user behavior. | • Link feedback to customer ARR/segment<br/>• Correlate feedback tags with funnel drop-offs and error spikes | • PostgreSQL (Supabase/Neon) with Drizzle/Prisma<br/>• pgvector, Qdrant, Pinecone<br/>• PostHog, Amplitude, Mixpanel |
+| **4. Interface & Governance** | Make customer problems easily discoverable and actionable for product teams. | • Multi-dimensional search & filtering<br/>• Fidelity-style Usefulness Assessment<br/>• Input into PRDs and roadmap reviews | • SvelteKit + Tailwind / React + Next.js<br/>• TanStack Table / Zero sync<br/>• Dovetail, Notion, Productboard |
 
 ---
 
-## 3. Data Schema & Drizzle ORM Relational Model
+## 3. Reference Persistence Schema (Abstract Entity Model)
 
-Define clean, typed persistence models for feedback atomization:
+Regardless of the database or ORM used, the underlying data model should capture:
 
 ```typescript
-// schema/voc.ts - Drizzle ORM Schema
-import { pgTable, text, timestamp, uuid, integer, jsonb, vector } from 'drizzle-orm/pg-core';
+// Abstract VoC Data Model Concept
+interface FeedbackSignal {
+  id: string;
+  sourceChannel: 'sales' | 'support' | 'uxr' | 'in_app' | string;
+  customerSegment: 'smb' | 'mid_market' | 'enterprise' | string;
+  arrValue?: number;
+  rawContent: string;
+  transcriptionRef?: string;
+  telemetrySessionRef?: string; // Links to product analytics session
+  createdAt: Date;
+}
 
-export const feedbackSignals = pgTable('feedback_signals', {
-  id: uuid('id').defaultRandom().primaryKey(),
-  sourceChannel: text('source_channel').notNull(), // 'sales', 'support', 'uxr', 'posthog'
-  customerSegment: text('customer_segment').notNull(), // 'smb', 'mid_market', 'enterprise'
-  arrValue: integer('arr_value').default(0),
-  rawContent: text('raw_content').notNull(),
-  transcriptionId: text('transcription_id'),
-  posthogSessionId: text('posthog_session_id'),
-  createdAt: timestamp('created_at').defaultNow().notNull(),
-});
-
-export const problemTheses = pgTable('problem_theses', {
-  id: uuid('id').defaultRandom().primaryKey(),
-  title: text('title').notNull(),
-  description: text('description').notNull(),
-  severity: text('severity').notNull(), // 'blocker', 'high', 'medium', 'low'
-  usefulnessStatus: text('usefulness_status').notNull(), // 'fully_met', 'partially_met', 'not_met'
-  embedding: vector('embedding', { dimensions: 1536 }), // pgvector for deduplication
-  createdAt: timestamp('created_at').defaultNow().notNull(),
-});
+interface ProblemThesis {
+  id: string;
+  title: string;
+  description: string;
+  severity: 'blocker' | 'high' | 'medium' | 'low';
+  usefulnessStatus: 'fully_met' | 'partially_met' | 'not_met';
+  vectorEmbedding?: number[]; // For clustering & deduplication
+  linkedSignals: string[];
+  createdAt: Date;
+}
 ```
 
 ---
