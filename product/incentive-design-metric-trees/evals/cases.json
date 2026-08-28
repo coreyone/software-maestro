@@ -3,11 +3,11 @@
   "version": 1,
   "trigger_cases": [
     {
-      "prompt": "Our executive team wants to decompose our North Star Metric of 'Monthly Transacting Merchants' into squad-level input metrics with guardrails to avoid Goodhart's law. How do we design the metric tree?",
+      "prompt": "Our executive team wants to decompose our North Star Metric of 'Weekly Active Transacting Merchants' into responsive squad-level 3R input metrics with anti-Goodhart guardrails and a metric pre-mortem. How do we design the metric tree?",
       "trigger": true
     },
     {
-      "prompt": "Construct a metric tree and incentive guardrail pairing table for an e-commerce marketplace.",
+      "prompt": "Construct a 4-dimension metric tree (Breadth, Depth, Frequency, Efficiency) and 4-quadrant weekly operating rhythm for a B2B SaaS platform.",
       "trigger": true
     },
     {
@@ -22,8 +22,8 @@
   "binary_cases": [
     {
       "id": "metric-tree-and-guardrail-pairing",
-      "prompt": "Decompose a North Star Metric of 'Weekly Active Transacting Merchants' for a B2B SaaS platform into input metric branches and establish anti-gaming guardrails.",
-      "pass_rule": "Must define North Star Metric, decompose into input metrics across breadth/depth/frequency, and pair every input with an anti-Goodhart guardrail metric.",
+      "prompt": "Decompose a North Star Metric of 'Weekly Active Transacting Merchants' for a B2B SaaS platform into 3R input metrics across Breadth, Depth, Frequency, and Efficiency. Run a metric pre-mortem to establish anti-gaming guardrails and define the weekly 4-quadrant review cadence.",
+      "pass_rule": "Must define North Star Metric, decompose into 3R input metrics across 4 dimensions (Breadth, Depth, Frequency, Efficiency), run a metric pre-mortem with paired guardrails, and specify the 4-quadrant weekly rhythm.",
       "must": [
         [
           "North Star Metric",
@@ -31,29 +31,40 @@
           "NSM"
         ],
         [
-          "Input Metric",
-          "input metrics",
-          "Input"
-        ],
-        [
-          "Guardrail",
-          "guardrail",
-          "Goodhart"
+          "3R",
+          "Responsive",
+          "Input Metric"
         ],
         [
           "Breadth",
           "Depth",
           "Frequency",
-          "Retention"
+          "Efficiency"
+        ],
+        [
+          "Pre-Mortem",
+          "pre-mortem",
+          "Goodhart",
+          "Gaming"
+        ],
+        [
+          "Guardrail",
+          "guardrail"
+        ],
+        [
+          "4-Quadrant",
+          "Quadrant",
+          "Confidence Score"
         ]
       ],
       "must_not": [
         [
           "reward ticket output instead of outcome",
-          "no guardrail metrics"
+          "no guardrail metrics",
+          "no pre-mortem"
         ]
       ],
-      "pass_fixture": "### Metric Tree & Incentive Architecture\n\n#### 1. North Star Metric (NSM)\n- **Metric**: Weekly Active Transacting Merchants (WATM) \u2014 defined as merchants processing >=3 customer orders per week.\n- **Duality**: Customer gets sales revenue; platform captures transaction fee revenue.\n\n#### 2. Metric Tree Decomposition\n- **Breadth Branch**: New Merchant Onboarding Completion % (Squad: Merchant Activation).\n- **Depth Branch**: Average Catalog Items Listed per Merchant (Squad: Catalog & Inventory).\n- **Frequency Branch**: Days per week merchant logs in to fulfill orders (Squad: Merchant Operations).\n\n#### 3. Anti-Goodhart Guardrail Pairings\n| Input Metric | Gaming Risk | Paired Guardrail Metric |\n| :--- | :--- | :--- |\n| Onboarding Conversion Rate | Onboarding fraudulent/empty stores | **Day-30 Chargeback Rate & KYC Failure Rate** |\n| Transaction Volume Growth | Discounting to zero-margin orders | **Gross Margin per Transaction** |\n| Email Re-engagement Rate | Spamming merchant inbox | **Email Unsubscribe & Complaint Rate** |",
+      "pass_fixture": "### North Star Metric Tree & Incentive Architecture\n\n#### 1. North Star Metric (NSM)\n- **Metric**: Weekly Active Transacting Merchants (WATM) \u2014 defined as merchants processing >=3 customer orders per week.\n- **Value Duality**: Merchant captures sales revenue; platform captures transaction fee revenue.\n\n#### 2. 4-Dimension 3R Metric Tree Decomposition\n- **Breadth (Reach)**: New Merchant Onboarding Completion % within 48h (Squad: Merchant Activation).\n- **Depth (Engagement)**: Average Active Catalog Items Listed per Merchant (Squad: Catalog & Inventory).\n- **Frequency**: Days per week merchant fulfills orders in dashboard (Squad: Merchant Operations).\n- **Efficiency**: Checkout-to-Settlement Processing Time in seconds (Squad: Payments Core).\n*All inputs pass the 3R test: Responsive (<14 days), Representational of user behavior, and Reflexive to UX quality.*\n\n#### 3. Metric Pre-Mortem & Anti-Goodhart Guardrail Pairings\n- **Pre-Mortem Simulation**: Squad could hit onboarding target by allowing unverified empty stores with zero inventory.\n- **Mandatory Guardrail**: Merchant KYC Verification Rate & Day-14 Zero-Order Merchant %.\n- **Payments Pre-Mortem Simulation**: Speeding up checkout by disabling fraud inspection checks.\n- **Mandatory Guardrail**: Chargeback / Fraud Incident Rate (<0.01%).\n\n#### 4. 4-Quadrant Weekly Operating Rhythm\n- **Q1 (Active Bets)**: 1-click catalog import from Shopify & Stripe auto-onboarding.\n- **Q2 (3R Metric Trend)**: Onboarding Completion shifted from 31% -> 42% (+11% WoW).\n- **Q3 (Confidence Score)**: 8 / 10 conviction based on positive merchant sentiment.\n- **Q4 (Health Invariants)**: Chargeback rate at 0.002% (Green); API latency 45ms (Green).",
       "fail_fixture": "Let's track story points completed per sprint and reward the team that closes the most Jira tickets."
     }
   ]
