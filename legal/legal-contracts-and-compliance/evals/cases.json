@@ -1,0 +1,41 @@
+{
+  "skill": "legal-contracts-and-compliance",
+  "version": 1,
+  "trigger_cases": [
+    {"prompt": "Redline incoming enterprise customer Master Services Agreement (MSA) against our standard legal fallback playbook.", "trigger": true},
+    {"prompt": "Auto-fill a 200-question enterprise vendor security assessment from Whistic using our SOC 2 Type II report.", "trigger": true},
+    {"prompt": "Compile continuous access control and change management evidence for our annual ISO 27001 audit.", "trigger": true},
+    {"prompt": "Fix CSS flexbox wrapping in the pricing table.", "trigger": false},
+    {"prompt": "Write a SQL migration script to add email column.", "trigger": false},
+    {"prompt": "Generate an OpenGraph preview image for the blog.", "trigger": false}
+  ],
+  "binary_cases": [
+    {
+      "id": "enterprise-contract-redlining",
+      "prompt": "Review and redline an enterprise customer's proposed MSA regarding intellectual property, unlimited liability, and data ownership.",
+      "pass_rule": "Enforces company fallback positions, capping standard liability (e.g., 1-2x annual contract value), protecting core IP/model weights, and inserting reciprocal indemnification.",
+      "must": [["liability cap", "limitation of liability", "annual contract value"], ["intellectual property", "IP ownership", "model weights"], ["indemnification", "indemnity"]],
+      "must_not": ["accept unlimited liability", "assign core IP to customer", "waive all indemnities"],
+      "pass_fixture": "Redline the contract to reject unlimited liability by inserting a standard 1x-2x annual contract value liability cap, preserve company ownership of core intellectual property and model weights, and enforce mutual indemnification.",
+      "fail_fixture": "Accept unlimited liability without objection and assign core IP to customer outright."
+    },
+    {
+      "id": "security-questionnaire-evidence-matching",
+      "prompt": "Complete an enterprise customer security questionnaire regarding encryption at rest, access control, and disaster recovery.",
+      "pass_rule": "Maps questionnaire prompts to verifiable facts in SOC 2 Type II / ISO 27001 audit reports with exact control references (AES-256, MFA, RPO/RTO).",
+      "must": [["SOC 2", "ISO 27001", "audit report"], ["AES-256", "encryption at rest", "KMS"], ["MFA", "multi-factor", "role-based access"]],
+      "must_not": ["make up unsupported claims", "state encryption is not used", "claim 100% hack-proof"],
+      "pass_fixture": "Cite SOC 2 Type II control CC6.1 confirming AES-256 encryption at rest managed via KMS, and control CC6.3 requiring mandatory MFA and role-based access control.",
+      "fail_fixture": "Make up unsupported claims without citing audit reports or claim the system is 100% hack-proof."
+    },
+    {
+      "id": "continuous-compliance-audit-evidence",
+      "prompt": "Gather audit evidence for annual SOC 2 Type II and GDPR/EU AI Act compliance certification.",
+      "pass_rule": "Harvests automated infrastructure configuration snapshots, IAM role listings, change management PR approvals, and vulnerability scanner reports into an immutable audit vault.",
+      "must": [["IAM", "access review", "least privilege"], ["change management", "pull request approval", "PR review"], ["vulnerability scan", "penetration test", "CVE"]],
+      "must_not": ["forge audit logs", "bypass change approvals", "delete security scan findings"],
+      "pass_fixture": "Harvest IAM least privilege access reviews, pull request approval logs proving two-person change management rules, and third-party vulnerability scan reports into the compliance evidence vault.",
+      "fail_fixture": "Bypass change approvals, forge audit logs, and delete security scan findings."
+    }
+  ]
+}

@@ -1,12 +1,12 @@
 # software-maestro
 
-A capability orchestra of 58 lean agent skills for AI IDE agents (Claude Code, Codex, Antigravity, Gemini).
+A capability orchestra of 62 lean agent skills for AI IDE agents (Claude Code, Codex, Antigravity, Gemini).
 
 ---
 
 ## 🎯 Architecture & Intent
 
-`software-maestro` structures skills into 8 core domains. Redundant micro-skills are consolidated into **Unified Hero Hubs** to reduce cognitive choice paralysis, eliminate near-synonym overlap, and prevent prompt token bloat while preserving 100% of expert frameworks.
+`software-maestro` structures skills into 12 core domains. Redundant micro-skills are consolidated into **Unified Hero Hubs** to reduce cognitive choice paralysis, eliminate near-synonym overlap, and prevent prompt token bloat while preserving 100% of expert frameworks.
 
 ---
 
@@ -40,6 +40,34 @@ A capability orchestra of 58 lean agent skills for AI IDE agents (Claude Code, C
 *   **`engineering/development-and-quality/`** (6 skills): Core engineering craft, code review checklists, Test-Driven Development (TDD), evaluation-driven AI development, ASD-STE100 technical writing standards, and info-to-ink token compression (`developer-development-rules`, `developer-code-review-rules`, `developer-test-driven-development`, `developer-eval-driven-development`, `technical-language-rules`, `info-to-ink`).
 *   **`engineering/architecture-and-resiliency/`** (2 skills): Clean/Hexagonal system architecture with circuit breakers and zero-key web search grounding (`system-architecture-rules`, `grounded-search-rules`).
 *   **`engineering/cloud-and-infrastructure/`** (1 skill): Multi-cloud architecture, hybrid cloud networking, and reusable Terraform IaC modules (`multi-cloud-architecture`).
+
+</details>
+
+<details>
+<summary><strong><code>finance/</code></strong> (1 skill)</summary>
+
+*   **`finance-payments-tax-and-treasury`**: Multi-rail settlement reconciliation (FedNow, RTP, SEPA, Pix, Card Networks), multi-jurisdiction tax nexus & statutory reporting (1099-K, DAC7, VAT, TOT), automated chargeback dispute defense, and treasury liquidity rebalancing.
+
+</details>
+
+<details>
+<summary><strong><code>trust/</code></strong> (1 skill)</summary>
+
+*   **`trust-safety-fraud-and-claims`**: Multimodal content moderation, counterfeit goods & policy enforcement, KYC/KYB & OFAC/PEP sanctions screening, and binding physical damage claim adjudication (AirCover, damaged shipments).
+
+</details>
+
+<details>
+<summary><strong><code>legal/</code></strong> (1 skill)</summary>
+
+*   **`legal-contracts-and-compliance`**: Autonomous enterprise contract redlining (MSAs, DPAs, SLAs), security questionnaire automation (Whistic, Conveyor, OneTrust), and continuous audit evidence harvesting (SOC 2, ISO 27001, PCI-DSS, EU AI Act).
+
+</details>
+
+<details>
+<summary><strong><code>ops/</code></strong> (1 skill)</summary>
+
+*   **`ops-incident-and-crisis-response`**: Mission-critical SEV-0/1 war room triage, canary kill & traffic shedding containment, public status communications, high-empathy customer crisis override resolution, and blameless 5-Whys RCAs.
 
 </details>
 
@@ -114,6 +142,10 @@ A capability orchestra of 58 lean agent skills for AI IDE agents (Claude Code, C
 │   ├── development-and-quality/ # TDD, evals, code reviews, craft, STE prose, info-to-ink (6 skills)
 │   ├── architecture-and-resiliency/ # System architecture, grounded search (2 skills)
 │   └── cloud-and-infrastructure/ # Multi-cloud architecture & Terraform IaC (1 skill)
+├── finance/                  # Settlement rails, tax nexus, chargebacks & treasury (1 skill)
+├── trust/                    # Content moderation, KYC/AML, fraud & physical claims (1 skill)
+├── legal/                    # Enterprise contract redlining, security QA & audit vault (1 skill)
+├── ops/                      # SEV-0 incident command, crisis comms & blameless RCA (1 skill)
 ├── data-and-api/             # API guidelines, caching, and causal inference data layers (3 skills)
 ├── security/                 # Developer security & auth/identity rules (2 skills)
 ├── growth/                   # Telemetry, commerce UX, SEO, experimentation, copy (5 skills)
