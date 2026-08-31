@@ -1,0 +1,73 @@
+{
+  "skill": "product-marketing-narrative",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "We are launching a new Instant Host Payout feature for Airbnb hosts. Create the product marketing narrative including Geoffrey Moore positioning statement, 3-tier messaging hierarchy, value proposition canvas, competitive battlecard, and launch tier classification.",
+      "trigger": true
+    },
+    {
+      "prompt": "Craft the PMM positioning brief and messaging pillars for our enterprise data catalog feature to prepare our sales and customer success teams.",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a competitive battlecard and value proposition hierarchy for our new real-time fraud detection engine.",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a SQL query to calculate daily active users.",
+      "trigger": false
+    },
+    {
+      "prompt": "Deploy this worker to Cloudflare using wrangler.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "pmm-positioning-and-messaging-hierarchy",
+      "prompt": "Create a complete product marketing narrative for 'Host Instant Payouts' on Airbnb. Include the formal Geoffrey Moore positioning statement, 3-tier messaging hierarchy (Hero + 3 Pillars + Proof Points), Value Proposition Canvas mapping, competitive battlecard, and launch tier classification.",
+      "pass_rule": "Must formulate the positioning statement (For, Who, That, Unlike), build a 3-tier messaging hierarchy with 3 pillars, map customer pains/gains to pain relievers/gain creators, create a competitive battlecard, and classify the release tier.",
+      "must": [
+        [
+          "Positioning",
+          "positioning statement",
+          "For",
+          "Unlike"
+        ],
+        [
+          "Messaging Hierarchy",
+          "Pillar 1",
+          "Pillars",
+          "Hero"
+        ],
+        [
+          "Value Proposition",
+          "Pains",
+          "Gains",
+          "Pain Relievers"
+        ],
+        [
+          "Battlecard",
+          "battlecard",
+          "Why We Win",
+          "Landmines"
+        ],
+        [
+          "Tier 1",
+          "Tier 2",
+          "Launch Tier",
+          "Release Tier"
+        ]
+      ],
+      "must_not": [
+        [
+          "just write random marketing copy without positioning structure",
+          "no messaging hierarchy"
+        ]
+      ],
+      "pass_fixture": "### Product Marketing Narrative: Airbnb Host Instant Payouts\n\n#### 1. Release Tier Classification\n- **Launch Tier**: **Tier 1 (Major Platform Moment)** \u2014 Transformational liquidity feature driving host retention and supply acquisition.\n\n#### 2. Formal Positioning Statement (Geoffrey Moore Model)\n- **For** professional and individual Airbnb hosts,\n- **Who** struggle with multi-day bank transfer delays and cash flow friction between guest check-ins,\n- **The** *Host Instant Payout* **is an** automated treasury and liquidity capability\n- **That** deposits booking earnings into the host's bank account within 30 seconds of guest arrival,\n- **Unlike** legacy ACH payouts and competitor platforms that hold funds for 3\u20135 business days,\n- **Our Product** leverages direct real-time banking rails with zero minimum thresholds and integrated tax accounting.\n\n#### 3. Value Proposition Canvas Mapping\n- **Customer Pains**: Cash flow squeeze between turnover cleanings, unpredictable settlement dates, high overdraft fees.\n- **Pain Relievers**: Instant 30-second liquidity, 24/7/365 availability, automatic fee deduction.\n- **Customer Gains**: Instant access to operating capital, peace of mind, seamless reinvestment into guest amenities.\n- **Gain Creators**: 1-click debit card push, automated payout splitting between co-hosts.\n\n#### 4. 3-Tier Messaging Hierarchy\n- **Tier 1 (Hero Value Claim)**: *Your listing earnings, in your account, the moment your guests check in.*\n- **Tier 2 (Three Core Pillars)**:\n  - **Pillar 1: Instant Liquidity**: Real-time deposits in under 30 seconds, even on weekends and bank holidays.\n  - **Pillar 2: Frictionless Automation**: Set it once and receive payouts automatically upon guest verification.\n  - **Pillar 3: Transparent Accounting**: Zero hidden fees with instant reconciliation in the Host Dashboard.\n- **Tier 3 (Proof Points & Features)**:\n  - *Proof 1.1*: Visa Direct / Mastercard Send rails delivering <30s median settlement.\n  - *Proof 2.1*: Automatic co-host and cleaning team split payouts.\n  - *Proof 3.1*: Downloadable CSVs with pre-matched booking IDs and tax withholding.\n\n#### 5. Competitive Battlecard Matrix\n- **Why We Win**: We provide real-time 30-second settlements with native co-host splitting, whereas competitors only offer standard 3-day ACH or charge exorbitant 3% expedite fees.\n- **Landmines to Lay**: Ask competitors: *'When a guest checks in on Friday afternoon, does your platform let hosts access funds before Monday morning?'*\n- **Objection Reframe**: *'Isn't instant payout risky for host chargebacks?'* \u2794 Reframe: *'Airbnb's Host Damage Protection and guest identity verification absorb platform liability, guaranteeing payout funds.'*",
+      "fail_fixture": "Host Instant Payout is cool. We should tell hosts to use it because it is fast and easy."
+    }
+  ]
+}

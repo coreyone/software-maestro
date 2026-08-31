@@ -1,0 +1,73 @@
+{
+  "skill": "data-warehouse-semantic-layer",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "We need to design a dbt dimensional model for our marketplace reservations with staging, intermediate, dim_users, and fct_bookings layers, enforcing a YAML data contract.",
+      "trigger": true
+    },
+    {
+      "prompt": "Create a MetricFlow semantic layer definition for revenue, average booking value, and active host counts with entities, measures, and time dimensions.",
+      "trigger": true
+    },
+    {
+      "prompt": "How do we implement an incremental dbt model with a merge strategy and surrogate keys for high-volume telemetry events?",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a python script to parse a CSV file and print the lines.",
+      "trigger": false
+    },
+    {
+      "prompt": "Create a Dockerfile for a Next.js application.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "dbt-dimensional-modeling-and-data-contract",
+      "prompt": "Design a dimensional modeling architecture in dbt for marketplace bookings. Provide the staging (stg_) and fact (fct_) model structure, grain definition, surrogate key generation, YAML data contract with column constraints, and a Semantic Layer MetricFlow metric definition for average booking value.",
+      "pass_rule": "Must define the dimensional model architecture (stg_, fct_), state the grain, generate surrogate keys, provide YAML data contract enforcement, and define semantic layer measures/metrics.",
+      "must": [
+        [
+          "stg_",
+          "staging",
+          "fct_",
+          "fact"
+        ],
+        [
+          "Grain",
+          "grain",
+          "row represents"
+        ],
+        [
+          "Surrogate Key",
+          "surrogate_key",
+          "generate_surrogate_key",
+          "booking_pk"
+        ],
+        [
+          "contract",
+          "enforced",
+          "not_null",
+          "constraints"
+        ],
+        [
+          "Semantic",
+          "semantic_model",
+          "MetricFlow",
+          "measures",
+          "metric"
+        ]
+      ],
+      "must_not": [
+        [
+          "raw query in BI tool without dimensional model",
+          "no schema constraints"
+        ]
+      ],
+      "pass_fixture": "### Analytics Engineering Architecture: Marketplace Bookings\n\n#### 1. Grain Declaration & Dimensional Structure\n- **Fact Table**: `fct_bookings`\n- **Grain**: Exactly one row per completed reservation event.\n- **Conformed Dimensions**: `dim_guests`, `dim_hosts`, `dim_listings`, `dim_dates`.\n\n#### 2. dbt Fact Model (`models/marts/fct_bookings.sql`)\n```sql\n{{\n  config(\n    materialized = 'incremental',\n    unique_key = 'booking_pk',\n    incremental_strategy = 'merge',\n    contract = {'enforced': true}\n  )\n}}\n\nwith staging as (\n    select * from {{ ref('stg_marketplace__bookings') }}\n),\n\nfinal as (\n    select\n        {{ dbt_utils.generate_surrogate_key(['booking_id']) }} as booking_pk,\n        guest_id as guest_fk,\n        listing_id as listing_fk,\n        booked_at,\n        checkin_date,\n        checkout_date,\n        gross_booking_value_usd,\n        booking_status\n    from staging\n    {% if is_incremental() %}\n        where booked_at >= (select max(booked_at) from {{ this }})\n    {% endif %}\n)\n\nselect * from final\n```\n\n#### 3. YAML Data Contract (`models/marts/fct_bookings.yml`)\n```yaml\nversion: 2\nmodels:\n  - name: fct_bookings\n    description: \"Dimensional fact table for reservation transactions.\"\n    config:\n      contract:\n        enforced: true\n    columns:\n      - name: booking_pk\n        data_type: text\n        constraints:\n          - type: not_null\n          - type: primary_key\n      - name: guest_fk\n        data_type: text\n        constraints:\n          - type: not_null\n      - name: gross_booking_value_usd\n        data_type: numeric(18, 2)\n        constraints:\n          - type: not_null\n```\n\n#### 4. Semantic Layer MetricFlow Definition (`models/semantic/bookings_metrics.yml`)\n```yaml\nversion: 2\nsemantic_models:\n  - name: bookings_semantic_model\n    model: ref('fct_bookings')\n    defaults:\n      agg_time_dimension: booked_at\n    entities:\n      - name: booking_id\n        type: primary\n        expr: booking_pk\n    measures:\n      - name: total_revenue\n        expr: gross_booking_value_usd\n        agg: sum\n      - name: booking_count\n        expr: booking_pk\n        agg: count_distinct\n\nmetrics:\n  - name: average_booking_value\n    description: \"Average Gross Booking Value per transaction.\"\n    type: ratio\n    type_params:\n      numerator: total_revenue\n      denominator: booking_count\n```",
+      "fail_fixture": "Just write a raw SQL query `select * from raw_bookings` and hook it up directly to Metabase."
+    }
+  ]
+}
