@@ -1,0 +1,56 @@
+{
+  "skill": "scrum-sprint-review-increment",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Run our Sprint Review meeting for Sprint 18. Audit our completed checkout features against our Definition of Done and document stakeholder feedback.",
+      "trigger": true
+    },
+    {
+      "prompt": "Inspect our working software increment with stakeholders and adapt our product backlog.",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a unit test with Jest for an email validator.",
+      "trigger": false
+    },
+    {
+      "prompt": "Configure an OAuth 2.1 authorization server in Go.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "sprint-review-audit",
+      "prompt": "Generate a Sprint Review Increment Audit for an e-commerce subscription squad demonstrating a new customer portal.",
+      "pass_rule": "Must include Sprint Goal evaluation, Definition of Done audit with binary verdicts, live demo findings, and explicit Product Backlog adaptation items.",
+      "must": [
+        [
+          "sprint goal",
+          "achieved"
+        ],
+        [
+          "definition of done",
+          "dod"
+        ],
+        [
+          "demo",
+          "working software",
+          "increment"
+        ],
+        [
+          "product backlog",
+          "adaptation",
+          "next sprint"
+        ]
+      ],
+      "must_not": [
+        [
+          "lorem ipsum"
+        ]
+      ],
+      "pass_fixture": "## 1. Sprint Goal Evaluation\n- **Sprint Goal**: 'Enable subscribers to pause, skip, or swap subscription items self-serve from their account dashboard.'\n- **Verdict**: **ACHIEVED** (All 3 self-serve controls functional in staging demo).\n\n## 2. Definition of Done (DoD) Audit\n- [x] Unit test coverage $\\ge 85\\%$ (Current: 89.2%).\n- [x] Staging E2E smoke tests passing (100% green).\n- [x] WCAG AA accessibility audit verified (Keyboard navigable, screen reader labels confirmed).\n- [x] Zero high-severity security vulnerabilities in dependencies.\n- [x] API documentation updated in OpenAPI spec.\n\n## 3. Working Increment Demo Findings\n- *Feature 1 (Skip Delivery)*: Flawless demo; skipped next box and updated next billing date in real-time.\n- *Feature 2 (Product Swap)*: Demonstrated item swap; stakeholder noted that modal search could use category filter chips.\n- *Feature 3 (Pause Subscription)*: Clean 30/60/90 day pause options.\n\n## 4. Product Backlog Adaptation\n- **Added to Next Sprint**: Category filter chips on product swap modal (Estimated: 3 pts).\n- **Deprioritized**: Cancel flow questionnaire moved to Sprint 20 backlog.",
+      "fail_fixture": "We showed the app to stakeholders and they gave us thumbs up. We will ship it next week."
+    }
+  ]
+}

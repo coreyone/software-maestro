@@ -1,6 +1,6 @@
 # Software Maestro
 
-A capability orchestra of 95 agent skills for AI IDE agents. You conduct product strategy, design systems, engineering execution, data science, security, growth, quality, and operational cadences from one developer baton.
+A capability orchestra of 99 agent skills for AI IDE agents. You conduct product strategy, design systems, engineering execution, data science, security, growth, quality, and operational cadences from one developer baton.
 
 ## Install
 
@@ -74,9 +74,10 @@ Alternatively, clone this repository directly into your AI IDE configuration dir
 </details>
 
 <details>
-<summary><strong><code>productivity-maestro/</code></strong> (4 skills)</summary>
+<summary><strong><code>productivity-maestro/</code></strong> (8 skills across 2 subdomains)</summary>
 
-*   Operational intelligence, executive synthesis, task triage, and high-output 1:1 cadences (`meeting-transcription-notes`, `executive-async-memo`, `weekly-review-triage`, `one-on-one-cadence`). Distills multi-speaker meeting transcripts into structured operational decision records, synthesizes Slack and email threads into Smart Brevity memos, executes GTD Eisenhower triage, and runs Andy Grove 1:1 cadences with two-way commitment contracts.
+*   **`productivity-maestro/executive-and-async/`** (4 skills): Multi-paradigm meeting intelligence, Axios Smart Brevity async memos, GTD Eisenhower triage, and Andy Grove 1:1 cadences (`meeting-transcription-notes`, `executive-async-memo`, `weekly-review-triage`, `one-on-one-cadence`).
+*   **`productivity-maestro/scrum-cadences/`** (4 skills): Original Scrum cybernetic behavioral cadences, empirical capacity planning, 24h asynchronous drift triage, Definition of Done increment demos, and blameless Kaizen retrospectives (`scrum-sprint-planning-capacity`, `scrum-daily-async-sync`, `scrum-sprint-review-increment`, `scrum-retrospective-kaizen`).
 
 </details>
 
@@ -103,7 +104,9 @@ Alternatively, clone this repository directly into your AI IDE configuration dir
 ├── security/                 # Authentication protocols, identity keys, secure cookies, mTLS, CI/CD secrets management (5 skills)
 ├── growth/                   # SEO, lifecycle CRM automation, commerce UX, CRO, experimentation sizing, retention modeling, copywriting, analytics (11 skills)
 ├── quality/                  # Performance debugging, telemetry, service mesh, CI/CD pipelines, FinOps cost, deployments, a11y, automation (15 skills)
-└── productivity-maestro/      # Meeting intelligence, Smart Brevity async memos, GTD/Eisenhower triage, Andy Grove 1:1s (4 skills)
+└── productivity-maestro/      # Operational Intelligence, Async Memos & Scrum Cybernetic Cadences (8 skills across 2 subdomains)
+    ├── executive-and-async/  # Meeting intelligence, Smart Brevity memos, GTD/Eisenhower, Grove 1:1s (4 skills)
+    └── scrum-cadences/       # Sprint Planning, Daily Standup, Sprint Review, Kaizen Retro (4 skills)
 ```
 
 ## Binary evals

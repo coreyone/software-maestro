@@ -1,0 +1,55 @@
+{
+  "skill": "scrum-sprint-planning-capacity",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Run our Scrum sprint planning session for Sprint 24. Help us formulate our Sprint Goal, calibrate our velocity capacity, and lock our sprint backlog.",
+      "trigger": true
+    },
+    {
+      "prompt": "We need to size our sprint commitments and set up our capacity forecast for the upcoming 2-week iteration.",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a Terraform script for an AWS S3 bucket with server-side encryption.",
+      "trigger": false
+    },
+    {
+      "prompt": "Run a 5-Act user interview with Michael Margolis protocol.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "sprint-planning-contract",
+      "prompt": "Generate a Scrum Sprint Planning contract for a fintech checkout squad entering a 2-week sprint.",
+      "pass_rule": "Must include 1 singular Sprint Goal, empirical capacity calculation, selected Sprint Backlog items with task decomposition, and explicit trade-off triggers.",
+      "must": [
+        [
+          "sprint goal",
+          "singular goal"
+        ],
+        [
+          "capacity",
+          "velocity"
+        ],
+        [
+          "sprint backlog",
+          "backlog items"
+        ],
+        [
+          "trade-off",
+          "tradeoff",
+          "non-goals"
+        ]
+      ],
+      "must_not": [
+        [
+          "lorem ipsum"
+        ]
+      ],
+      "pass_fixture": "## 1. Singular Sprint Goal\nEnable instant Apple Pay and Google Pay 1-click checkout for mobile shoppers, reducing mobile cart abandonment by 15%.\n\n## 2. Capacity & Velocity Calibration\n- **Trailing Velocity (3 Sprints)**: 34 story points average.\n- **Deductions**: 1 engineer on-call (-4 pts), 1 public holiday (-4 pts).\n- **Committed Capacity**: 26 story points.\n\n## 3. Committed Sprint Backlog Items\n1. *Story 101: Apple Pay PassKit Integration* (8 pts) -> Tasks: PassKit client wrapper, backend token decryption, idempotency key checks.\n2. *Story 102: Google Pay Web SDK Integration* (8 pts) -> Tasks: Google Pay button UI, payment data callback handler.\n3. *Story 103: 1-Click Address Pre-fill* (5 pts) -> Tasks: Address normalization, shipping rate recalculator.\n4. *Story 104: Fallback Error Boundary & Analytics* (5 pts) -> Tasks: Telemetry events, retry banner.\n\n## 4. Trade-Off Triggers & Non-Goals\n- **Non-Goals**: Buy Now Pay Later (Klarna/Affirm) is strictly deferred to Sprint 25.\n- **Trade-Off Trigger**: If Apple Pay token decryption encounters third-party gateway delays $>2$ days, Story 104 is dropped to protect the Sprint Goal.",
+      "fail_fixture": "Here is a list of tasks we should work on this sprint: fix bugs, build checkout, add apple pay."
+    }
+  ]
+}

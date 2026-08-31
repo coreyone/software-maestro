@@ -1,0 +1,54 @@
+{
+  "skill": "scrum-daily-async-sync",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Run our Daily Scrum async sync for the payments engineering squad. Summarize yesterday's progress, today's focus, and surface blockers against our Sprint Goal.",
+      "trigger": true
+    },
+    {
+      "prompt": "Draft a daily standup blocker triage update for our AI search pod.",
+      "trigger": true
+    },
+    {
+      "prompt": "Design a dbt dimensional star schema with fact and dimension tables.",
+      "trigger": false
+    },
+    {
+      "prompt": "Create an executive annual budget report for the board.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "daily-scrum-brief",
+      "prompt": "Generate a Daily Scrum sync brief for a 3-engineer mobile pod working on biometric authentication.",
+      "pass_rule": "Must include active Sprint Goal reference, structured 3-part updates for team members (yesterday, today, blockers), and an actionable 16th-minute unblocking plan.",
+      "must": [
+        [
+          "sprint goal"
+        ],
+        [
+          "yesterday",
+          "completed"
+        ],
+        [
+          "today",
+          "focus"
+        ],
+        [
+          "blocker",
+          "impediment",
+          "16th minute"
+        ]
+      ],
+      "must_not": [
+        [
+          "lorem ipsum"
+        ]
+      ],
+      "pass_fixture": "## Active Sprint Goal\nDeliver 1-tap FaceID biometric login with $<200\\text{ms}$ authentication latency.\n\n## Daily Synchronization Matrix\n- **Engineer A (iOS Core)**:\n  - *Yesterday*: Completed LocalAuthentication framework integration and Keychain token storage.\n  - *Today*: Implement fallback PIN code challenge modal.\n  - *Blockers*: None.\n- **Engineer B (Backend Auth API)**:\n  - *Yesterday*: Deployed JWT session refresh endpoint with rate limiting.\n  - *Today*: Connect Redis session invalidation on biometric revocation.\n  - *Blockers*: Waiting for staging Redis cluster credentials from DevOps.\n- **Engineer C (QA / E2E)**:\n  - *Yesterday*: Configured Maestro UI automated test suite for FaceID success flow.\n  - *Today*: Write negative test cases (expired biometric tokens, failed sensor prompts).\n  - *Blockers*: Blocked by staging environment Redis downtime.\n\n## 16th-Minute Unblocking Actions\n- **DevOps Escalation**: Engineer B and C pairing with DevOps lead at 10:30 AM to restore staging Redis cluster credentials.",
+      "fail_fixture": "Everything is going well. We worked on authentication yesterday and will continue today."
+    }
+  ]
+}
