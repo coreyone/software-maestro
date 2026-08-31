@@ -1,24 +1,27 @@
 ---
 name: prd-to-tickets
-description: "Trigger: prd to tickets, prd to issues, spec to tickets, generate tickets from prd, break prd into tasks, tracer bullet tickets, decompose spec into issues, prd to kanban, prd to linear, prd to github issues, now next later tickets. Scope: Translates PRDs, functional specs, and architecture plans into tracer-bullet vertical slice tickets with explicit blocking edge DAGs, INVEST sizing, Gherkin BDD acceptance criteria, and Definition of Ready (DoR) gates. Ingests and enforces core doctrines: developer-development-rules (unhappy path, pre-factoring), swarm-rules & michael-bolton-rule (atomic file isolation, <200 LOC diffs, Andon Cord triggers), developer-test-driven-development (Red-Green-Refactor test assertions), developer-code-review-rules (review readiness), and proven-product-spec (Proven/Better/New taxonomy). Technology-agnostic: compiles cleanly to Markdown Kanban (kanban.md), GitHub Issues (gh issue create CLI), Linear, Jira, Notion, Obsidian, or Now/Next/Later horizons. Boundary: Excludes writing the PRD from scratch (use create-prd) or direct code execution (use developer-development-rules)."
+description: "Trigger: prd to tickets, prd to issues, spec to tickets, generate tickets from prd, break prd into tasks, tracer bullet tickets, decompose spec into issues, prd to kanban, prd to linear, prd to github issues, now next later tickets, god marduk phasing. Scope: Translates PRDs, functional specs, and architecture plans into tracer-bullet vertical slice tickets with explicit blocking edge DAGs, INVEST sizing, Gherkin BDD acceptance criteria, and Definition of Ready (DoR) gates. Governed by god-marduk 6-phase lifecycle orchestration (Phase 0 Scaffolding through Phase 5 Synthesis), technical-language-rules (ASD-STE100 <=20w procedural constraints, unambiguous connectors), developer-development-rules (pre-factoring, unhappy path), swarm-rules (<200 LOC diffs, atomic file isolation, Andon Cord triggers), and proven-product-spec (Proven/Better/New taxonomy). Technology-agnostic: compiles cleanly to Markdown Kanban (kanban.md), GitHub Issues (gh issue create CLI), Linear, Jira, Notion, Obsidian, or Now/Next/Later horizons. Boundary: Excludes writing the PRD from scratch (use create-prd) or direct code execution (use developer-development-rules)."
 ---
 
 # Rule: PRD to Tracer-Bullet Tickets Compiler
 
 > [!IMPORTANT]
-> **Cross-Skill Synthesis & Lineage**:
-> 1. **Matt Pocock**: Tracer-bullet vertical slices cutting across all layers (DB $\rightarrow$ API $\rightarrow$ UI $\rightarrow$ Test) and strict blocking edges (DAG).
-> 2. [`/developer-development-rules`](../../../engineering/development-and-quality/developer-development-rules/SKILL.md): Pre-factoring (*"Make the change easy first"*), Unhappy-Path-First failure contracts, and Engineering Definition of Done (DoD).
-> 3. [`/swarm-rules`](../../orchestration/swarm-rules/SKILL.md) & [`/michael-bolton-rule`](../../orchestration/michael-bolton-rule/SKILL.md): Atomic file isolation (zero write collisions), Small-Batch Slicing ($<200$ LOC diffs), and explicit **Andon Cord (Stop-the-Line)** triggers.
-> 4. [`/developer-test-driven-development`](../../../engineering/development-and-quality/developer-test-driven-development/SKILL.md): Red-Green-Refactor sequence with executable BDD/Gherkin acceptance criteria.
-> 5. [`/proven-product-spec`](../proven-product-spec/SKILL.md) & [`/create-prd`](../create-prd/SKILL.md): **[Proven / Better / New]** taxonomy tagging, non-goals, and outcome metrics.
-> 6. [`/developer-code-review-rules`](../../../engineering/development-and-quality/developer-code-review-rules/SKILL.md): Verification evidence artifacts and review-readiness gates.
+> **Orchestration & Quality Foundations**:
+> 1. [`/god-marduk`](../../orchestration/god-marduk/SKILL.md): Enforces Infrastructure-First sequencing across 6 smart phases (`0: Scaffolding`, `1: Foundation`, `2: Mechanism`, `3: Interface`, `4: Hardening`, `5: Synthesis`).
+> 2. [`/technical-language-rules`](../../../engineering/development-and-quality/technical-language-rules/SKILL.md): Applies ASD-STE100 and Google DevDocs writing standards ($\le 20$ words per procedural step, $\le 3$-noun stacks, imperative verbs, `because` instead of `since/as`, `after` instead of `once`).
+> 3. **Matt Pocock**: Tracer-bullet vertical slices (DB $\rightarrow$ API $\rightarrow$ UI $\rightarrow$ Test) and strict blocking edges (DAG).
+> 4. [`/developer-development-rules`](../../../engineering/development-and-quality/developer-development-rules/SKILL.md): Pre-factoring (*"Make the change easy first"*), Unhappy-Path-First failure contracts, and Engineering Definition of Done (DoD).
+> 5. [`/swarm-rules`](../../orchestration/swarm-rules/SKILL.md) & [`/michael-bolton-rule`](../../orchestration/michael-bolton-rule/SKILL.md): Atomic file isolation, Small-Batch Slicing ($<200$ LOC diffs), and explicit **Andon Cord (Stop-the-Line)** triggers.
+> 6. [`/developer-test-driven-development`](../../../engineering/development-and-quality/developer-test-driven-development/SKILL.md): Red-Green-Refactor sequence with executable BDD/Gherkin acceptance criteria.
+> 7. [`/proven-product-spec`](../proven-product-spec/SKILL.md): **[Proven / Better / New]** taxonomy tagging and non-goals.
 
 ---
 
 ## When to use
 
 Use this skill to compile any PRD, functional spec, or architectural plan into an actionable ticket backlog:
+- Sequencing tickets across **God-Marduk 6-Phase Lifecycle** (`Phase 0` Scaffolding to `Phase 5` Synthesis).
+- Enforcing **ASD-STE100 Technical Language Rules** across all ticket titles, descriptions, and acceptance criteria.
 - Decomposing complex PRDs into **tracer-bullet vertical slices** with explicit dependencies (`blocked_by` / `blocks`).
 - Sizing tickets for single-context-window autonomous execution ($<200$ LOC diffs for `ralph.sh` or subagents).
 - Tagging tickets with the **Proven / Better / New** innovation taxonomy.
@@ -36,7 +39,7 @@ Do not use this skill for:
 
 ## Trigger cues
 
-- Request mentions: `prd to tickets`, `prd to issues`, `spec to tickets`, `generate tickets from prd`, `break prd into tasks`, `tracer bullet tickets`, `decompose spec into issues`, `prd to kanban`, `prd to linear`, `prd to github issues`, `now next later tickets`.
+- Request mentions: `prd to tickets`, `prd to issues`, `spec to tickets`, `generate tickets from prd`, `break prd into tasks`, `tracer bullet tickets`, `decompose spec into issues`, `prd to kanban`, `prd to linear`, `prd to github issues`, `now next later tickets`, `god marduk phasing`.
 
 ## Inputs required
 
@@ -48,32 +51,45 @@ Do not use this skill for:
 ## Instructions
 
 1. Read [references/source.md](references/source.md) first.
-2. **Extract Problem, Outcome & Invariants (`create-prd`)**:
-   - Ingest PRD goals, non-goals, anti-personas, and acceptance criteria.
-   - Tag each feature area with the **[Proven / Better / New]** taxonomy from `proven-product-spec`.
-3. **Identify Pre-factoring & Expand-Contract Needs (`developer-development-rules`)**:
-   - Check if the spec requires pre-factoring existing code (*"Make the change easy, then make the easy change"*).
-   - If a wide refactor touches shared interfaces or database schemas, sequence it as **Expand $\rightarrow$ Migrate $\rightarrow$ Contract** tickets.
-4. **Draft Tracer-Bullet Vertical Slices (Matt Pocock + SPIDR)**:
-   - Apply SPIDR heuristics (Spikes, Paths, Interfaces, Data, Rules).
-   - Ensure every slice cuts end-to-end (Schema $\rightarrow$ Logic/API $\rightarrow$ UI $\rightarrow$ Tests) and delivers demonstrable value.
-   - Enforce **Unhappy Path First**: Every ticket must specify error states, fallbacks, and boundary validations.
-   - Enforce **Small-Batch Slicing**: Sized strictly $\le 200$ LOC diff / $\le 3-5$ story points to fit in a single agent context window (`swarm-rules`).
-5. **Declare Multi-Agent Safety & Blocking Edges (`swarm-rules` + `michael-bolton-rule`)**:
+2. **Apply God-Marduk 6-Phase Structure**:
+   - Organize tickets into progressive lifecycle phases:
+     - `Phase 0: Scaffolding` (Deploy baseline with active CI/CD).
+     - `Phase 1: Foundation` (Data schemas, auth, and security contracts).
+     - `Phase 2: Mechanism` (Core business logic engine without UI).
+     - `Phase 3: Interface` (Responsive UI, design system tokens, empty states).
+     - `Phase 4: Hardening` (Security audit, performance latency budgets, accessibility).
+     - `Phase 5: Synthesis` (Telemetry verification, retrospective learning).
+3. **Enforce ASD-STE100 Technical Prose Rules**:
+   - Limit procedural instructions to $\le 20$ words per sentence.
+   - Limit descriptive summaries to $\le 25$ words per sentence.
+   - Use active voice, present tense, and imperative verbs (`Create`, `Add`, `Verify`).
+   - Use `because` (not *since/as*), `after` (not *once*), `must/can` (not *may*), `before` (not *prior to*), and `to` (not *in order to*).
+   - Restrict noun clusters to $\le 3$ consecutive nouns.
+4. **Extract Problem, Outcome & Invariants (`create-prd` & `proven-product-spec`)**:
+   - Ingest PRD goals, non-goals, and anti-personas.
+   - Tag every ticket with **[Proven]** (commoditized patterns), **[Better]** (friction reduction), or **[New]** (novel spike).
+5. **Identify Pre-factoring & Expand-Contract Needs (`developer-development-rules`)**:
+   - Sequence pre-factoring tickets first (*"Make the change easy, then make the easy change"*).
+   - Sequence breaking schema changes as **Expand $\rightarrow$ Migrate $\rightarrow$ Contract** batches.
+6. **Draft Tracer-Bullet Vertical Slices (Matt Pocock + SPIDR)**:
+   - Slice vertically through all tiers (Schema $\rightarrow$ Logic/API $\rightarrow$ UI $\rightarrow$ Tests).
+   - Enforce **Unhappy Path First**: Specify error status codes, fallbacks, and boundary validations.
+   - Enforce **Small-Batch Slicing**: Sized strictly $\le 200$ LOC diff / $\le 3-5$ story points (`swarm-rules`).
+7. **Declare Multi-Agent Safety & Blocking Edges (`swarm-rules` + `michael-bolton-rule`)**:
    - Declare explicit dependency edges (`blocked_by: [TICKET_IDS]`, `blocks: [TICKET_IDS]`).
-   - Define the bounded **Target File Paths** for each ticket to ensure atomic file ownership and zero write collisions.
-   - Define explicit **Andon Cord (Stop-the-Line)** conditions for unexpected breaks.
-6. **Attach TDD & Verification Gates (`developer-test-driven-development` + `developer-code-review-rules`)**:
+   - Define bounded **Target File Paths** to prevent concurrent write collisions.
+   - Define explicit **Andon Cord (Stop-the-Line)** trigger criteria.
+8. **Attach TDD & Verification Gates (`developer-test-driven-development` + `developer-code-review-rules`)**:
    - Attach executable BDD/Gherkin scenarios (`Given / When / Then`).
    - Specify required Red-Green-Refactor test matrix (Unit, Integration, E2E).
    - Include the 5-point Engineering **Definition of Done (DoD)** checklist.
-7. **Compile to Target Tracker Schema**:
+9. **Compile to Target Tracker Schema**:
    - Render as formatted Markdown Kanban, automated `gh issue create` bash script, or structured JSON for Linear/Jira/Notion.
 
 ## Completion gate
 
-- [ ] All PRD features mapped to vertical tracer-bullet tickets.
+- [ ] All PRD features mapped across God-Marduk Phases 0–5.
+- [ ] 100% of prose complies with ASD-STE100 and Google DevDocs style rules.
 - [ ] Explicit dependency DAG (`blocked_by` / `blocks`) defined for every ticket.
-- [ ] Each ticket contains Proven/Better/New tag, bounded file paths, BDD/Gherkin criteria, and DoD gate.
-- [ ] Wide refactors sequenced as Expand-Contract batches.
+- [ ] Each ticket contains Proven/Better/New tag, bounded file paths, BDD criteria, and DoD gate.
 - [ ] Output formatted cleanly in the requested tracker format.
