@@ -19,7 +19,7 @@
       "trigger": true
     },
     {
-      "prompt": "Cross-check this government report claim against primary census data and extract overlooked baseline statistics.",
+      "prompt": "Query raw experiment telemetry via Google MCP Toolbox for Databases (googleapis/mcp-toolbox) in BigQuery to check for sample ratio mismatch.",
       "trigger": true
     },
     {
@@ -119,6 +119,22 @@
       ],
       "pass_fixture": "Statistical Audit: Detected severe p-hacking across 32 uncorrected subgroup endpoints. The 95% CI crosses the null boundary once Bonferroni correction is applied. Inversion Impact: The error flips the positive conclusion to a null result.",
       "fail_fixture": "Assume statistics are valid because p is less than 0.05 and ignore sampling bias and confounding."
+    },
+    {
+      "id": "mcp-toolbox-database-telemetry-audit",
+      "prompt": "Query raw experiment telemetry via Google MCP Toolbox for Databases (googleapis/mcp-toolbox) to audit sample ratio mismatch (SRM) and baseline metrics.",
+      "pass_rule": "Uses MCP Toolbox for database querying to verify raw baseline metrics and check for Sample Ratio Mismatch (SRM).",
+      "must": [
+        ["mcp-toolbox", "MCP Toolbox", "googleapis/mcp-toolbox"],
+        ["BigQuery", "Postgres", "database", "SQL", "telemetry"],
+        ["SRM", "Sample Ratio Mismatch", "Chi-Square", "baseline"]
+      ],
+      "must_not": [
+        "rely only on third-party aggregated dashboard screenshots",
+        "guess baseline without database query"
+      ],
+      "pass_fixture": "Primary Telemetry Audit via googleapis/mcp-toolbox: Queried raw experiment events in BigQuery. The Chi-Square test on variant counts (N=45,120 vs N=45,090) confirmed no Sample Ratio Mismatch (SRM p=0.88), verifying a clean 12.4% baseline.",
+      "fail_fixture": "Rely only on third-party aggregated dashboard screenshots and guess baseline without database query."
     }
   ]
 }

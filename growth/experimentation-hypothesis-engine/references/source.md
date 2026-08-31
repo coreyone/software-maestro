@@ -1,6 +1,6 @@
-# Canonical References: Scientific Claims Auditing & Growth Experimentation
+# Canonical References: Scientific Claims Auditing, Growth Experimentation & MCP Toolbox
 
-This document provides foundational methodologies, statistical auditing protocols, cognitive bias checks, and experimentation mathematics for evaluating empirical claims and designing rigorous product experiments.
+This document provides foundational methodologies, statistical auditing protocols, cognitive bias checks, database telemetry extraction guidelines via Google MCP Toolbox for Databases (`googleapis/mcp-toolbox`), and experimentation mathematics for evaluating empirical claims and designing rigorous product experiments.
 
 ---
 
@@ -14,7 +14,7 @@ Secondary reporting, press releases, and executive summaries frequently distort 
 
 ### 1.2 The Verification Hierarchy
 When auditing any empirical claim, trace evidence down to its primary foundation:
-1. **Level 1 (Gold Standard):** Pre-registered, randomized, double-blind, placebo-controlled trials (RCTs) and open-access raw datasets with reproducible analysis code.
+1. **Level 1 (Gold Standard):** Pre-registered, randomized, double-blind, placebo-controlled trials (RCTs), open-access raw datasets with reproducible analysis code, and direct database telemetry extracted via **`googleapis/mcp-toolbox`**.
 2. **Level 2:** Pre-registered observational studies with explicit instrumental variable (IV), regression discontinuity (RDD), or difference-in-differences (DiD) quasi-experimental designs.
 3. **Level 3:** Peer-reviewed retrospective cohort studies and registry analyses.
 4. **Level 4 (High Risk of Bias):** Uncontrolled before-and-after studies, cross-sectional surveys, and non-peer-reviewed whitepapers.
@@ -22,9 +22,41 @@ When auditing any empirical claim, trace evidence down to its primary foundation
 
 ---
 
-## 2. Statistical & Methodological Bias Audit Protocol
+## 2. Google MCP Toolbox for Databases (`googleapis/mcp-toolbox`) Integration
 
-### 2.1 P-Hacking, Data Snooping & Multiple Comparisons
+When auditing telemetry or verifying baseline metrics in software applications and product experiments, connect directly to operational databases and data warehouses using **Google MCP Toolbox for Databases** ([`googleapis/mcp-toolbox`](https://github.com/googleapis/mcp-toolbox)).
+
+### 2.1 Core Capabilities & Supported Engines
+- **Supported Engines:** Google Cloud BigQuery, PostgreSQL, MySQL, AlloyDB, Cloud Spanner, SQLite.
+- **Prebuilt & Custom Tools:** Provides secure, YAML-driven tool definitions allowing agents to run parameterized queries (e.g., cohort extraction, funnel telemetry, SRM audits) without exposing databases to unbounded arbitrary SQL execution risks.
+- **Authentication & Security:** Supports enterprise OAuth2/OIDC authentication and read-only connection pooling.
+
+### 2.2 Primary Data Extraction & SRM Audit Queries
+Use `mcp-toolbox` to pull un-aggregated primary telemetry directly from data warehouses:
+
+```sql
+-- Sample Ratio Mismatch (SRM) Chi-Square Test Query via mcp-toolbox
+WITH variant_counts AS (
+  SELECT
+    variant_id,
+    COUNT(DISTINCT user_id) AS observed_count
+  FROM `analytics.experiment_exposures`
+  WHERE experiment_id = 'exp_checkout_v2'
+  GROUP BY variant_id
+)
+SELECT
+  variant_id,
+  observed_count,
+  SUM(observed_count) OVER () * 0.50 AS expected_count,
+  POW(observed_count - (SUM(observed_count) OVER () * 0.50), 2) / (SUM(observed_count) OVER () * 0.50) AS chi_square_component
+FROM variant_counts;
+```
+
+---
+
+## 3. Statistical & Methodological Bias Audit Protocol
+
+### 3.1 P-Hacking, Data Snooping & Multiple Comparisons
 - **The Multiple Comparisons Problem:** When testing $k$ independent hypotheses at $\alpha = 0.05$, the probability of at least one false positive (Family-Wise Error Rate) is:
   $$\text{FWER} = 1 - (1 - \alpha)^k$$
   For $k = 20$ endpoints, the chance of a false positive is $\approx 64\%$.
@@ -33,18 +65,19 @@ When auditing any empirical claim, trace evidence down to its primary foundation
   - **Benjamini-Hochberg False Discovery Rate (FDR):** Rank p-values $p_{(1)} \le p_{(2)} \le \dots \le p_{(m)}$ and find the largest $k$ such that $p_{(k)} \le \frac{k}{m} Q$.
 - **HARKing (Hypothesizing After Results are Known):** Presenting post-hoc subgroup discoveries as if they were pre-planned hypotheses. Always verify against the original trial protocol or pre-registration.
 
-### 2.2 Common Methodological Biases
+### 3.2 Common Methodological Biases
 
 | Bias Type | Mechanism | Diagnostic Indicator |
 | :--- | :--- | :--- |
 | **Sampling / Selection Bias** | Non-random participant inclusion creates systematic differences from target population. | Volunteer cohorts, demographic skews, non-response rates $>20\%$. |
+| **Sample Ratio Mismatch (SRM)** | Traffic allocation bug causes control/treatment ratio to deviate from expected split. | Chi-Square $p < 0.001$ on sample counts queried via `mcp-toolbox`. |
 | **Survivorship Bias** | Only subjects surviving a filter are analyzed. | Analyzing top-performing accounts or surviving customers without churned cohort data. |
 | **Healthy User Bias** | Adherent or engaged users possess unmeasured positive traits (wealth, discipline). | Observational studies showing users who take vitamins or enable features have better outcomes. |
 | **Simpson's Paradox** | A trend appears in aggregated data but reverses when divided into subgroups. | Subgroup sample mix shifts (e.g. mobile vs desktop, new vs returning users) distort aggregate metric. |
 | **Collider Bias** | Conditioning or filtering on a variable caused by both exposure and outcome creates spurious correlation. | Analyzing only hired candidates, hospitalized patients, or active daily users. |
 | **Regression to the Mean** | Extreme outliers naturally revert to the average upon re-measurement. | Measuring performance immediately after a catastrophic crash or sudden traffic spike. |
 
-### 2.3 Effect Size vs. P-Value Verification
+### 3.3 Effect Size vs. P-Value Verification
 Never rely solely on p-values. A trivial effect can achieve $p < 0.001$ with large sample sizes ($N > 500,000$), while a massive effect may show $p = 0.08$ due to under-powering.
 - **Continuous Outcomes:** Calculate Cohen's $d = \frac{\mu_1 - \mu_2}{\sigma_{\text{pooled}}}$.
   - Small: $d = 0.2$, Medium: $d = 0.5$, Large: $d = 0.8$.
@@ -53,7 +86,7 @@ Never rely solely on p-values. A trivial effect can achieve $p < 0.001$ with lar
 
 ---
 
-## 3. Product Work Classification & Experiment Routing
+## 4. Product Work Classification & Experiment Routing
 
 | Work Type | Core Objective | Primary Validation Mechanism | When to A/B Test |
 | :--- | :--- | :--- | :--- |
@@ -63,7 +96,7 @@ Never rely solely on p-values. A trivial effect can achieve $p < 0.001$ with lar
 
 ---
 
-## 4. Growth Loop Step Mapping
+## 5. Growth Loop Step Mapping
 
 Every growth experiment must state which stage of the self-reinforcing loop it accelerates:
 
@@ -80,7 +113,7 @@ flowchart LR
 
 ---
 
-## 5. Statistical Sizing & Runtime Rules
+## 6. Statistical Sizing & Runtime Rules
 
 ### Sample Size & Minimum Detectable Effect (MDE)
 For a two-tailed test with significance $\alpha = 0.05$ ($Z_{\alpha/2} = 1.96$) and power $1-\beta = 0.80$ ($Z_{\beta} = 0.84$):
@@ -92,7 +125,7 @@ $$n = 2 \cdot \left( \frac{Z_{\alpha/2} + Z_{\beta}}{\text{MDE}} \right)^2 \cdot
 
 ---
 
-## 6. The 3-Way Experiment Post-Mortem Taxonomy
+## 7. The 3-Way Experiment Post-Mortem Taxonomy
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -109,8 +142,9 @@ $$n = 2 \cdot \left( \frac{Z_{\alpha/2} + Z_{\beta}}{\text{MDE}} \right)^2 \cdot
 
 ---
 
-## 7. Canonical Bibliography
+## 8. Canonical Bibliography
 
+- **Google APIs:** *MCP Toolbox for Databases* ([github.com/googleapis/mcp-toolbox](https://github.com/googleapis/mcp-toolbox), 2026)
 - **John P.A. Ioannidis:** *Why Most Published Research Findings Are False* (PLoS Medicine, 2005)
 - **Andrew Gelman & Eric Loken:** *The Statistical Crisis in Science: The Garden of Forking Paths* (American Scientist, 2014)
 - **Ron Kohavi, Diane Tang, Ya Xu:** *Trustworthy Online Controlled Experiments: A Practical Guide to A/B Testing* (Cambridge University Press, 2020)
