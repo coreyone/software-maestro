@@ -25,13 +25,13 @@ A capability orchestra of 69 lean agent skills for AI IDE agents (Claude Code, C
 </details>
 
 <details>
-<summary><strong><code>design/</code></strong> (9 skills across 5 subdomains)</summary>
+<summary><strong><code>design/</code></strong> (10 skills across 5 subdomains)</summary>
 
 *   **`design/sprints-and-ideation/`** (1 skill): Jake Knapp Design Sprint master hub covering Monday Understand & Map, Tuesday Crazy 8s Diverge, and Wednesday Sticky Decision Storyboarding (`design-sprint`).
 *   **`design/systems-and-foundations/`** (1 skill): Foundational design system tokens, visual typography scale, and aesthetic principles (`design-system-rules`).
 *   **`design/interaction-and-layout/`** (3 skills): Responsive layout breakpoints, motion physics, and wayfinding architecture (`design-responsive-rules`, `design-animation`, `design-information-architecture-rules`).
-*   **`design/experience-and-flows/`** (3 skills): First-time user onboarding, Hollywood prototype facades with 5-Act user testing, and cognitive chart visualization (`design-user-onboarding-ux`, `design-rapid-prototype-facade`, `chart-communication`).
-*   **`design/evaluation-and-quality/`** (1 skill): Nielsen Norman usability heuristics and visual design review audits (`design-usability-rules`).
+*   **`design/experience-and-flows/`** (3 skills): First-time user onboarding, Hollywood prototype facades with rapid validation, and cognitive chart visualization (`design-user-onboarding-ux`, `design-rapid-prototype-facade`, `chart-communication`).
+*   **`design/evaluation-and-quality/`** (2 skills): Nielsen Norman usability heuristics and structured 5-Act user interview testing (`design-usability-rules`, `design-5-act-user-interview-testing`).
 
 </details>
 
@@ -73,11 +73,13 @@ A capability orchestra of 69 lean agent skills for AI IDE agents (Claude Code, C
 </details>
 
 <details>
-<summary><strong><code>data-and-api/</code></strong> (3 skills)</summary>
+<summary><strong><code>data-and-api/</code></strong> (5 skills)</summary>
 
 *   **`api-design-guidelines`**: REST/GraphQL schema contracts, RFC 7807 error patterns, and database caching.
 *   **`data-persistence-caching`**: Database schema indexing, cache-aside patterns, and query performance tuning.
 *   **`data-science-causal-inference`**: Causal inference (DiD, Synthetic Control, CUPED), metric triage, and dbt dimensional semantic layers.
+*   **`data-warehouse-semantic-layer`**: Enterprise metric layers, dimensional modeling (dbt / Cube / LookML), and single source of truth analytics definitions.
+*   **`product-data-metric-investigation-triage`**: Diagnostic metric triage, cohort degradation decomposition, and anomaly root-cause attribution.
 
 </details>
 
@@ -134,12 +136,12 @@ A capability orchestra of 69 lean agent skills for AI IDE agents (Claude Code, C
 │   ├── strategy/             # Decision Stack, Hypothesis Loop, Pricing, Strategy Narrative, PMF Loops (5 skills)
 │   ├── discovery-and-specs/  # PRD Compiler, PRD-to-Tickets, VoC Pipeline (3 skills)
 │   └── operations-and-gtm/   # Continuous Loop, GTM Release, Systems Retro Pruning (3 skills)
-├── design/                   # Visual Systems, Design Sprints, Layout & Motion (9 skills)
+├── design/                   # Visual Systems, Design Sprints, Layout & Motion (10 skills)
 │   ├── sprints-and-ideation/ # Jake Knapp Design Sprint Master Hub (1 skill)
 │   ├── systems-and-foundations/ # Design system tokens & visual scale (1 skill)
 │   ├── interaction-and-layout/  # Responsive layouts, animation physics, IA wayfinding (3 skills)
 │   ├── experience-and-flows/    # Onboarding UX, Prototype Facade, Chart viz (3 skills)
-│   └── evaluation-and-quality/  # Usability heuristics & design audits (1 skill)
+│   └── evaluation-and-quality/  # Usability heuristics & 5-Act interview testing (2 skills)
 ├── engineering/              # Code Quality, Architecture, Cloud & IaC (9 skills)
 │   ├── development-and-quality/ # TDD, evals, code reviews, craft, STE prose, info-to-ink (6 skills)
 │   ├── architecture-and-resiliency/ # System architecture, grounded search (2 skills)
@@ -148,7 +150,7 @@ A capability orchestra of 69 lean agent skills for AI IDE agents (Claude Code, C
 ├── trust/                    # Content moderation, KYC/AML, fraud & physical claims (1 skill)
 ├── legal/                    # Enterprise contract redlining, security QA & audit vault (1 skill)
 ├── ops/                      # SEV-0 incident command, crisis comms & blameless RCA (1 skill)
-├── data-and-api/             # API guidelines, caching, and causal inference data layers (3 skills)
+├── data-and-api/             # API guidelines, caching, causal inference, semantic layer, metric triage (5 skills)
 ├── security/                 # Developer security & auth/identity rules (2 skills)
 ├── growth/                   # Telemetry, commerce UX, SEO, experimentation, copy (5 skills)
 ├── quality/                  # CI/CD, FinOps, dogfooding, a11y, observability, web perf, peekaboo (8 skills)
