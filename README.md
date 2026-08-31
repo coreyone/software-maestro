@@ -1,6 +1,6 @@
 # software-maestro
 
-A capability orchestra of 69 lean agent skills for AI IDE agents (Claude Code, Codex, Antigravity, Gemini).
+A capability orchestra of 70 lean agent skills for AI IDE agents (Claude Code, Codex, Antigravity, Gemini).
 
 ---
 
@@ -25,9 +25,9 @@ A capability orchestra of 69 lean agent skills for AI IDE agents (Claude Code, C
 </details>
 
 <details>
-<summary><strong><code>design/</code></strong> (10 skills across 5 subdomains)</summary>
+<summary><strong><code>design/</code></strong> (11 skills across 5 subdomains)</summary>
 
-*   **`design/sprints-and-ideation/`** (1 skill): Jake Knapp Design Sprint master hub covering Monday Understand & Map, Tuesday Crazy 8s Diverge, and Wednesday Sticky Decision Storyboarding (`design-sprint`).
+*   **`design/sprints-and-ideation/`** (2 skills): Jake Knapp Design Sprint master hub and Min Basadur / IDEO How Might We (HMW) generative problem reframing (`design-sprint`, `how-might-we`).
 *   **`design/systems-and-foundations/`** (1 skill): Foundational design system tokens, visual typography scale, and aesthetic principles (`design-system-rules`).
 *   **`design/interaction-and-layout/`** (3 skills): Responsive layout breakpoints, motion physics, and wayfinding architecture (`design-responsive-rules`, `design-animation`, `design-information-architecture-rules`).
 *   **`design/experience-and-flows/`** (3 skills): First-time user onboarding, Hollywood prototype facades with rapid validation, and cognitive chart visualization (`design-user-onboarding-ux`, `design-rapid-prototype-facade`, `chart-communication`).
@@ -136,8 +136,8 @@ A capability orchestra of 69 lean agent skills for AI IDE agents (Claude Code, C
 │   ├── strategy/             # Decision Stack, Hypothesis Loop, Pricing, Strategy Narrative, PMF Loops (5 skills)
 │   ├── discovery-and-specs/  # PRD Compiler, PRD-to-Tickets, VoC Pipeline (3 skills)
 │   └── operations-and-gtm/   # Continuous Loop, GTM Release, Systems Retro Pruning (3 skills)
-├── design/                   # Visual Systems, Design Sprints, Layout & Motion (10 skills)
-│   ├── sprints-and-ideation/ # Jake Knapp Design Sprint Master Hub (1 skill)
+├── design/                   # Visual Systems, Design Sprints, Layout & Motion (11 skills)
+│   ├── sprints-and-ideation/ # Design Sprint & How Might We ideation (2 skills)
 │   ├── systems-and-foundations/ # Design system tokens & visual scale (1 skill)
 │   ├── interaction-and-layout/  # Responsive layouts, animation physics, IA wayfinding (3 skills)
 │   ├── experience-and-flows/    # Onboarding UX, Prototype Facade, Chart viz (3 skills)
@@ -157,6 +157,23 @@ A capability orchestra of 69 lean agent skills for AI IDE agents (Claude Code, C
 └── productivity-maestro/      # Executive memos, meeting intelligence & 3-tier Scrum cadences (5 skills)
     ├── executive-and-async/  # Meeting intelligence & Smart Brevity async memos (2 skills)
     └── scrum-cadences/       # Planning/Refinement, Daily Sync, Review/Retro (3 skills)
+```
+
+---
+
+## 🔍 Local Skill Discovery CLI
+
+Instantly search, discover, and inspect all 70 local skills from your terminal:
+
+```bash
+# Keyword search across names, triggers, and expert frameworks
+python3 scripts/find_skill.py "how might we"
+
+# Filter by lifecycle domain
+python3 scripts/find_skill.py --domain product
+
+# Output structured JSON for tooling
+python3 scripts/find_skill.py --json "okrs"
 ```
 
 ---
