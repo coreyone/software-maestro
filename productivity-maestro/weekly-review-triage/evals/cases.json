@@ -1,0 +1,53 @@
+{
+  "skill": "weekly-review-triage",
+  "version": 1,
+  "trigger_cases": [
+    {"prompt": "Run my GTD weekly review and organize my task list.", "trigger": true},
+    {"prompt": "Triage my open tasks into an Eisenhower matrix for Monday planning.", "trigger": true},
+    {"prompt": "Help me pick my Weekly Big 3 outcomes from this backlog dump.", "trigger": true},
+    {"prompt": "Prioritize these engineering tasks and tell me what to eliminate.", "trigger": true},
+    {"prompt": "Do an end-of-week mind sweep and task triage.", "trigger": true},
+    {"prompt": "Write a python regex to parse email addresses.", "trigger": false},
+    {"prompt": "Configure an AWS CloudFront distribution in Terraform.", "trigger": false},
+    {"prompt": "Create an SVG icon for a shopping cart.", "trigger": false},
+    {"prompt": "Debug memory leak in React component.", "trigger": false}
+  ],
+  "binary_cases": [
+    {
+      "id": "eisenhower-quadrant-triage",
+      "prompt": "Triage this task dump using the Eisenhower matrix.",
+      "pass_rule": "Categorizes tasks into clear Eisenhower quadrants including Do/Q1 and Schedule/Q2 and Elimination/Q4.",
+      "must": [["Quadrant 1", "Q1", "Do First"], ["Quadrant 2", "Q2", "Schedule"], ["Quadrant 4", "Q4", "Eliminate", "Pruned"]],
+      "must_not": ["single unstructured to-do list with no categories"],
+      "pass_fixture": "### Quadrant 1: Do First\n- @Alex: Fix auth crash.\n### Quadrant 2: Schedule\n- Architecture design doc.\n### Quadrant 4: Eliminated\n- Cancelled legacy dashboard redesign.",
+      "fail_fixture": "Single unstructured to-do list with no categories or priorities."
+    },
+    {
+      "id": "weekly-big-3-calibration",
+      "prompt": "Identify the top strategic priorities for the week.",
+      "pass_rule": "Defines the Weekly Big 3 high-leverage outcomes.",
+      "must": [["Weekly Big 3", "Big 3", "Top 3 Outcomes", "Outcome 1"], ["Outcome 2", "2."], ["Outcome 3", "3."]],
+      "must_not": ["here are 25 random unranked tasks"],
+      "pass_fixture": "## 1. The Weekly Big 3\n> **Outcome 1:** Ship v2 checkout API.\n> **Outcome 2:** Close Acme Corp contract.\n> **Outcome 3:** Hire Senior SRE.",
+      "fail_fixture": "Here are 25 random unranked tasks you could maybe work on this week."
+    },
+    {
+      "id": "single-dri-accountability",
+      "prompt": "Assign owners and deadlines to the prioritized tasks.",
+      "pass_rule": "Enforces single human DRI per action item with hard deadlines.",
+      "must": [["DRI", "Single Owner", "Owner"], "@", ["2026-", "by ", "Deadline"]],
+      "must_not": ["@Team", "@All", "someone needs to do this"],
+      "pass_fixture": "| Single Owner (DRI) | Action Item | Deadline |\n| @Sarah | Deploy migration | 2026-09-04 |",
+      "fail_fixture": "Tasks: @Team will handle the migration and someone needs to do this soon."
+    },
+    {
+      "id": "ste-imperative-verbs",
+      "prompt": "Format task items using ASD-STE100 technical English rules.",
+      "pass_rule": "Starts every task item with an imperative action verb and adheres to concise sentence limits.",
+      "must": [["Deploy", "Fix", "Merge", "Audit", "Write", "Refactor", "Complete"], ["by ", "2026-"]],
+      "must_not": ["thinking about maybe doing", "will be looking into"],
+      "pass_fixture": "Deploy Redis cluster because query latency spiked. Complete rollout by 2026-09-03.",
+      "fail_fixture": "I am thinking about maybe doing Redis caching and will be looking into it soon."
+    }
+  ]
+}

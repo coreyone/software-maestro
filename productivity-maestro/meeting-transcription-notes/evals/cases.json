@@ -1,0 +1,81 @@
+{
+  "skill": "meeting-transcription-notes",
+  "version": 1,
+  "trigger_cases": [
+    {"prompt": "Turn this Zoom transcript into structured meeting notes.", "trigger": true},
+    {"prompt": "Here is an Otter.ai transcription of our sprint planning, extract action items and decisions.", "trigger": true},
+    {"prompt": "Summarize this postmortem meeting using 5 Whys and codified principles.", "trigger": true},
+    {"prompt": "Convert this 1:1 voice memo into an 80/20 MVN note.", "trigger": true},
+    {"prompt": "Format this executive readout transcript using McKinsey SCQA and STE language rules.", "trigger": true},
+    {"prompt": "Classify these strategic decisions into Type 1 and Type 2 Amazon narrative memos.", "trigger": true},
+    {"prompt": "Write a python script to calculate Fibonacci numbers.", "trigger": false},
+    {"prompt": "Build a React component for a date picker.", "trigger": false},
+    {"prompt": "Configure our Terraform AWS VPC module.", "trigger": false},
+    {"prompt": "Optimize SQL queries on postgres table.", "trigger": false}
+  ],
+  "binary_cases": [
+    {
+      "id": "single-dri-accountability",
+      "prompt": "Extract action items from this meeting transcript.",
+      "pass_rule": "Enforces exactly one directly responsible individual (DRI) per action item with hard deadlines.",
+      "must": ["DRI", ["2026-", "Deadline", "by "], "@"],
+      "must_not": ["@Team", "@All", "someone on the team", "TBD deadline"],
+      "pass_fixture": "Actions: @Sarah is DRI to finalize the API schema by 2026-09-15. @Dave is DRI to run load tests by 2026-09-18.",
+      "fail_fixture": "Actions: @Team will look into the API schema and someone on the team will run load tests with TBD deadline."
+    },
+    {
+      "id": "minto-scqa-structure",
+      "prompt": "Summarize this steering committee transcript for executive stakeholders.",
+      "pass_rule": "Formats executive meeting synthesis according to Minto Pyramid SCQA structure.",
+      "must": ["Situation", "Complication", "Question", "Answer"],
+      "must_not": ["chronological dialogue", "alice said then bob replied"],
+      "pass_fixture": "Situation: Mobile MAU grew 20%. Complication: Latency degraded 40% in EMEA. Question: Should we deploy edge caches in Frankfurt? Answer: Yes, deploy Cloudflare edge workers immediately.",
+      "fail_fixture": "Here is the chronological dialogue: Alice said then Bob replied about some latency issues in Europe."
+    },
+    {
+      "id": "amazon-decision-classification",
+      "prompt": "Document this strategic product review transcript.",
+      "pass_rule": "Explicitly classifies strategic decisions as Type 1 (irreversible) or Type 2 (reversible) and captures dissent.",
+      "must": [["Type 1", "Type 2"], ["Disagree and Commit", "Dissent"], ["Owner", "DRI"]],
+      "must_not": ["unclassified decision without ownership"],
+      "pass_fixture": "Decision: Migrate payment provider (Type 1 Irreversible). Dissent: Dan raised migration downtime risks but agreed under Disagree and Commit. Owner: @Dan.",
+      "fail_fixture": "Unclassified decision without ownership made during the meeting."
+    },
+    {
+      "id": "bridgewater-5-whys-principle",
+      "prompt": "Create an issue-log and retro notes from this incident triage transcript.",
+      "pass_rule": "Conducts reality gap analysis, 5 Whys root cause inquiry, and establishes a codified principle.",
+      "must": [["What Happened", "Reality Gap"], ["5 Whys", "Root Cause"], "Principle"],
+      "must_not": ["blame individual without fixing system"],
+      "pass_fixture": "Reality Gap: What Happened vs Expected: Deployment failed. Root Cause 5 Whys: Missing automated linting gate in CI. Principle: Never merge PRs without automated contract tests.",
+      "fail_fixture": "Blame individual without fixing system for the outage."
+    },
+    {
+      "id": "ferriss-mvn-high-leverage",
+      "prompt": "Give me a quick 80/20 summary of this 15-minute sync.",
+      "pass_rule": "Synthesizes rapid 1:1 or standup meetings into the 80/20 Minimum Viable Note (The 1 Thing, Bottleneck, 2-3 Actions).",
+      "must": [["The 1 Thing", "Highest Impact"], ["Bottleneck", "Constraint"], ["Actions", "Action"]],
+      "must_not": ["lengthy 10 page meeting minutes", "chronological transcript"],
+      "pass_fixture": "The 1 Thing: Close enterprise deal with Acme Corp. Bottleneck: Legal redlines on indemnity. Actions: 1. @Lisa to approve updated clause by 2026-09-02.",
+      "fail_fixture": "Lengthy 10 page meeting minutes and chronological transcript of our full morning discussion."
+    },
+    {
+      "id": "ste-technical-language-precision",
+      "prompt": "Format meeting action items using ASD-STE100 technical English rules.",
+      "pass_rule": "Enforces ASD-STE100 technical language rules with imperative verbs, sentence length limits, and deterministic connectors (because, after, before).",
+      "must": [["because", "due to"], ["Deploy", "Add", "Configure", "Fix", "Update", "Verify"], ["by ", "Deadline", "2026-"]],
+      "must_not": ["prior to", "in order to", "since the system was slow", "once the build finishes"],
+      "pass_fixture": "Actions: @Dave: Deploy Redis replica because queries timed out. Complete verification by 2026-09-10.",
+      "fail_fixture": "Actions: Dave will look into deploying Redis in order to fix queries since the system was slow prior to Friday."
+    },
+    {
+      "id": "info-to-ink-compression",
+      "prompt": "Compress raw transcript notes into high-density decision records.",
+      "pass_rule": "Eliminates conversational filler and throat-clearing while preserving exact technical metrics and dates.",
+      "must": [["ms", "%", "error", "API", "PR"], ["@", "DRI"], ["2026-", "by "]],
+      "must_not": ["um thanks for joining", "basically what I think", "happy monday everyone", "let me know if you have questions"],
+      "pass_fixture": "Decision: Scale checkout API to handle 450ms p95 latency. DRI: @Dan to merge PR by 2026-09-08.",
+      "fail_fixture": "Um thanks for joining happy monday everyone, basically what I think we should do is scale the API. Let me know if you have questions."
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "skill": "one-on-one-cadence",
+  "version": 1,
+  "trigger_cases": [
+    {"prompt": "Prepare my 1:1 meeting agenda with my direct report Alex.", "trigger": true},
+    {"prompt": "Debrief this 1:1 sync and record mutual commitments.", "trigger": true},
+    {"prompt": "Structure a career coaching check-in using Andy Grove's High Output Management.", "trigger": true},
+    {"prompt": "Track two-way action items from my manager one-on-one.", "trigger": true},
+    {"prompt": "Help me give radical candor feedback in tomorrow's 1:1.", "trigger": true},
+    {"prompt": "Implement a binary search tree in C++.", "trigger": false},
+    {"prompt": "Set up a Kubernetes ingress controller on AWS EKS.", "trigger": false},
+    {"prompt": "Generate a SQL schema migration for billing subscriptions.", "trigger": false},
+    {"prompt": "Write an integration test for our OAuth token refresh endpoint.", "trigger": false}
+  ],
+  "binary_cases": [
+    {
+      "id": "two-way-commitments",
+      "prompt": "Create the commitment contract from this 1:1 debrief.",
+      "pass_rule": "Includes two-way commitments separating Direct Report actions from Manager unblocking actions.",
+      "must": [["Direct Report", "Report"], ["Manager", "Unblocking"], ["@", "DRI"], ["2026-", "by ", "Deadline"]],
+      "must_not": ["one-sided list with only subordinate tasks and no manager commitments"],
+      "pass_fixture": "### Direct Report Commitments\n| @Alex | Ship API schema | 2026-09-05 |\n### Manager Unblocking Commitments\n| @Sarah (Manager) | Escalate AWS quota increase with DevOps | 2026-09-02 |",
+      "fail_fixture": "One-sided list with only subordinate tasks and no manager commitments or unblocking actions."
+    },
+    {
+      "id": "andy-grove-4-pillars",
+      "prompt": "Prepare a structured 1:1 meeting outline.",
+      "pass_rule": "Addresses the core 1:1 pillars: Energy/Morale, Strategic Priorities, Obstacles/Unblocking, and Growth/Feedback.",
+      "must": [["Energy", "Morale", "Pulse"], ["Priority", "Alignment", "Focus"], ["Obstacle", "Friction", "Blocker", "Unblocking"], ["Growth", "Feedback", "Candor"]],
+      "must_not": ["generic status update reciting Jira tickets"],
+      "pass_fixture": "## 1. Pulse & Energy Check\n- Morale: High\n## 2. Priority Alignment\n- Focus: Checkout v2\n## 3. Obstacles & Unblocking\n- Blocker: Stalled PR review\n## 4. Growth & Feedback\n- Stretch Goal: Lead architecture review",
+      "fail_fixture": "Generic status update reciting Jira tickets with no coaching or unblocking discussions."
+    },
+    {
+      "id": "single-dri-accountability",
+      "prompt": "Record next steps from this one-on-one.",
+      "pass_rule": "Enforces single human DRI per action item with hard deadlines.",
+      "must": [["DRI", "Single Owner", "Owner"], "@", ["2026-", "by ", "Deadline"]],
+      "must_not": ["@Team", "@All", "someone will handle this"],
+      "pass_fixture": "| Single Owner (DRI) | Action Item | Deadline |\n| @Alex | Deliver tech spec | 2026-09-06 |",
+      "fail_fixture": "Tasks: @Team will handle the spec and someone will look at it later."
+    },
+    {
+      "id": "ste-imperative-verbs",
+      "prompt": "Format 1:1 action items using ASD-STE100 technical English.",
+      "pass_rule": "Starts every commitment with an imperative action verb and adheres to concise sentence limits.",
+      "must": [["Unblock", "Deliver", "Schedule", "Review", "Introduce", "Draft", "Escalate", "Deploy"], ["by ", "2026-"]],
+      "must_not": ["planning on maybe checking out", "will try to get around to"],
+      "pass_fixture": "@Sarah (Manager): Escalate database migration approval with SecOps by 2026-09-03.",
+      "fail_fixture": "Sarah is planning on maybe checking out the migration approval and will try to get around to it."
+    }
+  ]
+}
