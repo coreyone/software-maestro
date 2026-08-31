@@ -11,7 +11,7 @@
       "trigger": true
     },
     {
-      "prompt": "Generate a Now/Next/Later ticket backlog from our mobile checkout PRD.",
+      "prompt": "Generate a Now/Next/Later ticket backlog from our mobile checkout PRD, incorporating TDD test plans and Andon Cord triggers.",
       "trigger": true
     },
     {
@@ -27,7 +27,7 @@
     {
       "id": "prd-to-tracer-bullet-tickets",
       "prompt": "Compile the following PRD feature into tracer-bullet tickets: 'Allow customers to securely save payment methods during checkout and select a default card for future 1-click orders.'",
-      "pass_rule": "Must generate vertical slice tickets cutting across schema, API, UI, and tests; declare explicit blocking edges (blocked_by/blocks); include BDD acceptance criteria; and format in an actionable tracker structure.",
+      "pass_rule": "Must generate vertical slice tickets cutting across schema, API, UI, and tests; declare explicit blocking edges (blocked_by/blocks); include Proven/Better/New taxonomy; include unhappy path handling; include BDD acceptance criteria; and specify Definition of Done verification gates.",
       "must": [
         [
           "tracer bullet",
@@ -40,15 +40,25 @@
           "dependency"
         ],
         [
+          "proven",
+          "better",
+          "new",
+          "taxonomy"
+        ],
+        [
+          "unhappy path",
+          "error",
+          "fallback"
+        ],
+        [
           "given",
           "when",
           "then"
         ],
         [
-          "schema",
-          "api",
-          "ui",
-          "test"
+          "definition of done",
+          "dod",
+          "tdd"
         ]
       ],
       "must_not": [
@@ -56,7 +66,7 @@
           "lorem ipsum"
         ]
       ],
-      "pass_fixture": "## Tracer-Bullet Ticket Backlog (Kanban Board)\n\n### TICKET-01: [Prefactor] Payment Method Gateway Adapter & DB Table\n- **Horizon**: Now (Ready)\n- **Blocked By**: None (Ready to Start)\n- **Blocks**: TICKET-02, TICKET-03\n- **Story Points**: 3 (Diff estimate: ~120 LOC)\n- **Vertical Scope**:\n  - [x] Schema: Add `payment_methods` table with encrypted token field.\n  - [x] API: Add `POST /api/v1/payment-methods` adapter endpoint.\n  - [x] Test: Unit test token encryption and idempotency key checks.\n- **BDD Acceptance Criteria**:\n  ```gherkin\n  Scenario: Secure token storage\n    Given a valid Stripe customer token\n    When sent to the payment method endpoint\n    Then it stores the token safely and returns 201 Created\n  ```\n\n### TICKET-02: [Tracer Bullet] 'Save Card for Future Orders' Checkbox at Checkout\n- **Horizon**: Now\n- **Blocked By**: TICKET-01\n- **Blocks**: TICKET-04\n- **Story Points**: 3 (Diff estimate: ~150 LOC)\n- **Vertical Scope**:\n  - [x] UI: Add 'Save card for future 1-click purchases' checkbox to payment form.\n  - [x] API: Wire checkbox state to pass `save_payment_method=true` flag.\n  - [x] Test: E2E test verifying card token persistence after checkout completion.\n\n### TICKET-03: [Tracer Bullet] Default Card Selector in Customer Account Settings\n- **Horizon**: Next\n- **Blocked By**: TICKET-01\n- **Blocks**: TICKET-04\n- **Story Points**: 3 (Diff estimate: ~140 LOC)\n- **Vertical Scope**:\n  - [x] UI: Radio button list of saved cards with 'Set as Default' badge.\n  - [x] API: `PATCH /api/v1/payment-methods/:id/default` mutation.\n  - [x] Test: Integration test ensuring only 1 default card exists per user.\n\n### TICKET-04: [Tracer Bullet] 1-Click Checkout with Default Saved Card\n- **Horizon**: Next\n- **Blocked By**: TICKET-02, TICKET-03\n- **Blocks**: None\n- **Story Points**: 5 (Diff estimate: ~180 LOC)\n- **Vertical Scope**:\n  - [x] UI: '1-Click Buy with Default Card (*4242)' instant checkout button.\n  - [x] API: Fast-path checkout orchestration bypassing cart multi-step form.\n  - [x] Test: Full E2E transaction test.",
+      "pass_fixture": "## Tracer-Bullet Ticket Backlog (Kanban Board)\n\n### TICKET-01: [Proven] Payment Method Gateway Adapter & DB Table\n- **Horizon**: Now (Ready)\n- **Blocked By**: None (Ready to Start)\n- **Blocks**: TICKET-02, TICKET-03\n- **Story Points**: 3 (Estimated Diff: ~120 LOC)\n- **Taxonomy**: [Proven: Standard Stripe Tokenization]\n- **Target File Boundaries**: `src/lib/payments/*`, `tests/payments/*`\n- **Vertical Scope**:\n  - [x] Schema: Add `payment_methods` table with encrypted token field.\n  - [x] API: Add `POST /api/v1/payment-methods` adapter endpoint.\n  - [x] Unhappy Path: Handle invalid card token and gateway timeout with structured 422/504 errors.\n  - [x] Test: Unit test token encryption and idempotency key checks (TDD).\n- **BDD Acceptance Criteria**:\n  ```gherkin\n  Scenario: Secure token storage\n    Given a valid Stripe customer token\n    When sent to the payment method endpoint\n    Then it stores the token safely and returns 201 Created\n\n  Scenario: Gateway timeout handling\n    Given Stripe gateway timeout > 5000ms\n    When payment method creation is attempted\n    Then return structured 504 with retry-after header\n  ```\n- **Definition of Done (DoD) Gate**: 100% unit test pass, zero linter errors, <200 LOC diff.\n\n### TICKET-02: [Better] 'Save Card for Future Orders' Checkbox at Checkout\n- **Horizon**: Now\n- **Blocked By**: TICKET-01\n- **Blocks**: TICKET-04\n- **Story Points**: 3 (Estimated Diff: ~150 LOC)\n- **Taxonomy**: [Better: Friction-free 1-click opt-in]\n- **Target File Boundaries**: `src/components/checkout/*`, `tests/e2e/checkout/*`\n- **Vertical Scope**:\n  - [x] UI: Add 'Save card for future 1-click purchases' checkbox with loading skeleton.\n  - [x] API: Wire checkbox state to pass `save_payment_method=true` flag.\n  - [x] Unhappy Path: Display inline error toast if card persistence fails without failing order.\n  - [x] Test: E2E test verifying card token persistence after checkout completion (TDD).\n- **BDD Acceptance Criteria**:\n  ```gherkin\n  Scenario: Opt-in card saving\n    Given a customer checks 'Save card for future purchases'\n    When the order is successfully placed\n    Then the payment method is persisted to customer profile\n  ```\n- **Definition of Done (DoD) Gate**: E2E test passing, WCAG AA contrast verified, <200 LOC diff.",
       "fail_fixture": "Here are some tasks: build database, then build api, then build frontend."
     }
   ]
