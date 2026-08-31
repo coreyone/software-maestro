@@ -1,0 +1,63 @@
+{
+  "skill": "prd-to-tickets",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Take our approved PRD for the user onboarding redesign and decompose it into tracer-bullet tickets with blocking edges for our Kanban board.",
+      "trigger": true
+    },
+    {
+      "prompt": "Convert this functional spec into GitHub issues with dependency links and BDD acceptance criteria.",
+      "trigger": true
+    },
+    {
+      "prompt": "Generate a Now/Next/Later ticket backlog from our mobile checkout PRD.",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a CSS animation with cubic-bezier easing.",
+      "trigger": false
+    },
+    {
+      "prompt": "Deploy a Cloudflare Worker using Wrangler CLI.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "prd-to-tracer-bullet-tickets",
+      "prompt": "Compile the following PRD feature into tracer-bullet tickets: 'Allow customers to securely save payment methods during checkout and select a default card for future 1-click orders.'",
+      "pass_rule": "Must generate vertical slice tickets cutting across schema, API, UI, and tests; declare explicit blocking edges (blocked_by/blocks); include BDD acceptance criteria; and format in an actionable tracker structure.",
+      "must": [
+        [
+          "tracer bullet",
+          "vertical slice",
+          "ticket"
+        ],
+        [
+          "blocked by",
+          "blocks",
+          "dependency"
+        ],
+        [
+          "given",
+          "when",
+          "then"
+        ],
+        [
+          "schema",
+          "api",
+          "ui",
+          "test"
+        ]
+      ],
+      "must_not": [
+        [
+          "lorem ipsum"
+        ]
+      ],
+      "pass_fixture": "## Tracer-Bullet Ticket Backlog (Kanban Board)\n\n### TICKET-01: [Prefactor] Payment Method Gateway Adapter & DB Table\n- **Horizon**: Now (Ready)\n- **Blocked By**: None (Ready to Start)\n- **Blocks**: TICKET-02, TICKET-03\n- **Story Points**: 3 (Diff estimate: ~120 LOC)\n- **Vertical Scope**:\n  - [x] Schema: Add `payment_methods` table with encrypted token field.\n  - [x] API: Add `POST /api/v1/payment-methods` adapter endpoint.\n  - [x] Test: Unit test token encryption and idempotency key checks.\n- **BDD Acceptance Criteria**:\n  ```gherkin\n  Scenario: Secure token storage\n    Given a valid Stripe customer token\n    When sent to the payment method endpoint\n    Then it stores the token safely and returns 201 Created\n  ```\n\n### TICKET-02: [Tracer Bullet] 'Save Card for Future Orders' Checkbox at Checkout\n- **Horizon**: Now\n- **Blocked By**: TICKET-01\n- **Blocks**: TICKET-04\n- **Story Points**: 3 (Diff estimate: ~150 LOC)\n- **Vertical Scope**:\n  - [x] UI: Add 'Save card for future 1-click purchases' checkbox to payment form.\n  - [x] API: Wire checkbox state to pass `save_payment_method=true` flag.\n  - [x] Test: E2E test verifying card token persistence after checkout completion.\n\n### TICKET-03: [Tracer Bullet] Default Card Selector in Customer Account Settings\n- **Horizon**: Next\n- **Blocked By**: TICKET-01\n- **Blocks**: TICKET-04\n- **Story Points**: 3 (Diff estimate: ~140 LOC)\n- **Vertical Scope**:\n  - [x] UI: Radio button list of saved cards with 'Set as Default' badge.\n  - [x] API: `PATCH /api/v1/payment-methods/:id/default` mutation.\n  - [x] Test: Integration test ensuring only 1 default card exists per user.\n\n### TICKET-04: [Tracer Bullet] 1-Click Checkout with Default Saved Card\n- **Horizon**: Next\n- **Blocked By**: TICKET-02, TICKET-03\n- **Blocks**: None\n- **Story Points**: 5 (Diff estimate: ~180 LOC)\n- **Vertical Scope**:\n  - [x] UI: '1-Click Buy with Default Card (*4242)' instant checkout button.\n  - [x] API: Fast-path checkout orchestration bypassing cart multi-step form.\n  - [x] Test: Full E2E transaction test.",
+      "fail_fixture": "Here are some tasks: build database, then build api, then build frontend."
+    }
+  ]
+}
