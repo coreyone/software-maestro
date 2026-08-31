@@ -3,42 +3,55 @@
   "version": 1,
   "trigger_cases": [
     {
-      "prompt": "Execute the design-information-architecture-rules workflow for our current project requirements.",
+      "prompt": "Create a sitemap and global navigation model for our e-commerce platform.",
       "trigger": true
     },
     {
-      "prompt": "Apply design-information-architecture-rules principles to evaluate our approach.",
+      "prompt": "Design the category taxonomy and faceted search metadata schema for our documentation hub.",
       "trigger": true
     },
     {
-      "prompt": "Write a basic CSS center div snippet.",
+      "prompt": "Audit user wayfinding and breadcrumb hierarchies to reduce navigation drop-offs.",
+      "trigger": true
+    },
+    {
+      "prompt": "Configure Redis cluster replication settings.",
       "trigger": false
     },
     {
-      "prompt": "Configure an unrelated Docker daemon flag.",
+      "prompt": "Tune CSS transition durations for hover states.",
       "trigger": false
     }
   ],
   "binary_cases": [
     {
-      "id": "design-information-architecture-rules-standard-execution",
-      "prompt": "Execute the standard design-information-architecture-rules playbook with evidence and structured output.",
-      "pass_rule": "Must produce concrete, structured artifacts adhering to design-information-architecture-rules domain guidelines.",
+      "id": "controlled-vocabulary-wayfinding",
+      "prompt": "Design the navigation hierarchy and wayfinding system for a multi-product SaaS portal.",
+      "pass_rule": "Delivers global/local navigation model, controlled vocabulary labels, and clear wayfinding cues (Where am I, What can I do next).",
       "must": [
         [
-          "design information architecture rules",
-          "guidelines",
-          "framework",
-          "standard"
+          "navigation",
+          "sitemap",
+          "hierarchy"
+        ],
+        [
+          "wayfinding",
+          "breadcrumb",
+          "you are here"
+        ],
+        [
+          "controlled vocabulary",
+          "labeling"
         ]
       ],
       "must_not": [
         [
-          "lorem ipsum"
+          "unlabeled mystery meat navigation",
+          "single flat list of 50 links"
         ]
       ],
-      "pass_fixture": "# Standard Execution: design-information-architecture-rules\n\n## 1. Context & Objectives\nApplying verified design information architecture rules guidelines with empirical evidence.\n\n## 2. Structured Deliverable\n- Verification: Passed all quality criteria.\n- Next Action: Ready for downstream phase integration.",
-      "fail_fixture": "General unformatted response with no domain evidence."
+      "pass_fixture": "Establish a 3-tier navigation hierarchy with descriptive labels, breadcrumb wayfinding, controlled vocabulary, and clear category labeling.",
+      "fail_fixture": "Place 50 unstructured links into a single dropdown menu with cryptic acronym labels."
     }
   ]
 }

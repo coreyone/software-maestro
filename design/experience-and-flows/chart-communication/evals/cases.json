@@ -3,42 +3,55 @@
   "version": 1,
   "trigger_cases": [
     {
-      "prompt": "Execute the chart-communication workflow for our current project requirements.",
+      "prompt": "Choose the best chart to compare regional revenue trends over the past 8 quarters.",
       "trigger": true
     },
     {
-      "prompt": "Apply chart-communication principles to evaluate our approach.",
+      "prompt": "Audit our KPI executive dashboard for perceptual accuracy and axis integrity.",
       "trigger": true
     },
     {
-      "prompt": "Write a basic CSS center div snippet.",
+      "prompt": "Design an accessible, colorblind-friendly data visualization for customer retention cohorts.",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a Dockerfile for deploying a Node.js microservice.",
       "trigger": false
     },
     {
-      "prompt": "Configure an unrelated Docker daemon flag.",
+      "prompt": "Optimize database foreign key constraints.",
       "trigger": false
     }
   ],
   "binary_cases": [
     {
-      "id": "chart-communication-standard-execution",
-      "prompt": "Execute the standard chart-communication playbook with evidence and structured output.",
-      "pass_rule": "Must produce concrete, structured artifacts adhering to chart-communication domain guidelines.",
+      "id": "honest-axis-zero-baseline",
+      "prompt": "Design a bar chart to compare discrete sales figures across 5 product lines.",
+      "pass_rule": "Starts quantitative bar axis at zero, uses direct labeling, and avoids 3D or dual-axis distortions.",
       "must": [
         [
-          "chart communication",
-          "guidelines",
-          "framework",
-          "standard"
+          "zero",
+          "baseline"
+        ],
+        [
+          "bar",
+          "column"
+        ],
+        [
+          "direct label",
+          "label",
+          "legend"
         ]
       ],
       "must_not": [
         [
-          "lorem ipsum"
+          "truncated baseline on bar",
+          "3D perspective distortion",
+          "unexplained dual axis"
         ]
       ],
-      "pass_fixture": "# Standard Execution: chart-communication\n\n## 1. Context & Objectives\nApplying verified chart communication guidelines with empirical evidence.\n\n## 2. Structured Deliverable\n- Verification: Passed all quality criteria.\n- Next Action: Ready for downstream phase integration.",
-      "fail_fixture": "General unformatted response with no domain evidence."
+      "pass_fixture": "Use a horizontal bar chart with a zero baseline on the x-axis, direct value labels, and sorting by magnitude.",
+      "fail_fixture": "Truncate the bar chart y-axis at 90% to exaggerate differences and render in 3D perspective."
     }
   ]
 }

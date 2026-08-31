@@ -3,42 +3,54 @@
   "version": 1,
   "trigger_cases": [
     {
-      "prompt": "Execute the design-usability-rules workflow for our current project requirements.",
+      "prompt": "Conduct a heuristic usability evaluation of our checkout form based on Nielsen Norman principles.",
       "trigger": true
     },
     {
-      "prompt": "Apply design-usability-rules principles to evaluate our approach.",
+      "prompt": "Audit our web application for cognitive load, error prevention, and clear affordances.",
       "trigger": true
     },
     {
-      "prompt": "Write a basic CSS center div snippet.",
+      "prompt": "Review layout visual hierarchy and F-pattern scannability for our enterprise dashboard.",
+      "trigger": true
+    },
+    {
+      "prompt": "Deploy a PostgreSQL replica to Google Cloud Platform.",
       "trigger": false
     },
     {
-      "prompt": "Configure an unrelated Docker daemon flag.",
+      "prompt": "Configure an OAuth 2.1 PKCE token exchange.",
       "trigger": false
     }
   ],
   "binary_cases": [
     {
-      "id": "design-usability-rules-standard-execution",
-      "prompt": "Execute the standard design-usability-rules playbook with evidence and structured output.",
-      "pass_rule": "Must produce concrete, structured artifacts adhering to design-usability-rules domain guidelines.",
+      "id": "heuristic-evaluation-error-prevention",
+      "prompt": "Audit a complex multi-step settings form for usability and error prevention.",
+      "pass_rule": "Applies Nielsen heuristics: inline validation, destructive action safeguards, top-aligned labels, and clear visual hierarchy.",
       "must": [
         [
-          "design usability rules",
-          "guidelines",
-          "framework",
-          "standard"
+          "heuristic",
+          "nielsen"
+        ],
+        [
+          "error prevention",
+          "validation",
+          "recovery"
+        ],
+        [
+          "visual hierarchy",
+          "cognitive load"
         ]
       ],
       "must_not": [
         [
-          "lorem ipsum"
+          "blame user",
+          "cryptic error code 500 without recovery"
         ]
       ],
-      "pass_fixture": "# Standard Execution: design-usability-rules\n\n## 1. Context & Objectives\nApplying verified design usability rules guidelines with empirical evidence.\n\n## 2. Structured Deliverable\n- Verification: Passed all quality criteria.\n- Next Action: Ready for downstream phase integration.",
-      "fail_fixture": "General unformatted response with no domain evidence."
+      "pass_fixture": "Apply Nielsen Heuristic #5 (Error Prevention) with inline validation, top-aligned labels, clear visual hierarchy to reduce cognitive load, and non-destructive recovery paths.",
+      "fail_fixture": "Display a generic red outline with no error message and wipe all form fields on submit error."
     }
   ]
 }

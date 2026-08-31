@@ -3,42 +3,58 @@
   "version": 1,
   "trigger_cases": [
     {
-      "prompt": "Execute the design-system-rules workflow for our current project requirements.",
+      "prompt": "Define design tokens for our multi-brand theme including color, typography, spacing, and elevation.",
       "trigger": true
     },
     {
-      "prompt": "Apply design-system-rules principles to evaluate our approach.",
+      "prompt": "Audit our UI components for visual language consistency and token compliance.",
       "trigger": true
     },
     {
-      "prompt": "Write a basic CSS center div snippet.",
+      "prompt": "Establish composition grammar and asset taxonomy for AI recreation fidelity.",
+      "trigger": true
+    },
+    {
+      "prompt": "Optimize database indexing for fast query response.",
       "trigger": false
     },
     {
-      "prompt": "Configure an unrelated Docker daemon flag.",
+      "prompt": "Implement spring physics easing curves for modal drawer animations.",
+      "trigger": false
+    },
+    {
+      "prompt": "Build a responsive grid breakpoint strategy for mobile foldables.",
       "trigger": false
     }
   ],
   "binary_cases": [
     {
-      "id": "design-system-rules-standard-execution",
-      "prompt": "Execute the standard design-system-rules playbook with evidence and structured output.",
-      "pass_rule": "Must produce concrete, structured artifacts adhering to design-system-rules domain guidelines.",
+      "id": "semantic-token-architecture",
+      "prompt": "Define a color and elevation token architecture for light and dark modes.",
+      "pass_rule": "Defines semantic token roles, light/dark mapping, and surface elevation without hardcoded hex values.",
       "must": [
         [
-          "design system rules",
-          "guidelines",
-          "framework",
-          "standard"
+          "semantic",
+          "token"
+        ],
+        [
+          "light",
+          "dark"
+        ],
+        [
+          "elevation",
+          "surface",
+          "shadow"
         ]
       ],
       "must_not": [
         [
-          "lorem ipsum"
+          "#ff0000 hardcoded in component",
+          "single theme only"
         ]
       ],
-      "pass_fixture": "# Standard Execution: design-system-rules\n\n## 1. Context & Objectives\nApplying verified design system rules guidelines with empirical evidence.\n\n## 2. Structured Deliverable\n- Verification: Passed all quality criteria.\n- Next Action: Ready for downstream phase integration.",
-      "fail_fixture": "General unformatted response with no domain evidence."
+      "pass_fixture": "Export semantic design tokens with light and dark mode aliases for background, surface elevations, and interactive states.",
+      "fail_fixture": "Hardcode raw hex colors directly into individual CSS components."
     }
   ]
 }
