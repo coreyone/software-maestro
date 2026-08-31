@@ -1,5 +1,11 @@
 # THE SWARM MANIFESTO: PRINCIPLES & TACTICAL RULES
 
+> **The Governance Triad**:
+> - **Doctrine**: [`/michael-bolton-rule`](../../michael-bolton-rule/SKILL.md) — Intent framing (Outcome, Constraints, Measures, Time-horizon) & Deming systems checks.
+> - **Orchestrator**: [`/michael-bolton-pod-conductor`](../../michael-bolton-pod-conductor/SKILL.md) — 5-Movement lifecycle baton.
+> - **Runtime & Concurrency**: `/swarm-rules` — Atomic file claims, leader-follower state, and structured messaging.
+
+---
 ## I. CORE PRINCIPLES
 
 1. **The Leader-Follower Axiom**

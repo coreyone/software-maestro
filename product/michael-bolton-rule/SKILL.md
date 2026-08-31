@@ -1,47 +1,59 @@
 ---
 name: michael-bolton-rule
-description: "Trigger: standard work, deming first, feedback loop checks, decision rights, delegation check. Scope: Engineering operating models, team governance, task feedback loops. Boundary: Excludes direct code implementation or design templates."
+description: "Trigger: standard work, deming first, feedback loop checks, decision rights, delegation check, michael bolton rule, outcome constraints measures time horizon, deming system failure checklist, march portfolio allocation, 70 20 10 portfolio. Scope: Management doctrine, delegation governance, Deming systems thinking (variation control, standard work, root-cause systems checks), Mintzberg real-time steering, and March 70/20/10 portfolio balance. Powers the lifecycle orchestrator (michael-bolton-pod-conductor) and multi-agent swarm runtime (swarm-rules). Boundary: Excludes direct code implementation or design templates."
 ---
 
-# 🧭 The Manager’s Guide to Direction & Delegation: Philosophy & Tactics
+# Rule: The Michael Bolton Doctrine of Direction & Delegation
+
+> [!IMPORTANT]
+> **The Prime Directive**: *"Your job is not to plan work. Your job is to make work work."*  
+> Grounded in **Mintzberg** (real-time steering & unblocking), **Deming** (variation control & systems quality checks), and **March** (70/20/10 exploit/improve/explore portfolio allocation).
+>
+> **Governance Triad**:
+> - **Doctrine**: `/michael-bolton-rule` (This skill — Intent framing & Deming failure audits).
+> - **Lifecycle Orchestrator**: [`/michael-bolton-pod-conductor`](../michael-bolton-pod-conductor/SKILL.md) (5-Movement pod execution).
+> - **Concurrency & Runtime**: [`/swarm-rules`](../swarm-rules/SKILL.md) (Atomic task claims & race condition prevention).
+
+---
 
 ## When to use
 
-Use this skill when the task is primarily about delivery and this guidance is the most relevant operating rule set.
+Use this skill when structuring agent delegation, governing execution feedback loops, or diagnosing why a subagent or system failed:
+- Framing tasks using the **4-Part Intent Architecture**: Outcome, Constraints, Measures, Time-horizon.
+- Applying the **Deming System Failure Checklist** before blaming subagent effort.
+- Enforcing March's **70% Exploit / 20% Improve / 10% Explore** resource allocation.
 
 ## When not to use
 
-Do not use this skill as the primary guide when another skill has a tighter domain fit for the requested output.
+Do not use this skill for:
+- Direct low-level code implementation (use `developer-development-rules`).
+- Single-page UI styling or visual design (use `design-system-rules`).
 
 ## Trigger cues
 
-- Request explicitly references `michael-bolton-rule` or this source file.
-- Request language includes terms like: michael, bolton, rule.
-- Keywords include domain-specific execution constraints and delivery standards.
-
-## Routing boundary
-
-- Use as primary only when its source guidance is the closest match to the request.
-- Escalate to orchestration skills when multiple domains conflict.
+- Request mentions: `michael-bolton-rule`, `standard work`, `deming first`, `system failure checklist`, `delegation check`, `outcome constraints measures`, `70 20 10 portfolio`.
 
 ## Inputs required
 
-- Goal or task request
-- Current constraints (time, scope, platform, risk)
-- Existing artifacts (code, docs, screenshots, metrics) when available
-- Source of truth: `subagents/rules/michael bolton/michael-bolton-rule.md`
+1. **Delegation Goal / Assignment**: Task description and expected result.
+2. **Current Constraints & Non-Negotiables**: Guardrails, blast radius, forbidden shortcuts.
+3. **Verification Measures**: Binary success criteria and test suites.
+4. **Time-Horizon**: Current sprint cadence or lifecycle phase.
+5. **Source of truth**: [references/source.md](references/source.md)
 
 ## Instructions
 
 1. Read [references/source.md](references/source.md) first.
-2. Extract the non-negotiable rules and translate them into a short execution checklist.
-3. Apply the checklist to the current task, produce concrete outputs, and avoid abstract recommendations.
-4. Validate outcomes with evidence (tests, screenshots, logs, diffs, or written audit findings).
-5. Record decisions and tradeoffs so another engineer can continue without re-discovery.
-
-## Output format
-
-- Primary decision/output: Closest-fit operational decision for current task constraints.
-- Summary: one-paragraph decision or result
-- Actions: compact checklist with owners and status
-- Evidence: links/paths to artifacts proving completion
+2. **Structure Every Delegation Across 4 Dimensions**:
+   - **Outcome**: Verifiable artifacts and concrete system state.
+   - **Constraints**: Guardrails, anti-patterns, context boundaries.
+   - **Measures**: Deterministic binary evaluation criteria.
+   - **Time-horizon**: Explicit phase milestones.
+3. **Execute Deming-First Failure Triage**:
+   - If an agent produces drifting or failing work, check:
+     1. *Input Integrity*: Was the input prompt/schema ambiguous?
+     2. *Feedback Loops*: Did the agent have access to fast local test feedback?
+     3. *Standard Work*: Was a concrete template or interface contract provided?
+     4. *Process Variation*: Did the agent attempt too many unconstrained edits?
+4. **Maintain March 70/20/10 Portfolio Balance**:
+   - 70% Core value delivery / 20% System debt reduction / 10% De-risking spikes.

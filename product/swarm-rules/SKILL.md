@@ -1,47 +1,54 @@
 ---
 name: swarm-rules
-description: "Trigger: swarm subagents, parallel agents, race conditions, atomic files, leader follower. Scope: Multi-agent collaboration, task scoping, file race prevention. Boundary: Excludes single-agent operations or code syntax rules."
+description: "Trigger: swarm subagents, parallel agents, race conditions, atomic files, leader follower, multi-agent coordination, subagent concurrency, swarm execution. Scope: Multi-agent collaboration, task scoping, atomic file ownership, race condition prevention, structured JSON messaging, and lifecycle shutdown. Governed by michael-bolton-rule intent framing (Outcome, Constraints, Measures, Time-horizon) and orchestrated by michael-bolton-pod-conductor. Boundary: Excludes single-agent operations or low-level code syntax rules."
 ---
 
-# THE SWARM MANIFESTO: PRINCIPLES & TACTICAL RULES
+# Rule: Multi-Agent Swarm Operations & Concurrency Protocol
+
+> [!IMPORTANT]
+> **Governance Triad**: This skill operates as the **concurrency and runtime execution layer** in conjunction with:
+> 1. [`/michael-bolton-rule`](../michael-bolton-rule/SKILL.md) (**Doctrine**): Mandates 4-part intent framing (`Outcome`, `Constraints`, `Measures`, `Time-horizon`) and Deming systems checks for every delegated task.
+> 2. [`/michael-bolton-pod-conductor`](../michael-bolton-pod-conductor/SKILL.md) (**Orchestrator**): Directs the 5-Movement cross-functional lifecycle across PM, Design, Eng, Data, and PMM squads.
+
+---
 
 ## When to use
 
-Use this skill when the task is primarily about delivery and this guidance is the most relevant operating rule set.
+Use this skill when spawning, coordinating, and managing multiple concurrent AI subagents:
+- Enforcing the **Leader-Follower Axiom** (exactly 1 leader owns state; followers execute and report).
+- Preventing race conditions and file collisions via **Atomic Task & File Ownership**.
+- Managing token-efficient inter-agent communication via **Structured Inboxes** (JSON messages).
+- Preventing zombie swarms through **Two-Phase Graceful Shutdown** and artifact preservation.
 
 ## When not to use
 
-Do not use this skill as the primary guide when another skill has a tighter domain fit for the requested output.
+Do not use this skill for:
+- Single-agent linear execution without subagents.
+- Designing high-level product strategy or PRD specifications (use `product-management` or `create-prd`).
+- Low-level programming syntax or test design (use `developer-development-rules` or `developer-test-driven-development`).
 
 ## Trigger cues
 
-- Request explicitly references `swarm-rules` or this source file.
-- Request language includes terms like: swarm, rules.
-- Keywords include domain-specific execution constraints and delivery standards.
-
-## Routing boundary
-
-- Use as primary only when its source guidance is the closest match to the request.
-- Escalate to orchestration skills when multiple domains conflict.
+- Request mentions: `swarm-rules`, `swarm subagents`, `parallel agents`, `race conditions`, `atomic files`, `leader follower`, `multi-agent concurrency`, `coordinate subagents`.
+- Scenarios where multiple subagents work in parallel across a repository.
 
 ## Inputs required
 
-- Goal or task request
-- Current constraints (time, scope, platform, risk)
-- Existing artifacts (code, docs, screenshots, metrics) when available
-- Source of truth: `subagents/rules/michael bolton/swarm-rules.md`
+1. **Active Swarm Objective**: High-level goal and active lifecycle movement.
+2. **Subagent Task Breakdown**: List of atomic tasks with assigned file ownership.
+3. **Intent Frame for Each Agent**: Outcome, Constraints, Measures, Time-horizon (from `michael-bolton-rule`).
+4. **Source of truth**: [references/source.md](references/source.md)
 
 ## Instructions
 
 1. Read [references/source.md](references/source.md) first.
-2. Extract the non-negotiable rules and translate them into a short execution checklist.
-3. Apply the checklist to the current task, produce concrete outputs, and avoid abstract recommendations.
-4. Validate outcomes with evidence (tests, screenshots, logs, diffs, or written audit findings).
-5. Record decisions and tradeoffs so another engineer can continue without re-discovery.
-
-## Output format
-
-- Primary decision/output: Closest-fit operational decision for current task constraints.
-- Summary: one-paragraph decision or result
-- Actions: compact checklist with owners and status
-- Evidence: links/paths to artifacts proving completion
+2. **Enforce the Leader-Follower Axiom**:
+   - The Leader alone owns state, task decomposition, and final synthesis.
+   - Teammates execute within bounded scope and report; they never unilaterally redefine scope.
+3. **Enforce Atomic File Ownership & Context Isolation**:
+   - Assign exactly one subagent per file/task. Zero concurrent writes to the same file.
+   - Provide subagents *only* the specific files/context required ($<15\text{ KB}$ context footprint).
+4. **Structure Agent Communication via JSON Inboxes**:
+   - Use structured reports (`Status`, `Evidence`, `Action Taken`). Prefer targeted messages over broadcasts.
+5. **Execute Two-Phase Graceful Shutdown**:
+   - Harvest critical findings and diffs into permanent logs before terminating worker subagents.

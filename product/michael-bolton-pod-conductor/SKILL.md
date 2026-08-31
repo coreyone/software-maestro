@@ -12,6 +12,7 @@ description: "Trigger: product pod orchestration, cross-functional pod baton, so
 > - Design the **system & feedback loops** before judging subagent effort (Deming-first System Failure Checklist).
 > - Delegate **continuously** across Mintzberg real-time roles (Decider, Connector, Information Hub, Coach).
 > - Balance execution with learning using March's **70% Exploit / 20% Improve / 10% Explore** portfolio.
+> - Enforce multi-agent concurrency & atomic task isolation via `/swarm-rules` ([`product/swarm-rules/SKILL.md`](../swarm-rules/SKILL.md)).
 
 ---
 
@@ -55,7 +56,14 @@ Do not use this skill for:
 ## Instructions
 
 1. Read [references/source.md](references/source.md) first.
-2. **Apply the Michael Bolton Delegation Doctrine for Every Subagent Spawned**:
+2. **Apply Bolton Intent Framing & Swarm Concurrency Rules for Every Subagent**:
+   - Enforce the **Leader-Follower Axiom** (`swarm-rules`): Conductor alone manages global task state and synthesis; subagents execute assigned atomic tasks.
+   - Enforce **Atomic File Claims**: Ensure no two subagents edit the same file concurrently.
+   - For every task assigned to a subagent, explicitly structure the 4-part frame:
+     - **Outcome**: Exact observable definition of success.
+     - **Constraints**: Non-negotiable guardrails, forbidden actions, and context isolation.
+     - **Measures**: Concrete verification test.
+     - **Time-horizon**: Phase timebox or movement milestone.
    - For every task assigned to a subagent, explicitly structure:
      - **Outcome**: Exact observable definition of success (e.g. `opportunity_sizing_brief.md` with MDE and parallel trends check).
      - **Constraints**: Non-negotiable guardrails and forbidden actions (e.g. zero ungrounded metrics, no raw TWFE on staggered rollouts).
