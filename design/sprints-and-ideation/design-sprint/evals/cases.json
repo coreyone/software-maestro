@@ -1,0 +1,45 @@
+{
+  "skill": "design-sprint",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Run a 5-day Jake Knapp design sprint for our mobile banking app, mapping the journey and generating Crazy 8s sketches.",
+      "trigger": true
+    },
+    {
+      "prompt": "Generate a 12-panel storyboard and Decider Supervote for our checkout sprint.",
+      "trigger": true
+    },
+    {
+      "prompt": "Deploy a Kubernetes cluster to AWS.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "design-sprint-master-run",
+      "prompt": "Run the design sprint process for an online pet food subscription: produce the long term goal, 3 sprint questions, and a 12-panel storyboard.",
+      "pass_rule": "Must include Long-Term Goal, 3 Sprint Questions, and 10-15 panel Storyboard.",
+      "must": [
+        [
+          "long-term goal",
+          "long term goal"
+        ],
+        [
+          "sprint question"
+        ],
+        [
+          "panel 1",
+          "storyboard"
+        ]
+      ],
+      "must_not": [
+        [
+          "lorem ipsum"
+        ]
+      ],
+      "pass_fixture": "## Long-Term Goal\nBecome the leading personalized pet health meal plan in 2 years.\n\n## 3 Sprint Questions\n1. Will pet owners trust an automated algorithm?\n2. Can we explain portion sizing in 30 seconds?\n3. Will users commit to a recurring monthly plan?\n\n## 12-Panel Storyboard\n- Panel 1: Ad on Instagram.\n- Panel 2: Pet breed quiz.\n- Panel 3: Calorie breakdown.\n- Panel 4: Custom meal recommendation.\n- Panel 5: Portion calculator.\n- Panel 6: Packaging preview.\n- Panel 7: Vet approval badge.\n- Panel 8: Delivery frequency selector.\n- Panel 9: 1-click checkout.\n- Panel 10: Biometric confirmation.\n- Panel 11: Order tracking map.\n- Panel 12: First box delivered confirmation.",
+      "fail_fixture": "Let's brainstorm some pet food ideas."
+    }
+  ]
+}

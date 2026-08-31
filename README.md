@@ -1,126 +1,132 @@
-# Software Maestro
+# software-maestro
 
-A capability orchestra of 102 agent skills for AI IDE agents. You conduct product strategy, design systems, engineering execution, data science, security, growth, quality, and operational cadences from one developer baton.
+A capability orchestra of 53 lean agent skills for AI IDE agents (Claude Code, Codex, Antigravity, Gemini).
 
-## Install
+---
 
-Run the following command in your terminal:
+## 🎯 Architecture & Intent
 
-```bash
-npx skills add coreyone/software-maestro
+`software-maestro` structures skills into 8 core domains. Redundant micro-skills are consolidated into **Unified Hero Hubs** to reduce cognitive choice paralysis, eliminate near-synonym overlap, and prevent prompt token bloat while preserving 100% of expert frameworks.
+
+---
+
+## 🧭 Lifecycle Domains
+
+<details>
+<summary><strong><code>product/</code></strong> (14 skills across 5 subdomains)</summary>
+
+*   **`product/archetypes/`** (1 skill): Master Product Management router covering 0-to-1 search, growth loops, feature optimization, and 2-sided marketplaces (`product-management`).
+*   **`product/orchestration/`** (4 skills): God-Marduk master phased sequencing, Michael Bolton Pod Conductor, Bolton Delegation Doctrine, and Swarm Concurrency with Andon Cord & small-batch rules (`god-marduk`, `michael-bolton-pod-conductor`, `michael-bolton-rule`, `swarm-rules`).
+*   **`product/strategy/`** (3 skills): Melissa Perri Decision Stack & portfolio governance, Tara Seshan empirical hypothesis loop, and pricing strategy (`decision-stack-governance`, `product-hypothesis-loop`, `product-pricing-strategy`).
+*   **`product/discovery-and-specs/`** (3 skills): Outcome-oriented PRD compiler with BDD/Gherkin and Definition of Done gates, Tracer-bullet ticket compiler with blocking DAGs, and Voice of Customer synthesis (`create-prd`, `prd-to-tickets`, `voc-insights-pipeline`).
+*   **`product/operations-and-gtm/`** (3 skills): Continuous product loop, GTM release readiness gating, and systems retrospective pruning (`continuous-product-loop`, `release-readiness-gtm`, `systems-retro-pruning`).
+
+</details>
+
+<details>
+<summary><strong><code>design/</code></strong> (9 skills across 5 subdomains)</summary>
+
+*   **`design/sprints-and-ideation/`** (1 skill): Jake Knapp Design Sprint master hub covering Monday Understand & Map, Tuesday Crazy 8s Diverge, and Wednesday Sticky Decision Storyboarding (`design-sprint`).
+*   **`design/systems-and-foundations/`** (1 skill): Foundational design system tokens, visual typography scale, and aesthetic principles (`design-system-rules`).
+*   **`design/interaction-and-layout/`** (3 skills): Responsive layout breakpoints, motion physics, and wayfinding architecture (`design-responsive-rules`, `design-animation`, `design-information-architecture-rules`).
+*   **`design/experience-and-flows/`** (3 skills): First-time user onboarding, Hollywood prototype facades with 5-Act user testing, and cognitive chart visualization (`design-user-onboarding-ux`, `design-rapid-prototype-facade`, `chart-communication`).
+*   **`design/evaluation-and-quality/`** (1 skill): Nielsen Norman usability heuristics and visual design review audits (`design-usability-rules`).
+
+</details>
+
+<details>
+<summary><strong><code>engineering/</code></strong> (9 skills across 3 subdomains)</summary>
+
+*   **`engineering/development-and-quality/`** (6 skills): Core engineering craft, code review checklists, Test-Driven Development (TDD), evaluation-driven AI development, ASD-STE100 technical writing standards, and info-to-ink token compression (`developer-development-rules`, `developer-code-review-rules`, `developer-test-driven-development`, `developer-eval-driven-development`, `technical-language-rules`, `info-to-ink`).
+*   **`engineering/architecture-and-resiliency/`** (2 skills): Clean/Hexagonal system architecture with circuit breakers and zero-key web search grounding (`system-architecture-rules`, `grounded-search-rules`).
+*   **`engineering/cloud-and-infrastructure/`** (1 skill): Multi-cloud architecture, hybrid cloud networking, and reusable Terraform IaC modules (`multi-cloud-architecture`).
+
+</details>
+
+<details>
+<summary><strong><code>data-and-api/</code></strong> (3 skills)</summary>
+
+*   **`api-design-guidelines`**: REST/GraphQL schema contracts, RFC 7807 error patterns, and database caching.
+*   **`data-persistence-caching`**: Database schema indexing, cache-aside patterns, and query performance tuning.
+*   **`data-science-causal-inference`**: Causal inference (DiD, Synthetic Control, CUPED), metric triage, and dbt dimensional semantic layers.
+
+</details>
+
+<details>
+<summary><strong><code>security/</code></strong> (2 skills)</summary>
+
+*   **`developer-security`**: Backend/frontend threat modeling, OWASP Top 10 mitigation, CSP headers, and CI/CD secrets management.
+*   **`auth-and-identity-rules`**: OAuth 2.1 PKCE, JWT session control, and zero-trust mTLS service identity.
+
+</details>
+
+<details>
+<summary><strong><code>growth/</code></strong> (5 skills)</summary>
+
+*   **`analytics-event-tracking`**: Behavioral telemetry taxonomies, retention modeling, and CRM lifecycle automation.
+*   **`commerce-ux-rules`**: Shopping cart optimization, checkout friction reduction, and multi-step wizard forms.
+*   **`developer-seo`**: Technical search engine optimization, semantic metadata, and structured schema tags.
+*   **`experimentation-hypothesis-engine`**: Statistical A/B testing, MDE sample sizing, SRM validation, and 3-way post-mortems.
+*   **`marketing-copy-emotion-provoking-action-driven`**: High-conversion landing page copy, value propositions, and concise prose.
+
+</details>
+
+<details>
+<summary><strong><code>quality/</code></strong> (8 skills)</summary>
+
+*   **`a11y-debugging`**: WCAG AA accessibility compliance, keyboard navigation, and ARIA tree auditing.
+*   **`chrome-devtools`**: Headless browser automation, page element snapshot inspection, and console debugging.
+*   **`cost-optimization`**: Multi-cloud FinOps spending analysis, resource rightsizing, and cost governance.
+*   **`deployment-pipeline-design`**: Multi-stage CI/CD deployment pipelines (GitHub Actions / GitLab CI) with canary gates.
+*   **`dogfood`**: Systematic exploratory web testing with step-by-step bug reproduction videos and screenshots.
+*   **`observability-telemetry`**: Structured logging, OpenTelemetry tracing, and service mesh monitoring.
+*   **`peekaboo`**: macOS native desktop GUI automation, window management, and system dialog interactions.
+*   **`web-perf`**: Core Web Vitals (LCP, INP, CLS) performance auditing and resource optimization.
+
+</details>
+
+<details>
+<summary><strong><code>productivity-maestro/</code></strong> (3 skills across 2 subdomains)</summary>
+
+*   **`productivity-maestro/executive-and-async/`** (2 skills): Multi-paradigm meeting intelligence (McKinsey SCQA / Amazon PR/FAQ) and Axios Smart Brevity asynchronous decision memos (`meeting-transcription-notes`, `executive-async-memo`).
+*   **`productivity-maestro/scrum-cadences/`** (1 skill): Original Scrum Cybernetic Behavioral Harness master hub orchestrating Refinement (DEEP), Planning, Daily Standup, Review (DoD), and Retrospective (Kaizen) (`scrum-cadences`).
+
+</details>
+
+---
+
+## 🌳 Taxonomy Tree
+
 ```
-
-Alternatively, clone this repository directly into your AI IDE configuration directory. This format works across Claude Code, Gemini CLI, OpenAI Codex, and compatible runtimes.
-
-## Lifecycle Structure
-
-<details>
-<summary><strong><code>product/</code></strong> (28 skills across 5 subdomains)</summary>
-
-*   **`product/archetypes/`** (5 skills): Specialized product manager archetypes and core routing engine (`product-management`, `product-zero-to-one`, `product-growth`, `product-optimizer-feature`, `product-marketplace`).
-*   **`product/orchestration/`** (4 skills): Cross-functional pod conductors, delegation doctrine, and multi-agent swarm operations (`michael-bolton-pod-conductor`, `michael-bolton-rule`, `swarm-rules`, `god-marduk`).
-*   **`product/strategy/`** (6 skills): Executive strategy deployment, decision stacks, capital allocation, pricing, and strategic constraints (`decision-stack-governance`, `product-hypothesis-loop`, `product-strategy-outcome-vision`, `portfolio-allocation-capitalization`, `strategic-tradeoffs-constraint-matrix`, `product-pricing-strategy`).
-*   **`product/discovery-and-specs/`** (7 skills): Customer problem discovery, opportunity mapping, market benchmarks, VoC synthesis, and decision-ready PRDs (`create-prd`, `prd-to-tickets`, `proven-product-spec`, `ux-discovery-artifacts`, `voc-insights-pipeline`, `how-might-we`, `product-management-press-memo`).
-*   **`product/operations-and-gtm/`** (6 skills): Continuous evolution loops, GTM launch gating, PMM messaging, metric trees, platform primitives, and operational waste pruning (`continuous-product-loop`, `release-readiness-gtm`, `product-marketing-narrative`, `incentive-design-metric-trees`, `platform-enablement-internal-leverage`, `systems-retro-pruning`).
-
-</details>
-
-<details>
-<summary><strong><code>design/</code></strong> (16 skills across 5 subdomains)</summary>
-
-*   **`design/sprints-and-ideation/`** (3 skills): Jake Knapp Design Sprint mapping, Crazy 8s divergent sketching, and Sticky Decision storyboarding (`design-sprint-map`, `design-sketch-crazy-8s`, `design-storyboard-decide`).
-*   **`design/systems-and-foundations/`** (3 skills): Foundational design systems, visual tokens, and perceptual neuroscience (`design-system-rules`, `aesthetic-rules`, `aesthetic-science`).
-*   **`design/interaction-and-layout/`** (3 skills): Spatial layout, responsive breakpoints, motion physics, and wayfinding architecture (`design-responsive-rules`, `design-animation`, `design-information-architecture-rules`).
-*   **`design/experience-and-flows/`** (4 skills): First-time user onboarding, Goldilocks rapid prototype facades, empty/error state recovery, and cognitive data visualization (`design-user-onboarding-ux`, `design-rapid-prototype-facade`, `failure-states-empty-states`, `chart-communication`).
-*   **`design/evaluation-and-quality/`** (3 skills): Michael Margolis 5-Act customer interview testing, usability heuristics, Norman affordances, and visual design review audits (`design-5-act-user-interview-testing`, `design-usability-rules`, `design-review-rules`).
-
-</details>
-
-<details>
-<summary><strong><code>engineering/</code></strong> (13 skills across 3 subdomains)</summary>
-
-*   **`engineering/development-and-quality/`** (6 skills): Clean code craft, evidence-backed code reviews, TDD, eval-driven AI development, codebase audits, and output token efficiency (`developer-development-rules`, `developer-code-review-rules`, `developer-test-driven-development`, `developer-eval-driven-development`, `improve-codebase`, `info-to-ink`).
-*   **`engineering/architecture-and-resiliency/`** (4 skills): Clean architecture, circuit breakers, standardized tech stacks, and web-search grounding backend adapters (`system-architecture-rules`, `resiliency-circuit-breakers`, `tech-stack-preferences`, `grounded-search-rules`).
-*   **`engineering/cloud-and-infrastructure/`** (3 skills): Multi-cloud architecture, hybrid cross-premises networking, and reusable Terraform IaC modules (`multi-cloud-architecture`, `hybrid-cloud-networking`, `terraform-module-library`).
-
-</details>
-
-<details>
-<summary><strong><code>data-and-api/</code></strong> (5 skills)</summary>
-
-*   Causal inference, KPI triage, semantic layers, contract-first endpoints, and persistence schemas (`data-science-causal-inference`, `product-data-metric-investigation-triage`, `data-warehouse-semantic-layer`, `api-design-guidelines`, `data-persistence-caching`). Formulates quasi-experiments (CUPED, DiD, SCM, RDD), decomposes metric shifts (Volume vs. Rate vs. Mix), and builds dbt star schemas with enforced data contracts.
-
-</details>
-
-<details>
-<summary><strong><code>security/</code></strong> (5 skills)</summary>
-
-*   Identity, zero-trust mTLS, and sandbox trust boundaries (`auth-and-identity-rules`, `developer-security`, `developer-web-security`, `mtls-configuration`, `secrets-management`). Isolates session tokens, enforces mutual TLS service communication, secures secrets pipelines, and validates JWTs cryptographically.
-
-</details>
-
-<details>
-<summary><strong><code>growth/</code></strong> (11 skills)</summary>
-
-*   Organic discovery, conversions, behavioral loops, experimentation, and commercial negotiation (`developer-seo`, `commerce-ux-rules`, `cro-commerce-audit`, `design-forms-wizards-checkout`, `marketing-copy-emotion-provoking-action-driven`, `the-elements-of-style-principles`, `analytics-event-tracking`, `negotiation-maximizer`, `experimentation-hypothesis-engine`, `behavioral-loops-retention-modeling`, `marketing-lifecycle-crm-automation`). Builds search visibility, automates multi-channel Push/Email/SMS waterfalls, sizes A/B experiments, models habit loops, and flattens cohort retention decay.
-
-</details>
-
-<details>
-<summary><strong><code>quality/</code></strong> (15 skills)</summary>
-
-*   Graceful degradation, APM telemetry, service mesh observability, CI/CD pipelines, cloud cost governance, headless browser inspection, endpoint discovery, and edge deployments (`a11y-debugging`, `developer-web-performance`, `observability-telemetry`, `service-mesh-observability`, `istio-traffic-management`, `linkerd-patterns`, `deployment-pipeline-design`, `github-actions-templates`, `gitlab-ci-patterns`, `cost-optimization`, `web-deployment-rules`, `peekaboo`, `chrome-devtools`, `web-endpoint-documenter`, `create-design-art-direction`). Replaces loaders with layout-matching skeletons, optimizes cloud infrastructure costs, automates progressive canary delivery, and enforces zero-downtime database migrations.
-
-</details>
-
-<details>
-<summary><strong><code>productivity-maestro/</code></strong> (9 skills across 2 subdomains)</summary>
-
-*   **`productivity-maestro/executive-and-async/`** (4 skills): Multi-paradigm meeting intelligence, Axios Smart Brevity async memos, GTD Eisenhower triage, and Andy Grove 1:1 cadences (`meeting-transcription-notes`, `executive-async-memo`, `weekly-review-triage`, `one-on-one-cadence`).
-*   **`productivity-maestro/scrum-cadences/`** (5 skills): Original Scrum cybernetic behavioral cadences, continuous DEEP backlog slicing, empirical capacity planning, 24h asynchronous drift triage, Definition of Done increment demos, and blameless Kaizen retrospectives (`scrum-backlog-refinement-deep`, `scrum-sprint-planning-capacity`, `scrum-daily-async-sync`, `scrum-sprint-review-increment`, `scrum-retrospective-kaizen`).
-
-</details>
-
-## Taxonomy
-
-```
-├── product/                  # Product Management & Orchestration (28 skills across 5 IA subdomains)
-│   ├── archetypes/           # 0-to-1, Growth, Optimizer, Marketplace, Base PM router (5 skills)
-│   ├── orchestration/        # Pod Conductor, Bolton Rule, Swarm Rules (with Andon Cord & Small-Batch), God-Marduk (4 skills)
-│   ├── strategy/             # Decision Stack, Hypothesis Loop, Strategy Vision, Capital Allocation, Constraints, Pricing (6 skills)
-│   ├── discovery-and-specs/  # PRDs, PRD-to-Tickets, Proven Specs, UX Discovery, VoC Pipeline, HMW, Press Memo (7 skills)
-│   └── operations-and-gtm/   # Continuous Loop, GTM Release, PMM Narrative, Metric Trees, Platforms, Retro Pruning (6 skills)
-├── design/                   # Visual Systems, Design Sprints, Layout, Motion & Usability (16 skills across 5 IA subdomains)
-│   ├── sprints-and-ideation/ # Sprint Map, Crazy 8s, Storyboard Decision (3 skills)
-│   ├── systems-and-foundations/ # Design tokens, aesthetic rules, aesthetic science (3 skills)
+├── product/                  # Product Management & Orchestration (14 skills)
+│   ├── archetypes/           # Master PM archetype router (1 skill)
+│   ├── orchestration/        # God-Marduk, Bolton Conductor, Bolton Rule, Swarm Rules (4 skills)
+│   ├── strategy/             # Decision Stack, Hypothesis Loop, Pricing Strategy (3 skills)
+│   ├── discovery-and-specs/  # PRD Compiler, PRD-to-Tickets, VoC Pipeline (3 skills)
+│   └── operations-and-gtm/   # Continuous Loop, GTM Release, Systems Retro Pruning (3 skills)
+├── design/                   # Visual Systems, Design Sprints, Layout & Motion (9 skills)
+│   ├── sprints-and-ideation/ # Jake Knapp Design Sprint Master Hub (1 skill)
+│   ├── systems-and-foundations/ # Design system tokens & visual scale (1 skill)
 │   ├── interaction-and-layout/  # Responsive layouts, animation physics, IA wayfinding (3 skills)
-│   ├── experience-and-flows/    # FTUX onboarding, Goldilocks facade, empty states, chart viz (4 skills)
-│   └── evaluation-and-quality/  # 5-Act user interviews, usability heuristics, visual QA audits (3 skills)
-├── engineering/              # Code Quality, Architecture, Cloud & IaC (13 skills across 3 IA subdomains)
-│   ├── development-and-quality/ # TDD, evals, code reviews, audits, craft (with DoD Gates), info-to-ink (6 skills)
-│   ├── architecture-and-resiliency/ # System architecture, circuit breakers, tech stack, search grounding (4 skills)
-│   └── cloud-and-infrastructure/ # Multi-cloud, hybrid networking, Terraform IaC (3 skills)
-├── data-and-api/             # Causal inference, metric investigation triage, dbt dimensional semantic layers, REST/GraphQL API, caching (5 skills)
-├── security/                 # Authentication protocols, identity keys, secure cookies, mTLS, CI/CD secrets management (5 skills)
-├── growth/                   # SEO, lifecycle CRM automation, commerce UX, CRO, experimentation sizing, retention modeling, copywriting, analytics (11 skills)
-├── quality/                  # Performance debugging, telemetry, service mesh, CI/CD pipelines, FinOps cost, deployments, a11y, automation (15 skills)
-└── productivity-maestro/      # Operational Intelligence, Async Memos & Scrum Cybernetic Cadences (9 skills across 2 subdomains)
-    ├── executive-and-async/  # Meeting intelligence, Smart Brevity memos, GTD/Eisenhower, Grove 1:1s (4 skills)
-    └── scrum-cadences/       # DEEP Refinement, Sprint Planning, Daily Standup, Sprint Review, Kaizen Retro (5 skills)
+│   ├── experience-and-flows/    # Onboarding UX, Prototype Facade, Chart viz (3 skills)
+│   └── evaluation-and-quality/  # Usability heuristics & design audits (1 skill)
+├── engineering/              # Code Quality, Architecture, Cloud & IaC (9 skills)
+│   ├── development-and-quality/ # TDD, evals, code reviews, craft, STE prose, info-to-ink (6 skills)
+│   ├── architecture-and-resiliency/ # System architecture, grounded search (2 skills)
+│   └── cloud-and-infrastructure/ # Multi-cloud architecture & Terraform IaC (1 skill)
+├── data-and-api/             # API guidelines, caching, and causal inference data layers (3 skills)
+├── security/                 # Developer security & auth/identity rules (2 skills)
+├── growth/                   # Telemetry, commerce UX, SEO, experimentation, copy (5 skills)
+├── quality/                  # CI/CD, FinOps, dogfooding, a11y, observability, web perf, peekaboo (8 skills)
+└── productivity-maestro/      # Executive memos, meeting intelligence & Scrum master hub (3 skills)
 ```
 
-## Binary evals
+---
 
-High-contract skills include `evals/cases.json` suites with positive and negative trigger prompts, atomic pass/fail rules, and known-pass/known-fail fixtures.
+## 🧪 Binary Evals & Verification
 
-Validate every suite by running:
+Run automated local evaluation suites across all skills:
 
 ```bash
 python3 scripts/check_binary_evals.py
-```
-
-Score a candidate response against a single case:
-
-```bash
-python3 scripts/check_binary_evals.py path/to/skill --case case-id --response response.txt
 ```

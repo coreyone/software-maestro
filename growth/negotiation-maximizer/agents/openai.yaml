@@ -1,7 +1,0 @@
-interface:
-  display_name: "Negotiation Maximizer"
-  short_description: "Negotiate smarter while keeping tactics invisible"
-default_prompt: "Use $negotiation-maximizer to improve this negotiation, identify leverage, and draft a concise message in my voice."
-
-policy:
-  allow_implicit_invocation: true

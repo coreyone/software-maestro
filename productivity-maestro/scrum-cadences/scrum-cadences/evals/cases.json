@@ -1,0 +1,49 @@
+{
+  "skill": "scrum-cadences",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Run our Scrum sprint planning session: formulate our sprint goal and calibrate capacity.",
+      "trigger": true
+    },
+    {
+      "prompt": "Facilitate our blameless sprint retrospective with 5-whys root cause analysis.",
+      "trigger": true
+    },
+    {
+      "prompt": "Run our daily scrum standup and surface blockers.",
+      "trigger": true
+    },
+    {
+      "prompt": "Deploy this docker container to AWS.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "scrum-cadence-run",
+      "prompt": "Run a Scrum Sprint Planning session for an payments API team for a 2-week sprint.",
+      "pass_rule": "Must include 1 singular Sprint Goal, capacity calculation, and committed backlog items.",
+      "must": [
+        [
+          "sprint goal"
+        ],
+        [
+          "capacity",
+          "velocity"
+        ],
+        [
+          "sprint backlog",
+          "committed"
+        ]
+      ],
+      "must_not": [
+        [
+          "lorem ipsum"
+        ]
+      ],
+      "pass_fixture": "## 1. Singular Sprint Goal\nEnable instant Apple Pay and Google Pay 1-click checkout for mobile shoppers.\n\n## 2. Capacity Calibration\n- Trailing velocity: 30 pts average.\n- Committed capacity: 24 story points.\n\n## 3. Committed Sprint Backlog\n- Story 1: Apple Pay client integration (8 pts)\n- Story 2: Google Pay web SDK (8 pts)\n- Story 3: Fallback error handling (8 pts)",
+      "fail_fixture": "Let's do some payment tasks this sprint."
+    }
+  ]
+}
