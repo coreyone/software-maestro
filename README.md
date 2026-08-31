@@ -1,6 +1,6 @@
 # software-maestro
 
-A capability orchestra of 55 lean agent skills for AI IDE agents (Claude Code, Codex, Antigravity, Gemini).
+A capability orchestra of 58 lean agent skills for AI IDE agents (Claude Code, Codex, Antigravity, Gemini).
 
 ---
 

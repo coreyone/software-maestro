@@ -1,0 +1,47 @@
+{
+  "skill": "dogfood",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Run an exploratory QA dogfooding session on our new staging deployment and record reproduction videos.",
+      "trigger": true
+    },
+    {
+      "prompt": "Test this web application systematically for UX bugs and broken interactive states.",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a unit test with Jest for calculating sales tax.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "dogfood-structured-bug-report",
+      "prompt": "Document a reproducible checkout bug discovered during an exploratory dogfood session.",
+      "pass_rule": "Must include clear reproduction steps, environment details, expected vs actual behavior, and evidence artifact references.",
+      "must": [
+        [
+          "reproduction steps",
+          "steps to reproduce"
+        ],
+        [
+          "expected",
+          "actual"
+        ],
+        [
+          "evidence",
+          "screenshot",
+          "video"
+        ]
+      ],
+      "must_not": [
+        [
+          "lorem ipsum"
+        ]
+      ],
+      "pass_fixture": "### Bug Report: Checkout Total Calculation Mismatch\n- **Environment**: Chrome 128 / macOS Staging\n- **Steps to Reproduce**:\n  1. Add 2 items to cart.\n  2. Apply promo code `SUMMER20`.\n  3. Navigate to payment page.\n- **Expected**: Discount deducted before tax.\n- **Actual**: Discount applied after tax.\n- **Evidence**: `artifacts/dogfood-repro-01.mp4`",
+      "fail_fixture": "The cart math looked wrong."
+    }
+  ]
+}

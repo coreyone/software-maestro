@@ -1,0 +1,41 @@
+{
+  "skill": "technical-language-rules",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Format this engineering architecture design doc following ASD-STE100 rules and Google DevDocs style.",
+      "trigger": true
+    },
+    {
+      "prompt": "Rewrite our release commit message using deterministic technical language guidelines.",
+      "trigger": true
+    },
+    {
+      "prompt": "Design a high-converting emotional hook for our sales email campaign.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "ste-prose-and-commit-rules",
+      "prompt": "Rewrite a wordy explanation of an API token refresh failure into deterministic technical prose adhering to sentence limits and unambiguous connectors.",
+      "pass_rule": "Must use 'because' instead of 'since/as', keep sentences <=20 words, and avoid ambiguous connectors.",
+      "must": [
+        [
+          "because"
+        ],
+        [
+          "token",
+          "refresh",
+          "fail"
+        ]
+      ],
+      "must_not": [
+        "since the server was busy",
+        "once the request completed"
+      ],
+      "pass_fixture": "The authentication request failed because the session token expired. The client must request a new refresh token.",
+      "fail_fixture": "Since the server was experiencing high load, the token could not be refreshed once the request completed."
+    }
+  ]
+}
