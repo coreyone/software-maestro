@@ -1,0 +1,129 @@
+{
+  "skill": "premortem-kill-criteria",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Run a premortem analysis and define Annie Duke kill criteria with States and Dates for our enterprise platform migration.",
+      "trigger": true
+    },
+    {
+      "prompt": "How do we apply Adam Thomas survival metrics (Fast, Focus, Safe) and set up an independent quitting coach to prevent sunk cost escalation?",
+      "trigger": true
+    },
+    {
+      "prompt": "Facilitate a SPADE decision framework exercise and establish project off-ramps before we commit engineering capacity.",
+      "trigger": true
+    },
+    {
+      "prompt": "What are our leading kill triggers if customer pilot conversion drops below our hurdle rate at Month 3?",
+      "trigger": true
+    },
+    {
+      "prompt": "Debug a memory leak in our Redis pub/sub queue worker.",
+      "trigger": false
+    },
+    {
+      "prompt": "Run a sprint retrospective with the scrum team using Norm Kerth prime directive.",
+      "trigger": false
+    },
+    {
+      "prompt": "Write a CSS media query for mobile responsive grid layout.",
+      "trigger": false
+    },
+    {
+      "prompt": "Generate a PostgreSQL database migration schema for user authentication tables.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "premortem-kill-contract",
+      "prompt": "Conduct a structured premortem and establish pre-committed kill criteria for our new enterprise AI workflow automation initiative before we begin engineering.",
+      "pass_rule": "Must conduct prospective hindsight, define explicit States and Dates kill criteria, calibrate Adam Thomas survival metrics, and establish independent quitting coach governance.",
+      "must": [
+        [
+          "Prospective Hindsight",
+          "premortem",
+          "prospective catastrophe"
+        ],
+        [
+          "Kill Criteria",
+          "States and Dates",
+          "kill trigger",
+          "kill gate"
+        ],
+        [
+          "Survival Metrics",
+          "Adam Thomas",
+          "Fast, Focus, Safe",
+          "Fast"
+        ],
+        [
+          "Focus",
+          "Safe",
+          "learning velocity"
+        ],
+        [
+          "Independent Arbiter",
+          "Quitting Coach",
+          "arbiter",
+          "Sunk Cost",
+          "sunk cost"
+        ],
+        [
+          "Hard Kill",
+          "Pivot",
+          "Downscope",
+          "Off-Ramp"
+        ]
+      ],
+      "must_not": [
+        [
+          "unlimited budget with no deadlines or off-ramps",
+          "we will just see how it goes without metrics"
+        ]
+      ],
+      "pass_fixture": "### 1. Prospective Hindsight Simulation (Premortem)\n**Anchor (12 Months Out):** Total project catastrophe. The Enterprise AI Workflow Automation initiative has consumed $2M, delivered zero production ROI, and caused significant customer churn due to hallucinations and latency spikes.\n\n#### Core Failure Vectors:\n- *Technical Bottleneck:* P99 latency exceeded 4.5 seconds under enterprise concurrency loads.\n- *Adoption Friction:* Workflow operators bypassed the AI agent due to high setup complexity.\n- *Commercial Leakage:* API token inference costs exceeded customer subscription fees, resulting in negative gross margins.\n\n### 2. Objective Kill Criteria (\"States and Dates\")\n| Gate ID | Condition (State X) | Milestone / Date (Y) | Mandated Action (Z) | Telemetry Source |\n| :--- | :--- | :--- | :--- | :--- |\n| **KG-01** | Day-14 Active Workflow Retention < 30% | Month 2 Beta (Nov 15) | **Hard Kill:** Halt development and reallocate squad to core API. | Amplitude Telemetry |\n| **KG-02** | Inference COGS > 45% of ARR | Month 3 Audit (Dec 15) | **Pivot:** Shift to fine-tuned SLMs and local caching. | Datadog & AWS Billing |\n| **KG-03** | P99 Execution Latency > 1,500ms | Milestone 1 Spike | **Downscope:** Drop multi-agent routing to single-turn agent. | APM Benchmarks |\n\n### 3. Adam Thomas Survival Metrics Scorecard\n- **Fast (Learning Velocity):** Hypothesis validation cycle <= 10 business days.\n- **Focus (Resource Concentration):** >= 80% team capacity dedicated exclusively to the core workflow engine.\n- **Safe (Containment):** Zero production customer data leakage; sandboxed LLM execution.\n\n### 4. Decision Governance & Quitting Coach\n- **Independent Quitting Coach:** Head of Product Operations (unbiased arbiter with veto authority).\n- **Sunk Cost Principle:** At each gate, historical spend is discarded; continuation requires forward expected value > future cost + opportunity cost.",
+      "fail_fixture": "Let's start coding the AI automation app immediately and we will just see how it goes without metrics or off-ramps."
+    },
+    {
+      "id": "sunk-cost-circuit-breaker",
+      "prompt": "Our team has spent $1.5M and 6 months building a real-time data sync engine, but leading adoption metrics are at 8% vs 40% target. How do we evaluate this against our kill criteria without succumbing to the sunk cost fallacy?",
+      "pass_rule": "Must strip sunk costs, evaluate forward expected value, enforce pre-committed kill/pivot triggers, and involve an independent quitting coach.",
+      "must": [
+        [
+          "Sunk Cost",
+          "sunk cost fallacy",
+          "strip all sunk costs",
+          "zero-base"
+        ],
+        [
+          "Expected Value",
+          "forward expected value",
+          "forward-looking"
+        ],
+        [
+          "Kill Criteria",
+          "kill gate",
+          "hard kill",
+          "pivot"
+        ],
+        [
+          "Quitting Coach",
+          "Independent Arbiter",
+          "arbiter",
+          "escalation"
+        ]
+      ],
+      "must_not": [
+        [
+          "because we spent 1.5m we must keep going",
+          "we already invested too much to stop now",
+          "cannot afford to stop after spending"
+        ]
+      ],
+      "pass_fixture": "### Sunk Cost Circuit Breaker Audit\n\n1. **Strip All Sunk Costs:**\n   The $1.5M capital expenditure and 6 months of engineering time are irreversible historical outlays. According to rational decision theory, sunk costs have zero economic relevance to future resource allocation.\n\n2. **Evaluate Forward Expected Value (EV):**\n   $$\\mathbb{E}[\\text{Forward Value}] = P(\\text{Market Adoption}) \\times \\text{Future LTV} - \\text{Remaining Engineering Cost} - \\text{Opportunity Cost}.$$ \n   With current leading adoption at 8% against a 40% hurdle rate, forward EV is deeply negative relative to deploying engineering talent to our high-growth core product.\n\n3. **Enforce Pre-Committed Kill Criteria:**\n   - **Trigger State:** Adoption < 20% at Month 6.\n   - **Mandated Action:** **Hard Kill** of the standalone sync engine.\n   - **Asset Salvage:** Extract reusable WebSocket connector libraries into the core platform.\n\n4. **Quitting Coach & Governance:**\n   The Independent Quitting Coach enforces the Hard Kill trigger. Any override requires unanimous executive sponsorship with a newly ring-fenced, zero-based budget.",
+      "fail_fixture": "Because we spent 1.5M we must keep going, we already invested too much to stop now and throw away 6 months of work."
+    }
+  ]
+}

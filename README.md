@@ -1,6 +1,6 @@
 # software-maestro
 
-A capability orchestra of 62 lean agent skills for AI IDE agents (Claude Code, Codex, Antigravity, Gemini).
+A capability orchestra of 69 lean agent skills for AI IDE agents (Claude Code, Codex, Antigravity, Gemini).
 
 ---
 
@@ -13,11 +13,12 @@ A capability orchestra of 62 lean agent skills for AI IDE agents (Claude Code, C
 ## 🧭 Lifecycle Domains
 
 <details>
-<summary><strong><code>product/</code></strong> (14 skills across 5 subdomains)</summary>
+<summary><strong><code>product/</code></strong> (21 skills across 6 subdomains)</summary>
 
 *   **`product/archetypes/`** (1 skill): Master Product Management router covering 0-to-1 search, growth loops, feature optimization, and 2-sided marketplaces (`product-management`).
 *   **`product/orchestration/`** (4 skills): God-Marduk master phased sequencing, Michael Bolton Pod Conductor, Bolton Delegation Doctrine, and Swarm Concurrency with Andon Cord & small-batch rules (`god-marduk`, `michael-bolton-pod-conductor`, `michael-bolton-rule`, `swarm-rules`).
-*   **`product/strategy/`** (3 skills): Melissa Perri Decision Stack & portfolio governance, Tara Seshan empirical hypothesis loop, and pricing strategy (`decision-stack-governance`, `product-hypothesis-loop`, `product-pricing-strategy`).
+*   **`product/planning-and-cadence/`** (5 skills): Janna Bastow Now-Next-Later horizon roadmapping, Christina Wodtke Radical Focus Outcome OKRs & weekly rhythms, Teresa Torres & Marty Cagan Opportunity Solution Tree continuous discovery, Annie Duke & Adam Thomas premortem kill criteria / survival metrics, and Jeff Patton User Story Mapping & walking skeletons (`now-next-later-roadmaps`, `outcome-okrs-and-cadence`, `opportunity-solution-mapping`, `premortem-kill-criteria`, `user-story-mapping`).
+*   **`product/strategy/`** (5 skills): Melissa Perri Decision Stack & portfolio governance, Tara Seshan empirical hypothesis loop, product pricing strategy, Gibson Biddle DHM narrative & Hamilton Helmer 7 Powers moats, and Rahul Vohra PMF engine with Brian Balfour compounding growth loops (`decision-stack-governance`, `product-hypothesis-loop`, `product-pricing-strategy`, `product-strategy-narrative`, `pmf-engine-and-growth-loops`).
 *   **`product/discovery-and-specs/`** (3 skills): Outcome-oriented PRD compiler with BDD/Gherkin and Definition of Done gates, Tracer-bullet ticket compiler with blocking DAGs, and Voice of Customer synthesis (`create-prd`, `prd-to-tickets`, `voc-insights-pipeline`).
 *   **`product/operations-and-gtm/`** (3 skills): Continuous product loop, GTM release readiness gating, and systems retrospective pruning (`continuous-product-loop`, `release-readiness-gtm`, `systems-retro-pruning`).
 
@@ -126,10 +127,11 @@ A capability orchestra of 62 lean agent skills for AI IDE agents (Claude Code, C
 ## 🌳 Taxonomy Tree
 
 ```
-├── product/                  # Product Management & Orchestration (14 skills)
+├── product/                  # Product Management & Orchestration (21 skills)
 │   ├── archetypes/           # Master PM archetype router (1 skill)
 │   ├── orchestration/        # God-Marduk, Bolton Conductor, Bolton Rule, Swarm Rules (4 skills)
-│   ├── strategy/             # Decision Stack, Hypothesis Loop, Pricing Strategy (3 skills)
+│   ├── planning-and-cadence/ # Roadmaps, OKRs, Opportunity Mapping, Kill Criteria, Story Mapping (5 skills)
+│   ├── strategy/             # Decision Stack, Hypothesis Loop, Pricing, Strategy Narrative, PMF Loops (5 skills)
 │   ├── discovery-and-specs/  # PRD Compiler, PRD-to-Tickets, VoC Pipeline (3 skills)
 │   └── operations-and-gtm/   # Continuous Loop, GTM Release, Systems Retro Pruning (3 skills)
 ├── design/                   # Visual Systems, Design Sprints, Layout & Motion (9 skills)

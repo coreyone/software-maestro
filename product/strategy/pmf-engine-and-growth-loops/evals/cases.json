@@ -1,0 +1,121 @@
+{
+  "skill": "pmf-engine-and-growth-loops",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "How do we run the Rahul Vohra Superhuman PMF survey to isolate our High-Expectation Customer (HXC) and split our roadmap 50/50?",
+      "trigger": true
+    },
+    {
+      "prompt": "Architect a compounding viral and content growth loop based on Brian Balfour and Andrew Chen to replace our leaky marketing funnel.",
+      "trigger": true
+    },
+    {
+      "prompt": "What is our viral coefficient (K-factor) and loop cycle time, and how do we prune non-HXC user feedback?",
+      "trigger": true
+    },
+    {
+      "prompt": "Calculate our Sean Ellis 40% PMF benchmark score across our latest onboarding cohort.",
+      "trigger": true
+    },
+    {
+      "prompt": "Configure an AWS IAM role policy for S3 bucket read access.",
+      "trigger": false
+    },
+    {
+      "prompt": "Write a TypeScript interface for GraphQL mutation resolvers.",
+      "trigger": false
+    },
+    {
+      "prompt": "Debug an infinite loop in a React useEffect hook.",
+      "trigger": false
+    },
+    {
+      "prompt": "Optimize a Dockerfile multi-stage build cache for Go binaries.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "pmf-engine-segmentation-roadmap",
+      "prompt": "Our SaaS product has a Sean Ellis PMF survey score of 28%. How do we apply Rahul Vohra's Superhuman PMF Engine to find our High-Expectation Customer (HXC) and build a 50/50 product roadmap to reach 50%+ PMF?",
+      "pass_rule": "Must analyze the Sean Ellis 40% threshold, isolate the High-Expectation Customer (HXC), prune distractor feedback, and construct a 50/50 roadmap of Love Multipliers and Holdback Removers.",
+      "must": [
+        [
+          "Sean Ellis",
+          "40%",
+          "Very Disappointed"
+        ],
+        [
+          "High-Expectation Customer",
+          "HXC",
+          "high expectation customer"
+        ],
+        [
+          "50/50",
+          "50% roadmap",
+          "50% love",
+          "50% holdback"
+        ],
+        [
+          "Holdback",
+          "holdbacks",
+          "fence-sitters",
+          "somewhat disappointed"
+        ],
+        [
+          "Prune",
+          "discard",
+          "ignore feedback from non-HXC",
+          "distractors"
+        ]
+      ],
+      "must_not": [
+        [
+          "build whatever every user asks for equally",
+          "scale paid ads immediately at 28%"
+        ]
+      ],
+      "pass_fixture": "### 1. Sean Ellis Benchmark Diagnostic & HXC Segmentation\n- **Current Baseline Score:** 28% \"Very Disappointed\" (Below the 40% threshold required for sustainable breakout growth; freeze paid acquisition scaling).\n- **High-Expectation Customer (HXC) Profiling:** Isolate respondents answering \"Very Disappointed\". Identify their roles (e.g., Growth PMs & Data Analysts) and company stages (Series A-C tech startups).\n- **Re-segmentation:** Filter out \"Somewhat Disappointed\" users whose primary job-to-be-done falls outside the HXC profile.\n\n### 2. Feedback Segmentation & Distractor Pruning\n- **Core Anchor Benefit (\"Very Disappointed\"):** Instant SQL-to-chart generation and automated anomaly alerts. (This is the crown jewel—never compromise or slow down this core).\n- **High-Yield Fence-Sitters (\"Somewhat Disappointed\" who value SQL-to-chart):** Holdbacks include lack of CSV export and missing Notion iframe embeds.\n- **Distractor Pruning:** **Discard all feedback** from \"Not Disappointed\" users and off-ICP users asking for generic BI reporting; building their requests will destroy core positioning.\n\n### 3. The 50/50 PMF Roadmap Allocation\n- **Track A: Love Multipliers (50% Capacity):**\n  1. Sub-50ms natural language query parser.\n  2. Keyboard-driven chart customization shortcuts.\n- **Track B: Holdback Removers (50% Capacity):**\n  1. Instant CSV/Parquet bulk export.\n  2. Live Notion & Slack interactive embed widgets.",
+      "fail_fixture": "Let's scale paid ads immediately at 28% and build whatever every user asks for equally without segmenting."
+    },
+    {
+      "id": "compounding-growth-loop-design",
+      "prompt": "Design a self-sustaining viral and content growth loop for an AI-powered data visualization tool to replace our leaky marketing funnel.",
+      "pass_rule": "Must design closed growth loops with Input, Action, Output, and Reinvestment stages, analyze K-factor and cycle time, and emphasize the retention baseline.",
+      "must": [
+        [
+          "Growth Loop",
+          "Growth Loops",
+          "closed loop"
+        ],
+        [
+          "Input",
+          "Action",
+          "Output",
+          "Reinvestment"
+        ],
+        [
+          "Viral",
+          "Content",
+          "K-Factor",
+          "viral coefficient"
+        ],
+        [
+          "Cycle Time",
+          "retention asymptote",
+          "leaky bucket",
+          "compounding"
+        ]
+      ],
+      "must_not": [
+        [
+          "just buy more google ads in a linear funnel",
+          "loops do not need retention"
+        ]
+      ],
+      "pass_fixture": "### Compounding Growth Loop Architecture\n\n#### 1. Loop 1: Public Collaborative Viral Loop\n- **Input:** Activated user creates an interactive metric dashboard.\n- **Core Action:** User shares dashboard link or invites team members with view/comment permissions.\n- **Output Generated:** Real-time collaboration notifications and shared report viewports.\n- **Reinvestment Vector:** Recipients experience interactive value, sign up for their own free workspace, and create their own dashboards.\n\n#### 2. Loop 2: Programmatic Public Content / SEO Loop\n- **Input:** User publishes a public dataset visualization (e.g., tech industry layoffs tracker).\n- **Core Action:** Dashboard embedded in blog posts or shared on social channels.\n- **Output Generated:** High-authority, indexable web pages with interactive data previews.\n- **Reinvestment Vector:** Search engines index pages $\\to$ organic search traffic discovers templates $\\to$ converts into new dashboard creators.\n\n#### 3. Loop Dynamics & Compounding Telemetry\n- **Retention Baseline Requirement:** Ensure cohort retention curve achieves a horizontal asymptote ($R_{\\infty} \\ge 30\\%$); never pour loop traffic into a leaky bucket.\n- **Viral Factor ($K$):** Target $K = 0.65$ (amplifies all inbound traffic by $1 / (1 - K) = 2.85\\times$).\n- **Cycle Time ($T$):** Reduce time-to-first-share from 7 days to < 24 hours to maximize compounding velocity.",
+      "fail_fixture": "Just buy more Google Ads in a linear funnel without building product loops, because loops do not need retention."
+    }
+  ]
+}

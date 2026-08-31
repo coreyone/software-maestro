@@ -79,4 +79,4 @@ if issues:
     for iss in issues:
         print(f" - {iss}")
 else:
-    print("\nALL 55 SKILLS FULLY COMPLIANT with OpenAI & agentskills.io standard!")
+    print(f"\nALL {len(skill_files)} SKILLS FULLY COMPLIANT with OpenAI & agentskills.io standard!")

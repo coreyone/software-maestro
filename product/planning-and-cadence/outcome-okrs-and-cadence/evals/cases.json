@@ -1,0 +1,118 @@
+{
+  "skill": "outcome-okrs-and-cadence",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "How do we implement Christina Wodtke's Radical Focus OKR framework with 1 Objective and 3 outcome-based Key Results?",
+      "trigger": true
+    },
+    {
+      "prompt": "Set up a 4-Quadrant OKR canvas with health metrics and Monday commitments / Friday wins cadence for our product pod.",
+      "trigger": true
+    },
+    {
+      "prompt": "Convert our team's feature-launch task list into measurable outcome Key Results with 5/10 confidence ratings.",
+      "trigger": true
+    },
+    {
+      "prompt": "Configure an Istio VirtualService with traffic splitting and canary routing rules in Kubernetes.",
+      "trigger": false
+    },
+    {
+      "prompt": "Implement an SQL query using window functions to calculate 7-day rolling average revenue in dbt.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "radical-focus-canvas",
+      "prompt": "Create a complete Christina Wodtke Radical Focus 4-Quadrant OKR Canvas for a B2B SaaS product team aiming to improve trial conversion.",
+      "pass_rule": "Must formulate 1 qualitative Objective, 3 quantitative outcome Key Results with confidence ratings, health metrics, P1/P2 weekly priorities, and next 4 weeks pipeline.",
+      "must": [
+        [
+          "Objective",
+          "objective"
+        ],
+        [
+          "Key Result",
+          "Key Results",
+          "KR1",
+          "KR2",
+          "KR3"
+        ],
+        [
+          "Confidence",
+          "5/10",
+          "confidence score"
+        ],
+        [
+          "Health Metric",
+          "Health Metrics",
+          "Keep the lights on",
+          "guardrail"
+        ],
+        [
+          "Priority",
+          "Priorities",
+          "P1",
+          "P2",
+          "This Week"
+        ],
+        [
+          "Pipeline",
+          "Next 4 Weeks",
+          "Upcoming"
+        ]
+      ],
+      "must_not": [
+        [
+          "5 separate objectives",
+          "laundry list of 10 features without metrics"
+        ]
+      ],
+      "pass_fixture": "### Christina Wodtke 4-Quadrant Radical Focus OKR Canvas\n\n#### Quadrant 1: Objective & Key Results\n**Objective**: Make our 14-day trial experience so irresistible that developers convert before their trial even ends.\n- **KR1**: Increase trial-to-paid conversion rate from 3.2% to 8.5% (Confidence: 5/10).\n- **KR2**: Reduce mean time to first successful API request from 45 minutes to <5 minutes (Confidence: 5/10).\n- **KR3**: Boost Day-7 trial user retention from 18% to 42% (Confidence: 5/10).\n\n#### Quadrant 2: Health Metrics (Keep the Lights On)\n- **System Uptime**: >99.95% (🟢 Green - 99.98% current)\n- **API p99 Latency**: <120ms (🟢 Green - 85ms current)\n- **Team Sustainable Pace & Morale**: ≥8.0/10 (🟢 Green - 8.4/10 current)\n- **Support Ticket Escalation Rate**: <1.5% (🟢 Green - 0.8% current)\n\n#### Quadrant 3: This Week's Priorities\n- **P1 (Must-Do)**:\n  1. Ship 1-click starter template integration in onboarding.\n  2. Deploy automated webhook verification tester for new developers.\n  3. Conduct 5 live friction observation interviews with dropped trial users.\n- **P2 (Should-Do)**:\n  4. Fix documentation code snippet syntax highlighting.\n  5. Update trial expiration email reminder copy.\n\n#### Quadrant 4: Next 4 Weeks Pipeline\n- **Week 2**: Stripe billing portal self-serve upgrade flow overhaul.\n- **Week 3**: Cross-functional alignment with Developer Relations on CLI quickstarts.\n- **Week 4**: In-app live chat support pilot during first 60 minutes of trial.\n- **Week 5**: Launch interactive sandbox demo playground.",
+      "fail_fixture": "Here is our plan: 5 separate objectives: 1. Launch UI, 2. Fix bugs, 3. Hire engineers, 4. Redesign website, 5. Write docs. A laundry list of 10 features without metrics."
+    },
+    {
+      "id": "outcome-vs-output-conversion",
+      "prompt": "Refactor a team's task-based OKRs ('Launch new search bar', 'Redesign checkout page', 'Write 10 API guides') into Christina Wodtke outcome-driven Key Results and weekly execution rhythm.",
+      "pass_rule": "Must convert task outputs into measurable outcome Key Results with baseline/target metrics and define Monday commitments / Friday wins cadence.",
+      "must": [
+        [
+          "Outcome",
+          "outcome key result",
+          "measurable outcome"
+        ],
+        [
+          "Baseline",
+          "Target",
+          "from",
+          "to"
+        ],
+        [
+          "Monday",
+          "Monday commitments",
+          "commitment"
+        ],
+        [
+          "Friday",
+          "Friday wins",
+          "celebration"
+        ],
+        [
+          "Confidence",
+          "5/10",
+          "confidence rating"
+        ]
+      ],
+      "must_not": [
+        [
+          "keep tasks as key results",
+          "no metric target"
+        ]
+      ],
+      "pass_fixture": "### Refactored Outcome-Driven OKRs & Cadence\n\n#### Objective: Deliver an effortless checkout experience that eliminates buyer drop-off.\n\n#### Converted Outcome Key Results (5/10 Confidence Baseline):\n1. **KR1 (Search Discovery)**: Increase search-to-cart conversion rate from **14% to 28%** (Baseline: 14%, Target: 28%).\n2. **KR2 (Checkout Efficiency)**: Reduce checkout funnel abandonment rate from **58% to 25%** (Baseline: 58%, Target: 25%).\n3. **KR3 (Developer Adoption)**: Grow monthly self-serve API transaction volume from **100k to 750k** calls (Baseline: 100k, Target: 750k).\n\n#### Operational Cadence SOP:\n- **Monday Commitments Meeting (30m)**: Review Objective, adjust KR confidence scores (e.g. 5/10 ➔ 6/10), check health metric guardrails, and commit to 3 P1 priorities for the week.\n- **Friday Wins & Celebrations (30m)**: Host live demos of working features, review weekly metric lift, and celebrate team achievements.",
+      "fail_fixture": "Let's just keep tasks as key results: KR1: Launch search bar. KR2: Redesign checkout. KR3: Write docs. No metric target is needed."
+    }
+  ]
+}

@@ -18,7 +18,7 @@ for target_dir in "${TARGET_DIRS[@]}"; do
 done
 
 # Find and symlink every skill
-find "${REPO_DIR}" -mindepth 2 -maxdepth 3 -name "SKILL.md" | while read -r skill_md; do
+find "${REPO_DIR}" -mindepth 2 -maxdepth 5 -name "SKILL.md" | while read -r skill_md; do
   skill_dir="$(dirname "${skill_md}")"
   skill_name="$(basename "${skill_dir}")"
 

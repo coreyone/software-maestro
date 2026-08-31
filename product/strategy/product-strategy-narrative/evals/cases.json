@@ -1,0 +1,127 @@
+{
+  "skill": "product-strategy-narrative",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Create a product strategy narrative using Gibson Biddle's DHM framework and define leading proxy metrics for our SaaS platform.",
+      "trigger": true
+    },
+    {
+      "prompt": "Evaluate our competitive defensibility using Hamilton Helmer's 7 Powers and analyze our counter-positioning against incumbents.",
+      "trigger": true
+    },
+    {
+      "prompt": "How do we prioritize our GEM metrics (Growth, Engagement, Monetization) and structure a Rumelt strategy kernel for our 3-year roadmap?",
+      "trigger": true
+    },
+    {
+      "prompt": "Define the benefit and barrier equations for our network effects moat and establish a strategy-proxy-project matrix.",
+      "trigger": true
+    },
+    {
+      "prompt": "Configure an Nginx reverse proxy load balancer for our backend API.",
+      "trigger": false
+    },
+    {
+      "prompt": "Write a unit test with Jest to mock Axios HTTP requests.",
+      "trigger": false
+    },
+    {
+      "prompt": "Fix an SQL injection vulnerability in our user query parameter parser.",
+      "trigger": false
+    },
+    {
+      "prompt": "Set up a Stripe billing webhook handler in Express.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "dhm-7-powers-narrative",
+      "prompt": "Author a comprehensive product strategy narrative for a collaborative developer tooling platform using Gibson Biddle's DHM framework and Hamilton Helmer's 7 Powers.",
+      "pass_rule": "Must define the strategic kernel, stack-rank GEM priorities, articulate DHM pillars, map 7 Powers with Benefit and Barrier, and establish leading proxy metrics.",
+      "must": [
+        [
+          "Delight",
+          "Delight Customers",
+          "DHM"
+        ],
+        [
+          "Hard-to-Copy",
+          "Hard to Copy",
+          "7 Powers",
+          "Hamilton Helmer"
+        ],
+        [
+          "Margin-Enhancing",
+          "Margin Enhancing",
+          "Margin"
+        ],
+        [
+          "Proxy Metric",
+          "Proxy Metrics",
+          "leading metric"
+        ],
+        [
+          "Network Effects",
+          "Switching Costs",
+          "Counter-Positioning",
+          "Scale Economies"
+        ],
+        [
+          "Diagnosis",
+          "Guiding Policy",
+          "GEM",
+          "Growth",
+          "Engagement"
+        ]
+      ],
+      "must_not": [
+        [
+          "strategy is just a list of 50 jira tickets",
+          "we do not need any moats or proxy metrics"
+        ]
+      ],
+      "pass_fixture": "### 1. Strategic Kernel & Diagnosis (Rumelt)\n- **Diagnosis (Crux):** Distributed engineering teams suffer from fragmented context across isolated developer tools, leading to 40% lost engineering velocity in code reviews.\n- **Guiding Policy:** Unify code review, cloud development environments, and automated CI into a single real-time collaborative workspace.\n- **GEM Priority Ranking:** **Engagement (Retention)** > **Growth** > **Monetization** (Focus on developer daily habit formation).\n\n### 2. DHM Product Strategy Pillars (Gibson Biddle)\n1. **Delight:** Instant zero-install cloud workspaces booting in < 2 seconds with live collaborative cursors.\n2. **Hard-to-Copy (7 Powers):**\n   - *Network Effects:* Multiplayer workspace graph where PR reviews happen collaboratively in real time.\n   - *Switching Costs:* Proprietary dev environment dotfiles and workspace templates embedded deep in team engineering workflows.\n3. **Margin-Enhancing:** High-margin self-serve compute tiers and enterprise SSO/audit governance add-ons.\n\n### 3. Hamilton Helmer 7 Powers Moat Architecture\n- **Network Effects:**\n  - *Benefit:* Team members review and debug code 3x faster when multiple devs collaborate in the same live runtime.\n  - *Barrier:* Competitors with single-player IDEs cannot duplicate the real-time multiplayer state without rewriting their core architecture.\n- **Counter-Positioning:**\n  - *Benefit:* Browser-native cloud sandbox replaces heavy local laptop setup.\n  - *Barrier:* Legacy desktop IDE incumbents cannot offer cloud runtimes without cannibalizing their installed client ecosystem.\n\n### 4. Strategy-Proxy-Project Matrix\n| Strategic Pillar | DHM Hypothesis | 7 Powers Moat | Leading Proxy Metric | Rolling Projects |\n| :--- | :--- | :--- | :--- | :--- |\n| Collaborative Review | Real-time reviews drive habituation | Network Effects | % of PRs with >= 2 live concurrent reviewers | CRDT live cursor review canvas |\n| Cloud Workspaces | Instant spin-up removes setup friction | Switching Costs | % of weekly active devs with >= 3 saved workspaces | Pre-warmed ephemeral container pool |",
+      "fail_fixture": "Strategy is just a list of 50 Jira tickets we want to build this quarter without any moats or proxy metrics."
+    },
+    {
+      "id": "helmer-power-audit",
+      "prompt": "Conduct a 7 Powers defensibility audit on an emerging fintech challenger attacking legacy banking credit cards with zero-fee dynamic credit lines.",
+      "pass_rule": "Must analyze Counter-Positioning with explicit Benefit and Barrier mechanisms, evaluate Switching Costs, and define high-frequency leading proxy metrics.",
+      "must": [
+        [
+          "Counter-Positioning",
+          "counter-positioning"
+        ],
+        [
+          "Benefit",
+          "benefit"
+        ],
+        [
+          "Barrier",
+          "barrier"
+        ],
+        [
+          "Switching Costs",
+          "Network Effects",
+          "Scale Economies",
+          "7 Powers"
+        ],
+        [
+          "Proxy Metric",
+          "proxy metric",
+          "leading indicator"
+        ]
+      ],
+      "must_not": [
+        [
+          "legacy banks can copy without any profit cannibalization",
+          "no barrier needed to have power"
+        ]
+      ],
+      "pass_fixture": "### 7 Powers Defensibility Audit: Fintech Challenger\n\n#### 1. Counter-Positioning (Primary Origination Power)\n- **The Mechanism:** The challenger offers zero-fee, automated dynamic credit lines financed via high-velocity merchant interchange rather than compounding consumer revolving interest.\n- **Customer Benefit:** Consumers receive transparent, zero-penalty liquidity without punitive late fees or 29% APR interest spirals.\n- **Incumbent Barrier:** Legacy tier-1 banks cannot copy this zero-fee structure because 45% of their net credit card division profitability depends on consumer overdraft penalties and revolving interest fees. Copying would cause catastrophic profit cannibalization.\n\n#### 2. Switching Costs & Data Scale (Takeoff Power)\n- **The Mechanism:** Continuous automated synchronization with user payroll, tax software, and recurring subscription bills.\n- **Customer Benefit:** Optimized credit limits that adjust dynamically in real time based on incoming cash flow.\n- **Competitor Barrier:** High switching costs; moving to an alternative requires disconnecting payroll integrations and forfeiting historical cash-flow underwriting scores.\n\n#### 3. Strategic Proxy Metrics\n- **Counter-Positioning Proxy:** % of new cardholders who transition >= 3 recurring bills to the dynamic card within 14 days of activation.\n- **Switching Cost Proxy:** % of cardholders maintaining active payroll direct deposit after 90 days (Target: >= 65%).",
+      "fail_fixture": "Legacy banks can copy without any profit cannibalization, and there is no barrier needed to have power in fintech."
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "skill": "user-story-mapping",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Create a 2D User Story Map using Jeff Patton's framework to slice out a walking skeleton MVP for our new SaaS billing portal.",
+      "trigger": true
+    },
+    {
+      "prompt": "Map out the user journey backbone and horizontal release slices for a mobile ride-sharing app.",
+      "trigger": true
+    },
+    {
+      "prompt": "Configure an AWS CloudFront distribution with Lambda@Edge origin request triggers.",
+      "trigger": false
+    },
+    {
+      "prompt": "Write a Python script to compute moving averages on a Pandas DataFrame.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "story-map-food-delivery-skeleton",
+      "prompt": "Create a complete User Story Map for a food delivery platform. Define the user narrative backbone across 4-6 sequential user activities, map specific user tasks horizontally, and slice release increments vertically starting with a true Walking Skeleton (MVP Slice 1), followed by Slice 2 and Slice 3.",
+      "pass_rule": "Must define the horizontal narrative Backbone with User Activities, User Tasks, and at least 3 distinct horizontal release slices starting with a Walking Skeleton MVP.",
+      "must": [
+        [
+          "Backbone",
+          "Narrative Backbone",
+          "User Activities"
+        ],
+        [
+          "User Tasks",
+          "Tasks",
+          "Steps"
+        ],
+        [
+          "Walking Skeleton",
+          "Walking skeleton",
+          "Slice 1"
+        ],
+        [
+          "Slice 2",
+          "Release 2"
+        ],
+        [
+          "Slice 3",
+          "Release 3"
+        ]
+      ],
+      "must_not": [
+        [
+          "flat backlog without release slices",
+          "build entire backend database first before any user flow"
+        ]
+      ],
+      "pass_fixture": "### User Story Map: On-Demand Food Delivery Platform\n\n#### 1. Horizontal Narrative Backbone (User Activities & Sequential Steps)\n1. **Browse & Search** $\\rightarrow$ 2. **Select & Customize** $\\rightarrow$ 3. **Checkout & Pay** $\\rightarrow$ 4. **Order Tracking & Delivery** $\\rightarrow$ 5. **Review & Reorder**\n\n#### 2. 2-Dimensional Story Map Matrix (User Activities & User Tasks)\n\n| User Activities & User Tasks | Slice 1: Walking Skeleton (MVP) | Slice 2: Core Enhancements | Slice 3: Scale & Edge Variations |\n| :--- | :--- | :--- | :--- |\n| **1. Browse & Search**<br/>- *Task*: Search restaurants | Simple text search for restaurant name | Filter by cuisine, dietary tag, & delivery time | AI-powered personalized dish recommendations |\n| **2. Select & Customize**<br/>- *Task*: Choose dishes | View static menu list and add item to cart | Choose item options (size, spice level, add-ons) | Real-time item modifier builder with nutritional calculator |\n| **3. Checkout & Pay**<br/>- *Task*: Submit payment | Enter delivery address and pay via single credit card | Save multiple addresses & pay with Apple Pay / Google Pay | Split bill with friends & apply promo coupon codes |\n| **4. Order Tracking**<br/>- *Task*: Follow delivery status | Static status text screen (Received, Preparing, Delivered) | Real-time map with courier GPS tracking & ETA | In-app direct VoIP calling and courier chat |\n| **5. Review & Reorder**<br/>- *Task*: Provide feedback | Single 1-5 star rating prompt after delivery | Add written review with food photos | 1-click instant reorder of favorite historical carts |\n\n#### 3. Verification Protocol\n- **Walking Skeleton Validation**: A user in Slice 1 can complete an entire order from search to delivery confirmation in an unbroken flow without hitting unimplemented stubs.\n- **Vertical Value Delivery**: Each slice touches all 5 activities across the full stack (UI + API + DB).",
+      "fail_fixture": "Here is our backlog: Ticket 1: Setup Postgres tables. Ticket 2: Write auth middleware. Ticket 3: Create Stripe webhook."
+    }
+  ]
+}

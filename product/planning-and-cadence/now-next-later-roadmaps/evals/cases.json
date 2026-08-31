@@ -1,0 +1,111 @@
+{
+  "skill": "now-next-later-roadmaps",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "How do we build a Now-Next-Later product roadmap using Janna Bastow's framework to replace our date-driven Gantt chart?",
+      "trigger": true
+    },
+    {
+      "prompt": "Structure our upcoming product initiatives across Now, Next, and Later horizons based on problem validation and certainty.",
+      "trigger": true
+    },
+    {
+      "prompt": "Reframe our feature backlog into outcome-oriented roadmap cards with measurable target metric lifts.",
+      "trigger": true
+    },
+    {
+      "prompt": "Configure an OAuth 2.1 PKCE authorization code flow with secure HTTP-only cookies in FastAPI.",
+      "trigger": false
+    },
+    {
+      "prompt": "Debug a memory leak caused by uncollected closures in Node.js event emitters.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "now-next-later-structure",
+      "prompt": "Create an outcome-driven Now-Next-Later product roadmap for a SaaS analytics platform focused on reducing onboarding drop-off.",
+      "pass_rule": "Must organize roadmap into Now, Next, and Later horizons, phrase cards as problems to solve with measurable target outcomes, and avoid fixed calendar dates.",
+      "must": [
+        [
+          "Now",
+          "now"
+        ],
+        [
+          "Next",
+          "next"
+        ],
+        [
+          "Later",
+          "later"
+        ],
+        [
+          "Problem",
+          "problem to solve",
+          "JTBD",
+          "struggle"
+        ],
+        [
+          "Outcome",
+          "target outcome",
+          "metric lift",
+          "metric"
+        ],
+        [
+          "Candidate",
+          "Options",
+          "candidate solutions",
+          "experiments"
+        ]
+      ],
+      "must_not": [
+        [
+          "Gantt",
+          "Q1 deadline",
+          "Q2 release date",
+          "October 15 delivery date"
+        ]
+      ],
+      "pass_fixture": "### Outcome-Driven Now-Next-Later Roadmap: SaaS Analytics Platform\n\n#### NOW (Current Horizon: High Certainty / Active Build)\n- **Problem to Solve**: New users abandon setup during manual SQL schema configuration (62% drop-off at Step 3).\n- **Strategic Theme / OKR**: Boost Day-7 User Activation from 18% to 45%.\n- **Target Outcome / Metric Lift**: Reduce initial dashboard setup time from 42 minutes to <5 minutes; lift onboarding completion to 60%.\n- **Candidate Solutions / Options**: Pre-built one-click Postgres/Snowflake connection templates and auto-schema discovery.\n\n#### NEXT (Near-Term Horizon: Medium Certainty / Active Discovery)\n- **Problem to Solve**: Team leads cannot easily share automated weekly metric reports with non-technical stakeholders.\n- **Strategic Theme / OKR**: Drive Weekly Active Team Collaboration (WAU lift by 30%).\n- **Target Outcome / Metric Lift**: Increase weekly PDF/Slack scheduled report exports from 120 to 1,500.\n- **Candidate Solutions / Options**: Scheduled Slack bot report digest and interactive view-only share links.\n\n#### LATER (Future Horizon: Low Certainty / Strategic Exploration)\n- **Problem to Solve**: Enterprise customers require automated anomaly detection and proactive alerting across high-volume event streams.\n- **Strategic Theme / OKR**: Expand Enterprise Net Revenue Retention to 125%.\n- **Target Outcome / Metric Lift**: Alerting telemetry deployed across 80% of Enterprise accounts.\n- **Candidate Solutions / Options**: Real-time ML-driven metric drift detector and PagerDuty integration.",
+      "fail_fixture": "Here is our Gantt roadmap for the year:\n- Q1 deadline (October 15 delivery date): Build SQL settings tab\n- Q2 release date: Build Slack button\n- Q3: Build ML alerting feature"
+    },
+    {
+      "id": "card-anatomy-reframe",
+      "prompt": "Reframe a list of raw feature requests ('Add dark mode', 'Build CSV export button', 'Create Zapier integration') into Janna Bastow outcome-oriented roadmap cards.",
+      "pass_rule": "Must reframe features into problem statements with target outcomes and candidate options across horizons.",
+      "must": [
+        [
+          "Problem",
+          "problem statement",
+          "user struggle"
+        ],
+        [
+          "Outcome",
+          "metric lift",
+          "target outcome"
+        ],
+        [
+          "Candidate",
+          "Options",
+          "candidate solution",
+          "experiments"
+        ],
+        [
+          "Now",
+          "Next",
+          "Later"
+        ]
+      ],
+      "must_not": [
+        [
+          "feature list without problem definition",
+          "build the buttons without metrics"
+        ]
+      ],
+      "pass_fixture": "### Reframed Outcome-Oriented Roadmap Cards\n\n1. **Card 1 (NOW)**: *Eliminate Workflow Data Siloing*\n   - **Problem Statement**: Users waste 3 hours/week manually copying lead data between our CRM and external marketing tools.\n   - **Target Outcome**: 70% reduction in manual data entry tickets; 25% increase in weekly pipeline sync volume.\n   - **Candidate Options**: Zapier webhook bridge, native HubSpot connector, or open REST export API.\n\n2. **Card 2 (NEXT)**: *Resolve Manual Reporting Bottlenecks for Finance Teams*\n   - **Problem Statement**: Finance admins cannot extract audit-ready billing records without requesting custom database dumps.\n   - **Target Outcome**: 90% self-serve report generation rate for monthly close.\n   - **Candidate Options**: Background asynchronous CSV/Excel export queue with S3 download link.\n\n3. **Card 3 (LATER)**: *Reduce Visual Fatigue for High-Volume Operations Analysts*\n   - **Problem Statement**: Night-shift operations personnel experience visual strain during 8-hour monitoring shifts.\n   - **Target Outcome**: 15% increase in operational session duration; improved analyst satisfaction score.\n   - **Candidate Options**: High-contrast theme system, OS-synced dark mode tokens.",
+      "fail_fixture": "Let's add these items to the sprint: Add dark mode toggle, Build CSV export button, and Create Zapier integration."
+    }
+  ]
+}
