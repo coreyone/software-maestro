@@ -1,0 +1,63 @@
+{
+  "skill": "product-hypothesis-loop",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Run the 4-step empirical product hypothesis loop for our AI meeting summarizer idea. Define the essential question, map users, market, and technology, and pick the fastest test vehicle.",
+      "trigger": true
+    },
+    {
+      "prompt": "We want to rapidly test our pricing hypothesis before writing a full PRD. Formulate the hypothesis card and select our empirical test vehicle using Tara Seshan's method.",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a PostgreSQL query to index foreign keys.",
+      "trigger": false
+    },
+    {
+      "prompt": "Deploy this container to Google Cloud Run.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "empirical-hypothesis-card",
+      "prompt": "Generate an empirical Product Hypothesis Card for an instant AI contract redlining tool, mapping the 3 variables and selecting the fastest test vehicle.",
+      "pass_rule": "Must include 1 Essential Question, 3-Variable Intersection Matrix (Users x Market x Technology), selected Empirical Test Vehicle with execution plan, pre-committed Pass/Pivot/Kill thresholds, and clear handoff to PRD/Press Memo.",
+      "must": [
+        [
+          "essential question"
+        ],
+        [
+          "users",
+          "market",
+          "technology"
+        ],
+        [
+          "test vehicle",
+          "facade",
+          "smoke test",
+          "prototype",
+          "spike"
+        ],
+        [
+          "pass",
+          "pivot",
+          "kill",
+          "threshold"
+        ],
+        [
+          "prd",
+          "press memo"
+        ]
+      ],
+      "must_not": [
+        [
+          "lorem ipsum"
+        ]
+      ],
+      "pass_fixture": "# Hypothesis Card: Instant AI Contract Redlining\n**Upstream Inputs**: ux-discovery-artifacts (In-House Legal Counsel Persona)\n\n## 1. The 1 Essential Question\n*Will corporate legal counsels trust an AI redlining tool to automatically mark up inbound vendor NDAs without manual line-by-line re-review?*\n\n## 2. The 3-Variable Intersection\n- **Users (Psychology & Friction)**: In-house attorneys spend 6+ hours weekly on low-risk standard NDAs; their core fear is missing an indemnification trap.\n- **Market (Viability & Willingness-to-Pay)**: Legal departments currently pay $15,000/year for enterprise contract lifecycle management software; willing to pay $100/seat/mo for a fast redlining extension.\n- **Technology (Feasibility & Invariants)**: GPT-4o with structured JSON schema outputs can achieve 99.4% recall on standard NDA clause detection within a 2-second latency budget.\n\n## 3. The Empirical Test Vehicle\n- **Selected Vehicle**: **24h Disposable Hollywood Facade + 5-Act Live User Interviews** (via `design-rapid-prototype-facade` and `design-5-act-user-interview-testing`).\n- **Execution Blueprint**: Build an interactive Word Add-in web facade that ingests a sample vendor NDA, displays instant yellow markup diffs, and prompts the attorney to approve/reject clauses.\n- **Sample Size**: 5 in-house attorneys from target mid-market tech firms.\n\n## 4. Pre-Committed Decision Thresholds\n- **PASS (Proceed to PRD)**: At least 4 out of 5 attorneys accept the AI markup without opening a separate comparison tool, and express willingness to install in production.\n- **PIVOT (Re-test with new variable)**: Attorneys accept clause detection but demand a custom rulebook configuration engine before trusting output.\n- **KILL (Abandon opportunity)**: Attorneys state institutional compliance policies forbid third-party AI inspection of raw contracts.\n\n## 5. Downstream Handoff\n- Upon PASS: Graduate findings into `/create-prd` and `/product-management-press-memo` for Phase 0 engineering intake.",
+      "fail_fixture": "We should build an AI contract tool and write a long PRD detailing all features."
+    }
+  ]
+}

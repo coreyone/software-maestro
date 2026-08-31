@@ -1,6 +1,6 @@
 # Software Maestro
 
-A capability orchestra of 101 agent skills for AI IDE agents. You conduct product strategy, design systems, engineering execution, data science, security, growth, quality, and operational cadences from one developer baton.
+A capability orchestra of 102 agent skills for AI IDE agents. You conduct product strategy, design systems, engineering execution, data science, security, growth, quality, and operational cadences from one developer baton.
 
 ## Install
 
@@ -15,11 +15,11 @@ Alternatively, clone this repository directly into your AI IDE configuration dir
 ## Lifecycle Structure
 
 <details>
-<summary><strong><code>product/</code></strong> (27 skills across 5 subdomains)</summary>
+<summary><strong><code>product/</code></strong> (28 skills across 5 subdomains)</summary>
 
 *   **`product/archetypes/`** (5 skills): Specialized product manager archetypes and core routing engine (`product-management`, `product-zero-to-one`, `product-growth`, `product-optimizer-feature`, `product-marketplace`).
 *   **`product/orchestration/`** (4 skills): Cross-functional pod conductors, delegation doctrine, and multi-agent swarm operations (`michael-bolton-pod-conductor`, `michael-bolton-rule`, `swarm-rules`, `god-marduk`).
-*   **`product/strategy/`** (5 skills): Executive strategy deployment, decision stacks, capital allocation, pricing, and strategic constraints (`decision-stack-governance`, `product-strategy-outcome-vision`, `portfolio-allocation-capitalization`, `strategic-tradeoffs-constraint-matrix`, `product-pricing-strategy`).
+*   **`product/strategy/`** (6 skills): Executive strategy deployment, decision stacks, capital allocation, pricing, and strategic constraints (`decision-stack-governance`, `product-hypothesis-loop`, `product-strategy-outcome-vision`, `portfolio-allocation-capitalization`, `strategic-tradeoffs-constraint-matrix`, `product-pricing-strategy`).
 *   **`product/discovery-and-specs/`** (7 skills): Customer problem discovery, opportunity mapping, market benchmarks, VoC synthesis, and decision-ready PRDs (`create-prd`, `prd-to-tickets`, `proven-product-spec`, `ux-discovery-artifacts`, `voc-insights-pipeline`, `how-might-we`, `product-management-press-memo`).
 *   **`product/operations-and-gtm/`** (6 skills): Continuous evolution loops, GTM launch gating, PMM messaging, metric trees, platform primitives, and operational waste pruning (`continuous-product-loop`, `release-readiness-gtm`, `product-marketing-narrative`, `incentive-design-metric-trees`, `platform-enablement-internal-leverage`, `systems-retro-pruning`).
 
@@ -84,10 +84,10 @@ Alternatively, clone this repository directly into your AI IDE configuration dir
 ## Taxonomy
 
 ```
-├── product/                  # Product Management & Orchestration (27 skills across 5 IA subdomains)
+├── product/                  # Product Management & Orchestration (28 skills across 5 IA subdomains)
 │   ├── archetypes/           # 0-to-1, Growth, Optimizer, Marketplace, Base PM router (5 skills)
 │   ├── orchestration/        # Pod Conductor, Bolton Rule, Swarm Rules (with Andon Cord & Small-Batch), God-Marduk (4 skills)
-│   ├── strategy/             # Decision Stack, Strategy Vision, Capital Allocation, Constraints, Pricing (5 skills)
+│   ├── strategy/             # Decision Stack, Hypothesis Loop, Strategy Vision, Capital Allocation, Constraints, Pricing (6 skills)
 │   ├── discovery-and-specs/  # PRDs, PRD-to-Tickets, Proven Specs, UX Discovery, VoC Pipeline, HMW, Press Memo (7 skills)
 │   └── operations-and-gtm/   # Continuous Loop, GTM Release, PMM Narrative, Metric Trees, Platforms, Retro Pruning (6 skills)
 ├── design/                   # Visual Systems, Design Sprints, Layout, Motion & Usability (16 skills across 5 IA subdomains)
