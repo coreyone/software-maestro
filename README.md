@@ -1,6 +1,6 @@
 # software-maestro
 
-A capability orchestra of 53 lean agent skills for AI IDE agents (Claude Code, Codex, Antigravity, Gemini).
+A capability orchestra of 55 lean agent skills for AI IDE agents (Claude Code, Codex, Antigravity, Gemini).
 
 ---
 
@@ -86,10 +86,10 @@ A capability orchestra of 53 lean agent skills for AI IDE agents (Claude Code, C
 </details>
 
 <details>
-<summary><strong><code>productivity-maestro/</code></strong> (3 skills across 2 subdomains)</summary>
+<summary><strong><code>productivity-maestro/</code></strong> (5 skills across 2 subdomains)</summary>
 
 *   **`productivity-maestro/executive-and-async/`** (2 skills): Multi-paradigm meeting intelligence (McKinsey SCQA / Amazon PR/FAQ) and Axios Smart Brevity asynchronous decision memos (`meeting-transcription-notes`, `executive-async-memo`).
-*   **`productivity-maestro/scrum-cadences/`** (1 skill): Original Scrum Cybernetic Behavioral Harness master hub orchestrating Refinement (DEEP), Planning, Daily Standup, Review (DoD), and Retrospective (Kaizen) (`scrum-cadences`).
+*   **`productivity-maestro/scrum-cadences/`** (3 skills): Original Scrum Cybernetic Behavioral Harness cadences paired by cycle phase: (1) Sprint Planning & DEEP Backlog Refinement, (2) Daily Synchronization & 24h Drift Triage, and (3) Sprint Review (DoD) & Egoless Retrospective (Kaizen) (`scrum-planning-and-refinement`, `scrum-daily-sync`, `scrum-review-and-retro`).
 
 </details>
 
@@ -118,7 +118,9 @@ A capability orchestra of 53 lean agent skills for AI IDE agents (Claude Code, C
 ├── security/                 # Developer security & auth/identity rules (2 skills)
 ├── growth/                   # Telemetry, commerce UX, SEO, experimentation, copy (5 skills)
 ├── quality/                  # CI/CD, FinOps, dogfooding, a11y, observability, web perf, peekaboo (8 skills)
-└── productivity-maestro/      # Executive memos, meeting intelligence & Scrum master hub (3 skills)
+└── productivity-maestro/      # Executive memos, meeting intelligence & 3-tier Scrum cadences (5 skills)
+    ├── executive-and-async/  # Meeting intelligence & Smart Brevity async memos (2 skills)
+    └── scrum-cadences/       # Planning/Refinement, Daily Sync, Review/Retro (3 skills)
 ```
 
 ---

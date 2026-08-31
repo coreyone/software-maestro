@@ -1,0 +1,50 @@
+{
+  "skill": "scrum-daily-sync",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Run our Daily Scrum async sync for the payments engineering squad.",
+      "trigger": true
+    },
+    {
+      "prompt": "Draft a daily standup blocker triage update for our AI search pod.",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a GraphQL mutation resolver.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "daily-sync-brief",
+      "prompt": "Generate a Daily Scrum sync brief for a mobile engineering pod working on biometric authentication.",
+      "pass_rule": "Must include active Sprint Goal reference, structured 3-part updates (yesterday, today, blockers), and 16th-minute unblocking actions.",
+      "must": [
+        [
+          "sprint goal"
+        ],
+        [
+          "yesterday",
+          "completed"
+        ],
+        [
+          "today",
+          "focus"
+        ],
+        [
+          "blocker",
+          "impediment",
+          "16th minute"
+        ]
+      ],
+      "must_not": [
+        [
+          "lorem ipsum"
+        ]
+      ],
+      "pass_fixture": "## Active Sprint Goal\nDeliver 1-tap FaceID biometric login.\n\n## Daily Synchronization\n- Engineer A:\n  - Yesterday: Completed LocalAuthentication integration.\n  - Today: Build fallback PIN challenge modal.\n  - Blockers: None.\n- Engineer B:\n  - Yesterday: Deployed JWT refresh endpoint.\n  - Today: Connect Redis invalidation.\n  - Blockers: Staging Redis downtime.\n\n## 16th-Minute Action\n- Engineer B pairing with DevOps at 10:30 AM to restore staging Redis.",
+      "fail_fixture": "We worked on auth."
+    }
+  ]
+}
