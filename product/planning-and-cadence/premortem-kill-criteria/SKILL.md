@@ -19,6 +19,7 @@ Conduct rigorous prospective hindsight analyses, define objective pre-committed 
 2. **Pre-Committed Kill Criteria & Quitting Science (Annie Duke):** Defining explicit "states and dates" before starting an initiative neutralizes cognitive biases (sunk cost fallacy, status quo bias, endowment effect). Quitting is recognized as decision optimization, not failure.
 3. **Survival Metrics (Adam Thomas):** Continuous calibration across three vital operational axes—**Fast** (learning velocity), **Focus** (alignment with core strategic intents), and **Safe** (containment of blast radius and psychological safety to flag failure).
 4. **SPADE Framework with Decision Gates (Gokul Rajaram):** Structural clarity on **S**etting, **P**eople (Decider vs. Approver vs. Consulted), **A**lternatives, **D**ecision, and **E**xplanation—embedded with non-negotiable review milestones.
+5. **Data vs. Opinion Decision Matrix (Tony Fadell — *Build* Ch 5):** Separate decisions governed by **Data** (known parameters, telemetry, conversion funnels) from decisions governed by **Informed Opinion / Conviction** (0-to-1 novel bets where no prior data exists). Stop teams from hiding behind endless A/B tests on conviction bets.
 
 ---
 

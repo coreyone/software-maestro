@@ -80,6 +80,10 @@ This skill translates the seminal research across five major schools of thought 
    - **BJ Fogg ($B = MAP$)**: Radical friction reduction when motivation peaks at first launch.
    - **Samuel Hulick (*UserOnboard*)**: The Super Mario Fire Flower model and the Activation Funnel (Setup $\to$ Aha! $\to$ Habit).
 
+6. **Tony Fadell (*Build* — The Whole Product & Unboxing Experience)**:
+   - **The 360° Customer Lifecycle (Ch 21)**: The product is not just in-app screens. It begins at the marketing hook, extends through the first 5 minutes of installation and "unboxing" (CLI bootstrapping, environment setup), includes out-of-band touchpoints (welcome emails, custom tooling, companion docs), and mandates graceful error recovery.
+   - **Zero-Friction Unboxing**: Eliminate setup friction before the user reaches the app. Provide zero-config sensible defaults so the initial unboxing feels effortless.
+
 ---
 
 ## Eval-Driven Development (EDD) Workflow for Onboarding

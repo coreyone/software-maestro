@@ -7,9 +7,11 @@ description: "Trigger: now-next-later-roadmaps, now next later roadmap, Janna Ba
 
 > [!IMPORTANT]
 > **Ethos & Theoretical Lineage**:
-> Grounded in **Janna Bastow** (*ProdPad, Creator of Now-Next-Later*), **Melissa Perri** (*Escaping the Build Trap*), **Bruce McCarthy & C. Todd Lombardo** (*Product Roadmaps Relaunched*), and **Marty Cagan** (*Inspired*).
+> Grounded in **Janna Bastow** (*ProdPad, Creator of Now-Next-Later*), **Melissa Perri** (*Escaping the Build Trap*), **Bruce McCarthy & C. Todd Lombardo** (*Product Roadmaps Relaunched*), **Marty Cagan** (*Inspired*), and **Tony Fadell (*Build* — Ch 16: Heartbeats and Handcuffs)**.
 >
 > **The Prime Directive**: *"A roadmap is a strategic communication tool, not a release plan or a Gantt chart."* Never commit to fixed dates and static feature lists months in advance. Structure roadmaps around **customer problems and business outcomes** across three horizons of decreasing certainty: **Now** (current focus / high certainty), **Next** (near-term priorities / medium certainty), and **Later** (future opportunities / low certainty).
+>
+> **The Fadell Heartbeat Invariant**: When shipping deadlines for the "Now" horizon arrive, **never slip the date—slip the scope**. Fixed shipping heartbeats force ruthless scope trade-offs and prevent perfectionist paralysis.
 
 ---
 

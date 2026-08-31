@@ -94,7 +94,8 @@ Audit for methodological vulnerabilities:
 
 ### Mode 2: Growth Experiment & Hypothesis Design
 
-#### Step 1: Classify Work Type & Growth Loop Step
+#### Step 1: Classify Work Type, Growth Loop Step & Decision Nature
+- **Tony Fadell Data vs. Opinion Filter (*Build* Ch 5)**: Confirm whether this is an **Optimization Bet** (data/telemetry governs; A/B testing mandatory) vs. a **Conviction Bet** (0-to-1 bold paradigm where no baseline data exists; do not hide behind A/B testing delays when what is needed is product taste).
 - **Work Type:** *Funnel Optimization* (micro-conversion), *Growth Loop Accelerator* (fueling reinvestment), or *Step-Function Bet* (net-new capability).
 - **Loop Step:** Map input $\to$ action $\to$ output $\to$ reinvestment cycle.
 

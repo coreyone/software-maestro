@@ -50,12 +50,14 @@ Before reporting completion, verify the applicable binary contracts in `evals/ca
 - Summary: one-paragraph decision or result
 - Actions: compact checklist with owners and status
 - Evidence: links/paths to artifacts proving completion
+
 ## Definition of Done (DoD) Verification Gate for PRD Artifacts
 
-Before marking any PRD or product requirement document as COMPLETE, the author must pass the 5-point binary DoD audit:
+Before marking any PRD or product requirement document as COMPLETE, the author must pass the 6-point binary DoD audit:
 
-- [ ] **1. Problem & Outcome Precision**: Core problem framed with quantifiable success metrics and explicit baseline vs. target values.
-- [ ] **2. Non-Goals & Scope Boundaries**: Explicit list of out-of-scope capabilities, anti-personas, and deferred features.
-- [ ] **3. BDD / Gherkin Acceptance Contracts**: Every feature requirement contains unambiguous `Given / When / Then` scenarios covering both happy paths and edge/error cases.
-- [ ] **4. Technical & Design Feasibility Sign-off**: Dependencies, API endpoints, data retention, and UX design token mappings validated with engineering.
-- [ ] **5. Telemetry & Analytics Contract**: Defined behavioral tracking events, property taxonomies, and conversion funnel checkpoints.
+- [ ] **1. Tony Fadell "On-the-Box" Storytelling (Day 1)**: Header contains the 3-sentence retail box pitch, 30-second elevator story, and emotional customer transformation before any technical specs or APIs are defined.
+- [ ] **2. Problem & Outcome Precision**: Core problem framed with quantifiable success metrics and explicit baseline vs. target values.
+- [ ] **3. Non-Goals & Scope Boundaries**: Explicit list of out-of-scope capabilities, anti-personas, and deferred features.
+- [ ] **4. BDD / Gherkin Acceptance Contracts**: Every feature requirement contains unambiguous `Given / When / Then` scenarios covering both happy paths and edge/error cases.
+- [ ] **5. Technical & Design Feasibility Sign-off**: Dependencies, API endpoints, data retention, and UX design token mappings validated with engineering.
+- [ ] **6. Telemetry & Analytics Contract**: Defined behavioral tracking events, property taxonomies, and conversion funnel checkpoints.

@@ -25,6 +25,7 @@ Synthesize compelling long-term product strategy narratives, architect durable c
    - **Guiding Policy:** An overall approach chosen to cope with or overcome the obstacles identified in the diagnosis.
    - **Coherent Actions:** Coordinated resource allocations and projects designed to carry out the guiding policy.
 4. **Proxy Metrics & The GEM Framework (Gibson Biddle):** Translating high-level strategic hypotheses into high-frequency, leading quantitative indicators, while explicitly stack-ranking **G**rowth vs. **E**ngagement vs. **M**onetization based on the company's lifecycle stage.
+5. **Data vs. Opinion Strategy & Day-1 Storytelling (Tony Fadell — *Build* Ch 5 & 13):** Differentiate data-driven optimization strategies from high-conviction 0-to-1 bets where market leadership demands visionary opinion over retrospective data. Embed the 3-sentence "On-the-Box" storytelling narrative directly into the strategic kernel.
 
 ---
 

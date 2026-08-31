@@ -7,9 +7,9 @@ description: "Trigger: product-hypothesis-loop, empirical hypothesis, essential 
 
 > [!IMPORTANT]
 > **Ethos & Theoretical Lineage**:
-> Grounded in **Tara Seshan** (*The Empirical Hypothesis Process*), **Marty Cagan** (*4 Product Risks: Value, Usability, Feasibility, Viability*), **Teresa Torres** (*Continuous Discovery & Assumption Testing*), and **Eric Ries** (*Validated Learning Loops*).
+> Grounded in **Tara Seshan** (*The Empirical Hypothesis Process*), **Marty Cagan** (*4 Product Risks: Value, Usability, Feasibility, Viability*), **Teresa Torres** (*Continuous Discovery & Assumption Testing*), **Eric Ries** (*Validated Learning Loops*), and **Tony Fadell (*Build* — Ch 5: Data vs. Opinion)**.
 >
-> **The Prime Directive**: *"Kill documentation-as-validation. Be prolific and empirical."* Never write a 20-page speculative specification before testing the single make-or-break hypothesis across **Users $\times$ Market $\times$ Technology** using the fastest disposable test vehicle.
+> **The Prime Directive**: *"Kill documentation-as-validation. Be prolific and empirical."* Never write a 20-page speculative specification before testing the single make-or-break hypothesis across **Users $\times$ Market $\times$ Technology** using the fastest disposable test vehicle. Apply Fadell's **Data vs. Opinion Filter**: optimize with data; invent with informed conviction.
 >
 > **Lifecycle Governance**:
 > - **Upstream Ingress**: Grounded in [`/ux-discovery-artifacts`](../../discovery-and-specs/ux-discovery-artifacts/SKILL.md) (Proto-Personas, JTBD, RAT matrix) and [`/design-sprint-map`](../../../design/sprints-and-ideation/design-sprint-map/SKILL.md) (Long-term goal, 3 sprint questions).

@@ -9,10 +9,11 @@ description: "Trigger: opportunity-solution-mapping, opportunity solution tree, 
 > **Foundational Methodologies & Upstream/Downstream Links**:
 > 1. **Teresa Torres (*Continuous Discovery Habits*)**: 4-Tier Opportunity Solution Tree structure (Outcome $\rightarrow$ Opportunities $\rightarrow$ Solutions $\rightarrow$ Assumption Tests) and weekly continuous discovery cadence.
 > 2. **Marty Cagan (*Inspired*, *Empowered*, *Transformed*)**: 5 Product Risk Dimensions (Value, Usability, Feasibility, Viability, Ethics) and Product Discovery Triad (PM, Designer, Tech Lead).
-> 3. [`/decision-stack-governance`](../../strategy/decision-stack-governance/SKILL.md): Supplies upstream Company Vision and Strategic Intents.
-> 4. [`/voc-insights-pipeline`](../../discovery-and-specs/voc-insights-pipeline/SKILL.md): Feeds atomized customer pain points and qualitative signals into the Opportunity branch.
-> 5. [`/experimentation-hypothesis-engine`](../../../growth/experimentation-hypothesis-engine/SKILL.md): Translates high-priority assumption tests into statistical A/B and multivariate experiments.
-> 6. [`/create-prd`](../../discovery-and-specs/create-prd/SKILL.md) & [`/prd-to-tickets`](../../discovery-and-specs/prd-to-tickets/SKILL.md): Compiles validated solutions into engineering PRDs and tracer-bullet tickets.
+> 3. **Tony Fadell (*Build* — Ch 18: How to Spot a Great Idea)**: The **Painkiller vs. Vitamin Diagnostic** (evaluating acute everyday agony, frequency of frustration, and switching inertia to prune low-urgency convenience branches).
+> 4. [`/decision-stack-governance`](../../strategy/decision-stack-governance/SKILL.md): Supplies upstream Company Vision and Strategic Intents.
+> 5. [`/voc-insights-pipeline`](../../discovery-and-specs/voc-insights-pipeline/SKILL.md): Feeds atomized customer pain points and qualitative signals into the Opportunity branch.
+> 6. [`/experimentation-hypothesis-engine`](../../../growth/experimentation-hypothesis-engine/SKILL.md): Translates high-priority assumption tests into statistical A/B and multivariate experiments.
+> 7. [`/create-prd`](../../discovery-and-specs/create-prd/SKILL.md) & [`/prd-to-tickets`](../../discovery-and-specs/prd-to-tickets/SKILL.md): Compiles validated solutions into engineering PRDs and tracer-bullet tickets.
 
 ---
 
@@ -61,6 +62,7 @@ Do not use this skill for:
    - Verify outcome is measurable, time-bounded, and directly influenced by user behavior.
 3. **Map Customer Opportunities (Needs, Pain Points, Desires)**:
    - Frame opportunities in the customer's voice (*"I struggle to find relevant jobs"*, not *"Build AI filter"*).
+   - Apply **Tony Fadell's Painkiller vs. Vitamin Diagnostic**: Score whether the friction represents acute everyday agony (Painkiller) or minor convenience (Vitamin); aggressively prune vitamin branches.
    - Structure opportunities hierarchically (Parent Opportunity $\rightarrow$ Sub-opportunities) to manage cognitive load.
    - Separate problem validation from solution ideation.
 4. **Diverge on Multiple Competing Solutions per Opportunity**:

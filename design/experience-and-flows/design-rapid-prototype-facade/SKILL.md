@@ -6,11 +6,14 @@ description: "Trigger: design-rapid-prototype-facade, rapid prototype, hollywood
 # Rule: Jake Knapp Design Sprint — Goldilocks Prototype Facade (Thursday)
 
 > [!IMPORTANT]
-> **Foundation**: Grounded in **Jake Knapp, John Zeratsky, and Braden Kowitz** (*Sprint*).
-> **The Prime Directive**: *"Fake it, don't build it."* Create a disposable **Hollywood set facade** with Goldilocks fidelity—pixel-perfect visual surface realism with zero backend engineering, designed to elicit authentic customer reactions on Friday.
+> **Foundation & Lineage**: 
+> - **Jake Knapp, John Zeratsky, Braden Kowitz (*Sprint*)**: The Goldilocks Facade—high surface fidelity, zero backend engineering, disposable for Friday testing.
+> - **Tony Fadell (*Build* — Ch 12: Make the Intangible Tangible)**: *"Never debate in PowerPoint or abstract specs. Make a tangible prototype—foam, balsa wood, or clickable interactive shell—so the team can touch, hold, and evaluate real sensory experience in <24 hours."*
+>
+> **The Prime Directive**: *"Fake it, don't build it."* Create a disposable **Hollywood set facade** with Goldilocks fidelity—pixel-perfect visual surface realism, perceived sensory responsiveness, and zero backend logic, designed to elicit authentic customer reactions.
 >
 > **Lifecycle Governance**:
-> - **Input**: Built strictly from [`/design-storyboard-decide`](../../sprints-and-ideation/design-storyboard-decide/SKILL.md).
+> - **Input**: Built strictly from [`/design-sprint`](../../sprints-and-ideation/design-sprint/SKILL.md).
 > - **Output Handoff**: Delivers the interactive facade to [`/design-5-act-user-interview-testing`](../../evaluation-and-quality/design-5-act-user-interview-testing/SKILL.md).
 
 ---
