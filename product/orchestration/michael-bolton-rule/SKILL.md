@@ -57,3 +57,15 @@ Do not use this skill for:
      4. *Process Variation*: Did the agent attempt too many unconstrained edits?
 4. **Maintain March 70/20/10 Portfolio Balance**:
    - 70% Core value delivery / 20% System debt reduction / 10% De-risking spikes.
+## Quality Invariants: Andon Cord & Small-Batch Governance
+
+### 1. The Executive Andon Cord (Stop-the-Line)
+- Deming quality demands stopping the line the instant a defect or unhandled variance appears.
+- Pod Conductors and Managers must never incentivize agents to "push through" broken feedback loops or ambiguous constraints.
+- When an Andon Cord is pulled:
+  - Audit the 4 Deming Failure dimensions (*Input*, *Feedback*, *Standard Work*, *Process Variation*).
+  - Repair the system constraint before restarting execution.
+
+### 2. Small-Batch Flow Enforcement (<200 LOC per Task Batch)
+- Work must be decomposed into high-frequency, single-piece flow increments ($\le 200$ LOC).
+- Any delegation package projected to exceed 200 lines must be recursively decomposed using story splitting or interface decoupling before worker assignment.

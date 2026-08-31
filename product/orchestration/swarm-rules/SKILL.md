@@ -52,3 +52,23 @@ Do not use this skill for:
    - Use structured reports (`Status`, `Evidence`, `Action Taken`). Prefer targeted messages over broadcasts.
 5. **Execute Two-Phase Graceful Shutdown**:
    - Harvest critical findings and diffs into permanent logs before terminating worker subagents.
+## Operational Invariants: Andon Cord & Small-Batch Slicing
+
+### 1. Andon Cord Protocol (Stop-the-Line)
+- **Trigger**: Any subagent or executor encountering an unexpected schema break, circular dependency, failing test suite with ambiguous root cause, missing credential, or >20% scope drift MUST immediately pull the Andon Cord.
+- **Action**:
+  1. Halt execution immediately. Do NOT forge ahead, guess missing parameters, or hallucinate mocks.
+  2. Emit a structured incident payload to the Leader's inbox:
+     ```json
+     {
+       "event": "ANDON_CORD_PULLED",
+       "reason": "<precise_root_cause>",
+       "last_known_good_state": "<commit_or_artifact_path>",
+       "blocking_artifact": "<file_or_dependency>"
+     }
+     ```
+  3. Wait for Leader unblock or explicit scope re-calibration before resuming work.
+
+### 2. Small-Batch Slicing (<200 Lines of Code)
+- **Invariant**: Subagents must slice implementation tasks such that individual diffs remain strictly $<200$ lines of changed code (excluding auto-generated lockfiles/fixtures).
+- **Rationale**: Micro-batches minimize merge collisions, eliminate single-point failure risks in multi-agent concurrency, and allow immediate rollbacks without destabilizing adjacent streams.

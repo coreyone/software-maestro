@@ -45,3 +45,12 @@ Do not use this skill as the primary guide when another skill has a tighter doma
 - Summary: one-paragraph decision or result
 - Actions: compact checklist with owners and status
 - Evidence: links/paths to artifacts proving completion
+## Definition of Done (DoD) Verification Gate for Code Increments
+
+No pull request, task branch, or delegated implementation increment may be declared COMPLETE without satisfying the universal engineering Definition of Done (DoD):
+
+- [ ] **1. Test-Driven Verification (TDD)**: 100% automated test pass rate. Unit and integration tests cover all BDD acceptance scenarios and edge cases.
+- [ ] **2. Small-Batch Cleanliness**: Diff is bounded ($\le 200$ lines of changed code). Zero dead code, debug logging, or commented-out blocks.
+- [ ] **3. Strict Type & Lint Compliance**: Zero TypeScript/Linter errors, zero compiler warnings, zero broken imports.
+- [ ] **4. Security & Unhappy Path Hardening**: Inputs validated at boundaries, zero plaintext credentials or secrets, structured error handling with fallbacks.
+- [ ] **5. Deterministic Evidence Artifact**: Verifiable proof provided in completion report (CLI test execution logs, passing test fixtures, or DOM/screenshot diffs).

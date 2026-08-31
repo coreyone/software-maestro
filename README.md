@@ -1,6 +1,6 @@
 # Software Maestro
 
-A capability orchestra of 99 agent skills for AI IDE agents. You conduct product strategy, design systems, engineering execution, data science, security, growth, quality, and operational cadences from one developer baton.
+A capability orchestra of 100 agent skills for AI IDE agents. You conduct product strategy, design systems, engineering execution, data science, security, growth, quality, and operational cadences from one developer baton.
 
 ## Install
 
@@ -74,10 +74,10 @@ Alternatively, clone this repository directly into your AI IDE configuration dir
 </details>
 
 <details>
-<summary><strong><code>productivity-maestro/</code></strong> (8 skills across 2 subdomains)</summary>
+<summary><strong><code>productivity-maestro/</code></strong> (9 skills across 2 subdomains)</summary>
 
 *   **`productivity-maestro/executive-and-async/`** (4 skills): Multi-paradigm meeting intelligence, Axios Smart Brevity async memos, GTD Eisenhower triage, and Andy Grove 1:1 cadences (`meeting-transcription-notes`, `executive-async-memo`, `weekly-review-triage`, `one-on-one-cadence`).
-*   **`productivity-maestro/scrum-cadences/`** (4 skills): Original Scrum cybernetic behavioral cadences, empirical capacity planning, 24h asynchronous drift triage, Definition of Done increment demos, and blameless Kaizen retrospectives (`scrum-sprint-planning-capacity`, `scrum-daily-async-sync`, `scrum-sprint-review-increment`, `scrum-retrospective-kaizen`).
+*   **`productivity-maestro/scrum-cadences/`** (5 skills): Original Scrum cybernetic behavioral cadences, continuous DEEP backlog slicing, empirical capacity planning, 24h asynchronous drift triage, Definition of Done increment demos, and blameless Kaizen retrospectives (`scrum-backlog-refinement-deep`, `scrum-sprint-planning-capacity`, `scrum-daily-async-sync`, `scrum-sprint-review-increment`, `scrum-retrospective-kaizen`).
 
 </details>
 
@@ -86,9 +86,9 @@ Alternatively, clone this repository directly into your AI IDE configuration dir
 ```
 ├── product/                  # Product Management & Orchestration (26 skills across 5 IA subdomains)
 │   ├── archetypes/           # 0-to-1, Growth, Optimizer, Marketplace, Base PM router (5 skills)
-│   ├── orchestration/        # Pod Conductor, Bolton Rule, Swarm Rules, God-Marduk (4 skills)
+│   ├── orchestration/        # Pod Conductor, Bolton Rule, Swarm Rules (with Andon Cord & Small-Batch), God-Marduk (4 skills)
 │   ├── strategy/             # Decision Stack, Strategy Vision, Capital Allocation, Constraints, Pricing (5 skills)
-│   ├── discovery-and-specs/  # PRDs, Proven Specs, UX Discovery, VoC Pipeline, HMW, Press Memo (6 skills)
+│   ├── discovery-and-specs/  # PRDs (with DoD Gates), Proven Specs, UX Discovery, VoC Pipeline, HMW, Press Memo (6 skills)
 │   └── operations-and-gtm/   # Continuous Loop, GTM Release, PMM Narrative, Metric Trees, Platforms, Retro Pruning (6 skills)
 ├── design/                   # Visual Systems, Design Sprints, Layout, Motion & Usability (16 skills across 5 IA subdomains)
 │   ├── sprints-and-ideation/ # Sprint Map, Crazy 8s, Storyboard Decision (3 skills)
@@ -97,16 +97,16 @@ Alternatively, clone this repository directly into your AI IDE configuration dir
 │   ├── experience-and-flows/    # FTUX onboarding, Goldilocks facade, empty states, chart viz (4 skills)
 │   └── evaluation-and-quality/  # 5-Act user interviews, usability heuristics, visual QA audits (3 skills)
 ├── engineering/              # Code Quality, Architecture, Cloud & IaC (13 skills across 3 IA subdomains)
-│   ├── development-and-quality/ # TDD, evals, code reviews, audits, craft, info-to-ink (6 skills)
+│   ├── development-and-quality/ # TDD, evals, code reviews, audits, craft (with DoD Gates), info-to-ink (6 skills)
 │   ├── architecture-and-resiliency/ # System architecture, circuit breakers, tech stack, search grounding (4 skills)
 │   └── cloud-and-infrastructure/ # Multi-cloud, hybrid networking, Terraform IaC (3 skills)
 ├── data-and-api/             # Causal inference, metric investigation triage, dbt dimensional semantic layers, REST/GraphQL API, caching (5 skills)
 ├── security/                 # Authentication protocols, identity keys, secure cookies, mTLS, CI/CD secrets management (5 skills)
 ├── growth/                   # SEO, lifecycle CRM automation, commerce UX, CRO, experimentation sizing, retention modeling, copywriting, analytics (11 skills)
 ├── quality/                  # Performance debugging, telemetry, service mesh, CI/CD pipelines, FinOps cost, deployments, a11y, automation (15 skills)
-└── productivity-maestro/      # Operational Intelligence, Async Memos & Scrum Cybernetic Cadences (8 skills across 2 subdomains)
+└── productivity-maestro/      # Operational Intelligence, Async Memos & Scrum Cybernetic Cadences (9 skills across 2 subdomains)
     ├── executive-and-async/  # Meeting intelligence, Smart Brevity memos, GTD/Eisenhower, Grove 1:1s (4 skills)
-    └── scrum-cadences/       # Sprint Planning, Daily Standup, Sprint Review, Kaizen Retro (4 skills)
+    └── scrum-cadences/       # DEEP Refinement, Sprint Planning, Daily Standup, Sprint Review, Kaizen Retro (5 skills)
 ```
 
 ## Binary evals
