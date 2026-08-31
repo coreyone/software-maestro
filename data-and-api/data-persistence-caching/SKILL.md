@@ -37,7 +37,8 @@ Do not use this skill for layout styling, UI interactions, API transport convent
 4. Outline database schemas and queries using the project's existing database tools and libraries.
 5. Design caching strategies including cache eviction policies (LRU) and stampede mitigation.
 6. Establish transaction boundaries to guarantee ACID behavior where required.
-7. In mobile apps (iOS), enforce separate background concurrency context rules for CoreData/SwiftData.
+7. For AI agent database tooling, use [MCP Toolbox for Databases (`googleapis/mcp-toolbox`)](https://github.com/googleapis/mcp-toolbox) for declarative, schema-aware SQL execution, connection pooling, and IAM authentication.
+8. In mobile apps (iOS), enforce separate background concurrency context rules for CoreData/SwiftData.
 
 ## Output format
 

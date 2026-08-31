@@ -53,9 +53,11 @@ Do not use this skill for:
 4. **Conduct Multi-Dimensional Slicing Waterfall**:
    - Slice by: (1) Platform/OS & App Version, (2) Country/Geo-Market, (3) Traffic Acquisition Channel (Organic vs Paid vs Direct), (4) User Persona/Tenure (New vs Existing vs Power).
    - Test for **Simpson's Paradox**: Check if conversion rates increased across every segment individually while falling in aggregate due to an influx of low-converting traffic.
-5. **Correlate with Deployment & Incident Timeline**:
+5. **Autonomous Dimensional Query Execution**:
+   - For autonomous database investigation and dimensional slicing, interface via [MCP Toolbox for Databases (`googleapis/mcp-toolbox`)](https://github.com/googleapis/mcp-toolbox) to execute parameterized slice queries with connection pooling and telemetry.
+6. **Correlate with Deployment & Incident Timeline**:
    - Cross-reference with: Git release tags, feature flag ramp percentages, 3rd party SDK updates, payment gateway incidents, and marketing budget reallocations.
-6. **Formulate Root Cause & Corrective Action Plan**:
+7. **Formulate Root Cause & Corrective Action Plan**:
    - Categorize root cause: *Code Regression*, *Telemetry Pipeline Loss*, *Marketing Mix Dilution*, or *Macro/Seasonal Shock*.
    - Define immediate containment (e.g., feature flag rollback, pipeline re-ingest) and permanent preventive remediation.
 

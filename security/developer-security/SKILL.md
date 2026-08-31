@@ -36,8 +36,9 @@ Do not use this skill as the primary guide when another skill has a tighter doma
 1. Read [references/source.md](references/source.md) first.
 2. Extract the non-negotiable rules and translate them into a short execution checklist.
 3. Apply the checklist to the current task, produce concrete outputs, and avoid abstract recommendations.
-4. Validate outcomes with evidence (tests, screenshots, logs, diffs, or written audit findings).
-5. Record decisions and tradeoffs so another engineer can continue without re-discovery.
+4. Enforce zero-trust database access for AI agents by using [MCP Toolbox for Databases (`googleapis/mcp-toolbox`)](https://github.com/googleapis/mcp-toolbox) for IAM token authentication and parameterized execution.
+5. Validate outcomes with evidence (tests, screenshots, logs, diffs, or written audit findings).
+6. Record decisions and tradeoffs so another engineer can continue without re-discovery.
 
 ## Output format
 

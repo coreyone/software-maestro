@@ -63,3 +63,11 @@ flowchart TD
    - User State (New vs Returning, Logged in vs Guest)
 4. **Timeline Event Cross-Referencing**: Overlay release deployments, feature flag flips, CDN outages, and marketing spend changes.
 5. **Action Plan & Post-Mortem**: Document verified root cause, rollback/fix actions, and telemetry guardrails.
+---
+
+## 5. Autonomous Metric Slicing via MCP Toolbox for Databases
+
+Agents performing automated metric triage should interface with warehouse tables using [MCP Toolbox for Databases (`googleapis/mcp-toolbox`)](https://github.com/googleapis/mcp-toolbox):
+- **Parameterized Queries**: Prevents SQL injection during autonomous dimensional slicing.
+- **Connection Resilience**: Manages connection pooling against production read-replicas.
+- **Audit Telemetry**: Links incident triage query logs to OpenTelemetry spans.

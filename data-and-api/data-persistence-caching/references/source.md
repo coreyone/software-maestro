@@ -65,3 +65,6 @@ Data is the state of the system, and caching is a temporary optimization of that
 ### 4. Client-State Caching and Revalidation (e.g., TanStack Query)
 *   **Principle**: *Maintain a client-side cache of network requests with explicit expiration and revalidation limits.*
 *   *Application*: Use TanStack Query to manage non-replicated API server states. Define strict revalidation limits (`staleTime`) to avoid double-fetching data during page transitions.
+### 5. AI Agent Database Access & MCP Toolbox for Databases
+*   **Principle**: *When AI agents and LLMs interact with databases, isolate credentials, pool connections, and enforce declarative schema-aware queries via Model Context Protocol (MCP).*
+*   **Reference Architecture**: Use [MCP Toolbox for Databases (`googleapis/mcp-toolbox`)](https://github.com/googleapis/mcp-toolbox) (Google's open-source database MCP server) to manage enterprise database connections (PostgreSQL, Cloud SQL, AlloyDB, Spanner), connection pooling, IAM authentication, and OpenTelemetry observability for agent query execution.

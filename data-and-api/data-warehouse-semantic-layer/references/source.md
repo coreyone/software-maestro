@@ -109,3 +109,11 @@ metrics:
       numerator: total_gross_booking_value
       denominator: distinct_booking_count
 ```
+---
+
+## 5. Agent Interface: MCP Toolbox for Databases Integration
+
+When AI agents query warehouse marts or validate semantic contracts, use [MCP Toolbox for Databases (`googleapis/mcp-toolbox`)](https://github.com/googleapis/mcp-toolbox):
+- **Schema-Aware Discovery**: Agents inspect `dim_` and `fct_` table schemas and YAML data contracts declaratively.
+- **Connection Management**: Virtualizes connection pooling across BigQuery, PostgreSQL, and Snowflake.
+- **Observability**: Emits OpenTelemetry distributed trace spans for every agent query execution.

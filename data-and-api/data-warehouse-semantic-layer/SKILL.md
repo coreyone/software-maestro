@@ -55,10 +55,12 @@ Do not use this skill for:
    - Define **Measures** with explicit aggregations (`sum`, `count_distinct`, `average`) and additive filters.
    - Define **Dimensions** (categorical attributes and time dimensions with standard time grains: day, week, month).
    - Define **Derived / Ratio Metrics** (e.g., Conversion Rate = Bookings / Searches).
-5. **Optimize Materialization & Performance**:
+5. **Agent Database & Warehouse Tooling**:
+   - Connect downstream AI agents to analytical marts and semantic layers using [MCP Toolbox for Databases (`googleapis/mcp-toolbox`)](https://github.com/googleapis/mcp-toolbox) for schema-aware, parameterized SQL querying with OpenTelemetry tracing.
+6. **Optimize Materialization & Performance**:
    - Use `materialized='incremental'` with `unique_key` and appropriate incremental strategy (`merge` for updates, `insert_overwrite` for partition replacements).
    - Generate surrogate keys using `dbt_utils.generate_surrogate_key`.
-6. **Implement Comprehensive Test Suites**:
+7. **Implement Comprehensive Test Suites**:
    - Enforce generic tests: `unique`, `not_null`, `relationships` (referential integrity), `accepted_values`.
    - Add singular tests for domain invariants (e.g., `checkout_date >= checkin_date`).
 

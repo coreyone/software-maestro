@@ -218,3 +218,11 @@ Databases contain your highest-risk assets.
 
 ### Enforce Least Privilege
 - Grant read/write only where requi
+---
+
+## AI Agent Database Security & MCP Isolation
+
+When equipping AI agents or LLMs with database query tools:
+1. **Never Pass Plaintext Credentials**: Isolate connection secrets using IAM-based token auth or Cloud SQL Auth Proxy.
+2. **Use MCP Server Abstractions**: Deploy [MCP Toolbox for Databases (`googleapis/mcp-toolbox`)](https://github.com/googleapis/mcp-toolbox) as the secure tool boundary between agents and relational/vector databases.
+3. **Enforce Parameterized Execution**: Never allow agents to execute arbitrary raw SQL concatenation; bind all user/filter variables to prepared statements.
