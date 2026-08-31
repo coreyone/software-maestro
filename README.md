@@ -14,26 +14,70 @@ Alternatively, clone this repository directly into your AI IDE configuration dir
 
 ## Lifecycle Structure
 
-*   **`product/`** (26 skills organized across 5 Information Architecture subdomains):
-    *   **`product/archetypes/`** (5 skills): Specialized product manager archetypes and core routing engine (`product-management`, `product-zero-to-one`, `product-growth`, `product-optimizer-feature`, `product-marketplace`).
-    *   **`product/orchestration/`** (4 skills): Cross-functional pod conductors, delegation doctrine, and multi-agent swarm operations (`michael-bolton-pod-conductor`, `michael-bolton-rule`, `swarm-rules`, `god-marduk`).
-    *   **`product/strategy/`** (5 skills): Executive strategy deployment, decision stacks, capital allocation, pricing, and strategic constraints (`decision-stack-governance`, `product-strategy-outcome-vision`, `portfolio-allocation-capitalization`, `strategic-tradeoffs-constraint-matrix`, `product-pricing-strategy`).
-    *   **`product/discovery-and-specs/`** (6 skills): Customer problem discovery, opportunity mapping, market benchmarks, VoC synthesis, and decision-ready PRDs (`create-prd`, `proven-product-spec`, `ux-discovery-artifacts`, `voc-insights-pipeline`, `how-might-we`, `product-management-press-memo`).
-    *   **`product/operations-and-gtm/`** (6 skills): Continuous evolution loops, GTM launch gating, PMM messaging, metric trees, platform primitives, and operational waste pruning (`continuous-product-loop`, `release-readiness-gtm`, `product-marketing-narrative`, `incentive-design-metric-trees`, `platform-enablement-internal-leverage`, `systems-retro-pruning`).
-*   **`design/`** (11 skills organized across 4 Information Architecture subdomains):
-    *   **`design/systems-and-foundations/`** (3 skills): Foundational design systems, visual tokens, and perceptual neuroscience (`design-system-rules`, `aesthetic-rules`, `aesthetic-science`).
-    *   **`design/interaction-and-layout/`** (3 skills): Spatial layout, responsive breakpoints, motion physics, and wayfinding architecture (`design-responsive-rules`, `design-animation`, `design-information-architecture-rules`).
-    *   **`design/experience-and-flows/`** (3 skills): First-time user onboarding, empty/error state recovery, and cognitive data visualization (`design-user-onboarding-ux`, `failure-states-empty-states`, `chart-communication`).
-    *   **`design/evaluation-and-quality/`** (2 skills): Usability heuristics, Norman affordances, and visual design review audits (`design-usability-rules`, `design-review-rules`).
-*   **`engineering/`** (13 skills organized across 3 Information Architecture subdomains):
-    *   **`engineering/development-and-quality/`** (6 skills): Clean code craft, evidence-backed code reviews, TDD, eval-driven AI development, codebase audits, and output token efficiency (`developer-development-rules`, `developer-code-review-rules`, `developer-test-driven-development`, `developer-eval-driven-development`, `improve-codebase`, `info-to-ink`).
-    *   **`engineering/architecture-and-resiliency/`** (4 skills): Clean architecture, circuit breakers, standardized tech stacks, and web-search grounding backend adapters (`system-architecture-rules`, `resiliency-circuit-breakers`, `tech-stack-preferences`, `grounded-search-rules`).
-    *   **`engineering/cloud-and-infrastructure/`** (3 skills): Multi-cloud architecture, hybrid cross-premises networking, and reusable Terraform IaC modules (`multi-cloud-architecture`, `hybrid-cloud-networking`, `terraform-module-library`).
-*   **`data-and-api/`** (5 skills): Causal inference, KPI triage, semantic layers, contract-first endpoints, and persistence schemas (`data-science-causal-inference`, `product-data-metric-investigation-triage`, `data-warehouse-semantic-layer`, `api-design-guidelines`, `data-persistence-caching`). Formulates quasi-experiments (CUPED, DiD, SCM, RDD), decomposes metric shifts (Volume vs. Rate vs. Mix), and builds dbt star schemas with enforced data contracts.
-*   **`security/`** (5 skills): Identity, zero-trust mTLS, and sandbox trust boundaries (`auth-and-identity-rules`, `developer-security`, `developer-web-security`, `mtls-configuration`, `secrets-management`). Isolates session tokens, enforces mutual TLS service communication, secures secrets pipelines, and validates JWTs cryptographically.
-*   **`growth/`** (11 skills): Organic discovery, conversions, behavioral loops, experimentation, and commercial negotiation (`developer-seo`, `commerce-ux-rules`, `cro-commerce-audit`, `design-forms-wizards-checkout`, `marketing-copy-emotion-provoking-action-driven`, `the-elements-of-style-principles`, `analytics-event-tracking`, `negotiation-maximizer`, `experimentation-hypothesis-engine`, `behavioral-loops-retention-modeling`, `marketing-lifecycle-crm-automation`). Builds search visibility, automates multi-channel Push/Email/SMS waterfalls, sizes A/B experiments, models habit loops, and flattens cohort retention decay.
-*   **`quality/`** (15 skills): Graceful degradation, APM telemetry, service mesh observability, CI/CD pipelines, cloud cost governance, headless browser inspection, endpoint discovery, and edge deployments (`a11y-debugging`, `developer-web-performance`, `observability-telemetry`, `service-mesh-observability`, `istio-traffic-management`, `linkerd-patterns`, `deployment-pipeline-design`, `github-actions-templates`, `gitlab-ci-patterns`, `cost-optimization`, `web-deployment-rules`, `peekaboo`, `chrome-devtools`, `web-endpoint-documenter`, `create-design-art-direction`). Replaces loaders with layout-matching skeletons, optimizes cloud infrastructure costs, automates progressive canary delivery, and enforces zero-downtime database migrations.
-*   **`productivity-maestro/`** (4 skills): Operational intelligence, executive synthesis, task triage, and high-output 1:1 cadences (`meeting-transcription-notes`, `executive-async-memo`, `weekly-review-triage`, `one-on-one-cadence`). Distills multi-speaker meeting transcripts into structured operational decision records, synthesizes Slack and email threads into Smart Brevity memos, executes GTD Eisenhower triage, and runs Andy Grove 1:1 cadences with two-way commitment contracts.
+<details>
+<summary><strong><code>product/</code></strong> (26 skills across 5 subdomains)</summary>
+
+*   **`product/archetypes/`** (5 skills): Specialized product manager archetypes and core routing engine (`product-management`, `product-zero-to-one`, `product-growth`, `product-optimizer-feature`, `product-marketplace`).
+*   **`product/orchestration/`** (4 skills): Cross-functional pod conductors, delegation doctrine, and multi-agent swarm operations (`michael-bolton-pod-conductor`, `michael-bolton-rule`, `swarm-rules`, `god-marduk`).
+*   **`product/strategy/`** (5 skills): Executive strategy deployment, decision stacks, capital allocation, pricing, and strategic constraints (`decision-stack-governance`, `product-strategy-outcome-vision`, `portfolio-allocation-capitalization`, `strategic-tradeoffs-constraint-matrix`, `product-pricing-strategy`).
+*   **`product/discovery-and-specs/`** (6 skills): Customer problem discovery, opportunity mapping, market benchmarks, VoC synthesis, and decision-ready PRDs (`create-prd`, `proven-product-spec`, `ux-discovery-artifacts`, `voc-insights-pipeline`, `how-might-we`, `product-management-press-memo`).
+*   **`product/operations-and-gtm/`** (6 skills): Continuous evolution loops, GTM launch gating, PMM messaging, metric trees, platform primitives, and operational waste pruning (`continuous-product-loop`, `release-readiness-gtm`, `product-marketing-narrative`, `incentive-design-metric-trees`, `platform-enablement-internal-leverage`, `systems-retro-pruning`).
+
+</details>
+
+<details>
+<summary><strong><code>design/</code></strong> (11 skills across 4 subdomains)</summary>
+
+*   **`design/systems-and-foundations/`** (3 skills): Foundational design systems, visual tokens, and perceptual neuroscience (`design-system-rules`, `aesthetic-rules`, `aesthetic-science`).
+*   **`design/interaction-and-layout/`** (3 skills): Spatial layout, responsive breakpoints, motion physics, and wayfinding architecture (`design-responsive-rules`, `design-animation`, `design-information-architecture-rules`).
+*   **`design/experience-and-flows/`** (3 skills): First-time user onboarding, empty/error state recovery, and cognitive data visualization (`design-user-onboarding-ux`, `failure-states-empty-states`, `chart-communication`).
+*   **`design/evaluation-and-quality/`** (2 skills): Usability heuristics, Norman affordances, and visual design review audits (`design-usability-rules`, `design-review-rules`).
+
+</details>
+
+<details>
+<summary><strong><code>engineering/</code></strong> (13 skills across 3 subdomains)</summary>
+
+*   **`engineering/development-and-quality/`** (6 skills): Clean code craft, evidence-backed code reviews, TDD, eval-driven AI development, codebase audits, and output token efficiency (`developer-development-rules`, `developer-code-review-rules`, `developer-test-driven-development`, `developer-eval-driven-development`, `improve-codebase`, `info-to-ink`).
+*   **`engineering/architecture-and-resiliency/`** (4 skills): Clean architecture, circuit breakers, standardized tech stacks, and web-search grounding backend adapters (`system-architecture-rules`, `resiliency-circuit-breakers`, `tech-stack-preferences`, `grounded-search-rules`).
+*   **`engineering/cloud-and-infrastructure/`** (3 skills): Multi-cloud architecture, hybrid cross-premises networking, and reusable Terraform IaC modules (`multi-cloud-architecture`, `hybrid-cloud-networking`, `terraform-module-library`).
+
+</details>
+
+<details>
+<summary><strong><code>data-and-api/</code></strong> (5 skills)</summary>
+
+*   Causal inference, KPI triage, semantic layers, contract-first endpoints, and persistence schemas (`data-science-causal-inference`, `product-data-metric-investigation-triage`, `data-warehouse-semantic-layer`, `api-design-guidelines`, `data-persistence-caching`). Formulates quasi-experiments (CUPED, DiD, SCM, RDD), decomposes metric shifts (Volume vs. Rate vs. Mix), and builds dbt star schemas with enforced data contracts.
+
+</details>
+
+<details>
+<summary><strong><code>security/</code></strong> (5 skills)</summary>
+
+*   Identity, zero-trust mTLS, and sandbox trust boundaries (`auth-and-identity-rules`, `developer-security`, `developer-web-security`, `mtls-configuration`, `secrets-management`). Isolates session tokens, enforces mutual TLS service communication, secures secrets pipelines, and validates JWTs cryptographically.
+
+</details>
+
+<details>
+<summary><strong><code>growth/</code></strong> (11 skills)</summary>
+
+*   Organic discovery, conversions, behavioral loops, experimentation, and commercial negotiation (`developer-seo`, `commerce-ux-rules`, `cro-commerce-audit`, `design-forms-wizards-checkout`, `marketing-copy-emotion-provoking-action-driven`, `the-elements-of-style-principles`, `analytics-event-tracking`, `negotiation-maximizer`, `experimentation-hypothesis-engine`, `behavioral-loops-retention-modeling`, `marketing-lifecycle-crm-automation`). Builds search visibility, automates multi-channel Push/Email/SMS waterfalls, sizes A/B experiments, models habit loops, and flattens cohort retention decay.
+
+</details>
+
+<details>
+<summary><strong><code>quality/</code></strong> (15 skills)</summary>
+
+*   Graceful degradation, APM telemetry, service mesh observability, CI/CD pipelines, cloud cost governance, headless browser inspection, endpoint discovery, and edge deployments (`a11y-debugging`, `developer-web-performance`, `observability-telemetry`, `service-mesh-observability`, `istio-traffic-management`, `linkerd-patterns`, `deployment-pipeline-design`, `github-actions-templates`, `gitlab-ci-patterns`, `cost-optimization`, `web-deployment-rules`, `peekaboo`, `chrome-devtools`, `web-endpoint-documenter`, `create-design-art-direction`). Replaces loaders with layout-matching skeletons, optimizes cloud infrastructure costs, automates progressive canary delivery, and enforces zero-downtime database migrations.
+
+</details>
+
+<details>
+<summary><strong><code>productivity-maestro/</code></strong> (4 skills)</summary>
+
+*   Operational intelligence, executive synthesis, task triage, and high-output 1:1 cadences (`meeting-transcription-notes`, `executive-async-memo`, `weekly-review-triage`, `one-on-one-cadence`). Distills multi-speaker meeting transcripts into structured operational decision records, synthesizes Slack and email threads into Smart Brevity memos, executes GTD Eisenhower triage, and runs Andy Grove 1:1 cadences with two-way commitment contracts.
+
+</details>
 
 ## Taxonomy
 
