@@ -1,47 +1,77 @@
 ---
 name: product-management
-description: "Trigger: PM, product tasks, project planning, backlog priority, user stories, ticket scoping. Scope: Product management, task priorities, requirements scoping. Boundary: Excludes writing raw code or designing page layouts."
+description: "Trigger: PM, product tasks, product management, PRD, project planning, backlog priority, user stories, ticket scoping, feature requirements, product lifecycle, product requirements document. Scope: General product management, task priorities, requirements scoping, PRD authoring, and routing to specialized product archetypes (0-to-1, Growth, Optimizer/Feature, Marketplace). Boundary: Excludes deep UI code implementation or infrastructure provisioning."
 ---
 
-# Refined Prompt
+# Product Management
+
+Defines and clarifies product vision, PRD requirements, problem alignment, and execution roadmaps. Directs general product initiatives and routes specialized domain challenges to dedicated product archetype skills.
+
+---
+
+## Specialized Product Archetype Routing
+
+When your product challenge matches a specialized domain archetype, consult or delegate to the corresponding specialized product archetype skill:
+
+- **0-to-1 Product Management (`product-zero-to-one`)**:
+  - *When to route*: Early-stage discovery, navigating extreme uncertainty, finding Product-Market Fit (PMF), formulating hypotheses, conducting customer problem interviews.
+  - *Core Experts & Frameworks*: Steve Blank (Customer Development), Eric Ries (Lean Startup & MVPs), Teresa Torres (Opportunity Solution Trees), Rahul Vohra (40% PMF Engine), Clayton Christensen (JTBD 4 Forces of Progress), Ash Maurya (Lean Canvas).
+
+- **Growth Product Management (`product-growth`)**:
+  - *When to route*: Post-PMF acquisition loops, referral flywheels, onboarding activation milestones ($N$ actions in $T$ days), natural frequency of use, habit-forming retention hooks.
+  - *Core Experts & Frameworks*: Brian Balfour (4 Growth Fits & Compounding Loops), Fareed Mosavat (Retention-First & Natural Frequency), Elena Verna (Product-Led Growth), Nir Eyal (Hooked Model), Josh Elman (The Core Action), Lenny Rachitsky (7 Growth Channels).
+
+- **Optimizer / Feature Product Management (`product-optimizer-feature`)**:
+  - *When to route*: Refining and scaling existing core product surfaces, eliminating the "Feature Factory" trap, checkout and form optimization, usability friction removal.
+  - *Core Experts & Frameworks*: Marty Cagan (4 Product Risks: Value, Usability, Feasibility, Viability), John Cutler (4D Metric Trees), Shreyas Doshi (Pre-Mortem & High-Agency Judgment), Don Norman (Affordances & Signifiers), Steve Krug (Don't Make Me Think), Baymard Institute (Checkout UX), Jeff Patton (Story Mapping).
+
+- **Marketplace Product Management (`product-marketplace`)**:
+  - *When to route*: Two-sided or multi-sided platform dynamics (Demand vs Supply), bootstrapping atomic networks, cold start problems, subsidizing the hard side, marketplace liquidity (Fill Rate, Search-to-Book), take-rate economics.
+  - *Core Experts & Frameworks*: Andrew Chen (The Cold Start Problem & Atomic Networks), Casey Winters (Marketplace Loops), Dan Hockenmaier (Liquidity Dynamics), Bill Gurley (10 Marketplace Rules), Gokul Rajaram (SPADE Framework).
+
+---
 
 ## When to use
 
-Use this skill when the task is primarily about product and this guidance is the most relevant operating rule set.
+Use this skill when defining product vision, scoping PRDs, prioritizing roadmaps, or framing problem-solution narratives.
 
 ## When not to use
 
-Do not use this skill as the primary guide when another skill has a tighter domain fit for the requested output.
+Do not use this skill for:
+- Low-level source code implementation (use relevant engineering skills).
+- Visual UI component layout or CSS styling (use `design-system-rules` or `shadcn-ui`).
+- Specialized archetype deep-dives (use `product-zero-to-one`, `product-growth`, `product-optimizer-feature`, or `product-marketplace`).
 
 ## Trigger cues
 
-- Request explicitly references `product-management` or this source file.
-- Request language includes terms like: product, management.
-- Keywords include: PRD, success metrics, goals/non-goals, user journey, roadmap, launch memo.
-
-## Routing boundary
-
-- Primary for problem definition, PRD scope, metrics, and product narrative.
-- Do not use as primary for deep UI styling or low-level code implementation.
+- Request mentions: `product management`, `PM`, `PRD`, `user story`, `roadmap`, `problem alignment`, `product narrative`, `feature scoping`, `product requirements document`.
+- Requests to structure product requirements, define measurable success metrics, or decompose user journeys.
 
 ## Inputs required
 
-- Goal or task request
-- Current constraints (time, scope, platform, risk)
-- Existing artifacts (code, docs, screenshots, metrics) when available
-- Source of truth: `subagents/product manager/product-management.md`
+1. **Goal or Product Intent**: The target user outcome and business objective.
+2. **Current Constraints**: Time, resources, technical boundaries, regulatory risk.
+3. **Target Persona & Context**: Target audience and observed pain points.
+4. **Source of truth**: [references/source.md](references/source.md)
 
 ## Instructions
 
 1. Read [references/source.md](references/source.md) first.
-2. Extract the non-negotiable rules and translate them into a short execution checklist.
-3. Apply the checklist to the current task, produce concrete outputs, and avoid abstract recommendations.
-4. Validate outcomes with evidence (tests, screenshots, logs, diffs, or written audit findings).
-5. Record decisions and tradeoffs so another engineer can continue without re-discovery.
+2. **Determine Product Archetype**:
+   - Check if the task is primarily **0-to-1 Discovery** (`product-zero-to-one`), **Growth/Retention** (`product-growth`), **Feature Optimization** (`product-optimizer-feature`), or **Two-Sided Marketplace** (`product-marketplace`). If specialized, incorporate that archetype's specific framework.
+3. **Structure Problem Alignment**:
+   - Define the specific problem being solved, evidence of customer pain, and business justification.
+4. **Author Decision-Ready PRD Specifications**:
+   - **Problem & Goals**: State measurable outcomes and explicit Non-Goals.
+   - **Target Persona & Use Cases**: Specific customer circumstance and job.
+   - **Solution Architecture & Key Flows**: User journeys, error states, and edge cases.
+   - **Success Metrics & Impact Checklist**: Primary KPI, guardrail metrics, permissions, pricing, security.
+5. **Enforce Execution Discipline**:
+   - Keep requirements unambiguous, deterministic, and testable.
 
 ## Output format
 
-- Primary decision/output: Problem scope, measurable outcomes, and what not to build yet.
-- Summary: one-paragraph decision or result
-- Actions: compact checklist with owners and status
-- Evidence: links/paths to artifacts proving completion
+- **Executive Product Summary**: Problem statement, target customer, and core thesis.
+- **Archetype Lens & Routing**: Identified product archetype and expert framework applied.
+- **Decision-Ready PRD Specification**: Problem, Goals, Non-Goals, Key Flows, and Edge Cases.
+- **Success Metrics & Guardrails**: Primary KPI, input metrics, and constraint thresholds.

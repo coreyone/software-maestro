@@ -1,0 +1,78 @@
+{
+  "skill": "product-management",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Write a decision-ready PRD for our new team workspace billing feature, including problem justification, goals, non-goals, user flows, and archetype routing.",
+      "trigger": true
+    },
+    {
+      "prompt": "How should we frame our product management requirements for a new feature while routing specialized challenges to product-growth and product-optimizer-feature?",
+      "trigger": true
+    },
+    {
+      "prompt": "Help me prioritize our product backlog and write structured user stories with acceptance criteria.",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a CSS media query for mobile screens.",
+      "trigger": false
+    },
+    {
+      "prompt": "Configure an AWS S3 bucket with Terraform.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "product-management-prd-and-archetype-routing",
+      "prompt": "Author a complete product management brief and PRD for a team collaboration workspace. Reference the 4 specialized product archetypes (0-to-1, Growth, Optimizer/Feature, Marketplace), define explicit Goals and Non-Goals, outline Key User Flows with error handling, and define Primary and Guardrail Success Metrics.",
+      "pass_rule": "Must reference the 4 product archetypes (0-to-1, Growth, Optimizer/Feature, Marketplace), include Problem Alignment, Goals and Non-Goals, User Flows with Edge Cases, and Guardrail Metrics.",
+      "must": [
+        [
+          "0-to-1",
+          "product-zero-to-one",
+          "Zero-to-One",
+          "Discovery"
+        ],
+        [
+          "Growth",
+          "product-growth",
+          "growth loops",
+          "Activation"
+        ],
+        [
+          "Optimizer",
+          "product-optimizer-feature",
+          "Feature",
+          "Cagan"
+        ],
+        [
+          "Marketplace",
+          "product-marketplace",
+          "Two-Sided",
+          "Liquidity"
+        ],
+        [
+          "Non-Goals",
+          "non-goals",
+          "Goals"
+        ],
+        [
+          "Guardrail",
+          "guardrails",
+          "Metrics",
+          "p95"
+        ]
+      ],
+      "must_not": [
+        [
+          "ignore specialized archetypes",
+          "no non-goals defined"
+        ]
+      ],
+      "pass_fixture": "### Product Management Brief & PRD: Team Collaboration Workspace\n\n#### 1. Archetype Lens & Routing\nDepending on the lifecycle challenge, this initiative routes to our 4 specialized product archetype skills:\n- **0-to-1 Discovery (`product-zero-to-one`)**: Initial hypothesis testing, customer discovery interviews, and Teresa Torres Opportunity Solution Trees.\n- **Growth & Retention (`product-growth`)**: Viral collaborator invite loops, activation milestones ($N$ documents in $T$ days), and Nir Eyal Hooked loops.\n- **Optimizer & Feature Scaling (`product-optimizer-feature`)**: Form de-frictioning, Marty Cagan 4 Product Risks audit, John Cutler 4D metric trees, and Shreyas Doshi Pre-Mortems.\n- **Two-Sided Marketplace (`product-marketplace`)**: If integrating a 3rd-party template/expert creator marketplace, manage atomic networks, hard-side supply subsidies, and liquidity fill rates.\n\n#### 2. Problem Alignment & Customer Evidence\nKnowledge workers waste 4.2 hours weekly searching across disconnected documentation tools, causing duplicate work and communication silos.\n\n#### 3. Goals & Explicit Non-Goals\n- **Goals**:\n  - Enable teams of 2\u201350 users to create, share, and co-edit documents in real-time.\n  - Achieve $\\ge 55\\%$ 30-day team retention.\n- **Non-Goals**:\n  - We are NOT building video conferencing or live audio rooms in this phase.\n  - We are NOT supporting offline desktop syncing in Release 1.0.\n\n#### 4. Key User Flows & Edge Cases\n- **Happy Path**: User signs up $\\rightarrow$ Names Workspace $\\rightarrow$ Selects Template $\\rightarrow$ Invites 2 Peers $\\rightarrow$ Co-edits document.\n- **Edge Cases & Error Handling**:\n  - *Network Disconnect*: Client-side optimistic locking with conflict-free replicated data types (CRDTs) and automatic re-sync.\n  - *Permission Rejection*: Graceful inline access request modal with 1-click Slack notification to workspace admin.\n\n#### 5. Success Metrics & Guardrail Invariants\n- **Primary Driver Metric**: Weekly Active Collaborative Workspaces (WACW) creating $\\ge 2$ docs/week.\n- **Guardrail Metrics**:\n  - Real-time keystroke latency $p95 < 50\\text{ms}$.\n  - Zero unhandled sync conflict data loss incidents.",
+      "fail_fixture": "Here is a list of features we can build for the product."
+    }
+  ]
+}
