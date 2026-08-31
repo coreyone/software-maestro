@@ -1,0 +1,77 @@
+{
+  "skill": "product-optimizer-feature",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Our multi-step mobile checkout flow has a 35% drop-off at the payment review step. How do we optimize this feature using Marty Cagan's 4 risks, John Cutler's metric trees, Steve Krug's usability principles, and a Shreyas Doshi pre-mortem?",
+      "trigger": true
+    },
+    {
+      "prompt": "Run a feature optimization audit on our user settings and billing management screen to eliminate the feature factory trap.",
+      "trigger": true
+    },
+    {
+      "prompt": "Help us slice our sprint backlog using Jeff Patton's User Story Mapping and apply Don Norman affordance principles to our search filter UI.",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a bash script to backup a Postgres database.",
+      "trigger": false
+    },
+    {
+      "prompt": "Fix a memory leak in Node.js event listeners.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "feature-optimization-checkout-audit",
+      "prompt": "Design a complete feature optimization plan for an e-commerce checkout flow experiencing high mobile abandonment. Include Marty Cagan's 4 Product Risks audit, John Cutler's 4-dimension metric tree decomposition, Steve Krug & Baymard usability recommendations, Jeff Patton User Story Mapping release slicing, and a Shreyas Doshi pre-mortem analysis.",
+      "pass_rule": "Must evaluate Marty Cagan's 4 Product Risks, decompose metric across Cutler's 4 dimensions (Breadth, Depth, Frequency, Efficiency), apply Krug/Baymard usability rules, slice with story mapping, and execute a Shreyas Doshi pre-mortem.",
+      "must": [
+        [
+          "4 Product Risks",
+          "Marty Cagan",
+          "Value Risk",
+          "Usability Risk"
+        ],
+        [
+          "Metric Tree",
+          "Breadth",
+          "Depth",
+          "Frequency",
+          "Efficiency",
+          "Cutler"
+        ],
+        [
+          "Krug",
+          "Baymard",
+          "Don't Make Me Think",
+          "cognitive friction",
+          "form"
+        ],
+        [
+          "User Story Mapping",
+          "Story Mapping",
+          "Jeff Patton",
+          "backbone",
+          "slice"
+        ],
+        [
+          "Pre-Mortem",
+          "pre-mortem",
+          "Shreyas Doshi",
+          "failure mode"
+        ]
+      ],
+      "must_not": [
+        [
+          "just list random UI tweaks without framework",
+          "no risk audit"
+        ]
+      ],
+      "pass_fixture": "### Feature Optimization Plan: Mobile Checkout Flow Redesign\n\n#### 1. The 4 Product Risks Audit (Marty Cagan)\n- **Value Risk**: High. Users want 1-click purchasing rather than filling repetitive billing addresses.\n- **Usability Risk**: Critical. Small tap targets and multi-page step reloads create severe mobile cognitive friction.\n- **Feasibility Risk**: Low. Apple Pay / Google Pay SDKs and Stripe Elements can be integrated with existing backend APIs.\n- **Business Viability Risk**: Medium. Must maintain tax calculation compliance and fraud verification protocols.\n\n#### 2. 4-Dimension Metric Tree Decomposition (John Cutler)\n- **Target Outcome**: Increase Mobile Checkout Completion Rate from 48% to 68% (+20% lift).\n- **Breadth (Reach)**: 74% of total site traffic visits mobile checkout.\n- **Depth (Engagement)**: Average 1.4 items per cart.\n- **Frequency**: 2.1 purchases per active customer per quarter.\n- **Efficiency / Conversion**: Funnel step completion rate (Target: Cart $\\rightarrow$ Payment completion time $<45\\text{ seconds}$). \n\n#### 3. Usability & UX De-Frictioning (Steve Krug & Baymard Institute)\n- **Krug's Rule ('Don't Make Me Think')**: Replace the 3-step page reload sequence with an accordion single-page summary.\n- **Baymard E-Commerce Form Benchmarks**:\n  - Eliminate separate 'Billing Address' fields (default to 'Same as Shipping' checkbox, reducing fields by 60%).\n  - Implement auto-complete Google Places address lookup.\n  - Provide prominent 1-click Express Checkout buttons (Apple Pay / Google Pay / Shop Pay) above the manual form.\n\n#### 4. User Story Mapping Release Slices (Jeff Patton)\n- **Narrative Backbone**: Review Cart $\\rightarrow$ Select Shipping $\\rightarrow$ Authenticate Payment $\\rightarrow$ View Order Receipt.\n- **Release Slice 1 (MVP Quick Win)**: Integrate Apple Pay / Google Pay 1-click buttons and auto-address lookup on existing screens.\n- **Release Slice 2 (Full Experience)**: Deploy single-page accordion checkout with inline card validation and order summary lock.\n\n#### 5. Shreyas Doshi Pre-Mortem Failure Simulation\n- **Prospective Failure Mode 1**: Express checkout fails to capture user email for guest orders, corrupting CRM tracking $\\rightarrow$ *Guardrail*: Enforce mandatory Apple Pay email payload capture.\n- **Prospective Failure Mode 2**: Address auto-complete errors for international postal codes $\\rightarrow$ *Guardrail*: Add manual address override fallback toggle.\n- **Prospective Failure Mode 3**: Users abandon because shipping fees appear unexpectedly at the final step $\\rightarrow$ *Guardrail*: Display estimated shipping cost dynamically in the cart drawer before checkout entry.",
+      "fail_fixture": "Let's change the checkout button to green and see if conversion goes up."
+    }
+  ]
+}
