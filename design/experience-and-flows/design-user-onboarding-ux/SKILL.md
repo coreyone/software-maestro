@@ -1,12 +1,6 @@
 ---
 name: design-user-onboarding-ux
-description: "Trigger: user onboarding, first-time user experience, FTUX, activation flow, aha moment, product walkthrough, empty states, guided tour, bowling alley framework, progressive disclosure, signup friction. Scope: Consumer and developer product onboarding design, cognitive friction reduction, time-to-value optimization, contextual learning-by-doing. Boundary: Excludes backend auth token issuance, database schema migrations, and transactional email infrastructure."
-license: MIT
-metadata:
-  version: "1.1.0"
-  author: "Corey O'Neal"
-  category: "design"
-  tags: "onboarding, ftux, nng, cognitive-load, bowling-alley, time-to-value, progressive-disclosure, usability, eval-driven-development"
+description: "Trigger: design-user-onboarding-ux, user onboarding, first time user experience, FTUX, activation flow, aha moment, product walkthrough, empty states. Scope: First-Time User Experience (FTUX) & Product Onboarding Design. Optimizes time-to-value, reduces signup cognitive friction, and structures empty states. Boundary: Excludes backend auth token issuance."
 ---
 
 # User Onboarding & First-Time User Experience (FTUX) Rules

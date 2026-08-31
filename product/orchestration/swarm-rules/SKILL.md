@@ -1,6 +1,6 @@
 ---
 name: swarm-rules
-description: "Trigger: swarm subagents, parallel agents, race conditions, atomic files, leader follower, multi-agent coordination, subagent concurrency, swarm execution. Scope: Multi-agent collaboration, task scoping, atomic file ownership, race condition prevention, structured JSON messaging, and lifecycle shutdown. Governed by michael-bolton-rule intent framing (Outcome, Constraints, Measures, Time-horizon) and orchestrated by michael-bolton-pod-conductor. Boundary: Excludes single-agent operations or low-level code syntax rules."
+description: "Trigger: swarm-rules, multi-agent swarm, subagent concurrency, atomic file ownership, andon cord stop the line, small batch slicing, subagent coordination. Scope: Multi-Agent Swarm Concurrency & Race Condition Prevention. Enforces 1 subagent per file, <200 LOC small-batch diffs, Andon Cord stops, and structured JSON messaging. Boundary: Excludes single-agent operations."
 ---
 
 # Rule: Multi-Agent Swarm Operations & Concurrency Protocol

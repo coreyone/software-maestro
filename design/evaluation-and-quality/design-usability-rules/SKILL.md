@@ -1,6 +1,6 @@
 ---
 name: design-usability-rules
-description: Use when task matches design-usability-rules design guidance for IA, usability, responsiveness, systems, motion, and visual QA.
+description: "Trigger: design-usability-rules, usability heuristics, nielsen norman audit, visual design review, UI heuristic evaluation, interface critique. Scope: Usability Heuristics & Visual Interface Critique based on Nielsen Norman 10 heuristics and cognitive affordance principles. Boundary: Excludes marketing copywriting."
 ---
 
 # 🗺️ Layout & Navigation

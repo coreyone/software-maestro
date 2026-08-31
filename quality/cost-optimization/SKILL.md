@@ -1,6 +1,6 @@
 ---
 name: cost-optimization
-description: Optimize cloud costs across AWS, Azure, GCP, and OCI through resource rightsizing, tagging strategies, reserved instances, and spending analysis. Use when reducing cloud expenses, analyzing infrastructure costs, or implementing cost governance policies.
+description: "Trigger: cost-optimization, cloud cost reduction, AWS FinOps, Azure spending, GCP rightsizing, reserved instances, cost governance. Scope: Multi-Cloud FinOps & Cost Optimization. Governs cloud resource rightsizing, idle resource pruning, and reserved instance strategies. Boundary: Excludes application code refactoring."
 ---
 
 # Cloud Cost Optimization

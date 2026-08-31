@@ -1,6 +1,6 @@
 ---
 name: grounded-search-rules
-description: "Trigger: web search grounding, RAG retrieval, search adapter, citations, DDGS, SearXNG, live evidence for an LLM, fact-check pipeline. Scope: wiring free/OSS web-search retrieval into application backends (not Claude's own research). Boundary: excludes Claude Code's own research (use WebSearch directly) and page rendering/interaction (use headless-browsing)."
+description: "Trigger: grounded-search-rules, search grounding, free search adapter, DDGS search, SearXNG, backend RAG evidence, web search adapter. Scope: Backend Web Search Grounding. Connects free/OSS search adapters (DDGS, SearXNG) into backend RAG retrieval pipelines. Boundary: Excludes browser automation."
 ---
 
 # 🔎 Core Philosophy: Ground app-side LLM output in real retrieval, without a billing wall.

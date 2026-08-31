@@ -1,0 +1,44 @@
+{
+  "skill": "design-animation",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Execute the design-animation workflow for our current project requirements.",
+      "trigger": true
+    },
+    {
+      "prompt": "Apply design-animation principles to evaluate our approach.",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a basic CSS center div snippet.",
+      "trigger": false
+    },
+    {
+      "prompt": "Configure an unrelated Docker daemon flag.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "design-animation-standard-execution",
+      "prompt": "Execute the standard design-animation playbook with evidence and structured output.",
+      "pass_rule": "Must produce concrete, structured artifacts adhering to design-animation domain guidelines.",
+      "must": [
+        [
+          "design animation",
+          "guidelines",
+          "framework",
+          "standard"
+        ]
+      ],
+      "must_not": [
+        [
+          "lorem ipsum"
+        ]
+      ],
+      "pass_fixture": "# Standard Execution: design-animation\n\n## 1. Context & Objectives\nApplying verified design animation guidelines with empirical evidence.\n\n## 2. Structured Deliverable\n- Verification: Passed all quality criteria.\n- Next Action: Ready for downstream phase integration.",
+      "fail_fixture": "General unformatted response with no domain evidence."
+    }
+  ]
+}

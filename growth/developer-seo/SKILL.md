@@ -1,7 +1,6 @@
 ---
 name: developer-seo
-description: >-
-  Build, audit, debug, and migrate websites for durable organic discovery and reliable use by search engines, LLMs, and browser agents. Use for SEO audits or implementation; new sites, routes, templates, CMSs, catalogs, or content programs; crawling, rendering, indexing, robots, canonicals, redirects, sitemaps, hreflang, structured data, metadata, links, faceted navigation, JavaScript SEO, Core Web Vitals, or migrations; keyword, intent, architecture, content, local, media, or authority work; traffic, ranking, CTR, or indexation losses; AEO, GEO, AI Overviews, AI Mode, ChatGPT search, crawler controls, agent-readable pages, Markdown representations, `Accept: text/markdown` content negotiation, `llms.txt`, WebMCP, or agent interaction design. Trigger whenever code or architecture can materially affect public discoverability or machine usability, even if the user does not say SEO. Do not use for paid-search management alone.
+description: "Trigger: developer-seo, technical SEO, meta tags, sitemap xml, canonical URL, OpenGraph tags, JSON LD schema, search ranking. Scope: Technical Search Engine Optimization (SEO). Governs semantic metadata, crawlability, canonical URLs, and structured JSON-LD schemas. Boundary: Excludes paid search marketing."
 ---
 
 # Developer SEO

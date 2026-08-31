@@ -1,0 +1,44 @@
+{
+  "skill": "chart-communication",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Execute the chart-communication workflow for our current project requirements.",
+      "trigger": true
+    },
+    {
+      "prompt": "Apply chart-communication principles to evaluate our approach.",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a basic CSS center div snippet.",
+      "trigger": false
+    },
+    {
+      "prompt": "Configure an unrelated Docker daemon flag.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "chart-communication-standard-execution",
+      "prompt": "Execute the standard chart-communication playbook with evidence and structured output.",
+      "pass_rule": "Must produce concrete, structured artifacts adhering to chart-communication domain guidelines.",
+      "must": [
+        [
+          "chart communication",
+          "guidelines",
+          "framework",
+          "standard"
+        ]
+      ],
+      "must_not": [
+        [
+          "lorem ipsum"
+        ]
+      ],
+      "pass_fixture": "# Standard Execution: chart-communication\n\n## 1. Context & Objectives\nApplying verified chart communication guidelines with empirical evidence.\n\n## 2. Structured Deliverable\n- Verification: Passed all quality criteria.\n- Next Action: Ready for downstream phase integration.",
+      "fail_fixture": "General unformatted response with no domain evidence."
+    }
+  ]
+}

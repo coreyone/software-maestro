@@ -1,6 +1,6 @@
 ---
 name: design-sprint
-description: "Trigger: design sprint, jake knapp design sprint, sprint map, crazy 8s, 4 step sketch, storyboard grid, decider supervote, sticky decision, lightning demos, sprint questions, understand sketch decide. Scope: Jake Knapp Design Sprint Master Hub (Understand, Diverge, Decide). Covers Monday (Long-Term Goal, 3 Sprint Questions, 5-15 step Customer Journey Map, Decider Target), Tuesday (Lightning Demos, 4-Step Sketch, Crazy 8s, 3-Panel Solution Sketches with real copy), and Wednesday (Sticky Decision Funnel: Art Museum, Heatmap Dot Voting, 3-min Speed Critique, Supervote, and 10-15 Panel Storyboard Blueprint). Seamlessly feeds design-rapid-prototype-facade and design-5-act-user-interview-testing. Boundary: Excludes Thursday prototype facade building (use design-rapid-prototype-facade) or Friday user interviews (use design-5-act-user-interview-testing)."
+description: "Trigger: design-sprint, jake knapp design sprint, sprint map, crazy 8s, 4 step sketch, storyboard grid, decider supervote, lightning demos, 3 sprint questions. Scope: Jake Knapp Design Sprint Master Hub (Understand, Diverge, Decide). Covers Monday Map & Target, Tuesday Crazy 8s Sketch, and Wednesday Storyboard Blueprint. Boundary: Excludes Thursday prototype building (use design-rapid-prototype-facade)."
 ---
 
 # Rule: Jake Knapp Design Sprint Master Hub (Understand, Diverge, Decide)

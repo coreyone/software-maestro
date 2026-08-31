@@ -1,17 +1,6 @@
 ---
 name: continuous-product-loop
-description: >
-  Autonomous, outcome-backed product evolution loop that continuously strategizes,
-  discovers, specifies, builds via TDD, prunes, and compounds learnings across
-  multi-hour or multi-day runs. Operates within a Bounded Goal Envelope using
-  Melissa Perri's Decision Stack, Now-Next-Later roadmapping, God-Marduk phased
-  governance, Ralph Loop failure codification, and autonomous skill minting.
-license: MIT
-metadata:
-  version: "1.5.0"
-  author: "Corey O'Neal"
-  category: "product-management"
-  tags: "autonomous-loop, build-trap, product-strategy, tdd, compound-learning, god-marduk, ralph-loop, continuous-learning"
+description: "Trigger: continuous-product-loop, autonomous product loop, bounded goal envelope, explore exploit portfolio, autonomous TDD, multi-day product run. Scope: Autonomous Product Evolution Loop. Continuously strategizes, discovers, specifies, builds via TDD, and prunes across multi-day runs. Boundary: Excludes single-day sprint cadences."
 ---
 
 # Continuous Product Loop

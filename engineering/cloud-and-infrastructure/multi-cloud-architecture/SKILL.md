@@ -1,6 +1,6 @@
 ---
 name: multi-cloud-architecture
-description: Design multi-cloud architectures using a decision framework to select and integrate services across AWS, Azure, GCP, and OCI. Use when building multi-cloud systems, avoiding vendor lock-in, or leveraging best-of-breed services from multiple providers.
+description: "Trigger: multi-cloud-architecture, multi-cloud design, hybrid cloud, AWS Azure GCP OCI, VPC topology, terraform modules, cloud infrastructure. Scope: Multi-Cloud Infrastructure Architecture & Terraform IaC. Governs cloud provider selection, cross-cloud networking, and reusable IaC. Boundary: Excludes application business logic."
 ---
 
 # Multi-Cloud Architecture

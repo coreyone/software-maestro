@@ -67,7 +67,7 @@ A capability orchestra of 55 lean agent skills for AI IDE agents (Claude Code, C
 *   **`commerce-ux-rules`**: Shopping cart optimization, checkout friction reduction, and multi-step wizard forms.
 *   **`developer-seo`**: Technical search engine optimization, semantic metadata, and structured schema tags.
 *   **`experimentation-hypothesis-engine`**: Statistical A/B testing, MDE sample sizing, SRM validation, and 3-way post-mortems.
-*   **`marketing-copy-emotion-provoking-action-driven`**: High-conversion landing page copy, value propositions, and concise prose.
+*   **`conversion-copywriting`**: High-conversion landing page copy, value propositions, and concise prose.
 
 </details>
 

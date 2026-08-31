@@ -1,6 +1,6 @@
 ---
 name: scrum-daily-sync
-description: "Trigger: scrum daily sync, daily scrum, daily standup, async drift triage, unblock subagents, 24h sync, daily sync brief, blocker swarming, daily impediment triage. Scope: Scrum Daily Standup & 24h Drift Triage (Execution Phase). Eliminates status reporting to management; focuses on peer-to-peer unblocking, surfacing hidden impediments, and maintaining vector alignment to the Sprint Goal. Answers the 3 core questions with zero filler: (1) Last 24h increment, (2) Next 24h commitment, (3) Blockers and drift risks. Triggers 16th-minute swarm pairings for blocked engineers. Boundary: Excludes sprint planning/refinement (use scrum-planning-and-refinement) or retrospective audits (use scrum-review-and-retro)."
+description: "Trigger: scrum-daily-sync, daily scrum, daily standup, async drift triage, unblock subagents, 24h sync, daily sync brief, blocker swarming. Scope: Scrum Daily Standup & 24h Drift Triage. Runs the 15-minute peer-to-peer synchronization to detect drift and trigger 16th-minute swarm unblocking. Boundary: Excludes sprint planning or retros."
 ---
 
 # Rule: Scrum Daily Standup & 24h Drift Triage (Execution Phase)

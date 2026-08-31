@@ -1,6 +1,6 @@
 ---
 name: voc-insights-pipeline
-description: "Trigger: Voice of Customer, VoC aggregation, feedback tagging, customer signal synthesis, customer problem repository, win/loss feedback, feedback taxonomy, product feedback telemetry. Scope: Ingesting, deduplicating, and synthesizing qualitative feedback from Sales, Support, and UXR into atomized, tagged customer problem theses linked to revenue and customer segments using an abstract, extensible pipeline architecture. Boundary: Excludes live user interview conducting or marketing copywriting."
+description: "Trigger: voc-insights-pipeline, voice of customer, VoC synthesis, customer feedback aggregation, win loss analysis, feedback taxonomy, customer problem thesis. Scope: Qualitative Customer Feedback Synthesis. Ingests, deduplicates, and structures feedback into atomized problem theses tied to revenue. Boundary: Excludes conducting live user interviews."
 ---
 
 # Rule: Voice of Customer (VoC) Aggregation & Feedback Synthesis

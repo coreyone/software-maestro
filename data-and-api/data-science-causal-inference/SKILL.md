@@ -1,6 +1,6 @@
 ---
 name: data-science-causal-inference
-description: "Trigger: causal inference, quasi-experiment, difference in differences, DiD, synthetic controls, regression discontinuity, RDD, CUPED, instrumental variables, observational study, parallel trends, propensity score matching, selection bias, non-randomized rollout, cannibalization analysis, spillover effects. Scope: Designing, executing, and validating causal evaluations when randomized A/B tests are infeasible, under-powered, or contaminated. Formulates statistical methodologies for CUPED variance reduction, two-way fixed effects DiD, synthetic control donor optimization, and RDD bandwidth selection with mandatory sensitivity tests. Boundary: Excludes standard randomized A/B test sample sizing without quasi-methods (use experimentation-hypothesis-engine), raw event tracking instrumentation (use analytics-event-tracking), or system metric monitoring (use observability-telemetry)."
+description: "Trigger: data-science-causal-inference, causal inference, difference in differences, synthetic control, CUPED variance reduction, dbt dimensional modeling. Scope: Advanced Causal Inference & Analytics Engineering. Governs quasi-experimental methods (DiD, Synthetic Control), CUPED, and dbt models. Boundary: Excludes basic descriptive dashboards."
 ---
 
 # Rule: Data Science Causal Inference & Quasi-Experimentation

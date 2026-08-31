@@ -1,6 +1,6 @@
 ---
 name: god-marduk
-description: "Trigger: project task list, task decomposition, phase planning, master orchestration, delivery governance. Scope: Project sequencing, task checklist creation, operating governance. Boundary: Excludes tactical code debugging."
+description: "Trigger: god-marduk, project task list, 6-phase plan, master delivery sequencing, smart sequencing, task checklist, phase 0 scaffolding. Scope: Project Master Phased Task List & Smart Delivery Sequencing (Phases 0-5: Scaffolding, Foundation, Mechanism, Interface, Hardening, Synthesis). Boundary: Excludes tactical code debugging or low-level PR reviews."
 ---
 
 # 🪐 God-Marduk: Master Task Orchestrator

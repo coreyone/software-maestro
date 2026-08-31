@@ -1,6 +1,6 @@
 ---
 name: deployment-pipeline-design
-description: Design multi-stage CI/CD pipelines with approval gates, security checks, and deployment orchestration. Use this skill when designing zero-downtime deployment pipelines, implementing canary rollout strategies, setting up multi-environment promotion workflows, or debugging failed deployment gates in CI/CD.
+description: "Trigger: deployment-pipeline-design, CI CD pipeline, github actions workflow, gitlab ci patterns, zero downtime release, canary rollout. Scope: Multi-Stage CI/CD Deployment Pipeline Design. Governs automated testing gates, canary deployment workflows, and rollback triggers. Boundary: Excludes local editor settings."
 ---
 
 # Deployment Pipeline Design

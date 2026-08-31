@@ -1,0 +1,44 @@
+{
+  "skill": "info-to-ink",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Execute the info-to-ink workflow for our current project requirements.",
+      "trigger": true
+    },
+    {
+      "prompt": "Apply info-to-ink principles to evaluate our approach.",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a basic CSS center div snippet.",
+      "trigger": false
+    },
+    {
+      "prompt": "Configure an unrelated Docker daemon flag.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "info-to-ink-standard-execution",
+      "prompt": "Execute the standard info-to-ink playbook with evidence and structured output.",
+      "pass_rule": "Must produce concrete, structured artifacts adhering to info-to-ink domain guidelines.",
+      "must": [
+        [
+          "info to ink",
+          "guidelines",
+          "framework",
+          "standard"
+        ]
+      ],
+      "must_not": [
+        [
+          "lorem ipsum"
+        ]
+      ],
+      "pass_fixture": "# Standard Execution: info-to-ink\n\n## 1. Context & Objectives\nApplying verified info to ink guidelines with empirical evidence.\n\n## 2. Structured Deliverable\n- Verification: Passed all quality criteria.\n- Next Action: Ready for downstream phase integration.",
+      "fail_fixture": "General unformatted response with no domain evidence."
+    }
+  ]
+}

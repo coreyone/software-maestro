@@ -1,6 +1,6 @@
 ---
 name: system-architecture-rules
-description: "Trigger: clean architecture, hexagonal architecture, domain model, state machine, boundary decoupling. Scope: Software modular design, dependency boundaries, architectural layering. Boundary: Excludes frontend aesthetic styling."
+description: "Trigger: system-architecture-rules, clean architecture, hexagonal architecture, domain model, circuit breakers, resiliency patterns, boundary decoupling. Scope: Software System Architecture & Resiliency. Governs domain modeling, clean architectural boundaries, and circuit breaker fault isolation. Boundary: Excludes UI frontend aesthetic styling."
 ---
 
 # 🏗️ Core Philosophy: Architectural integrity enables evolutionary change.

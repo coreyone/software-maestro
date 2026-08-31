@@ -1,6 +1,6 @@
 ---
 name: developer-development-rules
-description: Design and implement clear, modular, resilient software and create executor-grade implementation plans with explicit scope, drift checks, verification gates, tests, STOP conditions, dependencies, and delegated-work review. Use for development, refactoring, architecture, implementation planning, safe migrations, handoffs to another engineer or agent, or verifying delegated code changes.
+description: "Trigger: developer-development-rules, engineering craft, clean code, modular architecture, small diffs, pre-factoring, definition of done gate. Scope: Core Software Engineering Craft & Execution. Enforces modularity, pre-factoring, small reversible diffs (<200 LOC), and engineering DoD gates. Boundary: Excludes cloud infrastructure architecture."
 ---
 
 # 🏗️ Core Philosophy: Build small, clear, composable pieces.

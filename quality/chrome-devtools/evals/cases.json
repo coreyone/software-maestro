@@ -1,0 +1,44 @@
+{
+  "skill": "chrome-devtools",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Execute the chrome-devtools workflow for our current project requirements.",
+      "trigger": true
+    },
+    {
+      "prompt": "Apply chrome-devtools principles to evaluate our approach.",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a basic CSS center div snippet.",
+      "trigger": false
+    },
+    {
+      "prompt": "Configure an unrelated Docker daemon flag.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "chrome-devtools-standard-execution",
+      "prompt": "Execute the standard chrome-devtools playbook with evidence and structured output.",
+      "pass_rule": "Must produce concrete, structured artifacts adhering to chrome-devtools domain guidelines.",
+      "must": [
+        [
+          "chrome devtools",
+          "guidelines",
+          "framework",
+          "standard"
+        ]
+      ],
+      "must_not": [
+        [
+          "lorem ipsum"
+        ]
+      ],
+      "pass_fixture": "# Standard Execution: chrome-devtools\n\n## 1. Context & Objectives\nApplying verified chrome devtools guidelines with empirical evidence.\n\n## 2. Structured Deliverable\n- Verification: Passed all quality criteria.\n- Next Action: Ready for downstream phase integration.",
+      "fail_fixture": "General unformatted response with no domain evidence."
+    }
+  ]
+}

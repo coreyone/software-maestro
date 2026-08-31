@@ -1,6 +1,6 @@
 ---
 name: chart-communication
-description: "Use when a task requires designing, choosing, critiquing, implementing, or explaining a chart, graph, plot, dashboard, KPI visualization, data story, or quantitative presentation; reviewing axes, scales, labels, color, accessibility, uncertainty, or chart integrity; turning CSV, JSON, spreadsheet, database, or table data into visual evidence; or selecting a web-chart implementation. Trigger even when the user says visualize this, show the trend, compare metrics, make a dashboard, or make the data clearer without naming a chart. Do not use for generic UI styling, spreadsheet formula cleanup, database or ETL work, or decorative illustrations without quantitative data."
+description: "Trigger: chart-communication, data visualization, chart design, KPI dashboard, graph selection, metric visualization, data storytelling. Scope: Quantitative Data Visualization & Chart Design. Governs chart type selection, axis scaling, data-ink ratios, and color accessibility. Boundary: Excludes backend ETL or SQL queries."
 ---
 
 # Chart Communication

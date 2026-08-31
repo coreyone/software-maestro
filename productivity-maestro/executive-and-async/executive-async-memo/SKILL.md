@@ -1,6 +1,6 @@
 ---
 name: executive-async-memo
-description: "Trigger: async memo, executive memo, Smart Brevity, 6-pager memo, 1-page memo, convert Slack thread, summarize email chain, leadership update, cross-functional announcement, project briefing memo. Scope: Transform scattered Slack/Teams threads, multi-party email chains, or discussion notes into punchy, high-leverage executive async memos using Axios Smart Brevity and Amazon narrative principles. Incorporates ASD-STE100 technical language rules, info-to-ink token compression, Elements of Style brevity, and action-driven executive copy. Boundary: Excludes live spoken meeting transcripts (use meeting-transcription-notes) and external consumer advertising copy."
+description: "Trigger: executive-async-memo, async memo, smart brevity, executive summary, leadership update, project briefing memo, 1-page memo. Scope: High-Leverage Asynchronous Executive Memos using Axios Smart Brevity and Amazon narrative principles. Boundary: Excludes live spoken meeting transcripts."
 ---
 
 # EXECUTIVE ASYNC MEMO GENERATION

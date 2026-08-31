@@ -1,0 +1,44 @@
+{
+  "skill": "deployment-pipeline-design",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Execute the deployment-pipeline-design workflow for our current project requirements.",
+      "trigger": true
+    },
+    {
+      "prompt": "Apply deployment-pipeline-design principles to evaluate our approach.",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a basic CSS center div snippet.",
+      "trigger": false
+    },
+    {
+      "prompt": "Configure an unrelated Docker daemon flag.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "deployment-pipeline-design-standard-execution",
+      "prompt": "Execute the standard deployment-pipeline-design playbook with evidence and structured output.",
+      "pass_rule": "Must produce concrete, structured artifacts adhering to deployment-pipeline-design domain guidelines.",
+      "must": [
+        [
+          "deployment pipeline design",
+          "guidelines",
+          "framework",
+          "standard"
+        ]
+      ],
+      "must_not": [
+        [
+          "lorem ipsum"
+        ]
+      ],
+      "pass_fixture": "# Standard Execution: deployment-pipeline-design\n\n## 1. Context & Objectives\nApplying verified deployment pipeline design guidelines with empirical evidence.\n\n## 2. Structured Deliverable\n- Verification: Passed all quality criteria.\n- Next Action: Ready for downstream phase integration.",
+      "fail_fixture": "General unformatted response with no domain evidence."
+    }
+  ]
+}

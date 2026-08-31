@@ -1,6 +1,6 @@
 ---
 name: meeting-transcription-notes
-description: "Trigger: meeting transcript, audio transcript, Zoom/Teams/Google Meet/Otter/Fathom/Grain/Descript export, meeting notes, action items, executive readout, sprint sync, postmortem, 1:1 notes. Scope: Transform raw, messy meeting transcripts into high-impact operational decision records using McKinsey SCQA, Amazon Type 1/2 Narrative, Apple DAP+DRI, Bridgewater 5 Whys Issue-Log, or Tim Ferriss 80/20 MVN. Incorporates ASD-STE100 technical language rules, info-to-ink token compression, Elements of Style brevity, and action-driven executive copy. Boundary: Excludes raw audio signal processing, live streaming transcription, or video rendering."
+description: "Trigger: meeting-transcription-notes, meeting transcript, audio transcript, Zoom notes, Otter export, action items, executive readout, meeting summary. Scope: Operational Meeting Decision Records. Transforms messy meeting audio transcripts into structured decision records using McKinsey SCQA or Amazon PR/FAQ. Boundary: Excludes async email chains."
 ---
 
 # OPERATIONAL MEETING INTELLIGENCE & TRANSCRIPTION SYNTHESIS

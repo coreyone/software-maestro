@@ -1,6 +1,6 @@
 ---
 name: a11y-debugging
-description: "Trigger: a11y, accessibility, ARIA, screen reader, contrast, keyboard, tap targets, focus. Scope: Audit web interface accessibility compliance (WCAG AA). Boundary: Do not use for general backend logic or CSS styling aesthetics."
+description: "Trigger: a11y-debugging, accessibility audit, WCAG AA, screen reader, color contrast, keyboard navigation, tap targets, ARIA roles. Scope: Web Accessibility Compliance (WCAG AA). Governs keyboard navigation, screen reader accessibility, contrast ratios, and ARIA trees. Boundary: Excludes page load performance tuning."
 ---
 
 ## Core Concepts

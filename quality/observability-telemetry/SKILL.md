@@ -1,6 +1,6 @@
 ---
 name: observability-telemetry
-description: "Trigger: structured logging, tracing, telemetry, SLI metrics, SLO alerts, log formats. Scope: Performance metrics, error tracing, production telemetry. Boundary: Excludes client behavioral product funnels."
+description: "Trigger: observability-telemetry, structured logging, distributed tracing, OpenTelemetry, SLI metrics, SLO alerts, log aggregation. Scope: Production Observability & Telemetry Architecture. Governs structured JSON logging, distributed tracing, and SLI/SLO alerting. Boundary: Excludes client behavioral funnels."
 ---
 
 # 📊 Core Philosophy: You cannot optimize or debug what you do not measure.

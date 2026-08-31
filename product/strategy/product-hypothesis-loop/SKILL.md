@@ -1,6 +1,6 @@
 ---
 name: product-hypothesis-loop
-description: "Trigger: product hypothesis loop, empirical hypothesis, essential question, user market tech variables, rapid product test, testable assumption, assumption mapping, fast hypothesis iteration, tara seshan hypothesis, prolific empirical PM. Scope: Modern Empirical Product Management & Rapid Hypothesis Testing. Neutralizes bloated academic PRDs and unvalidated strategic planning. Operates the 4-Step Empirical Loop: (1) Define the 1 Essential Question, (2) Map the 3-Variable Intersection (Users × Market × Technology), (3) Dispatch the Fastest Empirical Test Vehicle (24h Hollywood Facade, 5-Act Interview, 1-Day Spike, Fake Door, or A/B Test), and (4) Execute the Closed-Loop Refinement (Ralph Loop & Continuous Product Loop learning). Ingests upstream context from ux-discovery-artifacts and design-sprint-map. Feeds verified evidence downstream into create-prd, product-management-press-memo, and prd-to-tickets. Boundary: Excludes writing full 20-page PRDs (use create-prd) or code execution (use developer-development-rules)."
+description: "Trigger: product-hypothesis-loop, empirical hypothesis, essential question, user market tech variables, rapid product test, testable assumption, tara seshan hypothesis. Scope: Modern Empirical Product Management & Rapid Hypothesis Loop. Formulates the 1 Essential Question, maps Users x Market x Tech, and dispatches the fastest empirical test vehicle (<48h). Boundary: Excludes full 20-page PRD authoring (use create-prd)."
 ---
 
 # Rule: Modern Empirical Product Hypothesis Loop
@@ -65,8 +65,10 @@ Do not use this skill for:
 5. **Step 4: Execute the Closed-Loop Refinement (Ralph Loop Method)**:
    - Establish pre-committed numeric pass criteria.
    - Run the test, capture verbatim quotes and telemetry, codify learnings, and update the hypothesis card within 24 hours.
-   - If Validated $ightarrow$ Feed evidence into `create-prd` and `product-management-press-memo`.
-   - If Invalidated $ightarrow$ Pivot the variable intersection and trigger the next rapid test cycle.
+   - If Validated $
+ightarrow$ Feed evidence into `create-prd` and `product-management-press-memo`.
+   - If Invalidated $
+ightarrow$ Pivot the variable intersection and trigger the next rapid test cycle.
 
 ## Completion gate
 

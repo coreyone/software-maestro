@@ -1,6 +1,6 @@
 ---
 name: product-management
-description: "Trigger: PM, product tasks, product management, PRD, project planning, backlog priority, user stories, ticket scoping, feature requirements, product lifecycle, product requirements document. Scope: General product management, task priorities, requirements scoping, PRD authoring, and routing to specialized product archetypes (0-to-1, Growth, Optimizer/Feature, Marketplace). Boundary: Excludes deep UI code implementation or infrastructure provisioning."
+description: "Trigger: product management, product archetype, 0-to-1 search, growth loops, feature optimization, 2-sided marketplace, PM routing, PM framework. Scope: Master Product Management Archetype Router. Identifies optimal mental models and execution playbooks across 0-to-1, Growth, Optimizer, and Marketplace archetypes. Boundary: Excludes authoring full PRDs (use create-prd) or code implementation."
 ---
 
 # Product Management

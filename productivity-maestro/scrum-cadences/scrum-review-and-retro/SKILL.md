@@ -1,6 +1,6 @@
 ---
 name: scrum-review-and-retro
-description: "Trigger: scrum review and retro, sprint review, sprint retrospective, working increment demo, definition of done audit, blameless retro, kaizen process improvement, norm kerth prime directive, inspect increment, sprint retro, 5 whys retro. Scope: Scrum Inspection & Adaptation (Retrospective Phase). Combines (1) The Sprint Review (demonstrating live working software increments to stakeholders against the strict Definition of Done, anti-slide law, adapting Product Backlog) and (2) The Egoless Sprint Retrospective (Norm Kerth Prime Directive, 5-Whys Deming systems checks, committing to strictly 1 measurable Kaizen process upgrade). Neutralizes 90% done theater, watermelon status reporting, and defensive finger-pointing. Boundary: Excludes sprint planning/refinement (use scrum-planning-and-refinement) or daily standups (use scrum-daily-sync)."
+description: "Trigger: scrum-review-and-retro, sprint review, sprint retrospective, working increment demo, definition of done audit, blameless retro, kaizen process improvement. Scope: Scrum Inspection & Adaptation. Combines Sprint Review (live working increment vs DoD) and Egoless Retrospective (Norm Kerth, 5-Whys, strictly 1 Kaizen process upgrade). Boundary: Excludes sprint planning."
 ---
 
 # Rule: Scrum Sprint Review & Retrospective (Inspection & Adaptation Phase)

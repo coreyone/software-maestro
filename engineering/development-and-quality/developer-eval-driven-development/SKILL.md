@@ -1,6 +1,6 @@
 ---
 name: developer-eval-driven-development
-description: "Build and improve AI or probabilistic software through evaluation-driven development. Use for LLM applications, agents, prompts, RAG, tool use, classifiers, model migrations, quality regressions, golden datasets, LLM-as-judge rubrics, benchmarks, or requests to add evals and measurable release gates. Pair with TDD for deterministic code; do not use as the primary guide for ordinary unit testing without model behavior."
+description: "Trigger: developer-eval-driven-development, eval driven development, LLM evaluation, golden dataset, LLM as judge, prompt benchmarks, model regression. Scope: Evaluation-Driven Development for AI and probabilistic software using golden datasets, rubric grading, and release gates. Boundary: Excludes deterministic unit testing."
 ---
 
 # EVAL-DRIVEN DEVELOPMENT (EDD)

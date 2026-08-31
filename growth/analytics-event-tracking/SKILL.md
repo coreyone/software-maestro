@@ -1,6 +1,6 @@
 ---
 name: analytics-event-tracking
-description: "Trigger: PostHog event, Segment schema, event properties, user funnel track, track taxonomy. Scope: Product behavioral telemetry, user funnel event models. Boundary: Excludes system performance exceptions."
+description: "Trigger: analytics-event-tracking, PostHog events, Segment schema, event tracking taxonomy, user funnel telemetry, tracking spec. Scope: Behavioral Analytics & Telemetry Taxonomy. Governs event naming conventions, schema properties, and user funnel telemetry. Boundary: Excludes system performance exceptions."
 ---
 
 # 📈 Core Philosophy: Standardized telemetry taxonomy drives actionable product insights.

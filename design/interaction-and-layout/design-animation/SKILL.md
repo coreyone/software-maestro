@@ -1,6 +1,6 @@
 ---
 name: design-animation
-description: Design, implement, audit, and plan interface animation and motion systems. Use for animation reviews, motion audits, easing and duration decisions, gesture physics, transform origins, reduced-motion behavior, animation performance, SvelteKit or Motion integration, perceptual feel checks, or self-contained animation improvement plans.
+description: "Trigger: design-animation, UI motion, animation physics, spring easing, micro-interactions, transition duration, transform origin, reduced motion. Scope: Interface Motion & Animation Physics. Governs easing curves, duration tokens, gestural feedback, and accessibility reduced-motion. Boundary: Excludes static layout styling."
 ---
 
 # ▣ Key takeaway

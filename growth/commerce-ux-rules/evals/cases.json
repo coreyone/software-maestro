@@ -1,0 +1,44 @@
+{
+  "skill": "commerce-ux-rules",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Execute the commerce-ux-rules workflow for our current project requirements.",
+      "trigger": true
+    },
+    {
+      "prompt": "Apply commerce-ux-rules principles to evaluate our approach.",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a basic CSS center div snippet.",
+      "trigger": false
+    },
+    {
+      "prompt": "Configure an unrelated Docker daemon flag.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "commerce-ux-rules-standard-execution",
+      "prompt": "Execute the standard commerce-ux-rules playbook with evidence and structured output.",
+      "pass_rule": "Must produce concrete, structured artifacts adhering to commerce-ux-rules domain guidelines.",
+      "must": [
+        [
+          "commerce ux rules",
+          "guidelines",
+          "framework",
+          "standard"
+        ]
+      ],
+      "must_not": [
+        [
+          "lorem ipsum"
+        ]
+      ],
+      "pass_fixture": "# Standard Execution: commerce-ux-rules\n\n## 1. Context & Objectives\nApplying verified commerce ux rules guidelines with empirical evidence.\n\n## 2. Structured Deliverable\n- Verification: Passed all quality criteria.\n- Next Action: Ready for downstream phase integration.",
+      "fail_fixture": "General unformatted response with no domain evidence."
+    }
+  ]
+}

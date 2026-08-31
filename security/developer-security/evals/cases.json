@@ -1,0 +1,44 @@
+{
+  "skill": "developer-security",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Execute the developer-security workflow for our current project requirements.",
+      "trigger": true
+    },
+    {
+      "prompt": "Apply developer-security principles to evaluate our approach.",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a basic CSS center div snippet.",
+      "trigger": false
+    },
+    {
+      "prompt": "Configure an unrelated Docker daemon flag.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "developer-security-standard-execution",
+      "prompt": "Execute the standard developer-security playbook with evidence and structured output.",
+      "pass_rule": "Must produce concrete, structured artifacts adhering to developer-security domain guidelines.",
+      "must": [
+        [
+          "developer security",
+          "guidelines",
+          "framework",
+          "standard"
+        ]
+      ],
+      "must_not": [
+        [
+          "lorem ipsum"
+        ]
+      ],
+      "pass_fixture": "# Standard Execution: developer-security\n\n## 1. Context & Objectives\nApplying verified developer security guidelines with empirical evidence.\n\n## 2. Structured Deliverable\n- Verification: Passed all quality criteria.\n- Next Action: Ready for downstream phase integration.",
+      "fail_fixture": "General unformatted response with no domain evidence."
+    }
+  ]
+}

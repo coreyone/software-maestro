@@ -1,6 +1,6 @@
 ---
 name: design-rapid-prototype-facade
-description: "Trigger: goldilocks prototype, prototype facade, realistic UI illusion, stitch prototype, rapid interactive prototype, hollywood set facade, fake it dont build it, thursday prototype, disposable prototype. Scope: Jake Knapp Design Sprint Thursday (Goldilocks Rapid Prototyping Facade). Builds a high-surface-fidelity, disposable interactive facade (HTML/Tailwind, Stitch, Figma, or interactive HTML widgets) matching the Wednesday storyboard frame-by-frame. Zero backend code, 100% authentic copy/data, structured Maker/Stitcher/Writer division of labor, and 15:00 Trial Run QA. Boundary: Excludes production backend engineering (use developer-development-rules) or customer interview conducting (use design-5-act-user-interview-testing)."
+description: "Trigger: design-rapid-prototype-facade, rapid prototype, hollywood facade, goldilocks prototype, disposable prototype, prototype sprint. Scope: Goldilocks Rapid Facade Prototyping (Thursday Sprint). Builds realistic, disposable, interactive facade prototypes for user testing in <24h. Boundary: Excludes writing production backend code."
 ---
 
 # Rule: Jake Knapp Design Sprint — Goldilocks Prototype Facade (Thursday)

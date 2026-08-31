@@ -1,0 +1,49 @@
+{
+  "skill": "conversion-copywriting",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Write high-converting landing page hero copy and CTA buttons for our AI automated invoice processing tool.",
+      "trigger": true
+    },
+    {
+      "prompt": "Draft an emotion-provoking value proposition and headline for our developer workflow automation app.",
+      "trigger": true
+    },
+    {
+      "prompt": "Configure an OAuth 2.1 PKCE authorization server in Go.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "hero-conversion-copy",
+      "prompt": "Write a high-converting hero section headline, subhead, and CTA for an automated B2B expense auditing tool.",
+      "pass_rule": "Must include a pain-point headline, clear mechanism subhead, and action-oriented CTA with zero generic jargon.",
+      "must": [
+        [
+          "headline"
+        ],
+        [
+          "subhead",
+          "mechanism"
+        ],
+        [
+          "cta",
+          "call to action",
+          "button"
+        ]
+      ],
+      "must_not": [
+        [
+          "lorem ipsum"
+        ],
+        [
+          "all-in-one solution"
+        ]
+      ],
+      "pass_fixture": "## Hero Section Copy: ExpenseAudit AI\n\n### 1. Headline (Clear > Clever)\nStop losing 4% of your revenue to rogue employee expense reports.\n\n### 2. Subhead (Mechanism & Transformation)\nExpenseAudit automatically flags duplicate receipts, out-of-policy vendor charges, and math errors in real time\u2014before payroll runs.\n\n### 3. Primary & Secondary CTA\n- **Primary CTA**: `Audit My First 100 Receipts Free`\n- **Secondary CTA**: `Watch 90-Second Demo`",
+      "fail_fixture": "We are the leading all-in-one expense solution."
+    }
+  ]
+}

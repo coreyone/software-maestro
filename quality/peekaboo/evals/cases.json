@@ -1,0 +1,44 @@
+{
+  "skill": "peekaboo",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Execute the peekaboo workflow for our current project requirements.",
+      "trigger": true
+    },
+    {
+      "prompt": "Apply peekaboo principles to evaluate our approach.",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a basic CSS center div snippet.",
+      "trigger": false
+    },
+    {
+      "prompt": "Configure an unrelated Docker daemon flag.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "peekaboo-standard-execution",
+      "prompt": "Execute the standard peekaboo playbook with evidence and structured output.",
+      "pass_rule": "Must produce concrete, structured artifacts adhering to peekaboo domain guidelines.",
+      "must": [
+        [
+          "peekaboo",
+          "guidelines",
+          "framework",
+          "standard"
+        ]
+      ],
+      "must_not": [
+        [
+          "lorem ipsum"
+        ]
+      ],
+      "pass_fixture": "# Standard Execution: peekaboo\n\n## 1. Context & Objectives\nApplying verified peekaboo guidelines with empirical evidence.\n\n## 2. Structured Deliverable\n- Verification: Passed all quality criteria.\n- Next Action: Ready for downstream phase integration.",
+      "fail_fixture": "General unformatted response with no domain evidence."
+    }
+  ]
+}

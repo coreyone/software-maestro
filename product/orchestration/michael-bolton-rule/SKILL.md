@@ -1,6 +1,6 @@
 ---
 name: michael-bolton-rule
-description: "Trigger: standard work, deming first, feedback loop checks, decision rights, delegation check, michael bolton rule, outcome constraints measures time horizon, deming system failure checklist, march portfolio allocation, 70 20 10 portfolio. Scope: Management doctrine, delegation governance, Deming systems thinking (variation control, standard work, root-cause systems checks), Mintzberg real-time steering, and March 70/20/10 portfolio balance. Powers the lifecycle orchestrator (michael-bolton-pod-conductor) and multi-agent swarm runtime (swarm-rules). Boundary: Excludes direct code implementation or design templates."
+description: "Trigger: michael-bolton-rule, 4-part intent framing, deming systems check, march portfolio, 70 20 10, delegation check, outcome constraints measures. Scope: Delegation Governance & Deming Systems Thinking. Enforces 4-part intent framing (Outcome, Constraints, Measures, Time-horizon) and variation controls. Boundary: Excludes writing direct code or UI templates."
 ---
 
 # Rule: The Michael Bolton Doctrine of Direction & Delegation

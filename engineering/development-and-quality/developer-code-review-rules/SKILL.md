@@ -1,6 +1,6 @@
 ---
 name: developer-code-review-rules
-description: Review pull requests or audit repositories for correctness, security, performance, test risk, architecture, dependencies, developer experience, documentation, and grounded product direction. Use for code review, repository audits, evidence-backed findings, false-positive vetting, risk assessment, prioritization, or deciding which improvements should become implementation plans.
+description: "Trigger: developer-code-review-rules, pull request review, PR audit, code review checklist, false positive vetting, risk assessment. Scope: Pull Request & Repository Code Review. Enforces evidence-backed audits, correctness, security, test risk, and developer experience checks. Boundary: Excludes writing initial code."
 ---
 
 # 🔍 The Architect's Guide to Code Review: Philosophy & Tactics

@@ -1,6 +1,6 @@
 ---
 name: api-design-guidelines
-description: "Trigger: REST API, GraphQL schemas, HTTP methods, RFC 7807, endpoint structure, API contracts. Scope: API schema design, error models, request/response structures. Boundary: Excludes client-side visual layouts."
+description: "Trigger: api-design-guidelines, REST API, GraphQL schemas, HTTP methods, RFC 7807, endpoint design, API contracts, error payloads. Scope: API Contract & Schema Design. Governs REST/GraphQL resource modeling, HTTP status semantics, and RFC 7807 error envelopes. Boundary: Excludes client-side visual layouts."
 ---
 
 # 🔌 Core Philosophy: APIs are contracts; once published, they are hard to break.

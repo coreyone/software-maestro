@@ -1,6 +1,6 @@
 ---
 name: product-pricing-strategy
-description: "End-to-end pricing and monetization strategy across SaaS, AI/agentic, ecommerce, gaming, enterprise, beauty, apparel, and consumer hardware. Use when designing, evaluating, auditing, or refactoring pricing models, value metrics, tier packaging, two-part tariffs, behavioral framing, dynamic pricing, pocket price waterfalls, or willingness-to-pay (WTP) discovery. Boundaries: Do not use for basic bookkeeping entries, general accounting ledger tasks, or visual checkout UI styling without commercial strategy."
+description: "Trigger: product-pricing-strategy, pricing strategy, van westendorp, willingness to pay, pricing tiers, packaging model, two-part tariff, pocket price waterfall. Scope: End-to-End Product Pricing & Monetization Strategy across SaaS, AI, and consumer platforms. Boundary: Excludes visual checkout UI styling (use commerce-ux-rules)."
 ---
 
 # PRODUCT PRICING STRATEGY

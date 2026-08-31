@@ -1,6 +1,6 @@
 ---
 name: design-system-rules
-description: Use when task matches design-system-rules guidance for IA, usability, responsiveness, systems, motion, visual QA, visual identity, art direction, illustration, composition, asset systems, or AI recreation fidelity.
+description: "Trigger: design-system-rules, design tokens, visual hierarchy, typography scale, color palette, spacing tokens, visual system, UI style guide. Scope: Foundational Visual Systems & Design Tokens. Governs visual hierarchy, typographic scales, color contrast, and spacing invariants. Boundary: Excludes interaction animations or layout responsive queries."
 ---
 
 # Design System Rules

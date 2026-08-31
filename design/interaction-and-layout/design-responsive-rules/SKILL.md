@@ -1,6 +1,6 @@
 ---
 name: design-responsive-rules
-description: "Trigger: responsive layout, media queries, mobile, foldable, laptop, desktop, ultrawide, tablet breakpoints, or thumb zone. Scope: Multi-device layouts, viewport and container behavior, fold postures, safe areas, and touch zones. Boundary: Excludes backend API design or database scaling."
+description: "Trigger: design-responsive-rules, responsive layout, media queries, mobile breakpoints, container queries, thumb zone, fold postures, tablet layouts. Scope: Responsive & Adaptive Viewport Behavior across mobile, tablet, foldable, and desktop viewports. Boundary: Excludes color token styling or typography definitions."
 ---
 
 # Responsive Web Design (2026) — Guidelines for Design + Design Engineering

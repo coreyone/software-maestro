@@ -1,6 +1,6 @@
 ---
 name: info-to-ink
-description: Always-on visible-output token compression for AI programming agents. Use when user asks for fewer tokens, terse coding-agent output, high information-to-ink ratio, compact debug/review/architecture/doc replies, "short as possible", "be brief", "less tokens", "caveman mode", "talk like caveman", "use caveman", or invokes /caveman. Goal: save output tokens every reply by dropping filler while preserving full technical accuracy. Modes: lite, full default, ultra, wenyan-lite, wenyan-full, wenyan-ultra. Preserve code, commands, diffs, logs, errors, paths, URLs, identifiers, numbers, and exact strings.
+description: "Trigger: info-to-ink, token compression, caveman mode, high info to ink, compress output, eliminate filler, concise response. Scope: Output Token Compression. Eliminates conversational filler and rhetorical fluff while preserving all code, diffs, errors, and technical data. Boundary: Excludes technical grammar rules."
 ---
 
 # info-to-ink

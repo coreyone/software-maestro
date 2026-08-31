@@ -1,6 +1,6 @@
 ---
 name: data-persistence-caching
-description: "Trigger: database schema, indexing, cache asidePattern, Redis caching, ORM models, Drizzle schema. Scope: Database query tuning, indexing, and data cache designs. Boundary: Excludes user identity validation."
+description: "Trigger: data-persistence-caching, database schema, SQL indexing, cache aside pattern, Redis caching, ORM models, query tuning, Drizzle schema. Scope: Database Schema Design, SQL Indexing & Caching. Governs query optimization, index strategies, and cache-aside invalidation. Boundary: Excludes user identity validation."
 ---
 
 # 💾 Core Philosophy: Data is the most valuable asset; protect its integrity and optimize its retrieval.

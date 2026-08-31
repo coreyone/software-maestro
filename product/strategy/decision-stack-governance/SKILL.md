@@ -1,6 +1,6 @@
 ---
 name: decision-stack-governance
-description: "Trigger: Decision stack, strategy deployment, strategic intents, product portfolio cadence, QBR prep, roadmap review cadence, CKO planning, Oscar Health portfolio planning. Scope: Cascading strategy from Company Vision (5-10y) -> Strategic Intents (1-3y) -> Product Initiatives (6-12m) -> Options (3-6m); standardizing strategic meeting cadences, inputs, and executive decision rituals. Boundary: Excludes sprint-level daily standups or backlog grooming."
+description: "Trigger: decision-stack-governance, decision stack, melissa perri strategy, strategic intents, product portfolio cadence, QBR planning, strategy deployment. Scope: Strategy Deployment & Portfolio Cadence. Cascades Company Vision (5-10y) -> Strategic Intents (1-3y) -> Product Initiatives (6-12m) -> Options (3-6m). Boundary: Excludes sprint-level daily standups."
 ---
 
 # Rule: Decision Stack Alignment & Cadence Governance
@@ -38,7 +38,10 @@ Do not use this skill for daily agile standups, individual sprint ticket groomin
    - **Strategic Intents (1–3 yrs)**: Core business challenges to overcome (Owner: CPO, CRO, CFO).
    - **Product Portfolio Initiatives (1–3 yrs / 6–12 mos)**: Problems to address to unlock intents (Owner: Product Leadership).
    - **Options (3–6 mos)**: Specific solutions, prototypes, and experiments tested by squads (Owner: Product Dev Teams).
-3. Establish the **Strategic Governance Cadence** (Annual CKO $ightarrow$ Quarterly QBR $ightarrow$ Monthly Roadmap Review $ightarrow$ Monthly Demo Day).
+3. Establish the **Strategic Governance Cadence** (Annual CKO $
+ightarrow$ Quarterly QBR $
+ightarrow$ Monthly Roadmap Review $
+ightarrow$ Monthly Demo Day).
 4. Run the **Now-Next-Later Roadmap Rollup**, ensuring every sprint epic traces back to an approved Product Initiative.
 5. Deploy executive alignment mechanisms (e.g., Oscar Health "Phone-a-Friend" surveys) to calibrate resource allocations before locking commitments.
 
@@ -51,6 +54,9 @@ Before reporting completion, verify against `evals/cases.json`:
 
 ## Output format
 
-- **Decision Stack Mapping**: Vision $ightarrow$ Strategic Intent $ightarrow$ Product Initiative $ightarrow$ Squad Option.
+- **Decision Stack Mapping**: Vision $
+ightarrow$ Strategic Intent $
+ightarrow$ Product Initiative $
+ightarrow$ Squad Option.
 - **Now-Next-Later Strategic Roadmap**: Structured by Strategic Intent and Pod.
 - **Operating Cadence Matrix**: Cadence schedule, attendees, agenda, and out-of-scope boundaries.

@@ -1,0 +1,44 @@
+{
+  "skill": "a11y-debugging",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Execute the a11y-debugging workflow for our current project requirements.",
+      "trigger": true
+    },
+    {
+      "prompt": "Apply a11y-debugging principles to evaluate our approach.",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a basic CSS center div snippet.",
+      "trigger": false
+    },
+    {
+      "prompt": "Configure an unrelated Docker daemon flag.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "a11y-debugging-standard-execution",
+      "prompt": "Execute the standard a11y-debugging playbook with evidence and structured output.",
+      "pass_rule": "Must produce concrete, structured artifacts adhering to a11y-debugging domain guidelines.",
+      "must": [
+        [
+          "a11y debugging",
+          "guidelines",
+          "framework",
+          "standard"
+        ]
+      ],
+      "must_not": [
+        [
+          "lorem ipsum"
+        ]
+      ],
+      "pass_fixture": "# Standard Execution: a11y-debugging\n\n## 1. Context & Objectives\nApplying verified a11y debugging guidelines with empirical evidence.\n\n## 2. Structured Deliverable\n- Verification: Passed all quality criteria.\n- Next Action: Ready for downstream phase integration.",
+      "fail_fixture": "General unformatted response with no domain evidence."
+    }
+  ]
+}

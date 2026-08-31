@@ -1,6 +1,6 @@
 ---
 name: developer-test-driven-development
-description: "Trigger: TDD, test first, unit testing, integration tests, mock assertions, test-driven dev. Scope: Writing test assertions before coding features, testing paradigms. Boundary: Excludes UX aesthetics or continuous deployment settings."
+description: "Trigger: developer-test-driven-development, TDD, test driven development, red green refactor, unit testing, integration tests, mock assertions. Scope: Test-Driven Development (TDD) Methodology. Enforces writing failing test assertions before implementing production features. Boundary: Excludes probabilistic LLM evals."
 ---
 
 # TEST DRIVEN DEVELOPMENT (TDD)
