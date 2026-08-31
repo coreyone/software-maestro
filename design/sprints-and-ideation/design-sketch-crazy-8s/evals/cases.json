@@ -1,0 +1,66 @@
+{
+  "skill": "design-sketch-crazy-8s",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Run Tuesday 4-step sketching and Crazy 8s ideation for our mobile checkout redesign, generating 3-panel solution sketches with realistic copy.",
+      "trigger": true
+    },
+    {
+      "prompt": "We need divergent UI concepts using the Jake Knapp sketch method for our doctor appointment booking flow.",
+      "trigger": true
+    },
+    {
+      "prompt": "Configure an Istio VirtualService route for canary traffic shifting.",
+      "trigger": false
+    },
+    {
+      "prompt": "Conduct 5 user interviews with the Margolis protocol.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "crazy-8s-solution-sketch",
+      "prompt": "Generate Crazy 8s ideation and a 3-panel Solution Sketch for a 1-click photo backup feature.",
+      "pass_rule": "Must include 8 distinct Crazy 8s variations and a 3-panel Solution Sketch with Panel 1 (Entry), Panel 2 (Action), Panel 3 (Payoff), memorable title, and 100% realistic copy.",
+      "must": [
+        [
+          "crazy 8s",
+          "crazy 8",
+          "8 variations"
+        ],
+        [
+          "panel 1",
+          "entry",
+          "before"
+        ],
+        [
+          "panel 2",
+          "core action",
+          "during"
+        ],
+        [
+          "panel 3",
+          "payoff",
+          "after",
+          "value"
+        ],
+        [
+          "title",
+          "solution sketch"
+        ]
+      ],
+      "must_not": [
+        [
+          "lorem ipsum"
+        ],
+        [
+          "sample text"
+        ]
+      ],
+      "pass_fixture": "## Crazy 8s Divergence Matrix\n1. Floating action button with progress ring.\n2. Swipe-up sheet with instant album toggle.\n3. Background smart-sync notification banner.\n4. Long-press carousel preview.\n5. Voice-activated backup confirmation.\n6. Wi-Fi auto-sync drawer.\n7. QR-code desktop instant pair.\n8. End-to-end encrypted lock screen widget.\n\n## 3-Panel Solution Sketch: 'Instant Vault Sync'\n- **Panel 1 (Entry)**: Lock screen notification reads: '14 new trip photos detected. Tap to secure in Vault.'\n- **Panel 2 (Core Action)**: Single-tap biometric FaceID prompt with instant encryption progress meter: 'Encrypting 14 RAW photos with 256-bit AES...'\n- **Panel 3 (Value Payoff)**: Clean green checkmark screen: '14 Photos Secured in Vault Cloud. 1.2 GB local storage freed.'",
+      "fail_fixture": "Here is a high level idea: you can add a backup button and make it easy for users to save their photos."
+    }
+  ]
+}

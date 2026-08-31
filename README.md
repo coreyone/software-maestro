@@ -1,6 +1,6 @@
 # Software Maestro
 
-A capability orchestra of 90 agent skills for AI IDE agents. You conduct product strategy, design systems, engineering execution, data science, security, growth, quality, and operational cadences from one developer baton.
+A capability orchestra of 95 agent skills for AI IDE agents. You conduct product strategy, design systems, engineering execution, data science, security, growth, quality, and operational cadences from one developer baton.
 
 ## Install
 
@@ -26,12 +26,13 @@ Alternatively, clone this repository directly into your AI IDE configuration dir
 </details>
 
 <details>
-<summary><strong><code>design/</code></strong> (11 skills across 4 subdomains)</summary>
+<summary><strong><code>design/</code></strong> (16 skills across 5 subdomains)</summary>
 
+*   **`design/sprints-and-ideation/`** (3 skills): Jake Knapp Design Sprint mapping, Crazy 8s divergent sketching, and Sticky Decision storyboarding (`design-sprint-map`, `design-sketch-crazy-8s`, `design-storyboard-decide`).
 *   **`design/systems-and-foundations/`** (3 skills): Foundational design systems, visual tokens, and perceptual neuroscience (`design-system-rules`, `aesthetic-rules`, `aesthetic-science`).
 *   **`design/interaction-and-layout/`** (3 skills): Spatial layout, responsive breakpoints, motion physics, and wayfinding architecture (`design-responsive-rules`, `design-animation`, `design-information-architecture-rules`).
-*   **`design/experience-and-flows/`** (3 skills): First-time user onboarding, empty/error state recovery, and cognitive data visualization (`design-user-onboarding-ux`, `failure-states-empty-states`, `chart-communication`).
-*   **`design/evaluation-and-quality/`** (2 skills): Usability heuristics, Norman affordances, and visual design review audits (`design-usability-rules`, `design-review-rules`).
+*   **`design/experience-and-flows/`** (4 skills): First-time user onboarding, Goldilocks rapid prototype facades, empty/error state recovery, and cognitive data visualization (`design-user-onboarding-ux`, `design-rapid-prototype-facade`, `failure-states-empty-states`, `chart-communication`).
+*   **`design/evaluation-and-quality/`** (3 skills): Michael Margolis 5-Act customer interview testing, usability heuristics, Norman affordances, and visual design review audits (`design-5-act-user-interview-testing`, `design-usability-rules`, `design-review-rules`).
 
 </details>
 
@@ -88,11 +89,12 @@ Alternatively, clone this repository directly into your AI IDE configuration dir
 │   ├── strategy/             # Decision Stack, Strategy Vision, Capital Allocation, Constraints, Pricing (5 skills)
 │   ├── discovery-and-specs/  # PRDs, Proven Specs, UX Discovery, VoC Pipeline, HMW, Press Memo (6 skills)
 │   └── operations-and-gtm/   # Continuous Loop, GTM Release, PMM Narrative, Metric Trees, Platforms, Retro Pruning (6 skills)
-├── design/                   # Visual Systems, Layout, Motion & Usability (11 skills across 4 IA subdomains)
+├── design/                   # Visual Systems, Design Sprints, Layout, Motion & Usability (16 skills across 5 IA subdomains)
+│   ├── sprints-and-ideation/ # Sprint Map, Crazy 8s, Storyboard Decision (3 skills)
 │   ├── systems-and-foundations/ # Design tokens, aesthetic rules, aesthetic science (3 skills)
 │   ├── interaction-and-layout/  # Responsive layouts, animation physics, IA wayfinding (3 skills)
-│   ├── experience-and-flows/    # FTUX onboarding, empty/failure states, chart visualization (3 skills)
-│   └── evaluation-and-quality/  # Usability heuristics, visual design review audits (2 skills)
+│   ├── experience-and-flows/    # FTUX onboarding, Goldilocks facade, empty states, chart viz (4 skills)
+│   └── evaluation-and-quality/  # 5-Act user interviews, usability heuristics, visual QA audits (3 skills)
 ├── engineering/              # Code Quality, Architecture, Cloud & IaC (13 skills across 3 IA subdomains)
 │   ├── development-and-quality/ # TDD, evals, code reviews, audits, craft, info-to-ink (6 skills)
 │   ├── architecture-and-resiliency/ # System architecture, circuit breakers, tech stack, search grounding (4 skills)
