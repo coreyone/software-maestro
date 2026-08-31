@@ -152,7 +152,7 @@ def validate_suite(eval_path: Path) -> tuple[int, int, list[str]]:
 
 def find_eval_files(paths: list[str]) -> list[Path]:
     if not paths:
-        return sorted(ROOT.glob("*/*/evals/cases.json"))
+        return sorted(ROOT.glob("**/evals/cases.json"))
 
     resolved: list[Path] = []
     for raw_path in paths:
