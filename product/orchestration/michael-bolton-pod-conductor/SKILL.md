@@ -29,7 +29,7 @@ Use this skill to conduct an end-to-end product development lifecycle across spe
 Do not use this skill for:
 - Implementing a single isolated function or fixing a bug in one file (use `developer-development-rules` or `improve-codebase`).
 - Designing high-level company strategic intents or multi-year portfolio roadmaps (use `decision-stack-governance`).
-- Pure marketing copywriting without lifecycle orchestration (use `marketing-copy-emotion-provoking-action-driven`).
+- Pure marketing copywriting without lifecycle orchestration (use `conversion-copywriting`).
 
 ## Trigger cues
 

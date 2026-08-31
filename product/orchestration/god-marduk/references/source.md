@@ -153,7 +153,7 @@ Map the active task requirements against the seven operational domains. Check ev
   - [ ] `commerce-ux-rules`: Use for cart UI, payment paths, trust badges, and conversion rates.
   - [ ] `cro-commerce-audit`: Use for auditing conversion paths and diagnosing checkout friction.
   - [ ] `design-forms-wizards-checkout`: Use for multi-step form structures and input validation models.
-  - [ ] `marketing-copy-emotion-provoking-action-driven`: Use for value propositions and emotion-led landing page text.
+  - [ ] `conversion-copywriting`: Use for value propositions and emotion-led landing page text.
   - [ ] `the-elements-of-style-principles`: Use for clean, simple writing style and maximizing copy clarity.
   - [ ] `analytics-event-tracking`: Use for event tracking taxonomies (`object:action`) and PostHog properties.
 - **Quality & Delivery (`/quality`)**

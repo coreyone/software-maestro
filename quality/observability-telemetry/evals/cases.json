@@ -3,42 +3,50 @@
   "version": 1,
   "trigger_cases": [
     {
-      "prompt": "Execute the observability-telemetry workflow for our current project requirements.",
+      "prompt": "Design an OpenTelemetry distributed tracing and structured JSON logging architecture for our microservices.",
       "trigger": true
     },
     {
-      "prompt": "Apply observability-telemetry principles to evaluate our approach.",
+      "prompt": "Define SLI metrics and SLO burn-rate alerting rules for our payment gateway API.",
       "trigger": true
     },
     {
-      "prompt": "Write a basic CSS center div snippet.",
-      "trigger": false
-    },
-    {
-      "prompt": "Configure an unrelated Docker daemon flag.",
+      "prompt": "Design a landing page hero banner in CSS.",
       "trigger": false
     }
   ],
   "binary_cases": [
     {
-      "id": "observability-telemetry-standard-execution",
-      "prompt": "Execute the standard observability-telemetry playbook with evidence and structured output.",
-      "pass_rule": "Must produce concrete, structured artifacts adhering to observability-telemetry domain guidelines.",
+      "id": "opentelemetry-and-slo-alerting",
+      "prompt": "Specify a production observability architecture including structured JSON logs, trace context propagation, and SLO burn rate alerts.",
+      "pass_rule": "Must specify structured JSON log schema (trace_id, span_id, timestamp), OpenTelemetry W3C trace context, and multi-window burn rate alerts.",
       "must": [
         [
-          "observability telemetry",
-          "guidelines",
-          "framework",
-          "standard"
+          "structured",
+          "json",
+          "log"
+        ],
+        [
+          "trace_id",
+          "span_id",
+          "opentelemetry",
+          "trace"
+        ],
+        [
+          "slo",
+          "sli",
+          "burn rate",
+          "alert"
         ]
       ],
       "must_not": [
         [
-          "lorem ipsum"
+          "console.log unformatted strings",
+          "no trace ids in logs"
         ]
       ],
-      "pass_fixture": "# Standard Execution: observability-telemetry\n\n## 1. Context & Objectives\nApplying verified observability telemetry guidelines with empirical evidence.\n\n## 2. Structured Deliverable\n- Verification: Passed all quality criteria.\n- Next Action: Ready for downstream phase integration.",
-      "fail_fixture": "General unformatted response with no domain evidence."
+      "pass_fixture": "### Production Observability Specification\n- **Structured JSON Logging**: Every log entry emits `{\"timestamp\": \"UTC\", \"level\": \"INFO\", \"trace_id\": \"${traceId}\", \"span_id\": \"${spanId}\", \"message\": \"...\"}`.\n- **Distributed Tracing**: OpenTelemetry SDK with W3C `traceparent` header propagation across all HTTP/gRPC boundaries.\n- **SLO Alerting**: 99.9% availability target with multi-window, multi-burn-rate alerts (14.4x 1h burn and 6x 6h burn).",
+      "fail_fixture": "Print unformatted error strings with print() and set up no alert rules."
     }
   ]
 }

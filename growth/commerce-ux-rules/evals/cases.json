@@ -3,42 +3,47 @@
   "version": 1,
   "trigger_cases": [
     {
-      "prompt": "Execute the commerce-ux-rules workflow for our current project requirements.",
+      "prompt": "Audit our mobile shopping cart and checkout funnel for conversion friction and trust signals.",
       "trigger": true
     },
     {
-      "prompt": "Apply commerce-ux-rules principles to evaluate our approach.",
+      "prompt": "Design a 1-page guest checkout layout with inline payment validation.",
       "trigger": true
     },
     {
-      "prompt": "Write a basic CSS center div snippet.",
-      "trigger": false
-    },
-    {
-      "prompt": "Configure an unrelated Docker daemon flag.",
+      "prompt": "Deploy a Redis cache cluster on AWS ElastiCache.",
       "trigger": false
     }
   ],
   "binary_cases": [
     {
-      "id": "commerce-ux-rules-standard-execution",
-      "prompt": "Execute the standard commerce-ux-rules playbook with evidence and structured output.",
-      "pass_rule": "Must produce concrete, structured artifacts adhering to commerce-ux-rules domain guidelines.",
+      "id": "guest-checkout-and-trust-signals",
+      "prompt": "Design an optimized checkout flow that reduces cart abandonment for mobile shoppers.",
+      "pass_rule": "Must include prominent guest checkout option, security trust badges near payment CTA, and inline validation.",
       "must": [
         [
-          "commerce ux rules",
-          "guidelines",
-          "framework",
-          "standard"
+          "guest checkout",
+          "guest"
+        ],
+        [
+          "trust badge",
+          "security badge",
+          "ssl",
+          "encryption"
+        ],
+        [
+          "inline validation",
+          "validation"
         ]
       ],
       "must_not": [
         [
-          "lorem ipsum"
+          "mandatory account creation before purchase",
+          "forced signup"
         ]
       ],
-      "pass_fixture": "# Standard Execution: commerce-ux-rules\n\n## 1. Context & Objectives\nApplying verified commerce ux rules guidelines with empirical evidence.\n\n## 2. Structured Deliverable\n- Verification: Passed all quality criteria.\n- Next Action: Ready for downstream phase integration.",
-      "fail_fixture": "General unformatted response with no domain evidence."
+      "pass_fixture": "### Optimized Mobile Checkout Flow\n- **1. Guest Checkout**: Prominent 'Continue as Guest' button bypassing registration.\n- **2. Trust & Security**: Display 256-bit SSL encryption badge directly under the 'Pay Now' button.\n- **3. Inline Validation**: Instant green checkmarks on valid card inputs and formatted expiry fields.",
+      "fail_fixture": "Force all users to create an account and verify email before showing the cart payment button."
     }
   ]
 }

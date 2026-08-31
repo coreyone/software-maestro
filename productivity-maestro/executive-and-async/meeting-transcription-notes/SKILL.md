@@ -18,7 +18,7 @@ Convert raw, chaotic meeting transcripts into rigorous, high-leverage operationa
   - **`technical-language-rules` (ASD-STE100 + Google DevDocs):** Deterministic prose, $\le 20$ words/sentence procedural, $\le 25$ words/sentence descriptive, $\le 3$ noun stacks, unambiguous connectors (`because`, `after`, `can`, `must`), imperative action verbs.
   - **`info-to-ink` (Output Token Compression):** Maximum information-to-ink ratio. Drop conversational filler, pleasantries, hedging, and throat-clearing while preserving exact code, identifiers, metrics, and dates.
   - **`the-elements-of-style-principles` (Strunk & White):** Structural integrity, active voice, positive assertions, parallel grammatical construction, and ruthless omission of superfluous words.
-  - **`marketing-copy-emotion-provoking-action-driven`:** High-impact executive headlines ($\le 10$ words, no puns, no exclamation points), benefit-focused value framing, and urgent, action-driven clarity for leadership readouts.
+  - **`conversion-copywriting`:** High-impact executive headlines ($\le 10$ words, no puns, no exclamation points), benefit-focused value framing, and urgent, action-driven clarity for leadership readouts.
 - **Anti-Triggers / Exclusions:** Real-time audio hardware capture/streaming, speech-to-text acoustic model training, raw video editing, or verbatim legal stenography.
 
 ---
@@ -104,7 +104,7 @@ Follow this 5-stage synthesis pipeline for every transcript:
    - Enforce parallel grammatical construction across list items and table rows.
    - Omit needless words: make every word tell.
 
-4. **Apply `marketing-copy-emotion-provoking-action-driven` (Executive Readouts):**
+4. **Apply `conversion-copywriting` (Executive Readouts):**
    - Frame executive headlines and takeaways with punchy, benefit-focused clarity ($\le 10$ words).
    - Stir urgency around strategic priorities without cute puns or exclamation points.
 

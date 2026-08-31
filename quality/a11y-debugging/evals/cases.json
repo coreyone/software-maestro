@@ -3,42 +3,46 @@
   "version": 1,
   "trigger_cases": [
     {
-      "prompt": "Execute the a11y-debugging workflow for our current project requirements.",
+      "prompt": "Audit our web application for WCAG 2.1 AA accessibility compliance.",
       "trigger": true
     },
     {
-      "prompt": "Apply a11y-debugging principles to evaluate our approach.",
+      "prompt": "Fix keyboard navigation focus traps and missing ARIA attributes on our modal dialog.",
       "trigger": true
     },
     {
-      "prompt": "Write a basic CSS center div snippet.",
-      "trigger": false
-    },
-    {
-      "prompt": "Configure an unrelated Docker daemon flag.",
+      "prompt": "Optimize database queries in PostgreSQL.",
       "trigger": false
     }
   ],
   "binary_cases": [
     {
-      "id": "a11y-debugging-standard-execution",
-      "prompt": "Execute the standard a11y-debugging playbook with evidence and structured output.",
-      "pass_rule": "Must produce concrete, structured artifacts adhering to a11y-debugging domain guidelines.",
+      "id": "wcag-aa-focus-trap-and-aria",
+      "prompt": "Fix an accessibility violation where a custom modal is not trapping keyboard focus and lacks screen reader announcements.",
+      "pass_rule": "Must add role='dialog', aria-modal='true', aria-labelledby, and trap Tab key focus within the modal.",
       "must": [
         [
-          "a11y debugging",
-          "guidelines",
-          "framework",
-          "standard"
+          "role=\"dialog\"",
+          "role='dialog'"
+        ],
+        [
+          "aria-modal=\"true\"",
+          "aria-modal='true'"
+        ],
+        [
+          "focus trap",
+          "trap focus",
+          "tab key"
         ]
       ],
       "must_not": [
         [
-          "lorem ipsum"
+          "ignore keyboard navigation",
+          "tabindex=\"-1\" on all buttons"
         ]
       ],
-      "pass_fixture": "# Standard Execution: a11y-debugging\n\n## 1. Context & Objectives\nApplying verified a11y debugging guidelines with empirical evidence.\n\n## 2. Structured Deliverable\n- Verification: Passed all quality criteria.\n- Next Action: Ready for downstream phase integration.",
-      "fail_fixture": "General unformatted response with no domain evidence."
+      "pass_fixture": "### Modal Accessibility Remediation\n```html\n<div role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"modal-title\" class=\"modal\">\n  <h2 id=\"modal-title\">Confirm Order</h2>\n  <button class=\"close-btn\">Close</button>\n</div>\n```\n- **Focus Trap**: Implemented keydown listener trapping Tab and Shift+Tab within modal boundaries.\n- **Contrast**: Ensured 4.5:1 minimum text contrast ratio.",
+      "fail_fixture": "Render a div with no ARIA roles and let focus escape into the background body."
     }
   ]
 }

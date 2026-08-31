@@ -3,42 +3,48 @@
   "version": 1,
   "trigger_cases": [
     {
-      "prompt": "Execute the data-persistence-caching workflow for our current project requirements.",
+      "prompt": "Design a high-performance PostgreSQL schema with composite indexes and Redis cache-aside invalidation.",
       "trigger": true
     },
     {
-      "prompt": "Apply data-persistence-caching principles to evaluate our approach.",
+      "prompt": "Optimize database query latency and diagnose slow sequential table scans.",
       "trigger": true
     },
     {
-      "prompt": "Write a basic CSS center div snippet.",
-      "trigger": false
-    },
-    {
-      "prompt": "Configure an unrelated Docker daemon flag.",
+      "prompt": "Write a customer marketing email.",
       "trigger": false
     }
   ],
   "binary_cases": [
     {
-      "id": "data-persistence-caching-standard-execution",
-      "prompt": "Execute the standard data-persistence-caching playbook with evidence and structured output.",
-      "pass_rule": "Must produce concrete, structured artifacts adhering to data-persistence-caching domain guidelines.",
+      "id": "cache-aside-and-index-strategy",
+      "prompt": "Design a database indexing and caching strategy for a high-read user profile query service.",
+      "pass_rule": "Must specify B-tree / composite index on queried columns and explicit Cache-Aside read/write invalidation flow.",
       "must": [
         [
-          "data persistence caching",
-          "guidelines",
-          "framework",
-          "standard"
+          "index",
+          "composite",
+          "b-tree"
+        ],
+        [
+          "cache-aside",
+          "cache aside",
+          "redis"
+        ],
+        [
+          "invalidation",
+          "ttl",
+          "write"
         ]
       ],
       "must_not": [
         [
-          "lorem ipsum"
+          "full table scan on 10M rows",
+          "cache forever without invalidation"
         ]
       ],
-      "pass_fixture": "# Standard Execution: data-persistence-caching\n\n## 1. Context & Objectives\nApplying verified data persistence caching guidelines with empirical evidence.\n\n## 2. Structured Deliverable\n- Verification: Passed all quality criteria.\n- Next Action: Ready for downstream phase integration.",
-      "fail_fixture": "General unformatted response with no domain evidence."
+      "pass_fixture": "### Database Indexing & Cache-Aside Architecture\n- **PostgreSQL Index**: `CREATE INDEX idx_users_org_created ON users (org_id, created_at DESC);` to eliminate sequential scans.\n- **Cache-Aside Read**: 1. Query Redis by key `user:profile:{id}` -> 2. On miss, query DB and populate Redis with 1-hour TTL.\n- **Cache Invalidation**: On profile update mutation, execute DB write and immediately delete cache key `user:profile:{id}`.",
+      "fail_fixture": "Perform full table scan on every request and never cache data."
     }
   ]
 }

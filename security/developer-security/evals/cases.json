@@ -3,42 +3,48 @@
   "version": 1,
   "trigger_cases": [
     {
-      "prompt": "Execute the developer-security workflow for our current project requirements.",
+      "prompt": "Audit our web application backend and frontend for OWASP Top 10 vulnerabilities.",
       "trigger": true
     },
     {
-      "prompt": "Apply developer-security principles to evaluate our approach.",
+      "prompt": "Configure strict Content Security Policy (CSP) headers and audit secret scanning in CI/CD.",
       "trigger": true
     },
     {
-      "prompt": "Write a basic CSS center div snippet.",
-      "trigger": false
-    },
-    {
-      "prompt": "Configure an unrelated Docker daemon flag.",
+      "prompt": "Design a marketing logo in vector format.",
       "trigger": false
     }
   ],
   "binary_cases": [
     {
-      "id": "developer-security-standard-execution",
-      "prompt": "Execute the standard developer-security playbook with evidence and structured output.",
-      "pass_rule": "Must produce concrete, structured artifacts adhering to developer-security domain guidelines.",
+      "id": "owasp-and-csp-hardening",
+      "prompt": "Specify security hardening measures for a web application including CSP headers, parameterized SQL queries, and secrets management.",
+      "pass_rule": "Must include strict CSP headers, parameterized SQL queries (no string interpolation), and pre-commit secret scanning.",
       "must": [
         [
-          "developer security",
-          "guidelines",
-          "framework",
-          "standard"
+          "csp",
+          "content-security-policy",
+          "content security policy"
+        ],
+        [
+          "parameterized",
+          "sql injection",
+          "query"
+        ],
+        [
+          "secret",
+          "scanning",
+          "credential"
         ]
       ],
       "must_not": [
         [
-          "lorem ipsum"
+          "script-src * unsafe-inline unsafe-eval",
+          "concatenate raw user input into SQL"
         ]
       ],
-      "pass_fixture": "# Standard Execution: developer-security\n\n## 1. Context & Objectives\nApplying verified developer security guidelines with empirical evidence.\n\n## 2. Structured Deliverable\n- Verification: Passed all quality criteria.\n- Next Action: Ready for downstream phase integration.",
-      "fail_fixture": "General unformatted response with no domain evidence."
+      "pass_fixture": "### Software Security Hardening Policy\n1. **SQL Injection Mitigation**: Enforce 100% parameterized queries via ORM/prepared statements; strictly ban raw SQL string concatenation.\n2. **Content Security Policy**: `default-src 'self'; script-src 'self' 'nonce-...'; object-src 'none'; frame-ancestors 'none';`.\n3. **Secrets Governance**: Mandate Gitleaks pre-commit hooks and zero plaintext credentials in repository.",
+      "fail_fixture": "Concatenate user input directly into SQL strings and disable CSP."
     }
   ]
 }

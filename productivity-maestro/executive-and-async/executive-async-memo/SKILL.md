@@ -18,7 +18,7 @@ Transform noisy Slack/Teams threads, sprawling email chains, and complex project
   - **`technical-language-rules` (ASD-STE100 + Google DevDocs):** Deterministic prose, $\le 20$ words/sentence procedural, $\le 25$ words/sentence descriptive, $\le 3$ noun stacks, unambiguous connectors (`because`, `after`, `can`, `must`), imperative action verbs.
   - **`info-to-ink` (Output Token Compression):** Maximum information-to-ink ratio. Drop conversational filler, pleasantries, hedging, and throat-clearing while preserving exact code, identifiers, metrics, and dates.
   - **`the-elements-of-style-principles` (Strunk & White):** Structural integrity, active voice, positive assertions, parallel grammatical construction, and ruthless omission of superfluous words.
-  - **`marketing-copy-emotion-provoking-action-driven`:** Punchy headline under 10 words, benefit-driven value framing, and clear call-to-action without fluff or exclamation points.
+  - **`conversion-copywriting`:** Punchy headline under 10 words, benefit-driven value framing, and clear call-to-action without fluff or exclamation points.
 - **Anti-Triggers / Exclusions:** Live spoken audio meeting transcripts (use `meeting-transcription-notes`), technical bug reproduction logs, or external paid ad copy.
 
 ---

@@ -3,42 +3,50 @@
   "version": 1,
   "trigger_cases": [
     {
-      "prompt": "Execute the cost-optimization workflow for our current project requirements.",
+      "prompt": "Audit our AWS cloud bill for idle resources, rightsizing opportunities, and Savings Plans coverage.",
       "trigger": true
     },
     {
-      "prompt": "Apply cost-optimization principles to evaluate our approach.",
+      "prompt": "Conduct a GCP FinOps analysis to reduce monthly compute spend by 20%.",
       "trigger": true
     },
     {
-      "prompt": "Write a basic CSS center div snippet.",
-      "trigger": false
-    },
-    {
-      "prompt": "Configure an unrelated Docker daemon flag.",
+      "prompt": "Write a CSS flexbox layout.",
       "trigger": false
     }
   ],
   "binary_cases": [
     {
-      "id": "cost-optimization-standard-execution",
-      "prompt": "Execute the standard cost-optimization playbook with evidence and structured output.",
-      "pass_rule": "Must produce concrete, structured artifacts adhering to cost-optimization domain guidelines.",
+      "id": "finops-cloud-cost-audit",
+      "prompt": "Produce a cloud infrastructure cost optimization audit for an overprovisioned Kubernetes cluster on AWS.",
+      "pass_rule": "Must analyze CPU/memory utilization, identify unattached EBS volumes/idle NAT gateways, and propose Compute Savings Plans.",
       "must": [
         [
-          "cost optimization",
-          "guidelines",
-          "framework",
-          "standard"
+          "rightsizing",
+          "utilization",
+          "cpu"
+        ],
+        [
+          "idle",
+          "unattached",
+          "orphan",
+          "nat gateway",
+          "ebs"
+        ],
+        [
+          "savings plans",
+          "reserved instances",
+          "commitment"
         ]
       ],
       "must_not": [
         [
-          "lorem ipsum"
+          "blindly delete production databases",
+          "turn off production servers during peak"
         ]
       ],
-      "pass_fixture": "# Standard Execution: cost-optimization\n\n## 1. Context & Objectives\nApplying verified cost optimization guidelines with empirical evidence.\n\n## 2. Structured Deliverable\n- Verification: Passed all quality criteria.\n- Next Action: Ready for downstream phase integration.",
-      "fail_fixture": "General unformatted response with no domain evidence."
+      "pass_fixture": "### AWS FinOps Cost Optimization Audit\n1. **Rightsizing**: Downgrade underutilized `m5.4xlarge` worker nodes (12% avg CPU) to `m5.xlarge` (saves $1,420/mo).\n2. **Idle Resource Pruning**: Delete 14 unattached gp2 EBS volumes and decommission 2 unused NAT Gateways ($280/mo).\n3. **Commitment Strategy**: Purchase 1-year No-Upfront Compute Savings Plans covering baseline load (saves 34%).",
+      "fail_fixture": "Delete all servers to save money."
     }
   ]
 }

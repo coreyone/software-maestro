@@ -3,33 +3,37 @@
   "version": 1,
   "trigger_cases": [
     {
-      "prompt": "Execute the chrome-devtools workflow for our current project requirements.",
+      "prompt": "Inspect the DOM elements and capture console logs of our staging login page via Chrome DevTools Protocol.",
       "trigger": true
     },
     {
-      "prompt": "Apply chrome-devtools principles to evaluate our approach.",
+      "prompt": "Take a full-page screenshot and analyze network requests using CDP.",
       "trigger": true
     },
     {
-      "prompt": "Write a basic CSS center div snippet.",
-      "trigger": false
-    },
-    {
-      "prompt": "Configure an unrelated Docker daemon flag.",
+      "prompt": "Design a Figma UI token system.",
       "trigger": false
     }
   ],
   "binary_cases": [
     {
-      "id": "chrome-devtools-standard-execution",
-      "prompt": "Execute the standard chrome-devtools playbook with evidence and structured output.",
-      "pass_rule": "Must produce concrete, structured artifacts adhering to chrome-devtools domain guidelines.",
+      "id": "cdp-page-snapshot-and-console-audit",
+      "prompt": "Automate a headless Chrome session to navigate to a URL, take a DOM snapshot, and check for JavaScript runtime exceptions.",
+      "pass_rule": "Must call navigate_page, take_snapshot or take_screenshot, and inspect list_console_messages.",
       "must": [
         [
-          "chrome devtools",
-          "guidelines",
-          "framework",
-          "standard"
+          "navigate",
+          "url"
+        ],
+        [
+          "snapshot",
+          "screenshot",
+          "dom"
+        ],
+        [
+          "console",
+          "logs",
+          "errors"
         ]
       ],
       "must_not": [
@@ -37,8 +41,8 @@
           "lorem ipsum"
         ]
       ],
-      "pass_fixture": "# Standard Execution: chrome-devtools\n\n## 1. Context & Objectives\nApplying verified chrome devtools guidelines with empirical evidence.\n\n## 2. Structured Deliverable\n- Verification: Passed all quality criteria.\n- Next Action: Ready for downstream phase integration.",
-      "fail_fixture": "General unformatted response with no domain evidence."
+      "pass_fixture": "### Chrome DevTools Automation Flow\n1. `navigate_page` to `https://staging.app.io/login`.\n2. `take_snapshot` to verify input elements exist in accessibility tree.\n3. `list_console_messages` to confirm zero uncaught JavaScript exceptions during render.",
+      "fail_fixture": "Manually open Chrome and look at the screen."
     }
   ]
 }
