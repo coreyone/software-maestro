@@ -11,11 +11,27 @@
       "trigger": true
     },
     {
+      "prompt": "Verify the empirical claims in this news article against the original peer-reviewed scientific paper PDF and audit the statistical methodology for p-hacking and sampling bias.",
+      "trigger": true
+    },
+    {
+      "prompt": "Audit the statistics and effect sizes of this health study to determine if methodological errors flip the conclusion.",
+      "trigger": true
+    },
+    {
+      "prompt": "Cross-check this government report claim against primary census data and extract overlooked baseline statistics.",
+      "trigger": true
+    },
+    {
       "prompt": "Write a terraform script to deploy an AWS RDS Postgres cluster.",
       "trigger": false
     },
     {
       "prompt": "Fix a CSS z-index stacking context bug in our dropdown menu.",
+      "trigger": false
+    },
+    {
+      "prompt": "Write a Python function to compute SHA-256 hashes.",
       "trigger": false
     }
   ],
@@ -71,6 +87,38 @@
       ],
       "pass_fixture": "### Growth Experiment Design: Collaborative Workspace Invite Flow\n\n#### 1. Work Classification & Loop Mapping\n- **Work Type**: Growth Loop Accelerator.\n- **Target Loop Step**: User Activation -> Team Invite (Output of new workspace creation generates downstream input of new team signups).\n\n#### 2. Pre-Experiment Qualitative Gate\n- **Evidence**: 8 recorded user onboarding sessions and 12 Zendesk tickets showed users struggled to find the team invite button after setup.\n\n#### 3. Formal Hypothesis Statement\n*If we* introduce an inline team member invite modal immediately after workspace creation, *then* new workspace creators will invite colleagues during peak setup motivation, *resulting in* a 15% lift in Day-7 Team Activation Rate, *because* collaboration intent is highest right after initial workspace configuration.\n\n#### 4. Metric Scorecard\n- **Primary Metric**: Day-7 Team Activation Rate (Workspaces with >=2 active members).\n- **Secondary Metric**: Invites sent per workspace creator.\n- **Guardrail Metrics**: Workspace creation drop-off rate and user invite spam complaint rate.\n\n#### 5. Statistical Sizing & Runtime\n- **Target MDE**: 10% relative lift (alpha = 0.05, Power = 80%).\n- **Sample Size**: 12,000 creators per variant.\n- **Duration**: 14-day minimum duration (2 full business cycles to smooth day-of-week seasonality).\n\n#### 6. Decision Rubric & 3-Way Post-Mortem\n- **100% Rollout**: Statistically significant lift in Day-7 Activation (p < 0.05) with zero breach in guardrails.\n- **Post-Mortem Classification on Failure**:\n  - *Invalidated Mental Model*: Creators do not want to invite teammates before configuring content (stop invite flow tests).\n  - *Execution Mismatch*: Modal was dismissed because copy was vague (redesign variant UI).\n  - *Under-Powered*: Lift was +4% but sample size was insufficient to reach statistical significance.",
       "fail_fixture": "Let's turn on the invite modal for 50% of users and if numbers look good after 2 days we ship it."
+    },
+    {
+      "id": "primary-source-claims-audit",
+      "prompt": "Audit the empirical claims in this news report against the original published scientific research PDF.",
+      "pass_rule": "Cross-checks claims against primary source evidence, extracts baseline numbers, and identifies omitted data.",
+      "must": [
+        ["Primary Source", "primary source", "original paper", "PDF", "Table"],
+        ["Verification", "verified", "Claim", "claim"],
+        ["Baseline", "absolute risk", "overlooked", "omitted"]
+      ],
+      "must_not": [
+        "trust secondary news article without checking primary sources",
+        "accept press release without verification"
+      ],
+      "pass_fixture": "Primary Source Audit: Verified claim against Table 2 of the original research PDF. The reported 50% relative increase corresponds to an absolute baseline shift from 0.02% to 0.03%, with overlooked confidence intervals crossing null.",
+      "fail_fixture": "Trust secondary news article without checking primary sources and accept press release without verification."
+    },
+    {
+      "id": "statistical-bias-and-p-hacking-audit",
+      "prompt": "Audit the methodology of this clinical study for statistical bias and determine if errors flip the conclusion.",
+      "pass_rule": "Audits for sampling bias, p-hacking or multiple comparisons, checks confidence intervals/effect sizes, and determines if conclusion flips.",
+      "must": [
+        ["p-hacking", "multiple comparisons", "sampling bias", "bias"],
+        ["Effect Size", "Cohen", "Confidence Interval", "95% CI", "p-value"],
+        ["Inversion", "flip", "conclusion", "stakes"]
+      ],
+      "must_not": [
+        "assume statistics are valid because p is less than 0.05",
+        "ignore sampling bias and confounding"
+      ],
+      "pass_fixture": "Statistical Audit: Detected severe p-hacking across 32 uncorrected subgroup endpoints. The 95% CI crosses the null boundary once Bonferroni correction is applied. Inversion Impact: The error flips the positive conclusion to a null result.",
+      "fail_fixture": "Assume statistics are valid because p is less than 0.05 and ignore sampling bias and confounding."
     }
   ]
 }

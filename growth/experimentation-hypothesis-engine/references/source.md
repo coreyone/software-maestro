@@ -1,12 +1,59 @@
-# Growth Experimentation, Hypothesis Gating, & Loop Acceleration Framework
+# Canonical References: Scientific Claims Auditing & Growth Experimentation
 
-A high-velocity experimentation engine does not merely run isolated A/B tests; it accelerates **compounding growth loops** and converts every test result (win or loss) into permanent organizational intelligence.
+This document provides foundational methodologies, statistical auditing protocols, cognitive bias checks, and experimentation mathematics for evaluating empirical claims and designing rigorous product experiments.
 
 ---
 
-## 1. Product Work Classification & Experiment Routing
+## 1. Neutral Science-Led Claims Verification & Primary Source Grounding
 
-Not every product change requires a 14-day A/B test. Match the validation method to the type of product bet:
+### 1.1 The Primary Source Mandate
+Secondary reporting, press releases, and executive summaries frequently distort scientific and empirical truth through:
+- **Exaggerated Effect Sizes:** Reporting relative percentage changes without baseline absolute rates (e.g., "Drug increases stroke risk by 50%" when baseline risk rises from 2 in 10,000 to 3 in 10,000—an absolute difference of 0.01%).
+- **Causal Leap from Observational Data:** Treating observational correlation as proven causation without controlling for confounding variables or healthy user bias.
+- **Omission of Confidence Bounds:** Presenting point estimates as certainties while ignoring wide 95% confidence intervals that cross the null boundary.
+
+### 1.2 The Verification Hierarchy
+When auditing any empirical claim, trace evidence down to its primary foundation:
+1. **Level 1 (Gold Standard):** Pre-registered, randomized, double-blind, placebo-controlled trials (RCTs) and open-access raw datasets with reproducible analysis code.
+2. **Level 2:** Pre-registered observational studies with explicit instrumental variable (IV), regression discontinuity (RDD), or difference-in-differences (DiD) quasi-experimental designs.
+3. **Level 3:** Peer-reviewed retrospective cohort studies and registry analyses.
+4. **Level 4 (High Risk of Bias):** Uncontrolled before-and-after studies, cross-sectional surveys, and non-peer-reviewed whitepapers.
+5. **Level 5 (Discard as Evidence):** Press releases, journalistic interpretations, and opinion blogs citing secondary summaries.
+
+---
+
+## 2. Statistical & Methodological Bias Audit Protocol
+
+### 2.1 P-Hacking, Data Snooping & Multiple Comparisons
+- **The Multiple Comparisons Problem:** When testing $k$ independent hypotheses at $\alpha = 0.05$, the probability of at least one false positive (Family-Wise Error Rate) is:
+  $$\text{FWER} = 1 - (1 - \alpha)^k$$
+  For $k = 20$ endpoints, the chance of a false positive is $\approx 64\%$.
+- **Mandatory Corrections:**
+  - **Bonferroni Correction:** Set threshold to $\alpha_{\text{adjusted}} = \frac{\alpha}{k}$.
+  - **Benjamini-Hochberg False Discovery Rate (FDR):** Rank p-values $p_{(1)} \le p_{(2)} \le \dots \le p_{(m)}$ and find the largest $k$ such that $p_{(k)} \le \frac{k}{m} Q$.
+- **HARKing (Hypothesizing After Results are Known):** Presenting post-hoc subgroup discoveries as if they were pre-planned hypotheses. Always verify against the original trial protocol or pre-registration.
+
+### 2.2 Common Methodological Biases
+
+| Bias Type | Mechanism | Diagnostic Indicator |
+| :--- | :--- | :--- |
+| **Sampling / Selection Bias** | Non-random participant inclusion creates systematic differences from target population. | Volunteer cohorts, demographic skews, non-response rates $>20\%$. |
+| **Survivorship Bias** | Only subjects surviving a filter are analyzed. | Analyzing top-performing accounts or surviving customers without churned cohort data. |
+| **Healthy User Bias** | Adherent or engaged users possess unmeasured positive traits (wealth, discipline). | Observational studies showing users who take vitamins or enable features have better outcomes. |
+| **Simpson's Paradox** | A trend appears in aggregated data but reverses when divided into subgroups. | Subgroup sample mix shifts (e.g. mobile vs desktop, new vs returning users) distort aggregate metric. |
+| **Collider Bias** | Conditioning or filtering on a variable caused by both exposure and outcome creates spurious correlation. | Analyzing only hired candidates, hospitalized patients, or active daily users. |
+| **Regression to the Mean** | Extreme outliers naturally revert to the average upon re-measurement. | Measuring performance immediately after a catastrophic crash or sudden traffic spike. |
+
+### 2.3 Effect Size vs. P-Value Verification
+Never rely solely on p-values. A trivial effect can achieve $p < 0.001$ with large sample sizes ($N > 500,000$), while a massive effect may show $p = 0.08$ due to under-powering.
+- **Continuous Outcomes:** Calculate Cohen's $d = \frac{\mu_1 - \mu_2}{\sigma_{\text{pooled}}}$.
+  - Small: $d = 0.2$, Medium: $d = 0.5$, Large: $d = 0.8$.
+- **Binary Outcomes:** Calculate **Absolute Risk Reduction (ARR)** and **Number Needed to Treat (NNT)**:
+  $$\text{ARR} = |p_{\text{control}} - p_{\text{treatment}}|, \quad \text{NNT} = \frac{1}{\text{ARR}}$$
+
+---
+
+## 3. Product Work Classification & Experiment Routing
 
 | Work Type | Core Objective | Primary Validation Mechanism | When to A/B Test |
 | :--- | :--- | :--- | :--- |
@@ -16,7 +63,7 @@ Not every product change requires a 14-day A/B test. Match the validation method
 
 ---
 
-## 2. Growth Loop Step Mapping
+## 4. Growth Loop Step Mapping
 
 Every growth experiment must state which stage of the self-reinforcing loop it accelerates:
 
@@ -29,62 +76,23 @@ flowchart LR
     --> In
 ```
 
-* **The Loop Test Rule**: An experiment is only high-leverage if increasing the step's efficiency increases the volume or speed of the downstream reinvestment step.
+- **The Loop Test Rule**: An experiment is only high-leverage if increasing the step's efficiency increases the volume or speed of the downstream reinvestment step.
 
 ---
 
-## 3. The Pre-Experiment Qualitative Gate
+## 5. Statistical Sizing & Runtime Rules
 
-> *"Never use expensive engineering hours and A/B test traffic to discover what 5 user interviews could have told you for free."*
+### Sample Size & Minimum Detectable Effect (MDE)
+For a two-tailed test with significance $\alpha = 0.05$ ($Z_{\alpha/2} = 1.96$) and power $1-\beta = 0.80$ ($Z_{\beta} = 0.84$):
+$$n = 2 \cdot \left( \frac{Z_{\alpha/2} + Z_{\beta}}{\text{MDE}} \right)^2 \cdot \sigma^2 \approx \frac{16 \cdot \sigma^2}{\text{MDE}^2}$$
 
-Before allocating traffic to a live A/B test:
-1. **Friction Evidence**: Provide at least 5 session recordings, customer support tickets, or VoC problem tags demonstrating the specific breakdown.
-2. **Behavioral Usability Check**: Verify that users in usability testing understand the proposed variant without hand-holding.
-
----
-
-## 4. The Canonical Hypothesis Formula
-
-$$\text{If we } [\text{Action/Intervention}] \longrightarrow \text{Then } [\text{Behavioral Shift}] \longrightarrow \text{Resulting in } [\Delta \text{ Primary Metric}] \longrightarrow \text{Because } [\text{Core Rationale}]$$
-
-### Example:
-*"If we introduce an inline viral invite prompt immediately after a user creates their first shared workspace, then active creators will invite their teammates during peak dopamine, resulting in a 15% lift in Day-7 Team Activation, because user intent to collaborate is highest right after workspace creation."*
+### Practical Experimentation Invariants:
+1. **14-Day Minimum Duration Rule:** Always run for at least 14 full days (two full business cycles) to eliminate day-of-week seasonality bias.
+2. **Strict No-Peeking Rule:** Pre-commit to sample size and duration. Peeking at p-values daily inflates false positive rates from 5% to $>30\%$.
 
 ---
 
-## 5. Metric Hierarchy & Guardrail Invariants
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                             METRIC SCORECARD                                │
-├──────────────────────────────┬──────────────────────────────┬───────────────┤
-│ Primary Metric (Decision)    │ Secondary Metrics (Signals)  │ Guardrails    │
-├──────────────────────────────┼──────────────────────────────┼───────────────┤
-│ • Single decision metric.    │ • Leading adoption signals.  │ • Must NOT    │
-│ • Directly tied to loop step.│ • Mid-funnel progression.    │   degrade.    │
-│ • E.g., Team Activation %.   │ • E.g., Invites Sent / User. │ • Latency     │
-│                              │                              │ • Support Vol │
-│                              │                              │ • Retention   │
-└──────────────────────────────┴──────────────────────────────┴───────────────┘
-```
-
----
-
-## 6. Statistical Sizing & Runtime Rules
-
-### Minimum Detectable Effect (MDE) & Sample Size:
-For standard two-tailed tests ($\alpha = 0.05$, Power = $80\%$):
-$$n \approx \frac{16 \cdot \sigma^2}{\text{MDE}^2}$$
-
-### Practical Operating Rules:
-1. **14-Day Minimum Duration**: Always run for at least 14 full days (two business cycles) to eliminate day-of-week seasonality bias.
-2. **No Peeking**: Never stop a test early simply because $p < 0.05$ on Day 3. Pre-commit to sample size and duration.
-
----
-
-## 7. The 3-Way Experiment Post-Mortem Taxonomy
-
-When a test fails to achieve statistical significance or fails guardrails, classify the learning:
+## 6. The 3-Way Experiment Post-Mortem Taxonomy
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -98,3 +106,14 @@ When a test fails to achieve statistical significance or fails guardrails, class
 │   base; do NOT re-test.      │ • Redesign variant and re-run│   sample MDE. │
 └──────────────────────────────┴──────────────────────────────┴───────────────┘
 ```
+
+---
+
+## 7. Canonical Bibliography
+
+- **John P.A. Ioannidis:** *Why Most Published Research Findings Are False* (PLoS Medicine, 2005)
+- **Andrew Gelman & Eric Loken:** *The Statistical Crisis in Science: The Garden of Forking Paths* (American Scientist, 2014)
+- **Ron Kohavi, Diane Tang, Ya Xu:** *Trustworthy Online Controlled Experiments: A Practical Guide to A/B Testing* (Cambridge University Press, 2020)
+- **Judea Pearl & Dana Mackenzie:** *The Book of Why: The New Science of Cause and Effect* (Basic Books, 2018)
+- **Ronald A. Fisher:** *Statistical Methods for Research Workers* (Oliver & Boyd, 1925)
+- **Jerzy Neyman & Egon Pearson:** *On the Problem of the Most Efficient Tests of Statistical Hypotheses* (Philosophical Transactions of the Royal Society, 1933)
