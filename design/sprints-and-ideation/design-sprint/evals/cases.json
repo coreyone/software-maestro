@@ -3,11 +3,11 @@
   "version": 1,
   "trigger_cases": [
     {
-      "prompt": "Run a 5-day Jake Knapp design sprint for our mobile banking app, mapping the journey and generating Crazy 8s sketches.",
+      "prompt": "Run a 5-day Jake Knapp design sprint for our mobile banking app, mapping the journey on tldraw and generating Crazy 8s sketches.",
       "trigger": true
     },
     {
-      "prompt": "Generate a 12-panel storyboard and Decider Supervote for our checkout sprint.",
+      "prompt": "Generate a 12-panel storyboard and Decider Supervote for our checkout sprint with Stitch lightning demos.",
       "trigger": true
     },
     {

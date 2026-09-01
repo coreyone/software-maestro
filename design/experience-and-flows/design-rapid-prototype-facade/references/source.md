@@ -1,46 +1,42 @@
 # Jake Knapp Design Sprint: Goldilocks Prototype Facade (Thursday)
 
-## 1. First Principles & Mindsets
-- **The Hollywood Set Facade**: Flawless visual surface, empty scaffolding behind the wall.
-- **Goldilocks Fidelity Curve**: Wireframes evoke intellectual critiques; real code takes weeks; Goldilocks evokes honest emotional reactions.
-- **Disposable Asset**: Code built for 60 minutes of testing on Friday, then discarded.
-- **15:00 Trial Run**: Compulsory end-to-end rehearsal before the day ends.
+## 1. The Prototyping Fidelity Matrix
+
+```
+┌───────────────────────────────┬───────────────────────────────┬──────────────────────────────────────────┐
+│ Fidelity Tier                 │ Primary Tooling               │ When to Choose                           │
+├───────────────────────────────┼───────────────────────────────┼──────────────────────────────────────────┤
+│ **Low-Fidelity Wireframe**    │ `tldraw-offline`              │ • Testing rough layout & IA wayfinding   │
+│                               │ (tldraw Desktop Canvas)       │ • Rapid structural validation            │
+│                               │                               │ • Interactive buttons via document script│
+├───────────────────────────────┼───────────────────────────────┼──────────────────────────────────────────┤
+│ **High-Fidelity Web Facade**  │ Google Stitch MCP             │ • Testing visual appeal, branding & trust│
+│                               │ + `stitch-loop`               │ • Testing real customer conversion & WTP │
+│                               │                               │ • Pixel-perfect responsive HTML/CSS      │
+└───────────────────────────────┴────────────────────────────────┴──────────────────────────────────────────┘
+```
 
 ---
 
-## 2. Google Stitch MCP & Stitch-Loop Acceleration
+## 2. Low-Fidelity Wireframing Workflow with `tldraw-offline`
 
-Google Stitch transforms Thursday prototyping by automating screen generation and styling:
+1. **Document Setup**: Discover open doc via `POST /api/search` (`api.getDocs()`).
+2. **Create Wireframe Frames**: Use `/exec` to render structural screen rectangles (`editor.createShape({ type: 'geo', props: { geo: 'rectangle', w: 390, h: 844 } })`).
+3. **Interactive Clicks (Durable Script)**:
+   - Open `/script-workspace` and implement `script/main.js` using the `clickable-card-or-button-ui` recipe:
+   ```javascript
+   helpers.onShapeClick(buttonShapeId, () => {
+     editor.setCamera({ x: -500, y: 0, z: 1 }, { animation: { duration: 250 } })
+   })
+   ```
+4. **Capture Visual Proof**: Call `api.getScreenshot(docId)` to generate a snapshot for the 15:00 QA report.
 
-```
-  [Storyboard Panel] ──► [Enhanced Prompt with .stitch/DESIGN.md]
-                                │
-                                ▼
-                   [Stitch MCP: generate_screen_from_text]
-                                │
-                 ┌──────────────┴──────────────┐
-                 ▼                             ▼
-     [.stitch/designs/{page}.html]    [.stitch/designs/{page}.png]
-                 │
-                 ▼
-     [Assemble in site/public/{page}.html] ◄── [Stitch-Loop Baton]
-                 │
-                 ▼
-     [edit_screens for Rapid Polish]
-                 │
-                 ▼
-     [Chrome DevTools Local Verification & 15:00 QA]
-```
+---
 
-### Stitch MCP Tooling Reference:
-1. `create_project`: Initializes a new Stitch project (persisting `projectId` in `.stitch/metadata.json`).
-2. `generate_screen_from_text`: Generates HTML and screenshot assets from structured prompts.
-3. `edit_screens`: Targeted edits to existing screens (e.g. *"Change hero CTA to emerald green and update headline"*).
-4. `get_screen` / `list_screens`: Retrieves screen status and asset download URLs.
+## 3. High-Fidelity Web Facade Workflow with Google Stitch MCP
 
-### Industrial Role Division:
-- **Makers (2-3)**: Generate screens via Stitch MCP and assemble HTML layouts.
-- **Stitcher (1)**: Wires interactive links between pages and ensures unified header/footer navigation.
-- **Writer (1)**: Crafts real headlines, button labels, and zero *Lorem Ipsum* microcopy.
-- **Asset Collector (1)**: Sources authentic photography and brand logos.
-- **Interviewer (1)**: Finalizes Friday's 5-Act interview guide and scorecards.
+1. **Screen Generation**: Call `generate_screen_from_text` with `.stitch/DESIGN.md` tokens.
+2. **Asset Retrieval**: Download `.stitch/designs/{page}.html` and high-res `.png` screenshots.
+3. **Multi-Screen Baton Assembly**: Use `stitch-loop` (`.stitch/next-prompt.md`) to assemble the full golden path in `site/public/`.
+4. **Targeted Edits**: Use `edit_screens` for rapid micro-adjustments.
+5. **Local Verification**: Verify with Chrome DevTools MCP (`npx serve site/public`) before the 15:00 Trial Run.

@@ -3,55 +3,54 @@
   "version": 1,
   "trigger_cases": [
     {
-      "prompt": "Build a Goldilocks rapid prototype facade for our Thursday design sprint from the approved 12-panel storyboard.",
+      "prompt": "Build a Thursday Goldilocks prototype facade using Stitch MCP for our mobile onboarding sprint.",
       "trigger": true
     },
     {
-      "prompt": "Create an interactive prototype facade in HTML/Tailwind with realistic copy for tomorrow's user testing.",
+      "prompt": "Create a clickable basic wireframe prototype on tldraw Desktop for early layout testing.",
       "trigger": true
     },
     {
-      "prompt": "Write a GraphQL mutation resolver for user password resets.",
-      "trigger": false
-    },
-    {
-      "prompt": "Run a regression discontinuity quasi-experiment in Python.",
+      "prompt": "Write a PostgreSQL migration script for user sessions.",
       "trigger": false
     }
   ],
   "binary_cases": [
     {
-      "id": "goldilocks-facade-spec",
-      "prompt": "Generate the prototype facade specification and 15:00 Trial Run QA report for a medical prescription delivery app.",
-      "pass_rule": "Must include Goldilocks Facade architecture, assigned pod roles (Maker, Stitcher, Writer, Asset Collector), 100% authentic data, and a 15:00 Trial Run QA report.",
+      "id": "goldilocks-facade-execution",
+      "prompt": "Specify the role division and tooling blueprint for building a disposable prototype facade for a 12-panel checkout storyboard.",
+      "pass_rule": "Must specify fidelity tier (tldraw wireframe vs Stitch high-fidelity), role division (Maker, Stitcher, Writer, Asset Collector), zero Lorem Ipsum, and 15:00 Trial Run QA.",
       "must": [
         [
-          "goldilocks",
-          "facade"
+          "fidelity",
+          "tldraw",
+          "stitch"
         ],
         [
           "maker",
           "stitcher",
-          "writer"
+          "writer",
+          "asset collector"
         ],
         [
           "trial run",
-          "qa report"
+          "15:00",
+          "qa"
         ],
         [
-          "golden path"
+          "zero lorem ipsum",
+          "authentic copy",
+          "realistic"
         ]
       ],
       "must_not": [
         [
-          "lorem ipsum"
-        ],
-        [
-          "database schema migration"
+          "write production database code",
+          "spend 2 weeks building backend"
         ]
       ],
-      "pass_fixture": "## Goldilocks Facade Architecture\nBuilt as a high-fidelity interactive web facade simulating iOS mobile viewport.\n- **Frontend Stack**: Tailwind CSS + Interactive Alpine.js state containers with pre-rendered JSON mock data.\n\n## Pod Role Division\n- **Maker 1**: Built Screens 1-6 (Rx Scan & Doctor Verification).\n- **Maker 2**: Built Screens 7-12 (Pharmacy Selection & Delivery Ticker).\n- **Writer**: Authored exact dosage instructions: 'Amoxicillin 500mg - Take 1 capsule 3x daily with food' and authentic pricing ($12.40 copay).\n- **Asset Collector**: Sourced authentic CVS/Walgreens pharmacy badges and HIPAA security seals.\n- **Stitcher**: Merged into unified golden path.\n\n## 15:00 Trial Run QA Report\n- **Coverage**: 12/12 storyboard frames navigable.\n- **Defects Fixed**: Corrected delivery time estimate from placeholder '1 hr' to 'Arriving Today by 4:30 PM'.\n- **Status**: GREEN LIGHT for Friday testing.",
-      "fail_fixture": "We will build a prototype using React and Node.js with a MongoDB backend."
+      "pass_fixture": "### Thursday Prototype Facade Execution Blueprint\n- **Fidelity Tier**: High-Fidelity Web Facade via Google Stitch MCP (`generate_screen_from_text`) and low-fidelity structural wireframes on `tldraw` canvas.\n- **Role Division**:\n  - *Makers*: Generate 12 screen layouts using Stitch MCP.\n  - *Writer*: Write authentic copy and real product pricing (zero Lorem Ipsum).\n  - *Asset Collector*: Gather real brand logos and hero photography.\n  - *Stitcher*: Wire interactive links in `site/public/` via `stitch-loop`.\n- **15:00 Trial Run**: Rehearse end-to-end user path at 3:00 PM and fix broken navigation before 5:00 PM.",
+      "fail_fixture": "Let's start building the production backend database."
     }
   ]
 }
