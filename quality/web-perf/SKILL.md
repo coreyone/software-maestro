@@ -1,6 +1,6 @@
 ---
 name: web-perf
-description: "Trigger: web-perf, Core Web Vitals, LCP optimization, INP, CLS, page load speed, render blocking resources, lighthouse performance. Scope: Web Performance & Core Web Vitals Optimization. Analyzes LCP, INP, CLS, render-blocking assets, and network dependency chains. Boundary: Excludes accessibility compliance audits."
+description: "Trigger: web-perf, developer-web-performance, Core Web Vitals, LCP optimization, INP, CLS, page load speed, render blocking resources, lighthouse performance. Scope: Web Performance & Core Web Vitals Optimization. Analyzes LCP, INP, CLS, render-blocking assets, and network dependency chains. Boundary: Excludes accessibility compliance audits."
 ---
 
 # Web Performance Audit

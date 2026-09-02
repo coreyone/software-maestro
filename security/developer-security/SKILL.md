@@ -1,6 +1,6 @@
 ---
 name: developer-security
-description: "Trigger: developer-security, software security, OWASP top 10, credential leaks, input sanitization, threat model, CSP headers, secrets scanning. Scope: Software Security & Threat Prevention. Governs secure coding practices, OWASP Top 10 mitigation, secret scanning, and CSP enforcement. Boundary: Excludes client session token cookies."
+description: "Trigger: developer-security, developer-web-security, secrets-management, software security, OWASP top 10, credential leaks, input sanitization, threat model, CSP headers, secrets scanning. Scope: Software Security & Threat Prevention. Governs secure coding practices, OWASP Top 10 mitigation, secret scanning, and CSP enforcement. Boundary: Excludes client session token cookies."
 ---
 
 # 1.1 Vibe Coding Security Fundamentals

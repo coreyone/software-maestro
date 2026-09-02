@@ -1,6 +1,6 @@
 ---
 name: chrome-devtools
-description: "Trigger: chrome-devtools, headless browser, CDP protocol, browser automation, inspect element, console logs, network requests, DOM snapshot. Scope: Headless Chrome Browser Automation via Chrome DevTools Protocol (CDP) for testing, scraping, and inspection. Boundary: Excludes macOS native desktop automation."
+description: "Trigger: chrome-devtools, web-endpoint-documenter, headless browser, CDP protocol, browser automation, inspect element, console logs, network requests, DOM snapshot. Scope: Headless Chrome Browser Automation via Chrome DevTools Protocol (CDP) for testing, scraping, and inspection. Boundary: Excludes macOS native desktop automation."
 ---
 
 ## Core Concepts

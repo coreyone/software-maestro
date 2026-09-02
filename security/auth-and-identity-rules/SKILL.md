@@ -1,6 +1,6 @@
 ---
 name: auth-and-identity-rules
-description: "Trigger: auth-and-identity-rules, OAuth 2.1, PKCE flow, JWT session, secure cookies, keychain storage, mTLS zero trust, user authentication. Scope: User Authentication, Session Control & Zero-Trust Identity. Governs OAuth 2.1 PKCE, secure session storage, and mutual TLS identity. Boundary: Excludes general data caching."
+description: "Trigger: auth-and-identity-rules, mtls-configuration, OAuth 2.1, PKCE flow, JWT session, secure cookies, keychain storage, mTLS zero trust, user authentication. Scope: User Authentication, Session Control & Zero-Trust Identity. Governs OAuth 2.1 PKCE, secure session storage, and mutual TLS identity. Boundary: Excludes general data caching."
 ---
 
 # 🔑 Core Philosophy: Trust must be earned and constantly verified.

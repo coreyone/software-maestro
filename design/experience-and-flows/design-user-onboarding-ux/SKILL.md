@@ -1,6 +1,6 @@
 ---
 name: design-user-onboarding-ux
-description: "Trigger: design-user-onboarding-ux, user onboarding, first time user experience, FTUX, activation flow, aha moment, product walkthrough, empty states. Scope: First-Time User Experience (FTUX) & Product Onboarding Design. Optimizes time-to-value, reduces signup cognitive friction, and structures empty states. Boundary: Excludes backend auth token issuance."
+description: "Trigger: design-user-onboarding-ux, failure-states-empty-states, user onboarding, first time user experience, FTUX, activation flow, aha moment, product walkthrough, empty states. Scope: First-Time User Experience (FTUX) & Product Onboarding Design. Optimizes time-to-value, reduces signup cognitive friction, and structures empty states. Boundary: Excludes backend auth token issuance."
 ---
 
 # User Onboarding & First-Time User Experience (FTUX) Rules
