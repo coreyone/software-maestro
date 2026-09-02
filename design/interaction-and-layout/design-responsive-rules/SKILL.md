@@ -45,3 +45,16 @@ Do not use this skill as the primary guide when another skill has a tighter doma
 - Summary: one-paragraph decision or result
 - Actions: compact checklist with owners and status
 - Evidence: links/paths to artifacts proving completion
+
+---
+
+## Anti-Patterns & Responsive Viewport Invariants
+
+Prevent broken layout boundaries, gutter clipping, and container spillage across breakpoints:
+
+- **`body-text-viewport-edge` (Body text touching viewport edge)**: Paragraphs or headings rendering flush against mobile viewport edges with zero horizontal gutter. Wrap content in containers providing at least $16\text{px}$ (mobile) to $24\text{–}32\text{px}$ (desktop) padding (`px-4 sm:px-6 lg:px-8`).
+- **`first-viewport-column-overflow` (First viewport column overflow)**: Opening multi-column grid where one column runs significantly below the fold while the adjacent column terminates early, creating lopsided dead space and an awkward fold line. Equalize column weights or push auxiliary content below the fold.
+- **`edge-flush-cards` (Cards flush against scroller edge)**: Horizontal scroll carousels or tab panels where leading cards sit flush against the boundary at rest, clipping outer rounded corners and elevation shadows. Enforce balanced scroll-padding and inset gutters on both edges of the scroll track.
+- **`text-overflow` (Content overflowing container)**: Flex/grid children or long strings bursting out of their parents and triggering unintended horizontal window scrolling. Use `min-w-0` on flex children, `truncate` / `break-words`, and explicit container bounds.
+- **`clipped-overflow-container` (Positioned child clipped by overflow container)**: Absolutely-positioned dropdowns, flyout menus, tooltips, or action sheets truncated by ancestor containers with `overflow: hidden` or `overflow: clip`. Render floating overlays through portals or move them outside the clipping boundary.
+

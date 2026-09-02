@@ -45,3 +45,20 @@ Do not use this skill as the primary guide when another skill has a tighter doma
 - Summary: one-paragraph decision or result
 - Actions: compact checklist with owners and status
 - Evidence: links/paths to artifacts proving completion
+
+---
+
+## Anti-Patterns & Usability Heuristic Invariants
+
+Enforce accessibility compliance, cognitive legibility, and robust visual affordances:
+
+- **`low-contrast` (Low contrast text - WCAG AA)**: Text failing minimum contrast ratio ($4.5:1$ for body text, $3.0:1$ for large text $\ge 18\text{pt}$ or $\ge 14\text{pt}$ bold). Evaluate contrast across all composited background surfaces, gradient stops, and interactive `:hover` / `:focus` states.
+- **`undersized-ui-text` (Undersized functional UI text)**: Interactive or data-bearing text (links, buttons, navigation items, form labels, table cells, meta badges) rendered below $11\text{px}$. Strictly enforce an $11\text{px}$ floor across all components (with $10\text{px}$ permitted only for non-interactive legal fine print).
+- **`tiny-text` (Tiny body text)**: Body paragraphs rendered below $12\text{px}$. Ensure body copy is at least $14\text{px}$ ($16\text{px}$ preferred) for sustained reading comfort across high-DPI and mobile displays.
+- **`justified-text` (Justified body text)**: Justified text alignment without automated hyphenation producing uneven word spacing ("rivers of white"). Use `text-align: left` (or `start` for RTL).
+- **`skipped-heading` (Skipped heading hierarchy level)**: Jumping heading levels (e.g. `$h1$` directly to `$h3$`), breaking the document outline and screen-reader tree navigation. Maintain strict sequential heading structures.
+- **`repeated-container-text` (Redundant repeated container text)**: Rendering the exact same literal label or status $\ge 3$ times within a single card or modular container. State key messages once in their primary contextual slot.
+- **`content-hidden-at-rest` (Content invisible at rest)**: Core text left at `opacity: 0` or `visibility: hidden` because an entrance animation or reveal trigger failed to fire. Ensure content is visible by default; layer motion progressively.
+- **`text-occlusion` (Text occluded by overlapping layers)**: Text obscured under an opaque decorative graphic, fixed floating widget, or leaking container padding. Ensure safe z-index layering and clearance.
+- **`broken-image` (Broken or placeholder image references)**: Missing `src`, empty string `src=""`, or dummy placeholder tokens rendering broken image icons. Provide production-ready media assets with fallback dimensions.
+

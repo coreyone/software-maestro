@@ -45,3 +45,17 @@ Do not use this skill as the primary guide when another skill has a tighter doma
 - Summary: one-paragraph decision or result
 - Actions: compact checklist with owners and status
 - Evidence: links/paths to artifacts proving completion
+
+---
+
+## Anti-Patterns & Motion Invariants
+
+Reject decorative motion gimmicks and performance-degrading animation patterns:
+
+- **`bounce-easing` (Bounce or elastic easing)**: Overshoot cubic-bezier curves ($y < -0.1$ or $y > 1.1$), keyframes named `bounce`, `elastic`, `wobble`, `jiggle`, `spring`, or `animate-bounce`. Real physical interfaces decelerate smoothly without cartoonish recoil. Enforce exponential ease-out (`cubic-bezier(0.16, 1, 0.3, 1)` or `cubic-bezier(0, 0, 0.2, 1)`).
+- **`pulsing-dot` (Decorative pulsing status dot)**: Small circular indicators ($\le 16\text{px}$ square, `border-radius: 50%`) with infinite pulsing scale, opacity, or shadow loops in headers, navbars, or badges. Reserve pulse animations exclusively for verifiable live data streaming or emergency states; static color-coded indicators with text labels are clearer and calmer.
+- **`marquee` (Auto-scrolling marquee)**: `<marquee>` elements or infinite horizontal loops translating track containers across $\ge 20\%$ width. Demands unearned visual attention while concealing half its contents. Replace with deliberate user-driven horizontal scrollers or static multi-column grids.
+- **`layout-transition` (Layout property animation)**: Animating geometry properties (`width`, `height`, `padding`, `margin`, `max-height`, `min-width`) that trigger layout thrashing and dropped frames. Restrict transitions to compositor properties (`transform`, `opacity`), or use `grid-template-rows: 0fr -> 1fr` for smooth height accordions.
+- **`image-hover-transform` (Image hover scale or rotate)**: Scaling (`scale-105`), translating, or tilting images on cursor hover. Keep editorial and product photography stationary; reserve interaction feedback for buttons and interactive controls.
+- **`blinking-cursor` (Decorative blinking cursor)**: Simulating a command-line blinking caret in marketing hero headers. Let typography and layout anchor attention without faux-CLI decoration.
+

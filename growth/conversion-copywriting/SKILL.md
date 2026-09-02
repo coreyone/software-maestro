@@ -40,3 +40,15 @@ Do not use this skill for:
 - [ ] Subhead clearly explains the product mechanism and expected outcome in $\le 20$ words.
 - [ ] Primary CTA uses first-person or action-oriented imperative verbs (e.g., *"Start My Free Trial"* instead of *"Submit"*).
 - [ ] Copy eliminates passive voice and generic buzzwords (*"seamless", "all-in-one", "next-gen"*).
+
+---
+
+## Anti-Patterns & Copywriting Invariants
+
+Eliminate generated-copy cadence tells, generic SaaS fluff, and rhetorical clichés:
+
+- **`marketing-buzzword` (SaaS marketing buzzwords)**: Generic corporate filler verbs and adjectives (*"streamline"*, *"empower"*, *"supercharge"*, *"next-generation"*, *"cutting-edge"*, *"world-class"*, *"seamless"*, *"all-in-one"*, *"enterprise-grade"*). Replace with concrete, literal descriptions of what the product actually does.
+- **`aphoristic-cadence` (Aphoristic rhythm)**: Repeating formulaic contrast slogans across sections (*"X. No Y."*, *"X. Just Y."*, *"Not a tool. A platform."*, *"Build faster. Scale smarter."*). Express ideas through authentic customer outcomes rather than synthetic rhetorical contrasts.
+- **`em-dash-overuse` (Em-dash saturation)**: Over-saturating body copy with em-dashes ($\ge 8$ em-dashes `—` at a density near $1$ per 500 characters). Break compound clauses into punchy independent sentences or use commas, colons, and parentheses.
+- **`theater-slop-phrase` (Theater framing copy)**: Lazily labeling legacy workflows or alternative tools as *"X theater"* (*"compliance theater"*, *"management theater"*). Clearly articulate concrete trade-offs, measurable latencies, and technical failure modes instead.
+
