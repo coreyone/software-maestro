@@ -1,6 +1,6 @@
 ---
 name: systems-retro-pruning
-description: "Trigger: systems-retro-pruning, process pruning, process deprecation, tool stack audit, eliminate process waste, systems retro, toolchain governance. Scope: Product Operations Systems Retrospectives & Process Pruning. Audits process debt, stack-ranks tool utility, and deprecates bloat. Boundary: Excludes code-level refactoring."
+description: "Audit product operations debt, stack-rank tool utility, and deprecate redundant ceremonies."
 ---
 
 # Rule: Systems Retrospective, Toolchain Governance, & Process Pruning

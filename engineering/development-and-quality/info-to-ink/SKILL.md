@@ -1,6 +1,6 @@
 ---
 name: info-to-ink
-description: "Trigger: info-to-ink, token compression, caveman mode, high info to ink, compress output, eliminate filler, concise response. Scope: Output Token Compression. Eliminates conversational filler and rhetorical fluff while preserving all code, diffs, errors, and technical data. Boundary: Excludes technical grammar rules."
+description: "Compress output tokens by removing conversational filler while preserving code, diffs, and technical facts."
 ---
 
 # info-to-ink

@@ -1,6 +1,6 @@
 ---
 name: michael-bolton-pod-conductor
-description: "Trigger: michael-bolton-pod-conductor, pod conductor, pod orchestrator, lifecycle conductor, autonomous pod, agent pod director. Scope: Autonomous Multi-Agent Pod Conductor operating under the Michael Bolton Rule. Oversees lifecycle initiation, task routing, intent verification, and completion synthesis. Boundary: Excludes single-agent tactical debugging."
+description: "Orchestrate multi-agent pods using Deming systems thinking and structured intent delegation."
 ---
 
 # Rule: Michael Bolton Product Pod Conductor & Lifecycle Baton

@@ -1,6 +1,6 @@
 ---
 name: peekaboo
-description: "Trigger: peekaboo, macOS GUI automation, screen recording, simulator UI, desktop app click, capture screen, system dialog, macOS clipboard. Scope: macOS Native Desktop GUI Automation via Peekaboo CLI. Drives UI events, simulator clicks, and visual state capture. Boundary: Excludes headless web browsing."
+description: "Automate macOS native desktop GUI interactions, simulator clicks, and visual state capture."
 ---
 
 # Peekaboo

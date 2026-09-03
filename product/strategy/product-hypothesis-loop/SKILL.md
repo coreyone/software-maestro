@@ -1,6 +1,6 @@
 ---
 name: product-hypothesis-loop
-description: "Trigger: product-hypothesis-loop, empirical hypothesis, essential question, user market tech variables, rapid product test, testable assumption, tara seshan hypothesis. Scope: Modern Empirical Product Management & Rapid Hypothesis Loop. Formulates the 1 Essential Question, maps Users x Market x Tech, and dispatches the fastest empirical test vehicle (<48h). Boundary: Excludes full 20-page PRD authoring (use create-prd)."
+description: "Formulate testable product hypotheses, define falsification criteria, and validate user demand."
 ---
 
 # Rule: Modern Empirical Product Hypothesis Loop

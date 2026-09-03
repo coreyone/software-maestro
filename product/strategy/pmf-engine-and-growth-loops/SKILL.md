@@ -1,6 +1,6 @@
 ---
 name: pmf-engine-and-growth-loops
-description: "Trigger: pmf-engine-and-growth-loops, rahul vohra pmf, product market fit engine, brian balfour growth loops, andrew chen viral loops, superhuman pmf survey, high expectation customer, retention loops, loop vs funnel. Scope: Quantitative Product-Market Fit Optimization & Self-Sustaining Growth Loops. Governs Sean Ellis PMF benchmark scoring, HXC persona segmentation, 50/50 roadmap resource allocation, and compounding growth engine design. Boundary: Excludes paid ad campaign execution or pure UI conversion copywriting."
+description: "Measure product-market fit using Rahul Vohra engine surveys and map self-reinforcing growth loops."
 ---
 
 # PRODUCT-MARKET FIT ENGINE & GROWTH LOOPS

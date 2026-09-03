@@ -1,6 +1,6 @@
 ---
 name: design-information-architecture-rules
-description: "Trigger: design-information-architecture-rules, sitemap, navigation model, menu hierarchy, wayfinding, labeling, search facets, routing links. Scope: Information Architecture & Wayfinding. Governs visual hierarchies, navigation structures, sitemaps, and mental models. Boundary: Excludes backend routing code."
+description: "Design navigation hierarchies, sitemaps, search facets, and interface wayfinding models."
 ---
 
 # Information Architecture (IA) Rules — First Principles + Execution Playbook

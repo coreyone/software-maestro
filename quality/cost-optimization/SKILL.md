@@ -1,6 +1,6 @@
 ---
 name: cost-optimization
-description: "Trigger: cost-optimization, cloud cost reduction, AWS FinOps, Azure spending, GCP rightsizing, reserved instances, cost governance. Scope: Multi-Cloud FinOps & Cost Optimization. Governs cloud resource rightsizing, idle resource pruning, and reserved instance strategies. Boundary: Excludes application code refactoring."
+description: "Analyze cloud infrastructure spending, rightsize compute resources, and prune idle cloud instances."
 ---
 
 # Cloud Cost Optimization

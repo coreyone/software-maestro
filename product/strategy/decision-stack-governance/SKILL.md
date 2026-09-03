@@ -1,6 +1,6 @@
 ---
 name: decision-stack-governance
-description: "Trigger: decision-stack-governance, portfolio-allocation-capitalization, strategic-tradeoffs-constraint-matrix, decision stack, melissa perri strategy, strategic intents, product portfolio cadence, QBR planning, strategy deployment. Scope: Strategy Deployment & Portfolio Cadence. Cascades Company Vision (5-10y) -> Strategic Intents (1-3y) -> Product Initiatives (6-12m) -> Options (3-6m). Boundary: Excludes sprint-level daily standups."
+description: "Align organizational decision stacks connecting vision, product strategy, roadmaps, and sprint execution."
 ---
 
 # Rule: Decision Stack Alignment & Cadence Governance

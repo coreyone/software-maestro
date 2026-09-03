@@ -1,6 +1,6 @@
 ---
 name: design-responsive-rules
-description: "Trigger: design-responsive-rules, responsive layout, media queries, mobile breakpoints, container queries, thumb zone, fold postures, tablet layouts. Scope: Responsive & Adaptive Viewport Behavior across mobile, tablet, foldable, and desktop viewports. Boundary: Excludes color token styling or typography definitions."
+description: "Design responsive and adaptive layouts across mobile, tablet, and desktop viewports."
 ---
 
 # Responsive Web Design (2026) — Guidelines for Design + Design Engineering

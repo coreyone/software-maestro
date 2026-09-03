@@ -1,6 +1,6 @@
 ---
 name: prd-to-tickets
-description: "Trigger: prd-to-tickets, decompose PRD, tracer bullet tickets, blocking DAG, issue breakdown, jira tickets, linear issues, vertical slices. Scope: Compiler converting PRDs into tracer-bullet vertical slice tickets with blocking dependency DAGs, TDD matrices, and tech-agnostic outputs. Boundary: Excludes authoring the upstream PRD (use create-prd)."
+description: "Decompose product requirement documents into tracer-bullet vertical slice tickets with dependency graphs."
 ---
 
 # Rule: PRD to Tracer-Bullet Tickets Compiler

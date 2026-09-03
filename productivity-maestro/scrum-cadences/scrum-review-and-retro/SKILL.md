@@ -1,6 +1,6 @@
 ---
 name: scrum-review-and-retro
-description: "Trigger: scrum-review-and-retro, sprint review, sprint retrospective, working increment demo, definition of done audit, blameless retro, kaizen process improvement. Scope: Scrum Inspection & Adaptation. Combines Sprint Review (live working increment vs DoD) and Egoless Retrospective (Norm Kerth, 5-Whys, strictly 1 Kaizen process upgrade). Boundary: Excludes sprint planning."
+description: "Audit sprint increments against definition of done and facilitate blameless retrospectives."
 ---
 
 # Rule: Scrum Sprint Review & Retrospective (Inspection & Adaptation Phase)

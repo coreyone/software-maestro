@@ -1,6 +1,6 @@
 ---
 name: developer-test-driven-development
-description: "Trigger: developer-test-driven-development, TDD, test driven development, red green refactor, unit testing, integration tests, mock assertions. Scope: Test-Driven Development (TDD) Methodology. Enforces writing failing test assertions before implementing production features. Boundary: Excludes probabilistic LLM evals."
+description: "Apply test-driven development workflows by writing failing tests before production code."
 ---
 
 # TEST DRIVEN DEVELOPMENT (TDD)

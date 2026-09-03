@@ -1,6 +1,6 @@
 ---
 name: swarm-rules
-description: "Trigger: swarm-rules, multi-agent swarm, subagent concurrency, atomic file ownership, andon cord stop the line, small batch slicing, subagent coordination. Scope: Multi-Agent Swarm Concurrency & Race Condition Prevention. Enforces 1 subagent per file, <200 LOC small-batch diffs, Andon Cord stops, and structured JSON messaging. Boundary: Excludes single-agent operations."
+description: "Coordinate multi-agent swarms with atomic file ownership, small-batch diffs, and JSON messaging."
 ---
 
 # Rule: Multi-Agent Swarm Operations & Concurrency Protocol

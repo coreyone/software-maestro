@@ -1,6 +1,6 @@
 ---
 name: developer-development-rules
-description: "Trigger: developer-development-rules, engineering craft, clean code, modular architecture, small diffs, pre-factoring, definition of done gate. Scope: Core Software Engineering Craft & Execution. Enforces modularity, pre-factoring, small reversible diffs (<200 LOC), and engineering DoD gates. Boundary: Excludes cloud infrastructure architecture."
+description: "Enforce engineering standards, clean architecture, small diffs, and definition-of-done gates."
 ---
 
 # 🏗️ Core Philosophy: Build small, clear, composable pieces.

@@ -1,6 +1,6 @@
 ---
 name: scrum-daily-sync
-description: "Trigger: scrum-daily-sync, daily scrum, daily standup, async drift triage, unblock subagents, 24h sync, daily sync brief, blocker swarming. Scope: Scrum Daily Standup & 24h Drift Triage. Runs the 15-minute peer-to-peer synchronization to detect drift and trigger 16th-minute swarm unblocking. Boundary: Excludes sprint planning or retros."
+description: "Facilitate daily scrum standups, detect project drift, and swarm team blockers."
 ---
 
 # Rule: Scrum Daily Standup & 24h Drift Triage (Execution Phase)

@@ -1,6 +1,6 @@
 ---
 name: finance-payments-tax-and-treasury
-description: "Trigger: finance-payments-tax-and-treasury, settlement rails, tax nexus, 1099-K, DAC7, VAT/GST, Airbnb TOT, dispute evidence, chargebacks, FX hedging, payout escrow. Scope: Multi-Rail Settlement, Marketplace Tax Nexus, Dispute Arbitration & Treasury Operations. Governs payout routing, multi-jurisdiction tax withholding, and chargeback defense. Boundary: Excludes client-side checkout visual UI (use commerce-ux-rules)."
+description: "Model payment gateway integrations, billing reconciliation, tax compliance, and treasury ledger flows."
 ---
 
 # 💳 Core Philosophy: Money and tax obligations must balance to the cent with zero untracked liability.

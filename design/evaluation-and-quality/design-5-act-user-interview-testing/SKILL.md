@@ -1,6 +1,6 @@
 ---
 name: design-5-act-user-interview-testing
-description: "Trigger: 5 act interview, 5 act user interview testing, design sprint testing, user test debrief, 5 user testing, michael margolis interview, prototype reaction scorecard, jakob nielsen 5 user rule, friday sprint test. Scope: Michael Margolis & Jake Knapp Design Sprint Friday (Test & Scorecard). Executes the 5-Act Interview Protocol (1. Welcome, 2. Context Questions, 3. Introduce Prototype, 4. Tasks & Nudges, 5. Quick Debrief) with 5 target users (Jakob Nielsen 85% rule). Populates the color-coded Pattern Scorecard (Green/Red/Yellow) to validate or invalidate Monday's 3 Sprint Questions with an evidence-backed Go/Pivot/Kill verdict. Boundary: Excludes automated headless testing (use chrome-devtools) or behavioral product analytics (use analytics-event-tracking)."
+description: "Conduct 5-act qualitative usability interviews and build prototype test scorecards."
 ---
 
 # Rule: Michael Margolis & Jake Knapp — 5-Act User Interview Testing (Friday)

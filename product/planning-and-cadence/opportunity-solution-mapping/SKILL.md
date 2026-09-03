@@ -1,6 +1,6 @@
 ---
 name: opportunity-solution-mapping
-description: "Trigger: opportunity-solution-mapping, opportunity solution tree, OST, continuous discovery habits, teresa torres, marty cagan, product discovery triad, opportunity backlog, assumption testing, leap of faith assumption. Scope: Continuous Product Discovery & Opportunity Solution Tree (OST) Mapping. Connects business outcomes to customer opportunities, multi-solution ideation, and rapid assumption tests. Boundary: Excludes sprint-level ticket breakdown and linear execution (use prd-to-tickets or god-marduk)."
+description: "Map customer opportunities, problems, and candidate solutions using Teresa Torres opportunity solution trees."
 ---
 
 # Rule: Opportunity Solution Tree (OST) & Continuous Discovery Framework

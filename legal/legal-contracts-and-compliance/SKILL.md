@@ -1,6 +1,6 @@
 ---
 name: legal-contracts-and-compliance
-description: "Trigger: legal-contracts-and-compliance, MSA redline, DPA negotiation, security questionnaire, SOC 2 evidence, Whistic, OneTrust, PCI-DSS audit, EU AI Act. Scope: Enterprise Legal Contract Redlining, Security Questionnaire Automation & Continuous Compliance Audit Readiness. Governs MSA/DPA review against risk playbooks, vendor questionnaire completion, and continuous audit evidence collection. Boundary: Excludes code-level input sanitization (use developer-security)."
+description: "Review master services agreements, data processing addenda, and enterprise software compliance standards."
 ---
 
 # ⚖️ Core Philosophy: Clear contracts, strong liability boundaries, and verifiable compliance unlock enterprise velocity.

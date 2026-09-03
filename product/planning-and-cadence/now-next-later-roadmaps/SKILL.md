@@ -1,6 +1,6 @@
 ---
 name: now-next-later-roadmaps
-description: "Trigger: now-next-later-roadmaps, now next later roadmap, Janna Bastow roadmap, time horizon roadmap, outcome-based roadmap, problem-oriented roadmap, roadmap prioritization, roadmap alignment. Scope: Outcome-Driven Now-Next-Later Roadmapping (Janna Bastow). Replaces date-driven Gantt charts with uncertainty horizons (Now = high certainty/granular problems, Next = medium certainty/discovery, Later = low certainty/directional strategy) tied to business objectives. Boundary: Excludes sprint backlog estimation (use scrum-planning-and-refinement) and tactical PRD authoring (use create-prd)."
+description: "Build outcome-driven Now-Next-Later roadmaps that organize product priorities by uncertainty horizons."
 ---
 
 # Rule: Outcome-Driven Now-Next-Later Roadmapping

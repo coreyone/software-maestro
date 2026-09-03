@@ -1,6 +1,6 @@
 ---
 name: data-warehouse-semantic-layer
-description: "Trigger: dbt, dimensional modeling, star schema, snowflake schema, data mart, semantic layer, metric layer, MetricFlow, Cube.js, data contracts, fct_ tables, dim_ tables, stg_ models, int_ models, surrogate keys, incremental strategy, dbt test, schema validation. Scope: Designing and maintaining production analytics engineering architecture: Kimball dimensional modeling (staging stg_, intermediate int_, dimensional dim_, fact fct_ layers), dbt models with incremental materialization (merge, delete+insert), strict data contracts (YAML schema enforcement, column types, nullability, uniqueness), and semantic metric definitions (entities, measures, dimensions, time grains). Boundary: Excludes client-side event tracking tag schemas (use analytics-event-tracking) or application transactional database indexing/caching (use data-persistence-caching)."
+description: "Design dimensional models, star schemas, dbt incremental materializations, and semantic layer metrics."
 ---
 
 # Rule: Analytics Engineering, Dimensional Modeling, & Semantic Layers

@@ -1,6 +1,6 @@
 ---
 name: technical-language-rules
-description: "Trigger: technical-language-rules, simplified technical english, ASD-STE100, google devdocs style, technical prose, deterministic docs, commit style, unambiguous connectors. Scope: Technical Language & Documentation Standard based on ASD-STE100 and Google Developer Style Guide. Enforces <=20 words procedural, <=25 words descriptive, <=3 noun stacks, and imperative commits. Boundary: Excludes persuasive marketing copywriting (use conversion-copywriting)."
+description: "Enforce ASD-STE100 and Google Developer Style Guide standards across documentation and commits."
 ---
 
 # Rule: Technical Language & Documentation Standard (ASD-STE100 + Google DevDocs)

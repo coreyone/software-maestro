@@ -1,6 +1,6 @@
 ---
 name: scrum-planning-and-refinement
-description: "Trigger: scrum-planning-and-refinement, sprint planning, backlog refinement, story grooming, sprint goal formulation, capacity calibration, DEEP backlog. Scope: Scrum Sprint Preparation & Capacity Calibration. Combines DEEP Backlog Refinement (INVEST slicing, DoR gating) and Sprint Planning (1 Sprint Goal, velocity lock). Boundary: Excludes daily standups or retros."
+description: "Refine product backlogs with INVEST slicing criteria and calibrate sprint planning capacity."
 ---
 
 # Rule: Scrum Sprint Planning & Backlog Refinement (Prep Phase)

@@ -1,6 +1,6 @@
 ---
 name: product-data-metric-investigation-triage
-description: "Trigger: metric drop, KPI degradation, metric anomaly, metric triage, waterfall decomposition, mix shift, rate shift, Simpson's Paradox, conversion rate drop, funnel anomaly, cohort degradation, cannibalization diagnosis, diagnostic root cause, why did metric drop, metric investigation. Scope: Diagnosing and mathematically decomposing unexpected movements in core product and business KPIs. Formulates 3-factor variance decomposition (Volume vs Rate vs Mix effect), multidimensional segment waterfall slicing (geo, device/platform, channel, user cohort, app version), Simpson's Paradox isolation, release timeline correlation, and triage severity classification (P0, P1, P2). Boundary: Excludes engineering stack trace debugging (use diagnosing-bugs or observability-telemetry), metric tree architecture design (use incentive-design-metric-trees), or PRD specification authoring (use create-prd)."
+description: "Diagnose KPI drops, metric anomalies, and funnel conversion regressions across analytics pipelines."
 ---
 
 # Rule: Product Data Metric Investigation & Root-Cause Triage

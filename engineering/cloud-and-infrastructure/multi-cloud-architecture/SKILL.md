@@ -1,6 +1,6 @@
 ---
 name: multi-cloud-architecture
-description: "Trigger: multi-cloud-architecture, hybrid-cloud-networking, terraform-module-library, multi-cloud design, hybrid cloud, AWS Azure GCP OCI, VPC topology, terraform modules, cloud infrastructure. Scope: Multi-Cloud Infrastructure Architecture & Terraform IaC. Governs cloud provider selection, cross-cloud networking, and reusable IaC. Boundary: Excludes application business logic."
+description: "Design multi-cloud infrastructure topologies and reusable Terraform infrastructure modules."
 ---
 
 # Multi-Cloud Architecture

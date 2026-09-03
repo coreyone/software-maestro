@@ -1,6 +1,6 @@
 ---
 name: michael-bolton-rule
-description: "Trigger: michael-bolton-rule, 4-part intent framing, deming systems check, march portfolio, 70 20 10, delegation check, outcome constraints measures. Scope: Delegation Governance & Deming Systems Thinking. Enforces 4-part intent framing (Outcome, Constraints, Measures, Time-horizon) and variation controls. Boundary: Excludes writing direct code or UI templates."
+description: "Enforce 4-part intent delegation framing outcomes, constraints, measures, and time horizons."
 ---
 
 # Rule: The Michael Bolton Doctrine of Direction & Delegation

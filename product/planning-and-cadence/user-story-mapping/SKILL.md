@@ -1,6 +1,6 @@
 ---
 name: user-story-mapping
-description: "Trigger: user-story-mapping, story mapping, jeff patton, edo van royen, walking skeleton, user journey backbone, story map slicing, mvp release slice, user tasks narrative flow. Scope: User Story Mapping & Incremental Release Slicing. Builds two-dimensional story maps across user journey backbones, activities, tasks, and horizontal release slices. Boundary: Excludes granular technical task decomposition and Jira sprint point poker (use prd-to-tickets or scrum-planning-and-refinement)."
+description: "Build user story maps, backbone user journeys, and slice release milestones."
 ---
 
 # Rule: User Story Mapping & Incremental Release Slicing Framework

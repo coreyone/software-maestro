@@ -1,6 +1,6 @@
 ---
 name: executive-async-memo
-description: "Trigger: executive-async-memo, async memo, smart brevity, executive summary, leadership update, project briefing memo, 1-page memo. Scope: High-Leverage Asynchronous Executive Memos using Axios Smart Brevity and Amazon narrative principles. Boundary: Excludes live spoken meeting transcripts."
+description: "Author concise executive memos using Axios Smart Brevity and structured leadership formats."
 ---
 
 # EXECUTIVE ASYNC MEMO GENERATION

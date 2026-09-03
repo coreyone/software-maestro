@@ -1,6 +1,6 @@
 ---
 name: chart-communication
-description: "Trigger: chart-communication, data visualization, chart design, KPI dashboard, graph selection, metric visualization, data storytelling. Scope: Quantitative Data Visualization & Chart Design. Governs chart type selection, axis scaling, data-ink ratios, and color accessibility. Boundary: Excludes backend ETL or SQL queries."
+description: "Design quantitative charts, optimize data-ink ratios, and select accessible visualizations."
 ---
 
 # Chart Communication

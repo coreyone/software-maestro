@@ -1,6 +1,6 @@
 ---
 name: design-usability-rules
-description: "Trigger: design-usability-rules, usability heuristics, nielsen norman audit, visual design review, UI heuristic evaluation, interface critique. Scope: Usability Heuristics & Visual Interface Critique based on Nielsen Norman 10 heuristics and cognitive affordance principles. Boundary: Excludes marketing copywriting."
+description: "Audit interfaces against Nielsen Norman 10 usability heuristics and cognitive affordances."
 ---
 
 # 🗺️ Layout & Navigation

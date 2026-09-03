@@ -1,6 +1,6 @@
 ---
 name: system-architecture-rules
-description: "Trigger: system-architecture-rules, resiliency-circuit-breakers, tech-stack-preferences, clean architecture, hexagonal architecture, domain model, circuit breakers, resiliency patterns, boundary decoupling. Scope: Software System Architecture & Resiliency. Governs domain modeling, clean architectural boundaries, and circuit breaker fault isolation. Boundary: Excludes UI frontend aesthetic styling."
+description: "Design modular system architectures, hexagonal boundaries, domain models, and circuit breakers."
 ---
 
 # 🏗️ Core Philosophy: Architectural integrity enables evolutionary change.
@@ -15,8 +15,8 @@ Do not use this skill for raw code optimization, writing inline tests, or stylin
 
 ## Trigger cues
 
-- Key terms: clean architecture, MVVM, modularity, layers, Swift Package Manager, monorepo, ports and adapters, hexagonal architecture, domain-driven design, dependencies.
-- Requesting structural patterns, directory setups, or module boundaries.
+- Key terms: clean architecture, MVVM, modularity, layers, Swift Package Manager, monorepo, ports and adapters, hexagonal architecture, domain-driven design, dependencies, node-based UI, pipeline graphs, tech-stack-preferences.
+- Requesting structural patterns, directory setups, module boundaries, or graph/canvas engine selection.
 
 ## Routing boundary
 
@@ -37,6 +37,13 @@ Do not use this skill for raw code optimization, writing inline tests, or stylin
 4. Draft an architecture diagram or dependency topology matching the target constraints using the existing stack.
 5. Formulate the boundary interfaces and data transfer protocols before implementation.
 6. Record major architectural tradeoffs in an Architecture Decision Record (ADR) format.
+
+## Tech stack preferences
+
+Curated patterns with decision criteria (what it does, when to use, when not to use) are cataloged in [references/source.md](references/source.md#🧭-tech-stack-preferences-interactive-graph--node-based-systems):
+- **Graph & Node Canvas**: `@xyflow/react` (`@xyflow/system`)
+- **Automated DAG Layout**: `@dagrejs/dagre`
+- **Drag-and-Drop Ingress**: `@dnd-kit/core`
 
 ## Output format
 

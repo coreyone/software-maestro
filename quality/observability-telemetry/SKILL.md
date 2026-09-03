@@ -1,6 +1,6 @@
 ---
 name: observability-telemetry
-description: "Trigger: observability-telemetry, service-mesh-observability, istio-traffic-management, linkerd-patterns, structured logging, distributed tracing, OpenTelemetry, SLI metrics, SLO alerts, log aggregation. Scope: Production Observability & Telemetry Architecture. Governs structured JSON logging, distributed tracing, and SLI/SLO alerting. Boundary: Excludes client behavioral funnels."
+description: "Design OpenTelemetry instrumentation, structured logging, distributed tracing, and service-level alert rules."
 ---
 
 # 📊 Core Philosophy: You cannot optimize or debug what you do not measure.

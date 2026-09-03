@@ -1,6 +1,6 @@
 ---
 name: dogfood
-description: "Trigger: dogfood, exploratory QA, bug hunting, test web app, dogfooding report, bug reproduction video, QA audit. Scope: Systematic Exploratory Testing & Bug Reproduction. Produces structured QA reports with step-by-step screenshots and reproduction evidence. Boundary: Excludes unit test authoring."
+description: "Conduct structured exploratory testing and capture step-by-step bug reproduction evidence."
 ---
 
 # Dogfood

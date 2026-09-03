@@ -1,6 +1,6 @@
 ---
 name: analytics-event-tracking
-description: "Trigger: analytics-event-tracking, behavioral-loops-retention-modeling, marketing-lifecycle-crm-automation, incentive-design-metric-trees, PostHog events, Segment schema, event tracking taxonomy, user funnel telemetry, tracking spec. Scope: Behavioral Analytics & Telemetry Taxonomy. Governs event naming conventions, schema properties, and user funnel telemetry. Boundary: Excludes system performance exceptions."
+description: "Design tracking plans, event schemas, semantic naming conventions, and telemetry pipelines."
 ---
 
 # 📈 Core Philosophy: Standardized telemetry taxonomy drives actionable product insights.

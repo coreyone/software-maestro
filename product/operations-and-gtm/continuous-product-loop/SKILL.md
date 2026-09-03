@@ -1,6 +1,6 @@
 ---
 name: continuous-product-loop
-description: "Trigger: continuous-product-loop, autonomous product loop, bounded goal envelope, explore exploit portfolio, autonomous TDD, multi-day product run. Scope: Autonomous Product Evolution Loop. Continuously strategizes, discovers, specifies, builds via TDD, and prunes across multi-day runs. Boundary: Excludes single-day sprint cadences."
+description: "Run continuous product discovery, strategy validation, autonomous test-driven builds, and feature pruning."
 ---
 
 # Continuous Product Loop

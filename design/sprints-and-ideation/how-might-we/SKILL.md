@@ -1,6 +1,6 @@
 ---
 name: how-might-we
-description: "Trigger: how-might-we, how might we, HMW, HMW statements, problem reframing, IDEO HMW, min basadur, opportunity framing, generative problem questions. Scope: Generative Problem Reframing & Opportunity Framing via the Min Basadur & IDEO/Stanford d.school How Might We (HMW) methodology. Converts customer pains and insights into expansive, solution-agnostic opportunity statements across 10 reframing angles. Boundary: Excludes running full 5-day design sprints (use design-sprint) or Opportunity Solution Tree tree maintenance (use opportunity-solution-mapping)."
+description: "Reframe user problems into How Might We statements for ideation and design sprints."
 ---
 
 # Rule: Generative Problem Reframing via "How Might We" (HMW)

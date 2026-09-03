@@ -1,6 +1,6 @@
 ---
 name: premortem-kill-criteria
-description: "Trigger: premortem-kill-criteria, premortem analysis, kill criteria, quit criteria, annie duke, adam thomas survival metrics, prospective hindsight, gokul rajaram spade, project off-ramp, sunk cost mitigation. Scope: Project Failure Prevention, Prospective Hindsight & Objective Kill/Pivot Criteria. Governs structured premortems, explicit leading kill triggers, and psychological off-ramps. Boundary: Excludes sprint retrospectives (use scrum-review-and-retro) or basic risk matrices."
+description: "Conduct premortem risk assessments and define explicit kill criteria for risky product bets."
 ---
 
 # PREMORTEM & KILL CRITERIA GOVERNANCE

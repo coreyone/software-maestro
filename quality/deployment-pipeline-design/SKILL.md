@@ -1,6 +1,6 @@
 ---
 name: deployment-pipeline-design
-description: "Trigger: deployment-pipeline-design, github-actions-templates, gitlab-ci-patterns, web-deployment-rules, CI CD pipeline, github actions workflow, gitlab ci patterns, zero downtime release, canary rollout. Scope: Multi-Stage CI/CD Deployment Pipeline Design. Governs automated testing gates, canary deployment workflows, and rollback triggers. Boundary: Excludes local editor settings."
+description: "Design automated CI/CD deployment pipelines, automated test gates, and canary rollouts."
 ---
 
 # Deployment Pipeline Design

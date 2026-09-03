@@ -1,6 +1,6 @@
 ---
 name: release-readiness-gtm
-description: "Trigger: release-readiness-gtm, GTM launch readiness, release gating, feature tiering, alpha beta GA gates, sales enablement checklist. Scope: Cross-Functional Go-To-Market Release Readiness. Defines release tiers and phased readiness gates across Sales, Marketing, CS, Legal, and Support. Boundary: Excludes CI/CD deployment pipelines."
+description: "Evaluate go-to-market release gates across product, sales, marketing, legal, and customer support."
 ---
 
 # Rule: Product Release Readiness & GTM Gating

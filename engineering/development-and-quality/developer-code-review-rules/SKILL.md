@@ -1,6 +1,6 @@
 ---
 name: developer-code-review-rules
-description: "Trigger: developer-code-review-rules, pull request review, PR audit, code review checklist, false positive vetting, risk assessment. Scope: Pull Request & Repository Code Review. Enforces evidence-backed audits, correctness, security, test risk, and developer experience checks. Boundary: Excludes writing initial code."
+description: "Audit pull requests for correctness, security vulnerabilities, test coverage, and code hygiene."
 ---
 
 # 🔍 The Architect's Guide to Code Review: Philosophy & Tactics

@@ -1,6 +1,6 @@
 ---
 name: design-rapid-prototype-facade
-description: "Trigger: design-rapid-prototype-facade, rapid prototype, hollywood facade, goldilocks prototype, disposable prototype, prototype sprint, stitch prototype, tldraw wireframe prototype, tldraw clickable prototype, stitch rapid facade, basic wireframe facade. Scope: Goldilocks Rapid Facade Prototyping (Thursday Sprint). Builds realistic, disposable, interactive facade prototypes for user testing in <24h across two fidelity tiers: (1) Low-Fidelity Clickable Wireframes via tldraw-offline, or (2) High-Fidelity UI Facades via Google Stitch MCP and the Stitch Build Loop. Boundary: Excludes writing production backend code or database migrations."
+description: "Build clickable wireframes and high-fidelity UI facades for user prototype testing."
 ---
 
 # Rule: Jake Knapp Design Sprint — Goldilocks Prototype Facade (Thursday)

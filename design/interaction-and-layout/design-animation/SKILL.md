@@ -1,6 +1,6 @@
 ---
 name: design-animation
-description: "Trigger: design-animation, UI motion, animation physics, spring easing, micro-interactions, transition duration, transform origin, reduced motion. Scope: Interface Motion & Animation Physics. Governs easing curves, duration tokens, gestural feedback, and accessibility reduced-motion. Boundary: Excludes static layout styling."
+description: "Design interface motion, spring easing physics, micro-interactions, and reduced-motion states."
 ---
 
 # ▣ Key takeaway

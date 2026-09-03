@@ -1,6 +1,6 @@
 ---
 name: outcome-okrs-and-cadence
-description: "Trigger: outcome-okrs-and-cadence, outcome OKRs, radical focus OKRs, Christina Wodtke OKRs, 4 quadrant OKR canvas, Monday commitments Friday wins, quarterly OKR scoring, health metrics. Scope: Outcome-Based OKR Architecture & Execution Cadence (Christina Wodtke). Structures 1 inspirational Objective with 3 quantitative Key Results (50% stretch baseline), 4-Quadrant OKR execution canvas, and weekly execution rhythm (Monday commitments, Friday wins). Boundary: Excludes sprint backlog estimation (use scrum-planning-and-refinement) and strategic decision stack hierarchy (use decision-stack-governance)."
+description: "Draft outcome-driven OKRs, structure 4-quadrant canvases, and facilitate weekly commitment cadences."
 ---
 
 # Rule: Outcome OKRs & Radical Focus Execution Cadence

@@ -1,6 +1,6 @@
 ---
 name: voc-insights-pipeline
-description: "Trigger: voc-insights-pipeline, voice of customer, VoC synthesis, customer feedback aggregation, win loss analysis, feedback taxonomy, customer problem thesis. Scope: Qualitative Customer Feedback Synthesis. Ingests, deduplicates, and structures feedback into atomized problem theses tied to revenue. Boundary: Excludes conducting live user interviews."
+description: "Aggregate customer feedback, cluster recurring pain points, and extract qualitative user problem theses."
 ---
 
 # Rule: Voice of Customer (VoC) Aggregation & Feedback Synthesis

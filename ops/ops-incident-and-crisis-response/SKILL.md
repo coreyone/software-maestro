@@ -1,6 +1,6 @@
 ---
 name: ops-incident-and-crisis-response
-description: "Trigger: ops-incident-and-crisis-response, SEV-0/SEV-1, outage war room, canary kill, status page, customer crisis, SLA credit reconciliation, post-mortem RCA. Scope: Mission-Critical Incident Command, Real-Time Crisis Communications & Blameless RCA Synthesis. Governs SEV-0/1 war room triage, canary rollback, status page communications, and customer emergency resolution. Boundary: Excludes routine local unit test debugging (use developer-test-driven-development)."
+description: "Coordinate operational incident response, severity classification, status communication, and post-mortems."
 ---
 
 # 🚨 Core Philosophy: Contain blast radius first, communicate transparently, and harden systems blamelessly.

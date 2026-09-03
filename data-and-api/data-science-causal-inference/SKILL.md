@@ -1,6 +1,6 @@
 ---
 name: data-science-causal-inference
-description: "Trigger: data-science-causal-inference, causal inference, difference in differences, synthetic control, CUPED variance reduction, dbt dimensional modeling. Scope: Advanced Causal Inference & Analytics Engineering. Governs quasi-experimental methods (DiD, Synthetic Control), CUPED, and dbt models. Boundary: Excludes basic descriptive dashboards."
+description: "Apply causal inference methods, Difference-in-Differences, Synthetic Control, and CUPED variance reduction."
 ---
 
 # Rule: Data Science Causal Inference & Quasi-Experimentation

@@ -1,6 +1,6 @@
 ---
 name: product-strategy-narrative
-description: "Trigger: product-strategy-narrative, product strategy narrative, gibson biddle dhm, hamilton helmer 7 powers, gem metrics, delight hard to copy margin enhancing, strategic proxy metrics, competitive moat, good strategy bad strategy. Scope: Long-Term Product Strategy Formulation & Moat Architecture. Formulates DHM hypotheses, proxy metrics, and durable 7 Powers defensibility models. Boundary: Excludes sprint backlog grooming or pricing execution (use product-pricing-strategy)."
+description: "Draft product strategy narratives using Gibson Biddle DHM (Delight, Hard to copy, Margin-enhancing) models."
 ---
 
 # PRODUCT STRATEGY NARRATIVE & MOAT ARCHITECTURE

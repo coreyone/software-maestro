@@ -1,6 +1,6 @@
 ---
 name: create-prd
-description: "Trigger: create-prd, proven-product-spec, product-management-press-memo, ux-discovery-artifacts, write PRD, product requirements document, spec authoring, BDD acceptance criteria, definition of done gate, outcome-oriented spec. Scope: Outcome-Oriented Product Requirements Document (PRD) Compiler with BDD Gherkin criteria and Definition of Done (DoD) verification gates. Boundary: Excludes decomposing into tickets (use prd-to-tickets)."
+description: "Author comprehensive product requirement documents with background, user stories, and acceptance criteria."
 ---
 
 # Rule: Generating a Product Requirements Document (PRD)

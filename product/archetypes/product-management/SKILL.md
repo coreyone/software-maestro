@@ -1,6 +1,6 @@
 ---
 name: product-management
-description: "Trigger: product-management, product-zero-to-one, product-growth, product-optimizer-feature, product-marketplace, product archetype, 0-to-1 search, growth loops, feature optimization, 2-sided marketplace, PM routing, PM framework. Scope: Master Product Management Archetype Router. Identifies optimal mental models and execution playbooks across 0-to-1, Growth, Optimizer, and Marketplace archetypes. Boundary: Excludes authoring full PRDs (use create-prd) or code implementation."
+description: "Guide product discovery, strategy definition, opportunity backlogs, and stakeholder alignment."
 ---
 
 # Product Management

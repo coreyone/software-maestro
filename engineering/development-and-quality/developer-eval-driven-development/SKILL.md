@@ -1,6 +1,6 @@
 ---
 name: developer-eval-driven-development
-description: "Trigger: developer-eval-driven-development, eval driven development, LLM evaluation, golden dataset, LLM as judge, prompt benchmarks, model regression. Scope: Evaluation-Driven Development for AI and probabilistic software using golden datasets, rubric grading, and release gates. Boundary: Excludes deterministic unit testing."
+description: "Build evaluation datasets, LLM-as-judge rubrics, and regression benchmarks for AI software."
 ---
 
 # EVAL-DRIVEN DEVELOPMENT (EDD)

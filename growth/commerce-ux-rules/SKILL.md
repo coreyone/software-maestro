@@ -1,6 +1,6 @@
 ---
 name: commerce-ux-rules
-description: "Trigger: commerce-ux-rules, cro-commerce-audit, design-forms-wizards-checkout, shopping cart, checkout conversion, checkout flow, payment trust, pricing layout, e-commerce UX. Scope: E-Commerce & Checkout UX Optimization. Governs shopping cart conversion, trust badges, payment form UX, and friction reduction. Boundary: Excludes backend payment gateway APIs."
+description: "Optimize shopping cart UX, checkout conversion flows, trust markers, and payment security forms."
 ---
 
 # Commerce Usability Rules (First Principles + Execution)

@@ -1,6 +1,6 @@
 ---
 name: trust-safety-fraud-and-claims
-description: "Trigger: trust-safety-fraud-and-claims, fraud ring, counterfeits, AirCover, property damage, KYC/KYB, sanctions screening, listing moderation, buyer protection. Scope: Trust, Safety, Fraud Defense & Physical Claims Arbitration. Governs multimodal content moderation, identity/AML screening, and binding physical damage claim adjudication. Boundary: Excludes low-level software secrets management (use secrets-management)."
+description: "Design fraud detection rules, user risk scoring models, and account abuse prevention pipelines."
 ---
 
 # 🛡️ Core Philosophy: Safety, integrity, and fair adjudication are the bedrock of marketplace liquidity and trust.

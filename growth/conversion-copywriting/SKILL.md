@@ -1,6 +1,6 @@
 ---
 name: conversion-copywriting
-description: "Trigger: conversion-copywriting, the-elements-of-style-principles, marketing copy, landing page copy, value proposition, CTA copy, emotional hook, headlines, benefit copy. Scope: Persuasive Conversion Copywriting. Generates high-converting hero headlines, emotional struggle hooks, value props, and CTA buttons. Boundary: Excludes technical API specifications."
+description: "Write high-converting value propositions, hero headlines, struggle hooks, and call-to-action copy."
 ---
 
 # Rule: High-Conversion, Emotion-Provoking & Action-Driven Copywriting

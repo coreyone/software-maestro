@@ -1,6 +1,6 @@
 ---
 name: grounded-search-rules
-description: "Trigger: grounded-search-rules, search grounding, free search adapter, DDGS search, SearXNG, backend RAG evidence, web search adapter. Scope: Backend Web Search Grounding. Connects free/OSS search adapters (DDGS, SearXNG) into backend RAG retrieval pipelines. Boundary: Excludes browser automation."
+description: "Integrate grounded web search adapters like SearXNG and DDGS into retrieval pipelines."
 ---
 
 # 🔎 Core Philosophy: Ground app-side LLM output in real retrieval, without a billing wall.

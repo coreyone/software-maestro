@@ -1,6 +1,6 @@
 ---
 name: a11y-debugging
-description: "Trigger: a11y-debugging, accessibility audit, WCAG AA, screen reader, color contrast, keyboard navigation, tap targets, ARIA roles. Scope: Web Accessibility Compliance (WCAG AA). Governs keyboard navigation, screen reader accessibility, contrast ratios, and ARIA trees. Boundary: Excludes page load performance tuning."
+description: "Audit web accessibility compliance against WCAG AA standards, ARIA roles, and keyboard navigation."
 ---
 
 ## Core Concepts

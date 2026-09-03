@@ -1,6 +1,6 @@
 ---
 name: product-pricing-strategy
-description: "Trigger: product-pricing-strategy, pricing strategy, van westendorp, willingness to pay, pricing tiers, packaging model, two-part tariff, pocket price waterfall. Scope: End-to-End Product Pricing & Monetization Strategy across SaaS, AI, and consumer platforms. Boundary: Excludes visual checkout UI styling (use commerce-ux-rules)."
+description: "Design product packaging models, pricing tiers, willingness-to-pay surveys, and monetization waterfalls."
 ---
 
 # PRODUCT PRICING STRATEGY

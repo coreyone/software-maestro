@@ -1,6 +1,6 @@
 ---
 name: experimentation-hypothesis-engine
-description: "Trigger: experimentation-hypothesis-engine, A/B testing, MDE calculation, sample size determination, statistical power, SRM check, experiment post-mortem. Scope: Statistical Experimentation & A/B Testing Design. Governs sample sizing (MDE), Sample Ratio Mismatch (SRM) checks, and 3-way post-mortems. Boundary: Excludes qualitative user interviews."
+description: "Design A/B test hypotheses, calculate minimum detectable effects, sample sizes, and evaluate experiment outcomes."
 ---
 
 # EXPERIMENTATION, HYPOTHESIS GATING & EMPIRICAL CLAIMS ENGINE

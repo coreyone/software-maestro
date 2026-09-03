@@ -1,6 +1,6 @@
 ---
 name: developer-seo
-description: "Trigger: developer-seo, technical SEO, meta tags, sitemap xml, canonical URL, OpenGraph tags, JSON LD schema, search ranking. Scope: Technical Search Engine Optimization (SEO). Governs semantic metadata, crawlability, canonical URLs, and structured JSON-LD schemas. Boundary: Excludes paid search marketing."
+description: "Optimize technical SEO, canonical URLs, OpenGraph metadata, crawlability, and JSON-LD structured schemas."
 ---
 
 # Developer SEO

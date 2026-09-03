@@ -1,6 +1,6 @@
 ---
 name: meeting-transcription-notes
-description: "Trigger: meeting-transcription-notes, one-on-one-cadence, weekly-review-triage, meeting transcript, audio transcript, Zoom notes, Otter export, action items, executive readout, meeting summary. Scope: Operational Meeting Decision Records. Transforms messy meeting audio transcripts into structured decision records using McKinsey SCQA or Amazon PR/FAQ. Boundary: Excludes async email chains."
+description: "Transform messy meeting audio transcripts into structured decision records and action items."
 ---
 
 # OPERATIONAL MEETING INTELLIGENCE & TRANSCRIPTION SYNTHESIS

@@ -88,3 +88,15 @@ Architecture is about the decisions that are hard to change later. A great syste
 ### 4. Unified Static Analysis (e.g., Biome)
 *   **Principle**: *Maintain unified linting, formatting, and structural checks to block cyclical dependency chains before runtime.*
 *   *Application*: Run unified tools (e.g., Biome) on save to guarantee module purity and consistent import rules.
+
+---
+
+## 🧭 Tech Stack Preferences: Interactive Graph & Node-Based Systems
+
+@xyflow/react runs interactive node canvases. Use for visual workflows, ML pipelines, and custom DOM nodes under 1k elements. Skip for 1k+ nodes (need WebGL), static diagrams, or non-React.
+
+@dagrejs/dagre calculates hierarchical x,y positions and edge routing for DAGs. Use to auto-layout pipeline runs before feeding coords to xyflow. Skip for radial/force networks, cyclic graphs, or physics sims.
+
+@dnd-kit/core handles accessible drag-and-drop sensors. Use for dragging sidebar blocks onto the canvas and sorting panels. Skip for moving nodes on canvas (xyflow handles it), OS file drops, or non-React.
+
+
