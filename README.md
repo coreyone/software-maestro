@@ -1,6 +1,6 @@
 # software-maestro
 
-A capability orchestra of 70 lean agent skills for AI IDE agents (Claude Code, Codex, Antigravity, Gemini).
+A capability orchestra of 71 lean agent skills for AI IDE agents (Claude Code, Codex, Antigravity, Gemini).
 
 ---
 
@@ -36,9 +36,9 @@ A capability orchestra of 70 lean agent skills for AI IDE agents (Claude Code, C
 </details>
 
 <details>
-<summary><strong><code>engineering/</code></strong> (9 skills across 3 subdomains)</summary>
+<summary><strong><code>engineering/</code></strong> (10 skills across 3 subdomains)</summary>
 
-*   **`engineering/development-and-quality/`** (6 skills): Core engineering craft, code review checklists, Test-Driven Development (TDD), evaluation-driven AI development, ASD-STE100 technical writing standards, and info-to-ink token compression (`developer-development-rules`, `developer-code-review-rules`, `developer-test-driven-development`, `developer-eval-driven-development`, `technical-language-rules`, `info-to-ink`).
+*   **`engineering/development-and-quality/`** (7 skills): Core engineering craft, code review checklists, Test-Driven Development (TDD), evaluation-driven AI development, ASD-STE100 technical writing standards, info-to-ink token compression, and open source contribution etiquette with Conventional Commits (`developer-development-rules`, `developer-code-review-rules`, `developer-test-driven-development`, `developer-eval-driven-development`, `technical-language-rules`, `info-to-ink`, `open-source-contributor`).
 *   **`engineering/architecture-and-resiliency/`** (2 skills): Clean/Hexagonal system architecture with circuit breakers and zero-key web search grounding (`system-architecture-rules`, `grounded-search-rules`).
 *   **`engineering/cloud-and-infrastructure/`** (1 skill): Multi-cloud architecture, hybrid cloud networking, and reusable Terraform IaC modules (`multi-cloud-architecture`).
 
@@ -142,8 +142,8 @@ A capability orchestra of 70 lean agent skills for AI IDE agents (Claude Code, C
 │   ├── interaction-and-layout/  # Responsive layouts, animation physics, IA wayfinding (3 skills)
 │   ├── experience-and-flows/    # Onboarding UX, Prototype Facade, Chart viz (3 skills)
 │   └── evaluation-and-quality/  # Usability heuristics & 5-Act interview testing (2 skills)
-├── engineering/              # Code Quality, Architecture, Cloud & IaC (9 skills)
-│   ├── development-and-quality/ # TDD, evals, code reviews, craft, STE prose, info-to-ink (6 skills)
+├── engineering/              # Code Quality, Architecture, Cloud & IaC (10 skills)
+│   ├── development-and-quality/ # TDD, evals, code reviews, craft, STE prose, info-to-ink, OSS etiquette (7 skills)
 │   ├── architecture-and-resiliency/ # System architecture, grounded search (2 skills)
 │   └── cloud-and-infrastructure/ # Multi-cloud architecture & Terraform IaC (1 skill)
 ├── finance/                  # Settlement rails, tax nexus, chargebacks & treasury (1 skill)
