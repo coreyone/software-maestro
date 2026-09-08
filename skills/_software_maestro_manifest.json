@@ -1,0 +1,290 @@
+{
+  "format": 1,
+  "generated_by": "scripts/export_hermes_skills.py",
+  "generated_skills": [
+    {
+      "slug": "a11y-debugging",
+      "source": "quality/a11y-debugging"
+    },
+    {
+      "slug": "analytics-event-tracking",
+      "source": "growth/analytics-event-tracking"
+    },
+    {
+      "slug": "api-design-guidelines",
+      "source": "data-and-api/api-design-guidelines"
+    },
+    {
+      "slug": "auth-and-identity-rules",
+      "source": "security/auth-and-identity-rules"
+    },
+    {
+      "slug": "chart-communication",
+      "source": "design/experience-and-flows/chart-communication"
+    },
+    {
+      "slug": "chrome-devtools",
+      "source": "quality/chrome-devtools"
+    },
+    {
+      "slug": "commerce-ux-rules",
+      "source": "growth/commerce-ux-rules"
+    },
+    {
+      "slug": "continuous-product-loop",
+      "source": "product/operations-and-gtm/continuous-product-loop"
+    },
+    {
+      "slug": "conversion-copywriting",
+      "source": "growth/conversion-copywriting"
+    },
+    {
+      "slug": "cost-optimization",
+      "source": "quality/cost-optimization"
+    },
+    {
+      "slug": "create-prd",
+      "source": "product/discovery-and-specs/create-prd"
+    },
+    {
+      "slug": "data-persistence-caching",
+      "source": "data-and-api/data-persistence-caching"
+    },
+    {
+      "slug": "data-science-causal-inference",
+      "source": "data-and-api/data-science-causal-inference"
+    },
+    {
+      "slug": "data-warehouse-semantic-layer",
+      "source": "data-and-api/data-warehouse-semantic-layer"
+    },
+    {
+      "slug": "decision-stack-governance",
+      "source": "product/strategy/decision-stack-governance"
+    },
+    {
+      "slug": "deployment-pipeline-design",
+      "source": "quality/deployment-pipeline-design"
+    },
+    {
+      "slug": "design-5-act-user-interview-testing",
+      "source": "design/evaluation-and-quality/design-5-act-user-interview-testing"
+    },
+    {
+      "slug": "design-animation",
+      "source": "design/interaction-and-layout/design-animation"
+    },
+    {
+      "slug": "design-information-architecture-rules",
+      "source": "design/interaction-and-layout/design-information-architecture-rules"
+    },
+    {
+      "slug": "design-rapid-prototype-facade",
+      "source": "design/experience-and-flows/design-rapid-prototype-facade"
+    },
+    {
+      "slug": "design-responsive-rules",
+      "source": "design/interaction-and-layout/design-responsive-rules"
+    },
+    {
+      "slug": "design-sprint",
+      "source": "design/sprints-and-ideation/design-sprint"
+    },
+    {
+      "slug": "design-system-rules",
+      "source": "design/systems-and-foundations/design-system-rules"
+    },
+    {
+      "slug": "design-usability-rules",
+      "source": "design/evaluation-and-quality/design-usability-rules"
+    },
+    {
+      "slug": "design-user-onboarding-ux",
+      "source": "design/experience-and-flows/design-user-onboarding-ux"
+    },
+    {
+      "slug": "developer-code-review-rules",
+      "source": "engineering/development-and-quality/developer-code-review-rules"
+    },
+    {
+      "slug": "developer-development-rules",
+      "source": "engineering/development-and-quality/developer-development-rules"
+    },
+    {
+      "slug": "developer-eval-driven-development",
+      "source": "engineering/development-and-quality/developer-eval-driven-development"
+    },
+    {
+      "slug": "developer-security",
+      "source": "security/developer-security"
+    },
+    {
+      "slug": "developer-seo",
+      "source": "growth/developer-seo"
+    },
+    {
+      "slug": "developer-test-driven-development",
+      "source": "engineering/development-and-quality/developer-test-driven-development"
+    },
+    {
+      "slug": "dogfood",
+      "source": "quality/dogfood"
+    },
+    {
+      "slug": "executive-async-memo",
+      "source": "productivity-maestro/executive-and-async/executive-async-memo"
+    },
+    {
+      "slug": "experimentation-hypothesis-engine",
+      "source": "growth/experimentation-hypothesis-engine"
+    },
+    {
+      "slug": "finance-payments-tax-and-treasury",
+      "source": "finance/finance-payments-tax-and-treasury"
+    },
+    {
+      "slug": "god-marduk",
+      "source": "product/orchestration/god-marduk"
+    },
+    {
+      "slug": "grounded-search-rules",
+      "source": "engineering/architecture-and-resiliency/grounded-search-rules"
+    },
+    {
+      "slug": "how-might-we",
+      "source": "design/sprints-and-ideation/how-might-we"
+    },
+    {
+      "slug": "info-to-ink",
+      "source": "engineering/development-and-quality/info-to-ink"
+    },
+    {
+      "slug": "legal-contracts-and-compliance",
+      "source": "legal/legal-contracts-and-compliance"
+    },
+    {
+      "slug": "meeting-transcription-notes",
+      "source": "productivity-maestro/executive-and-async/meeting-transcription-notes"
+    },
+    {
+      "slug": "michael-bolton-pod-conductor",
+      "source": "product/orchestration/michael-bolton-pod-conductor"
+    },
+    {
+      "slug": "michael-bolton-rule",
+      "source": "product/orchestration/michael-bolton-rule"
+    },
+    {
+      "slug": "multi-cloud-architecture",
+      "source": "engineering/cloud-and-infrastructure/multi-cloud-architecture"
+    },
+    {
+      "slug": "now-next-later-roadmaps",
+      "source": "product/planning-and-cadence/now-next-later-roadmaps"
+    },
+    {
+      "slug": "observability-telemetry",
+      "source": "quality/observability-telemetry"
+    },
+    {
+      "slug": "open-source-contributor",
+      "source": "engineering/development-and-quality/open-source-contributor"
+    },
+    {
+      "slug": "opportunity-solution-mapping",
+      "source": "product/planning-and-cadence/opportunity-solution-mapping"
+    },
+    {
+      "slug": "ops-incident-and-crisis-response",
+      "source": "ops/ops-incident-and-crisis-response"
+    },
+    {
+      "slug": "outcome-okrs-and-cadence",
+      "source": "product/planning-and-cadence/outcome-okrs-and-cadence"
+    },
+    {
+      "slug": "peekaboo",
+      "source": "quality/peekaboo"
+    },
+    {
+      "slug": "pmf-engine-and-growth-loops",
+      "source": "product/strategy/pmf-engine-and-growth-loops"
+    },
+    {
+      "slug": "prd-to-tickets",
+      "source": "product/discovery-and-specs/prd-to-tickets"
+    },
+    {
+      "slug": "premortem-kill-criteria",
+      "source": "product/planning-and-cadence/premortem-kill-criteria"
+    },
+    {
+      "slug": "product-data-metric-investigation-triage",
+      "source": "data-and-api/product-data-metric-investigation-triage"
+    },
+    {
+      "slug": "product-hypothesis-loop",
+      "source": "product/strategy/product-hypothesis-loop"
+    },
+    {
+      "slug": "product-management",
+      "source": "product/archetypes/product-management"
+    },
+    {
+      "slug": "product-pricing-strategy",
+      "source": "product/strategy/product-pricing-strategy"
+    },
+    {
+      "slug": "product-strategy-narrative",
+      "source": "product/strategy/product-strategy-narrative"
+    },
+    {
+      "slug": "release-readiness-gtm",
+      "source": "product/operations-and-gtm/release-readiness-gtm"
+    },
+    {
+      "slug": "scrum-daily-sync",
+      "source": "productivity-maestro/scrum-cadences/scrum-daily-sync"
+    },
+    {
+      "slug": "scrum-planning-and-refinement",
+      "source": "productivity-maestro/scrum-cadences/scrum-planning-and-refinement"
+    },
+    {
+      "slug": "scrum-review-and-retro",
+      "source": "productivity-maestro/scrum-cadences/scrum-review-and-retro"
+    },
+    {
+      "slug": "swarm-rules",
+      "source": "product/orchestration/swarm-rules"
+    },
+    {
+      "slug": "system-architecture-rules",
+      "source": "engineering/architecture-and-resiliency/system-architecture-rules"
+    },
+    {
+      "slug": "systems-retro-pruning",
+      "source": "product/operations-and-gtm/systems-retro-pruning"
+    },
+    {
+      "slug": "technical-language-rules",
+      "source": "engineering/development-and-quality/technical-language-rules"
+    },
+    {
+      "slug": "trust-safety-fraud-and-claims",
+      "source": "trust/trust-safety-fraud-and-claims"
+    },
+    {
+      "slug": "user-story-mapping",
+      "source": "product/planning-and-cadence/user-story-mapping"
+    },
+    {
+      "slug": "voc-insights-pipeline",
+      "source": "product/discovery-and-specs/voc-insights-pipeline"
+    },
+    {
+      "slug": "web-perf",
+      "source": "quality/web-perf"
+    }
+  ]
+}

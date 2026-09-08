@@ -1,0 +1,53 @@
+{
+  "skill": "executive-async-memo",
+  "version": 1,
+  "trigger_cases": [
+    {"prompt": "Turn this Slack thread into an executive async memo for leadership.", "trigger": true},
+    {"prompt": "Convert this email chain into a 1-page Smart Brevity briefing.", "trigger": true},
+    {"prompt": "Write a 1-page Amazon narrative memo summarizing our architecture proposal.", "trigger": true},
+    {"prompt": "Create an async leadership update from these project notes.", "trigger": true},
+    {"prompt": "Synthesize this debate into a brief async memo with next steps.", "trigger": true},
+    {"prompt": "Write a python script to parse CSV files.", "trigger": false},
+    {"prompt": "Deploy this docker container to Kubernetes.", "trigger": false},
+    {"prompt": "Build a CSS animation for a modal popup.", "trigger": false},
+    {"prompt": "Optimize database index queries on MySQL.", "trigger": false}
+  ],
+  "binary_cases": [
+    {
+      "id": "smart-brevity-structure",
+      "prompt": "Create a Smart Brevity async memo from this thread.",
+      "pass_rule": "Includes required Smart Brevity signposts (Why it matters, What's next or By the numbers) and a concise headline.",
+      "must": [["Why it matters", "Why It Matters"], ["What's next", "What's Next", "Next Steps"], ["By the numbers", "By the Numbers", "Numbers"]],
+      "must_not": ["unformatted rambling email thread with no sections"],
+      "pass_fixture": "## Executive Summary\n- **Why it matters:** Egress costs dropped 30%.\n## By the numbers\n- Savings: $15k/mo\n## What's next\n- @Alex: Merge PR by 2026-09-05",
+      "fail_fixture": "Unformatted rambling email thread with no sections or signposts."
+    },
+    {
+      "id": "single-dri-accountability",
+      "prompt": "Extract next steps and action items into the memo.",
+      "pass_rule": "Assigns exactly one human DRI per deliverable with hard deadlines and imperative verbs.",
+      "must": [["DRI", "Single Owner", "Owner"], "@", ["2026-", "by ", "Deadline"]],
+      "must_not": ["@Team", "@All", "someone will handle this"],
+      "pass_fixture": "| Single Owner (DRI) | Action Item | Deadline |\n| @Dave | Deploy Redis cluster | 2026-09-08 |",
+      "fail_fixture": "Actions: @Team will handle the Redis cluster and someone will handle this soon."
+    },
+    {
+      "id": "ste-connectors-and-precision",
+      "prompt": "Format the memo using ASD-STE100 technical English.",
+      "pass_rule": "Uses deterministic STE connectors (because, after, before) and imperative verbs.",
+      "must": [["because", "due to"], ["Deploy", "Add", "Fix", "Update", "Verify", "Scale"], ["by ", "2026-"]],
+      "must_not": ["in order to", "prior to", "since we need", "as the system was slow"],
+      "pass_fixture": "Deploy instance upscale because memory exceeded 90%. Complete rollout by 2026-09-02.",
+      "fail_fixture": "We must scale in order to fix memory since we need it prior to tomorrow as the system was slow."
+    },
+    {
+      "id": "info-to-ink-compression",
+      "prompt": "Compress the discussion into a high-density async memo.",
+      "pass_rule": "Drops conversational greetings, throat-clearing, and pleasantries while preserving technical details.",
+      "must": [["ms", "%", "$", "API", "PR", "DB"], "@"],
+      "must_not": ["hope you are all having a great week", "just wanted to share a quick thought", "let me know if you have any questions"] ,
+      "pass_fixture": "Executive Summary: Reduced API latency by 45% ($12k savings). DRI: @Sarah.",
+      "fail_fixture": "Hope you are all having a great week! Just wanted to share a quick thought about our API. Let me know if you have any questions."
+    }
+  ]
+}

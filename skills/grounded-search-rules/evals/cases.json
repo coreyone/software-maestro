@@ -1,0 +1,32 @@
+{
+  "skill": "grounded-search-rules",
+  "version": 1,
+  "trigger_cases": [
+    {"prompt": "Wire web search grounding into our SvelteKit backend adapter.", "trigger": true},
+    {"prompt": "Integrate DDGS search retrieval for our LLM fact-checking pipeline.", "trigger": true},
+    {"prompt": "Add search citations to our server-side RAG pipeline without paid API keys.", "trigger": true},
+    {"prompt": "Search the web to answer my question about React 19.", "trigger": false},
+    {"prompt": "Render this webpage and click the submit button.", "trigger": false},
+    {"prompt": "Write a CSS animation for a spinner.", "trigger": false}
+  ],
+  "binary_cases": [
+    {
+      "id": "free-primitive-default",
+      "prompt": "Choose a search grounding backend for our application server.",
+      "pass_rule": "Defaults to free zero-key search primitive (ddgs/ground.py) and avoids assuming speculative infrastructure.",
+      "must": [["ddgs", "ground.py", "zero-key", "free"], ["adapter", "backend"]],
+      "must_not": ["require paid api key as default", "speculatively install docker and searxng"],
+      "pass_fixture": "Use the free ddgs zero-key ground.py backend adapter for server-side search retrieval.",
+      "fail_fixture": "Require paid API key as default and speculatively install docker and searxng before testing."
+    },
+    {
+      "id": "honest-provenance-and-empty-results",
+      "prompt": "Handle search failure and empty result responses in the grounding adapter.",
+      "pass_rule": "Preserves honest error handling and treats empty result sets as valid answers rather than fabricating findings.",
+      "must": [["ok", "results", "empty"], ["error", "problemdetails", "failure"]],
+      "must_not": ["fabricate results on empty set", "fake search findings"],
+      "pass_fixture": "Handle ok:false via structured ProblemDetails error and treat empty results list honestly without inventing data.",
+      "fail_fixture": "Fabricate results on empty set and fake search findings when retrieval fails."
+    }
+  ]
+}

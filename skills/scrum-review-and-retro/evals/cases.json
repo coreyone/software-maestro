@@ -1,0 +1,52 @@
+{
+  "skill": "scrum-review-and-retro",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Run our Sprint Review meeting: audit features against our Definition of Done and demo to stakeholders.",
+      "trigger": true
+    },
+    {
+      "prompt": "Facilitate our blameless sprint retrospective using Norm Kerth prime directive and 5-whys.",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a unit test with Vitest.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "review-and-retro-audit",
+      "prompt": "Generate a Scrum Sprint Review & Retrospective summary for an e-commerce squad completing Sprint 12.",
+      "pass_rule": "Must include Sprint Goal evaluation, Definition of Done audit, 5-Whys root cause analysis, and strictly 1 Kaizen process upgrade.",
+      "must": [
+        [
+          "sprint goal",
+          "achieved"
+        ],
+        [
+          "definition of done",
+          "dod"
+        ],
+        [
+          "5 whys",
+          "root cause",
+          "prime directive"
+        ],
+        [
+          "kaizen",
+          "process upgrade",
+          "action item"
+        ]
+      ],
+      "must_not": [
+        [
+          "lorem ipsum"
+        ]
+      ],
+      "pass_fixture": "## 1. Sprint Review: Goal & DoD Audit\n- **Sprint Goal**: 'Deliver self-serve subscription pause and skip.' -> **ACHIEVED**.\n- **Definition of Done (DoD) Audit**: 100% tests green, zero high CVEs, staging E2E smoke tests passing.\n\n## 2. Sprint Retrospective: Egoless Kaizen\n- **Prime Directive**: Affirmed full psychological safety.\n- **5-Whys Root Cause on Staging Downtime**: Root cause identified as unindexed schema migration script.\n- **1 Kaizen Process Upgrade**: Add automated migration dry-run gate in CI pipeline for Sprint 13.",
+      "fail_fixture": "We showed the app and discussed the sprint."
+    }
+  ]
+}

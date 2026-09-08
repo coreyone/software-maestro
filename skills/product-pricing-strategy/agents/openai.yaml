@@ -1,0 +1,4 @@
+interface:
+  display_name: "Product Pricing Strategy"
+  short_description: "Design, audit, and optimize end-to-end monetization engines across industries"
+  default_prompt: "Use $product-pricing-strategy to design, audit, or optimize the pricing model, value metrics, tier packaging, and revenue governance for this product."

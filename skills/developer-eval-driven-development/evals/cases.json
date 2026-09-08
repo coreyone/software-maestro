@@ -1,0 +1,97 @@
+{
+  "skill": "developer-eval-driven-development",
+  "version": 1,
+  "trigger_cases": [
+    {"prompt": "Set up eval-driven development for this RAG assistant.", "trigger": true},
+    {"prompt": "Build a golden dataset and LLM-as-judge release gate.", "trigger": true},
+    {"prompt": "Compare these two agent prompts with reproducible evals.", "trigger": true},
+    {"prompt": "A model migration regressed tool selection. Add evals and fix it.", "trigger": true},
+    {"prompt": "Use EDD to improve this classifier without overfitting.", "trigger": true},
+    {"prompt": "Write unit tests for this deterministic date parser.", "trigger": false},
+    {"prompt": "Review this pull request for security issues.", "trigger": false},
+    {"prompt": "Improve the visual hierarchy of this checkout page.", "trigger": false}
+  ],
+  "binary_cases": [
+    {
+      "id": "contract-before-change",
+      "prompt": "Improve an unreliable support agent using eval-driven development.",
+      "pass_rule": "The approach defines observable behavior, failure modes, dataset slices, evaluators, thresholds, and budgets before changing the application.",
+      "must": [["behavior", "outcome"], "failure", "dataset", "evaluator", ["threshold", "pass rule"], ["budget", "stop"]],
+      "must_not": ["start by rewriting the prompt"],
+      "pass_fixture": "First define the user outcome and costly failure modes, map dataset slices to evaluators and pass rules, and set cost, latency, and iteration budgets.",
+      "fail_fixture": "Start by rewriting the prompt and see whether the answers look better."
+    },
+    {
+      "id": "baseline-and-paired-comparison",
+      "prompt": "Prove that a new system prompt improves response quality.",
+      "pass_rule": "The evidence includes a preserved baseline and paired candidate comparison on the same versioned cases.",
+      "must": ["baseline", ["same dataset", "same examples"], ["paired", "per-example"], ["version", "frozen"]],
+      "must_not": ["candidate score alone proves"],
+      "pass_fixture": "Run and preserve the baseline, then make a paired, per-example comparison on the same dataset frozen at a recorded version.",
+      "fail_fixture": "The candidate score alone proves it is an improvement."
+    },
+    {
+      "id": "evaluator-ladder",
+      "prompt": "Choose evaluators for JSON validity, tool arguments, and answer completeness.",
+      "pass_rule": "Exact properties use deterministic checks while open-ended semantic completeness uses a calibrated model judge.",
+      "must": [["deterministic", "executable"], ["JSON", "schema"], ["tool", "arguments"], ["judge", "semantic"], ["calibrate", "labeled"]],
+      "must_not": ["use an LLM judge for every criterion"],
+      "pass_fixture": "Use deterministic schema and tool-argument assertions. Use a semantic model judge for completeness only after calibration on labeled pass, fail, and boundary examples.",
+      "fail_fixture": "Use an LLM judge for every criterion, including whether the JSON parses."
+    },
+    {
+      "id": "real-model-end-to-end",
+      "prompt": "Create an end-to-end eval for an LLM agent while keeping tests cheap.",
+      "pass_rule": "End-to-end quality evidence calls a real model; model mocking is limited to deterministic unit tests and is not presented as model-quality evidence.",
+      "must": [["real model", "real LLM"], ["end-to-end", "E2E"], ["mock", "unit test"], ["not", "does not"]],
+      "must_not": ["mock the LLM for the end-to-end eval"],
+      "pass_fixture": "Use a real LLM for the end-to-end eval. Mocking is allowed in separate deterministic unit tests, but those results do not measure model quality.",
+      "fail_fixture": "Mock the LLM for the end-to-end eval so the expected answer is stable."
+    },
+    {
+      "id": "dataset-slices-and-holdout",
+      "prompt": "Design an eval dataset that resists prompt overfitting.",
+      "pass_rule": "The dataset covers representative and failure slices, separates development, regression, and holdout roles, and prevents holdout tuning.",
+      "must": ["happy", "edge", ["adversarial", "misuse"], ["historical", "regression"], "holdout", ["do not tune", "untouched"]],
+      "must_not": ["use every case for iterative tuning"],
+      "pass_fixture": "Cover happy, edge, adversarial, and historical failure cases. Iterate on the development set, retain regressions, and keep the holdout untouched until final comparison.",
+      "fail_fixture": "Use every case for iterative tuning until the whole dataset passes."
+    },
+    {
+      "id": "known-bad-calibration",
+      "prompt": "Turn an LLM judge into a release gate.",
+      "pass_rule": "The evaluator is tested blind on labeled known-good, known-bad, and boundary cases, with false passes and false failures examined.",
+      "must": [["known-bad", "fail"], ["known-good", "pass"], "boundary", ["false pass", "false positive"], ["false fail", "false negative"], ["blind", "calibrat"]],
+      "must_not": ["trust the judge without calibration"],
+      "pass_fixture": "Calibrate the judge blind against labeled known-good, known-bad, and boundary cases; inspect false passes and false failures before gating releases.",
+      "fail_fixture": "Trust the judge without calibration because its rubric sounds precise."
+    },
+    {
+      "id": "reproducibility-and-variance",
+      "prompt": "Make a model comparison reproducible despite stochastic outputs.",
+      "pass_rule": "The run records all material versions and settings, repeats unstable cases, and reports uncertainty rather than selecting a favorable run.",
+      "must": ["model", "prompt", "dataset", "evaluator", ["commit", "application version"], ["temperature", "inference"], ["repeat", "trial"], ["variance", "uncertainty"]],
+      "must_not": ["keep the best run"],
+      "pass_fixture": "Record model, prompt, dataset, evaluator, commit, and inference settings. Repeat unstable cases and report variance or uncertainty.",
+      "fail_fixture": "Run each candidate once and keep the best run."
+    },
+    {
+      "id": "no-aggregate-camouflage",
+      "prompt": "Decide whether to ship a candidate with a higher average score but a safety regression.",
+      "pass_rule": "A critical regression blocks release even when the aggregate improves, and the decision inspects slices and individual examples.",
+      "must": [["block", "do not ship"], "critical", "regression", ["slice", "per-example"], ["average", "aggregate"]],
+      "must_not": ["ship because the average"],
+      "pass_fixture": "Block the release: the improved aggregate cannot override a critical safety regression. Inspect the affected slice and per-example evidence.",
+      "fail_fixture": "Ship because the average score increased enough to offset the safety failures."
+    },
+    {
+      "id": "learning-loop",
+      "prompt": "An AI behavior defect reached production. Define completion.",
+      "pass_rule": "Completion includes a reproducible case, regression entry, detecting evaluator, system fix, and recurrence signal.",
+      "must": [["reproducible", "minimiz"], ["dataset", "regression"], "evaluator", "fix", ["monitor", "signal"]],
+      "must_not": ["fix only"],
+      "pass_fixture": "Minimize the failure, add it to the regression dataset, add an evaluator that catches it, fix the system, and monitor for recurrence.",
+      "fail_fixture": "Apply a fix only and close the incident."
+    }
+  ]
+}

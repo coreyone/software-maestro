@@ -1,0 +1,74 @@
+{
+  "skill": "data-science-causal-inference",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "We launched a new host cancellation fee policy in 3 test cities (Miami, Austin, Denver) while the rest of the country remained unchanged. How do we design a difference-in-differences or synthetic control analysis to evaluate the causal impact on booking conversion?",
+      "trigger": true
+    },
+    {
+      "prompt": "Our weekly search ranking experiment has high metric variance. Can we apply CUPED pre-experiment covariate adjustment to improve statistical power and reduce required sample size?",
+      "trigger": true
+    },
+    {
+      "prompt": "Users who receive a $50 credit voucher at exactly 10,000 loyalty points show higher retention. How do we use regression discontinuity (RDD) to test if the credit causally drives retention?",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a Terraform script to create an S3 bucket with versioning enabled.",
+      "trigger": false
+    },
+    {
+      "prompt": "Fix a broken React useState hook in our navbar component.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "quasi-experiment-did-and-synthetic-control",
+      "prompt": "We launched a host instant-payout feature in Chicago and need to measure the causal lift on supply retention across 6 months of panel data where a randomized A/B test was not possible. Outline the identification strategy using Synthetic Controls or Difference-in-Differences, stating the parallel trends check, donor pool optimization, placebo permutation tests, and SUTVA spillover risk.",
+      "pass_rule": "Must specify the causal identification model (DiD or SCM), verify parallel trends or donor pool weights, define placebo test methodology, and address SUTVA/spillover assumptions.",
+      "must": [
+        [
+          "Difference-in-Differences",
+          "Synthetic Control",
+          "DiD",
+          "SCM"
+        ],
+        [
+          "Parallel Trends",
+          "parallel trends",
+          "donor pool",
+          "weights"
+        ],
+        [
+          "Placebo",
+          "placebo",
+          "in-space",
+          "in-time"
+        ],
+        [
+          "SUTVA",
+          "spillover",
+          "cannibalization",
+          "interference"
+        ],
+        [
+          "Confidence Interval",
+          "Standard Error",
+          "p-value",
+          "significance",
+          "CI"
+        ]
+      ],
+      "must_not": [
+        [
+          "standard randomized A/B test without controls",
+          "just compare averages before and after"
+        ]
+      ],
+      "pass_fixture": "### Causal Evaluation: Host Instant-Payout Rollout in Chicago\n\n#### 1. Identification Framework: Synthetic Control Method (SCM) & DiD Panel\nBecause the instant-payout policy was rolled out market-wide across Chicago, user-level randomization was infeasible. We construct a Synthetic Chicago using a donor pool of 28 unexposed metropolitan markets.\n\n#### 2. Donor Optimization & Covariate Balancing\n- **Optimization**: Solve $W^* = \\arg\\min_W ||X_1 - X_0 W||_V$ subject to $w_j \\ge 0, \\sum w_j = 1$.\n- **Covariates Matched**: Pre-rollout 12-month average booking volume, active host count, average listing price, and seasonality index.\n\n#### 3. Parallel Trends & Pre-Treatment Diagnostics\n- Pre-treatment RMSPE is 0.018 across the 24-week baseline, confirming strong parallel trends.\n- Event-study lead coefficients for weeks $t < 0$ are statistically indistinguishable from zero ($p > 0.45$).\n\n#### 4. Estimated Causal Impact\n- **Treatment Effect ($\\hat{\\tau}$)**: +6.4% incremental lift in 90-day Host Retention (95% Confidence Interval: [+3.8%, +8.9%], p-value = 0.008).\n- **Economic Translation**: Translates to approximately 1,420 retained hosts and \\$2.1M in annualized incremental Gross Booking Value (GBV).\n\n#### 5. Placebo Permutation Tests & Sensitivity\n- **In-Space Placebo**: Ran iterative SCM across all 28 donor markets; Chicago exhibited the highest post/pre RMSPE ratio ($r_{\\text{Chicago}} = 8.42$), yielding an exact pseudo p-value of $1/29 = 0.034$.\n- **SUTVA & Spillover Assessment**: Verified surrounding Midwest markets (Milwaukee, Indianapolis) did not show listing migration or supply displacement.",
+      "fail_fixture": "Let's take the host retention in Chicago after the launch and subtract Chicago's retention before the launch to get the lift."
+    }
+  ]
+}

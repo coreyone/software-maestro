@@ -1,0 +1,57 @@
+{
+  "skill": "chart-communication",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Choose the best chart to compare regional revenue trends over the past 8 quarters.",
+      "trigger": true
+    },
+    {
+      "prompt": "Audit our KPI executive dashboard for perceptual accuracy and axis integrity.",
+      "trigger": true
+    },
+    {
+      "prompt": "Design an accessible, colorblind-friendly data visualization for customer retention cohorts.",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a Dockerfile for deploying a Node.js microservice.",
+      "trigger": false
+    },
+    {
+      "prompt": "Optimize database foreign key constraints.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "honest-axis-zero-baseline",
+      "prompt": "Design a bar chart to compare discrete sales figures across 5 product lines.",
+      "pass_rule": "Starts quantitative bar axis at zero, uses direct labeling, and avoids 3D or dual-axis distortions.",
+      "must": [
+        [
+          "zero",
+          "baseline"
+        ],
+        [
+          "bar",
+          "column"
+        ],
+        [
+          "direct label",
+          "label",
+          "legend"
+        ]
+      ],
+      "must_not": [
+        [
+          "truncated baseline on bar",
+          "3D perspective distortion",
+          "unexplained dual axis"
+        ]
+      ],
+      "pass_fixture": "Use a horizontal bar chart with a zero baseline on the x-axis, direct value labels, and sorting by magnitude.",
+      "fail_fixture": "Truncate the bar chart y-axis at 90% to exaggerate differences and render in 3D perspective."
+    }
+  ]
+}

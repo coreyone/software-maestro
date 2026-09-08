@@ -1,0 +1,43 @@
+{
+  "skill": "open-source-contributor",
+  "version": 1,
+  "trigger_cases": [
+    {"prompt": "I want to submit a pull request to an open source library on GitHub.", "trigger": true},
+    {"prompt": "How should I structure this commit message using Conventional Commits?", "trigger": true},
+    {"prompt": "Help me write a respectful code review comment for an external contributor.", "trigger": true},
+    {"prompt": "How do I rebase my fork against upstream main before opening a PR?", "trigger": true},
+    {"prompt": "A contributor is violating our code of conduct; how do we address this professionally?", "trigger": true},
+    {"prompt": "Write a quarterly performance review for my direct report.", "trigger": false},
+    {"prompt": "Configure an AWS S3 bucket lifecycle policy with Terraform.", "trigger": false},
+    {"prompt": "Design a checkout conversion rate experiment for our private e-commerce app.", "trigger": false}
+  ],
+  "binary_cases": [
+    {
+      "id": "conventional-commit-format",
+      "prompt": "Format a commit message for adding a rate limiter to the auth API that breaks backwards compatibility.",
+      "pass_rule": "The commit uses Conventional Commits syntax with breaking change indicator or footer, imperative verb, and lowercase description.",
+      "must": [["feat(auth)!:", "feat!: ", "feat(auth):", "BREAKING CHANGE:"], "rate limiter", ["add", "implement"]],
+      "must_not": ["added rate limiter", "adds rate limiter", "Added rate limiter"],
+      "pass_fixture": "feat(auth)!: add token bucket rate limiter to login endpoint\n\nBREAKING CHANGE: unauthenticated requests now return 429 after 5 attempts.",
+      "fail_fixture": "Added rate limiter to auth API so users cannot spam requests."
+    },
+    {
+      "id": "egoless-code-review-comment",
+      "prompt": "Write a code review comment for an open source PR where the author missed handling null on input parameters.",
+      "pass_rule": "The review comment critiques the code rather than the author, explains the concrete failure mode, and proposes a direct fix without personal blame.",
+      "must": [["null", "empty input"], ["prevents a crash", "prevents error", "causes a panic", "throw"], ["can we", "suggest", "consider", "handling"]],
+      "must_not": ["you forgot", "you failed", "your terrible code", "you should know better"],
+      "pass_fixture": "Handling null here prevents a crash when the input payload is empty. Can we add a guard clause at line 14?",
+      "fail_fixture": "You forgot to handle null here again. You should know better."
+    },
+    {
+      "id": "first-contributions-git-flow",
+      "prompt": "Show the commands to sync a local fork with upstream and rebase before pushing a PR.",
+      "pass_rule": "The command sequence fetches upstream, rebases on upstream/main, and pushes to origin.",
+      "must": ["git fetch upstream", ["git rebase upstream/main", "rebase upstream/main"], ["git push", "push -u origin", "force-with-lease"]],
+      "must_not": ["git push upstream main"],
+      "pass_fixture": "Run:\ngit fetch upstream\ngit rebase upstream/main\ngit push -u origin feature-branch",
+      "fail_fixture": "Just run git push upstream main directly."
+    }
+  ]
+}

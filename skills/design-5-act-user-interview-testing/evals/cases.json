@@ -1,0 +1,58 @@
+{
+  "skill": "design-5-act-user-interview-testing",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Run the Friday 5-Act user interview testing and synthesize the pattern scorecard for our design sprint prototype.",
+      "trigger": true
+    },
+    {
+      "prompt": "Synthesize results from 5 user test sessions using Michael Margolis protocol and score our sprint questions.",
+      "trigger": true
+    },
+    {
+      "prompt": "Run unit tests with Vitest on our auth service.",
+      "trigger": false
+    },
+    {
+      "prompt": "Create a CSS grid layout with responsive breakpoints.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "five-act-interview-synthesis",
+      "prompt": "Synthesize Friday 5-Act interview testing results for a mobile invoice scanner sprint, evaluating 3 sprint questions and delivering the scorecard.",
+      "pass_rule": "Must include 5-user testing summary, populated Pattern Scorecard with color codes, explicit verdicts for all 3 Sprint Questions with verbatim quotes, and a Go/Pivot/Kill decision.",
+      "must": [
+        [
+          "5 users",
+          "5 participants",
+          "user 1",
+          "user 5"
+        ],
+        [
+          "scorecard",
+          "pattern scorecard"
+        ],
+        [
+          "sprint question",
+          "verdict"
+        ],
+        [
+          "go",
+          "pivot",
+          "kill",
+          "recommendation"
+        ]
+      ],
+      "must_not": [
+        [
+          "lorem ipsum"
+        ]
+      ],
+      "pass_fixture": "## 5 Users Testing Summary (Michael Margolis Protocol)\nConducted 5 live 60-minute 1-on-1 interviews with 5 participants (User 1 through User 5).\n\n## Pattern Scorecard Matrix\n- **Step 1 (Ad & Value Prop)**: 5/5 GREEN (Immediate comprehension across all 5 users).\n- **Step 2 (Camera OCR Scan)**: 5/5 GREEN (Users amazed by 2-second invoice capture).\n- **Step 3 (Tax Classification)**: 4/5 GREEN, 1/5 YELLOW.\n- **Step 4 (Subscription Pricing)**: 1/5 GREEN, 4/5 RED (Users rejected $49/mo flat fee; demanded pay-per-invoice tier).\n\n## Sprint Question Verdicts\n1. *Can users scan paper invoices in under 10 seconds?* -> **VALIDATED** (Average scan time 4.2s. Quote: 'This just saved me 20 minutes of typing.').\n2. *Will users trust automated expense categorization?* -> **VALIDATED** (96% accuracy observed. Quote: 'It correctly tagged my Home Depot run as Supplies.').\n3. *Will users pay $49/month for unlimited scanning?* -> **INVALIDATED** (Quote: 'I only scan 5 invoices a month, $49 is too steep.').\n\n## Executive Recommendation\n**PIVOT PRICING & PROCEED TO BUILD**: Core OCR product engine is high-value; pivot pricing model from $49/mo subscription to $0.50/scan pay-as-you-go before engineering release.",
+      "fail_fixture": "We tested with users and they generally liked the app. We should build it."
+    }
+  ]
+}

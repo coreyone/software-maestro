@@ -1,0 +1,41 @@
+{
+  "skill": "ops-incident-and-crisis-response",
+  "version": 1,
+  "trigger_cases": [
+    {"prompt": "Coordinate a SEV-0 production outage war room, kill the failing canary deployment, and draft public status page updates.", "trigger": true},
+    {"prompt": "Resolve an urgent customer crisis involving a guest locked out in freezing weather with pre-authorized emergency re-booking.", "trigger": true},
+    {"prompt": "Facilitate a blameless post-mortem retrospective and generate automated regression testing prevention tickets.", "trigger": true},
+    {"prompt": "Add a new button component to our React design system.", "trigger": false},
+    {"prompt": "Write documentation for an internal REST API endpoint.", "trigger": false},
+    {"prompt": "Optimize web page font loading with font-display swap.", "trigger": false}
+  ],
+  "binary_cases": [
+    {
+      "id": "sev0-incident-command-and-containment",
+      "prompt": "Manage a critical SEV-0 database connection starvation incident impacting checkout and API gateways.",
+      "pass_rule": "Executes immediate containment (traffic shedding, canary rollback, connection pool throttling) while establishing an Incident Commander and communications lead.",
+      "must": [["containment", "mitigation", "rollback"], ["Incident Commander", "incident command", "IC"], ["traffic shedding", "shedding", "circuit breaker", "rate limit"]],
+      "must_not": ["debug in production without containment", "ignore incident severity", "delay mitigation to find root cause first"],
+      "pass_fixture": "Assign an Incident Commander to lead containment, execute immediate canary rollback and traffic shedding to protect healthy nodes, and restore customer traffic before deep debugging.",
+      "fail_fixture": "Debug in production without containment, delay mitigation to find root cause first, and ignore incident severity."
+    },
+    {
+      "id": "realtime-crisis-communications",
+      "prompt": "Draft external status page communications and executive leadership briefings during an ongoing widespread platform outage.",
+      "pass_rule": "Publishes transparent, non-blaming, timestamped status updates acknowledging impact, ongoing containment efforts, and scheduled next update times.",
+      "must": [["status page", "public communication"], ["timestamp", "next update"], ["impact", "mitigation", "investigating"]],
+      "must_not": ["blame downstream vendors publicly", "hide outage from status page", "promise unrealistic 5-minute fixes"]
+      ,"pass_fixture": "Publish timestamped status page notices acknowledging customer impact, detailing active mitigation efforts, and committing to the next update in 20 minutes.",
+      "fail_fixture": "Hide outage from status page, blame downstream vendors publicly, and promise unrealistic 5-minute fixes."
+    },
+    {
+      "id": "blameless-rca-and-action-items",
+      "prompt": "Author a post-incident retrospective report (RCA) and generate corrective engineering action items.",
+      "pass_rule": "Synthesizes a chronological timeline, applies 5-Whys root cause analysis focusing on systemic process/code failures, and creates tracked prevention tickets.",
+      "must": [["timeline", "chronological"], ["5-Whys", "root cause", "systemic failure"], ["prevention ticket", "action item", "regression test"]],
+      "must_not": ["blame individual engineers", "close incident without corrective tickets", "attribute failure solely to human error"]
+      ,"pass_fixture": "Construct a detailed chronological timeline, run a 5-Whys analysis identifying systemic architectural gaps rather than human error, and generate automated regression test action items and prevention tickets.",
+      "fail_fixture": "Attribute failure solely to human error, blame individual engineers, and close incident without corrective tickets."
+    }
+  ]
+}

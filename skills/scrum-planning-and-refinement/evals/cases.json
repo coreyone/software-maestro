@@ -1,0 +1,45 @@
+{
+  "skill": "scrum-planning-and-refinement",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Run our Sprint Planning session: formulate our sprint goal and size our backlog.",
+      "trigger": true
+    },
+    {
+      "prompt": "Help our squad groom upcoming epics using INVEST criteria and the Definition of Ready.",
+      "trigger": true
+    },
+    {
+      "prompt": "Run our daily standup meeting.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "planning-and-refinement-contract",
+      "prompt": "Generate a Scrum Sprint Planning contract for a checkout team with 1 sprint goal and capacity calibration.",
+      "pass_rule": "Must include 1 singular Sprint Goal, capacity calculation, and committed backlog items.",
+      "must": [
+        [
+          "sprint goal"
+        ],
+        [
+          "capacity",
+          "velocity"
+        ],
+        [
+          "sprint backlog",
+          "committed"
+        ]
+      ],
+      "must_not": [
+        [
+          "lorem ipsum"
+        ]
+      ],
+      "pass_fixture": "## 1. Singular Sprint Goal\nEnable instant Apple Pay checkout for mobile users.\n\n## 2. Capacity Calibration\n- Trailing velocity: 28 pts.\n- Available capacity: 22 story points.\n\n## 3. Committed Sprint Backlog\n- Story 1: Apple Pay PassKit client (8 pts)\n- Story 2: Decryption token endpoint (8 pts)\n- Story 3: Analytics telemetry (6 pts)",
+      "fail_fixture": "Let's do checkout work."
+    }
+  ]
+}

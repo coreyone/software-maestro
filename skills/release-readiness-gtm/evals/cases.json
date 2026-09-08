@@ -1,0 +1,58 @@
+{
+  "skill": "release-readiness-gtm",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "We are preparing to launch our new enterprise SSO feature next month. What release tier is this, what can sales say to customers right now in beta, and what GTM checklist do we need before GA?",
+      "trigger": true
+    },
+    {
+      "prompt": "Create a launch readiness checklist and sales communication guidelines for an upcoming product release.",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a python script to deploy Docker containers to an AWS ECS cluster via GitHub Actions.",
+      "trigger": false
+    },
+    {
+      "prompt": "Design a Figma CSS layout for a pricing table component.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "release-tier-and-sales-boundary",
+      "prompt": "Evaluate a new Automated Billing & Invoicing module that is currently in Alpha. Define its release tier, what sales is allowed to communicate, and the sign-off gates required for GA.",
+      "pass_rule": "Must classify as Tier 1, define Alpha sales restrictions (sales cannot sell or commit), and outline the cross-functional sign-off matrix.",
+      "must": [
+        [
+          "Tier 1",
+          "tier 1"
+        ],
+        [
+          "Alpha",
+          "alpha"
+        ],
+        [
+          "cannot sell",
+          "can not sell",
+          "cannot quote",
+          "cannot commit"
+        ],
+        [
+          "General Availability",
+          "GA",
+          "readiness"
+        ]
+      ],
+      "must_not": [
+        [
+          "sales can sell now",
+          "unrestricted selling in alpha"
+        ]
+      ],
+      "pass_fixture": "### Release Classification\n- **Release Tier**: Tier 1 (Major Launch - affects monetization and billing infrastructure).\n- **Current Phase**: Alpha (Internal & Design Partner validation).\n\n### Sales Communication Boundary\n- **What Sales Can Say**: Strictly internal testing. Sales cannot sell, quote, or commit delivery dates to customers during Alpha.\n\n### Cross-Functional GA Readiness Matrix\n- **Product**: Feature validation and telemetry instrumented.\n- **Engineering**: Load testing and error rate thresholds met.\n- **Sales Enablement**: Battlecards, pricing guides, and demo day completed.\n- **Support & CS**: Help center documentation and escalation runbooks live.\n- **Legal**: Terms of service and billing compliance verified.",
+      "fail_fixture": "This billing feature is ready to go. Sales can go ahead and sell it to any customer immediately with standard quotes."
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "skill": "design-animation",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Design entrance and exit transitions for our notification drawer with spring physics.",
+      "trigger": true
+    },
+    {
+      "prompt": "Audit our web app animations for 60fps performance and prefers-reduced-motion support.",
+      "trigger": true
+    },
+    {
+      "prompt": "Choreograph a staggered page-load reveal using Motion and CSS transitions.",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a SQL query to aggregate monthly active users.",
+      "trigger": false
+    },
+    {
+      "prompt": "Define the global sitemap and menu taxonomy for our SaaS portal.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "reduced-motion-accessibility",
+      "prompt": "Specify the animation behavior for a modal dialog, including accessibility.",
+      "pass_rule": "Includes functional purpose, duration/easing, and explicit prefers-reduced-motion fallback.",
+      "must": [
+        [
+          "duration",
+          "easing",
+          "spring"
+        ],
+        [
+          "prefers-reduced-motion",
+          "reduced motion",
+          "accessibility"
+        ]
+      ],
+      "must_not": [
+        [
+          "ignore reduced motion",
+          "unskippable 3-second loop"
+        ]
+      ],
+      "pass_fixture": "Implement dialog entrance with a 200ms duration and spring easing transform, and provide an instant opacity fade under prefers-reduced-motion.",
+      "fail_fixture": "Apply an unskippable 3-second spinning animation regardless of user motion settings."
+    }
+  ]
+}

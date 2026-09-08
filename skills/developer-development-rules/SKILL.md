@@ -1,0 +1,56 @@
+---
+name: developer-development-rules
+description: "Enforce engineering standards, clean architecture, small diffs, and definition-of-done gates."
+---
+
+# 🏗️ Core Philosophy: Build small, clear, composable pieces.
+
+## When to use
+
+Use this skill when the task is primarily about engineering and this guidance is the most relevant operating rule set.
+
+## When not to use
+
+Do not use this skill as the primary guide when another skill has a tighter domain fit for the requested output.
+
+## Trigger cues
+
+- Request explicitly references `developer-development-rules` or this source file.
+- Request language includes terms like: developer, development, rules.
+- Keywords include: implementation, TDD, tests, architecture, performance, web security, code review.
+
+## Routing boundary
+
+- Primary for code quality, test strategy, security hardening, and performance engineering.
+- Do not use as primary for product positioning or conversion copy strategy.
+
+## Inputs required
+
+- Goal or task request
+- Current constraints (time, scope, platform, risk)
+- Existing artifacts (code, docs, screenshots, metrics) when available
+- Source of truth: `subagents/rules/developer/developer-development-rules.md`
+
+## Instructions
+
+1. Read [references/source.md](references/source.md) first.
+2. Extract the non-negotiable rules and translate them into a short execution checklist.
+3. Apply the checklist to the current task, produce concrete outputs, and avoid abstract recommendations.
+4. Validate outcomes with evidence (tests, screenshots, logs, diffs, or written audit findings).
+5. Record decisions and tradeoffs so another engineer can continue without re-discovery.
+
+## Output format
+
+- Primary decision/output: Implementation approach, test coverage, and risk controls.
+- Summary: one-paragraph decision or result
+- Actions: compact checklist with owners and status
+- Evidence: links/paths to artifacts proving completion
+## Definition of Done (DoD) Verification Gate for Code Increments
+
+No pull request, task branch, or delegated implementation increment may be declared COMPLETE without satisfying the universal engineering Definition of Done (DoD):
+
+- [ ] **1. Test-Driven Verification (TDD)**: 100% automated test pass rate. Unit and integration tests cover all BDD acceptance scenarios and edge cases.
+- [ ] **2. Small-Batch Cleanliness**: Diff is bounded ($\le 200$ lines of changed code). Zero dead code, debug logging, or commented-out blocks.
+- [ ] **3. Strict Type & Lint Compliance**: Zero TypeScript/Linter errors, zero compiler warnings, zero broken imports.
+- [ ] **4. Security & Unhappy Path Hardening**: Inputs validated at boundaries, zero plaintext credentials or secrets, structured error handling with fallbacks.
+- [ ] **5. Deterministic Evidence Artifact**: Verifiable proof provided in completion report (CLI test execution logs, passing test fixtures, or DOM/screenshot diffs).

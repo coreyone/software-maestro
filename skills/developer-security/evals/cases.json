@@ -1,0 +1,50 @@
+{
+  "skill": "developer-security",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Audit our web application backend and frontend for OWASP Top 10 vulnerabilities.",
+      "trigger": true
+    },
+    {
+      "prompt": "Configure strict Content Security Policy (CSP) headers and audit secret scanning in CI/CD.",
+      "trigger": true
+    },
+    {
+      "prompt": "Design a marketing logo in vector format.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "owasp-and-csp-hardening",
+      "prompt": "Specify security hardening measures for a web application including CSP headers, parameterized SQL queries, and secrets management.",
+      "pass_rule": "Must include strict CSP headers, parameterized SQL queries (no string interpolation), and pre-commit secret scanning.",
+      "must": [
+        [
+          "csp",
+          "content-security-policy",
+          "content security policy"
+        ],
+        [
+          "parameterized",
+          "sql injection",
+          "query"
+        ],
+        [
+          "secret",
+          "scanning",
+          "credential"
+        ]
+      ],
+      "must_not": [
+        [
+          "script-src * unsafe-inline unsafe-eval",
+          "concatenate raw user input into SQL"
+        ]
+      ],
+      "pass_fixture": "### Software Security Hardening Policy\n1. **SQL Injection Mitigation**: Enforce 100% parameterized queries via ORM/prepared statements; strictly ban raw SQL string concatenation.\n2. **Content Security Policy**: `default-src 'self'; script-src 'self' 'nonce-...'; object-src 'none'; frame-ancestors 'none';`.\n3. **Secrets Governance**: Mandate Gitleaks pre-commit hooks and zero plaintext credentials in repository.",
+      "fail_fixture": "Concatenate user input directly into SQL strings and disable CSP."
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+# The Hermes export is byte-preserving. Some canonical Markdown uses trailing
+# spaces for intentional hard line breaks; do not rewrite it during checks.
+* whitespace=-trailing-space,-blank-at-eof

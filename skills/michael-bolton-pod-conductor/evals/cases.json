@@ -1,0 +1,86 @@
+{
+  "skill": "michael-bolton-pod-conductor",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Conduct the full software lifecycle orchestra for a new 'Guest Split-Payment' feature on our travel booking platform across PM, Design, Engineering, Data Science, and PMM subagents following the Michael Bolton rule.",
+      "trigger": true
+    },
+    {
+      "prompt": "We need to orchestrate a cross-functional product pod through the 5 movements (Data Sizing -> PRD -> Design System -> TDD Engineering -> GTM Release) with Michael Bolton intent framing (outcome, constraints, measures, time-horizon) and Deming system checks.",
+      "trigger": true
+    },
+    {
+      "prompt": "How do we run an autonomous product team where Data Scientists size the opportunity, PMs write the spec, Designers build the UI tokens, Engineers write TDD code, and PMMs launch the narrative using michael-bolton-pod-conductor?",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a regex to match email addresses.",
+      "trigger": false
+    },
+    {
+      "prompt": "Run npm audit fix to update vulnerable packages.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "michael-bolton-product-pod-symphony",
+      "prompt": "Conduct the 5-movement product lifecycle orchestra for 'Guest Instant Refund Guarantee' across a cross-functional pod (Data Science, PM, Product Design, Principal Eng, PMM) adhering to the Michael Bolton Rule. Outline the 5 movements, the functional role responsibilities, the artifact baton handoffs, the Michael Bolton intent framing (Outcome, Constraints, Measures, Time-horizon), blocking gate criteria, and the Deming system failure checklist.",
+      "pass_rule": "Must define the 5 movements, assign functional roles (PM, Design, Eng, Data Science, PMM), specify artifact outputs (opportunity sizing, PRD, DESIGN, ARCHITECTURE, GTM brief), apply Michael Bolton intent framing (Outcome, Constraints, Measures), define blocking gate approvals, and include the Deming system failure checklist.",
+      "must": [
+        [
+          "Movement 1",
+          "Empirical Grounding",
+          "Opportunity Sizing"
+        ],
+        [
+          "Movement 2",
+          "PRD",
+          "Discovery"
+        ],
+        [
+          "Movement 3",
+          "Design",
+          "DESIGN.md",
+          "Interface"
+        ],
+        [
+          "Movement 4",
+          "Architecture",
+          "Engineering",
+          "TDD"
+        ],
+        [
+          "Movement 5",
+          "GTM",
+          "Positioning",
+          "Release"
+        ],
+        [
+          "Outcome",
+          "Constraints",
+          "Measures"
+        ],
+        [
+          "Deming",
+          "System Failure",
+          "system failure checklist"
+        ],
+        [
+          "Michael Bolton",
+          "michael-bolton",
+          "bolton"
+        ]
+      ],
+      "must_not": [
+        [
+          "jump straight to coding without data sizing or PRD",
+          "blame subagent effort without checking system"
+        ]
+      ],
+      "pass_fixture": "### Michael Bolton Product Lifecycle Symphony: Guest Instant Refund Guarantee\n\n#### 1. Pod Roster & Michael Bolton Delegation Framework\nFollowing the **Michael Bolton Rule** (*\"Your job is not to plan work. Your job is to make work work.\"*), we operate through clear role delegation across Mintzberg modes (Decider, Connector, Information Hub, Coach) with explicit 4-part intent framing:\n- **Lead Data Scientist**: Empirical baseline sizing & causal quasi-experiment design (`data-science-causal-inference`).\n  - *Outcome*: Deliver `opportunity_sizing_brief.md` with baseline refund latency and causal strategy.\n  - *Constraints*: No ungrounded vanity metrics; control for market seasonality.\n  - *Measures*: MDE $\\le 3.5\\%$, pre-trend $p > 0.10$.\n  - *Time-horizon*: Movement 1 milestone.\n- **Staff Product Manager**: Discovery, behavioral loops, PRD specification (`create-prd`, `continuous-product-loop`).\n- **Lead Product Designer**: UI onboarding wayfinding, design tokens, error recovery (`design-user-onboarding-ux`, `aesthetic-rules`).\n- **Principal Engineer & Analytics Eng**: API contracts, dbt marts, TDD implementation (`system-architecture-rules`, `developer-test-driven-development`, `data-warehouse-semantic-layer`).\n- **Product Marketing Lead**: Positioning hierarchy, competitive battlecards, launch tiers (`product-marketing-narrative`, `release-readiness-gtm`).\n\n#### 2. The 5-Movement Lifecycle Execution\n\n##### Movement 1: Empirical Grounding & Sizing (Data Science + PM)\n- **Action**: Queried 12-month cancellation refund latency logs. Found that 42% of guest booking cancellations result in support tickets due to 5-day bank refund delays.\n- **Artifact Baton**: `opportunity_sizing_brief.md` ($14.2M projected annualized support cost reduction, target MDE = 3.5% lift in 60-day re-booking rate).\n- **Gate 1 Approval**: Data Science validates statistical feasibility and positive economic ROI.\n\n##### Movement 2: Discovery, Behavioral Loops & PRD (Staff PM)\n- **Action**: Formulated PRD with explicit non-goals (excludes disputed fraud charges) and habit loop trigger (instant refund notification -> immediate re-booking voucher).\n- **Artifact Baton**: `PRD.md`.\n- **Gate 2 Approval**: Scope approved with zero ungrounded feature creep.\n\n##### Movement 3: Interface & Design System Specification (Product Design)\n- **Action**: Designed 1-click instant refund modal, live bank transfer status tracker, and accessible empty/error recovery views.\n- **Artifact Baton**: `DESIGN.md` with WCAG AA compliance and Figma design tokens.\n- **Gate 3 Approval**: UX review sign-off on zero cognitive friction and clear financial disclosures.\n\n##### Movement 4: Contract-First Architecture & TDD Build (Principal Eng + Data Eng)\n- **Action**: Specified idempotency-keyed REST refund API, authored dbt `fct_refunds` model with enforced YAML data contract, and built backend via TDD with 100% test coverage.\n- **Artifact Baton**: `ARCHITECTURE.md` + Tested PR + passing dbt models.\n- **Gate 4 Approval**: CI/CD build passing with zero security or contract regressions.\n\n##### Movement 5: Verification, Release Gating & GTM Launch (PMM + Quality)\n- **Action**: Formulated Geoffrey Moore positioning statement (*For guests experiencing travel disruptions...*), 3-tier messaging hierarchy, and canary feature flag rollout (1% -> 10% -> 50% -> 100%).\n- **Artifact Baton**: `gtm_positioning_brief.md` + Canary Rollout Schedule.\n- **Gate 5 Approval**: GTM cross-functional readiness checklist 100% green.\n\n#### 3. Deming System Failure Checklist for Subagent Supervision\nIf any subagent encounters a blocker or produces defective artifacts, we run the **Deming System Failure Checklist**:\n1. Were inputs/contracts ambiguous?\n2. Did the subagent lack upstream movement artifacts?\n3. Was there a missing verification feedback loop?\nFix the system/prompt first before re-delegating.",
+      "fail_fixture": "Let's just start coding the refund feature right away in React and blame the subagent if it fails."
+    }
+  ]
+}

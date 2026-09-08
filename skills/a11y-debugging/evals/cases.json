@@ -1,0 +1,48 @@
+{
+  "skill": "a11y-debugging",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Audit our web application for WCAG 2.1 AA accessibility compliance.",
+      "trigger": true
+    },
+    {
+      "prompt": "Fix keyboard navigation focus traps and missing ARIA attributes on our modal dialog.",
+      "trigger": true
+    },
+    {
+      "prompt": "Optimize database queries in PostgreSQL.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "wcag-aa-focus-trap-and-aria",
+      "prompt": "Fix an accessibility violation where a custom modal is not trapping keyboard focus and lacks screen reader announcements.",
+      "pass_rule": "Must add role='dialog', aria-modal='true', aria-labelledby, and trap Tab key focus within the modal.",
+      "must": [
+        [
+          "role=\"dialog\"",
+          "role='dialog'"
+        ],
+        [
+          "aria-modal=\"true\"",
+          "aria-modal='true'"
+        ],
+        [
+          "focus trap",
+          "trap focus",
+          "tab key"
+        ]
+      ],
+      "must_not": [
+        [
+          "ignore keyboard navigation",
+          "tabindex=\"-1\" on all buttons"
+        ]
+      ],
+      "pass_fixture": "### Modal Accessibility Remediation\n```html\n<div role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"modal-title\" class=\"modal\">\n  <h2 id=\"modal-title\">Confirm Order</h2>\n  <button class=\"close-btn\">Close</button>\n</div>\n```\n- **Focus Trap**: Implemented keydown listener trapping Tab and Shift+Tab within modal boundaries.\n- **Contrast**: Ensured 4.5:1 minimum text contrast ratio.",
+      "fail_fixture": "Render a div with no ARIA roles and let focus escape into the background body."
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Continuous Product Loop"
+  short_description: "Autonomous, outcome-backed product evolution loop (Perri, God-Marduk, Ralph Loop)"
+  default_prompt: "Use $continuous-product-loop to run an autonomous product improvement cycle with strategic restraint, TDD, subtractive pruning, and compounding learning."

@@ -1,0 +1,41 @@
+{
+  "skill": "trust-safety-fraud-and-claims",
+  "version": 1,
+  "trigger_cases": [
+    {"prompt": "Evaluate guest property damage claim with photos and repair quotes for AirCover insurance payout.", "trigger": true},
+    {"prompt": "Detect counterfeit luxury goods and enforce DMCA takedowns across marketplace seller listings.", "trigger": true},
+    {"prompt": "Verify business beneficial ownership (FinCEN BOI) and screen against OFAC sanctions lists.", "trigger": true},
+    {"prompt": "Update CSS font family and padding for the product review card.", "trigger": false},
+    {"prompt": "Deploy Docker container to Kubernetes staging cluster.", "trigger": false},
+    {"prompt": "Configure Redis cache eviction policy.", "trigger": false}
+  ],
+  "binary_cases": [
+    {
+      "id": "multimodal-listing-safety-moderation",
+      "prompt": "Moderate new marketplace seller listings containing uploaded images, descriptions, and seller messages.",
+      "pass_rule": "Enforces multimodal policy checks for counterfeit items, prohibited weapons, toxic content, and off-platform payment steering.",
+      "must": [["multimodal", "image", "visual"], ["counterfeit", "prohibited", "policy"], ["off-platform", "leakage", "payment evasion"]],
+      "must_not": ["approve without scanning images", "ignore off-platform links"],
+      "pass_fixture": "Run multimodal classification on listing images and text to detect prohibited policy violations, counterfeit goods, and off-platform payment contact details.",
+      "fail_fixture": "Approve without scanning images and ignore off-platform links in seller descriptions."
+    },
+    {
+      "id": "kyc-kyb-sanctions-compliance",
+      "prompt": "Perform onboarding compliance verification for a new marketplace business merchant.",
+      "pass_rule": "Verifies company registry documents, checks Beneficial Ownership (FinCEN BOI), and executes automated OFAC/PEP sanctions screening.",
+      "must": [["beneficial ownership", "BOI", "corporate registry"], ["sanctions", "OFAC", "PEP"], ["SAR", "suspicious activity", "audit log"]],
+      "must_not": ["skip identity verification", "ignore sanctions matches", "disburse to unverified entity"],
+      "pass_fixture": "Verify corporate registry records and beneficial ownership disclosures, execute OFAC and PEP sanctions screening, and maintain an audit log for suspicious activity reporting.",
+      "fail_fixture": "Skip identity verification, ignore sanctions matches, and disburse to unverified entity accounts."
+    },
+    {
+      "id": "physical-damage-claim-adjudication",
+      "prompt": "Adjudicate an Airbnb property damage host claim or Etsy lost-in-transit damaged package claim.",
+      "pass_rule": "Cross-examines photo evidence, timestamped baseline conditions, itemized repair invoices, and guest/buyer statements to calculate binding payout liability.",
+      "must": [["photo evidence", "photographic proof", "damage photos"], ["invoice", "receipt", "repair quote"], ["liability", "payout", "claim resolution"]],
+      "must_not": ["approve maximum payout without evidence", "reject claim without review"],
+      "pass_fixture": "Cross-reference photographic proof against pre-check-in baseline photos, validate contractor repair invoices, and adjudicate binding host liability and insurance payout amounts.",
+      "fail_fixture": "Approve maximum payout without evidence or reject claim without review."
+    }
+  ]
+}

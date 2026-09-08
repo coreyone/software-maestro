@@ -1,0 +1,41 @@
+{
+  "skill": "finance-payments-tax-and-treasury",
+  "version": 1,
+  "trigger_cases": [
+    {"prompt": "Reconcile daily card network settlements and calculate state tax nexus withholding.", "trigger": true},
+    {"prompt": "Generate an automated dispute evidence package for a fraud chargeback.", "trigger": true},
+    {"prompt": "Calculate municipal transient occupancy tax and VAT for marketplace bookings.", "trigger": true},
+    {"prompt": "Center the checkout submit button and add credit card brand icons.", "trigger": false},
+    {"prompt": "Set up an OAuth login flow with Google.", "trigger": false},
+    {"prompt": "Optimize SQL query execution time on the transactions table.", "trigger": false}
+  ],
+  "binary_cases": [
+    {
+      "id": "idempotent-settlement-reconciliation",
+      "prompt": "Design an automated payout and settlement reconciliation engine for a two-sided marketplace.",
+      "pass_rule": "Enforces dual-entry double-entry ledgering with idempotency keys and escrow holdbacks before disbursement.",
+      "must": [["double-entry", "dual-entry", "ledger"], ["idempotency", "idempotent"], ["escrow", "holdback", "settlement delay"]],
+      "must_not": ["single-entry ledger", "disburse without reconciliation", "ignore duplicate webhook"],
+      "pass_fixture": "Implement an idempotent double-entry ledger with unique idempotency keys, holding funds in escrow until carrier delivery verification before disbursing payouts.",
+      "fail_fixture": "Use a single-entry ledger to directly disburse without reconciliation and ignore duplicate webhook retries."
+    },
+    {
+      "id": "multi-jurisdiction-tax-nexus",
+      "prompt": "Handle sales tax, VAT/GST, and marketplace seller tax compliance across US and EU jurisdictions.",
+      "pass_rule": "Tracks economic nexus thresholds, calculates jurisdiction-specific taxes (VAT/GST, US state sales tax, local occupancy taxes), and generates 1099-K / DAC7 reporting records.",
+      "must": [["nexus", "economic nexus"], ["withhold", "withholding", "remittance"], ["1099-K", "DAC7", "tax reporting"]],
+      "must_not": ["ignore seller location", "assume flat 0% tax", "leave all tax liability entirely to unverified sellers"],
+      "pass_fixture": "Monitor economic nexus thresholds per jurisdiction, dynamically withhold and remit state sales tax and VAT, and automatically compile annual 1099-K and DAC7 tax reporting records.",
+      "fail_fixture": "Assume flat 0% tax across all transactions and leave all tax liability entirely to unverified sellers without monitoring nexus."
+    },
+    {
+      "id": "automated-chargeback-defense",
+      "prompt": "Compile a compelling chargeback dispute response for an unrecognized transaction claim.",
+      "pass_rule": "Assembles transactional metadata, carrier proof of delivery with GPS/signature, customer IP/device fingerprint, and terms of service consent into a structured dispute packet.",
+      "must": [["proof of delivery", "tracking", "courier scan"], ["device fingerprint", "IP address", "audit trail"], ["terms of service", "checkout consent"]],
+      "must_not": ["submit empty dispute", "accept chargeback without reviewing evidence"],
+      "pass_fixture": "Assemble a dispute packet containing carrier proof of delivery with GPS tracking, the customer's IP address and device fingerprint, and timestamped terms of service checkout consent.",
+      "fail_fixture": "Accept chargeback without reviewing evidence or submit empty dispute notes."
+    }
+  ]
+}

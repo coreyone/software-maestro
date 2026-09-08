@@ -1,0 +1,65 @@
+{
+  "skill": "opportunity-solution-mapping",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "How do we build an Opportunity Solution Tree to increase user retention following Teresa Torres's continuous discovery habits?",
+      "trigger": true
+    },
+    {
+      "prompt": "Help our product triad deconstruct a candidate solution into value, usability, feasibility, and viability assumptions.",
+      "trigger": true
+    },
+    {
+      "prompt": "Optimize a PostgreSQL query with composite indexes on user_id and created_at.",
+      "trigger": false
+    },
+    {
+      "prompt": "Set up a Kubernetes ingress controller with TLS termination using cert-manager.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "ost-ecom-retention-tree",
+      "prompt": "Construct an Opportunity Solution Tree (OST) for an e-commerce platform facing low 30-day retention. Frame 1 measurable outcome, map customer opportunities, generate multiple candidate solutions per opportunity, and define assumption tests across the 5 product risk dimensions.",
+      "pass_rule": "Must define Desired Outcome, customer Opportunities, multiple Solutions per opportunity, and Assumption Tests evaluating product risks (Value, Usability, Feasibility, Viability, Ethics).",
+      "must": [
+        [
+          "Desired Outcome",
+          "Outcome",
+          "Target Outcome"
+        ],
+        [
+          "Opportunity",
+          "Opportunities",
+          "Customer Need"
+        ],
+        [
+          "Solution",
+          "Candidate Solutions",
+          "Solutions"
+        ],
+        [
+          "Assumption",
+          "Assumption Test",
+          "Assumption Testing"
+        ],
+        [
+          "Value",
+          "Usability",
+          "Feasibility",
+          "Viability"
+        ]
+      ],
+      "must_not": [
+        [
+          "jump straight to building the full feature without assumption testing",
+          "no customer opportunities identified"
+        ]
+      ],
+      "pass_fixture": "### Opportunity Solution Tree (OST)\n\n#### 1. Desired Outcome\n- **Target**: Increase 30-day repeat purchase retention from 22% to 38% over the next 2 quarters.\n\n#### 2. Opportunity Space (Customer Pain Points)\n- **Parent Opportunity A**: *\"I struggle to find items that match my specific dietary preferences.\"*\n  - **Sub-Opportunity A.1**: *\"Ingredient filter labels are confusing and buried in settings.\"*\n  - **Sub-Opportunity A.2**: *\"Recommended recipe bundles include ingredients I cannot eat.\"*\n- **Parent Opportunity B**: *\"I forget to reorder household staples before running out.\"*\n\n#### 3. Solution Space (Multiple Candidates for Sub-Opportunity A.1)\n- **Candidate Solution 1**: Smart dietary profile setup during onboarding with instant badge tags on item cards.\n- **Candidate Solution 2**: Dynamic AI search query assistant with natural-language allergy exclusions.\n- **Candidate Solution 3**: Curated dietary grocery lists shared by certified nutritionists.\n\n#### 4. Assumption Deconstruction & Testing (5 Risk Dimensions for Solution 1)\n- **Value / Desirability Assumption**: Customers will spend 30 seconds tagging dietary restrictions to get personalized catalogs. *Test*: 48-hour unlisted smoke test measuring onboarding completion rate.\n- **Usability Assumption**: Users can quickly identify and edit their active dietary badges on search result cards. *Test*: Moderated usability test with 5 target shoppers using clickable Figma prototype.\n- **Feasibility Assumption**: ElasticSearch query engine can filter 100k SKU catalogs by dynamic dietary exclusion tags under 50ms latency. *Test*: Engineering spike benchmarking query latency.\n- **Viability Assumption**: Supplying filtered catalog views does not cannibalize high-margin non-dietary private label sales. *Test*: Unit economics financial modeling with Merchandising lead.\n- **Ethics & Safety Assumption**: Allergy exclusion tags are 100% reliable to prevent health incidents. *Test*: Strict data validation audit on supplier ingredient datasets.",
+      "fail_fixture": "Let's build a new checkout button, a referral banner, and add a newsletter signup popup to our e-commerce app."
+    }
+  ]
+}

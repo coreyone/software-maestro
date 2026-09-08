@@ -1,6 +1,6 @@
 # software-maestro
 
-A capability orchestra of 71 lean agent skills for AI IDE agents (Claude Code, Codex, Antigravity, Gemini).
+A capability orchestra of 71 lean agent skills for AI IDE agents (Claude Code, Codex, Antigravity, Gemini, and Hermes Agent).
 
 ---
 
@@ -161,9 +161,28 @@ A capability orchestra of 71 lean agent skills for AI IDE agents (Claude Code, C
 
 ---
 
+## 🤖 Hermes Agent Tap
+
+The canonical tree stays organized by lifecycle domain for Codex, Gemini, Claude, and other clients. Hermes taps scan only the immediate child directories of their configured path, so `skills/` is a generated flat compatibility export.
+
+The tap configuration is:
+
+```json
+{"repo": "coreyone/software-maestro", "path": "skills/"}
+```
+
+Regenerate the export after changing a canonical skill:
+
+```bash
+python3 scripts/export_hermes_skills.py --write
+python3 scripts/export_hermes_skills.py
+```
+
+The export copies each skill package, including `references/`, `scripts/`, and `templates/` when present. Do not edit files under `skills/` directly. The workflow checks that the export stays synchronized.
+
 ## 🔍 Local Skill Discovery CLI
 
-Instantly search, discover, and inspect all 70 local skills from your terminal:
+Instantly search, discover, and inspect all 71 local skills from your terminal:
 
 ```bash
 # Keyword search across names, triggers, and expert frameworks

@@ -1,0 +1,62 @@
+{
+  "skill": "how-might-we",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "We just finished customer interviews and discovered users abandon tax filing because they are terrified of entering 1099 numbers incorrectly. Generate How Might We (HMW) statements across IDEO's 10 reframing lenses to unlock sprint ideation.",
+      "trigger": true
+    },
+    {
+      "prompt": "Reframe our mobile app drop-off problem into generative HMW questions using Min Basadur's problem formulation method.",
+      "trigger": true
+    },
+    {
+      "prompt": "How might we reframe the onboarding churn problem before sketching Crazy 8s?",
+      "trigger": true
+    },
+    {
+      "prompt": "Create an automated GitHub Actions CI/CD deployment pipeline with canary gates.",
+      "trigger": false
+    },
+    {
+      "prompt": "Fix a memory leak in our WebSocket server event listener.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "hmw-tax-filing-reframing",
+      "prompt": "Customers report feeling overwhelmed and anxious when manually entering multiple 1099 forms during tax season. Reframe this friction into structured How Might We (HMW) statements using the Goldilocks calibration and the 10 IDEO reframing angles.",
+      "pass_rule": "Must generate problem deconstruction, distinct HMW statements across multiple reframing lenses without prescriptive UI solutions, and highlight a top recommended HMW.",
+      "must": [
+        [
+          "How might we",
+          "how might we",
+          "HMW"
+        ],
+        [
+          "Amplify the Good",
+          "Remove the Bad",
+          "Explore the Opposite",
+          "Question an Assumption",
+          "Target the Emotion"
+        ],
+        [
+          "Primary",
+          "Recommended",
+          "Top",
+          "Curated"
+        ]
+      ],
+      "must_not": [
+        [
+          "How might we add a dropdown button",
+          "How might we build a blue button",
+          "How might we create a react component"
+        ]
+      ],
+      "pass_fixture": "### 🎯 Problem Diagnosis & Deconstruction\n- **Raw Friction**: Freelancers feel intense anxiety and cognitive fatigue when manually typing numerical data from paper/PDF 1099 forms into tax software.\n- **Root Cause Context**: Fear of audit penalties and opaque tax calculation rules produce decision paralysis.\n\n### 💡 10 Reframing Angles (IDEO / Stanford d.school)\n1. **Amplify the Good**: How might we make celebrating gross earnings the focal point of submitting tax documents?\n2. **Remove the Bad**: How might we eliminate the need for manual data entry entirely?\n3. **Explore the Opposite**: How might we make verifying complex tax numbers feel like a relaxing, meditative ritual?\n4. **Question an Assumption**: How might we calculate accurate tax liability without ever asking the user for a physical 1099 document?\n5. **Target the Emotion**: How might we transform the dread of tax submission into a feeling of financial mastery and relief?\n6. **Leverage Unexpected Resources**: How might we use banking transaction history to verify income before the user even opens their tax forms?\n7. **Cross-Domain Analogy**: How might we treat filing tax documents like scanning boarding passes at airport security?\n8. **Reframe into a Benefit**: How might we turn entering financial data into an immediate refund discovery game?\n9. **Automate / Shift Status Quo**: How might we automatically pull verified income from issuing payroll providers in the background?\n10. **Micro-Step Slicing**: How might we break the entire filing ordeal into effortless 10-second verification taps throughout the year?\n\n### 🏆 Curated Top 3 High-Leverage HMWs\n- **Primary (Recommended)**: *\"How might we transform the dread of tax submission into a feeling of financial mastery and relief?\"* (Rationale: Attacks the core emotional barrier that causes drop-off before users even attempt the mechanical steps).\n- **Alternative 1 (Contrarian/Automation)**: *\"How might we calculate accurate tax liability without ever asking the user for a physical 1099 document?\"*\n- **Alternative 2 (Micro-Slicing)**: *\"How might we break the entire filing ordeal into effortless 10-second verification taps throughout the year?\"*",
+      "fail_fixture": "Let's build a new button on the settings page to upload a CSV file."
+    }
+  ]
+}

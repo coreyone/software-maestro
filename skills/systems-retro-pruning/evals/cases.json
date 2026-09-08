@@ -1,0 +1,62 @@
+{
+  "skill": "systems-retro-pruning",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Our product teams are overwhelmed by too many meetings, outdated PRD templates, and redundant SaaS tools. How do we run a quarterly systems retrospective to prune process waste?",
+      "trigger": true
+    },
+    {
+      "prompt": "Audit our product management tool stack and deprecate low-value processes using the Amplitude systems retro model.",
+      "trigger": true
+    },
+    {
+      "prompt": "Set up a Kubernetes ingress controller with Traefik and cert-manager.",
+      "trigger": false
+    },
+    {
+      "prompt": "Configure Redis caching for an Express.js REST API.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "systems-retro-and-deprecation",
+      "prompt": "Run a systems retrospective audit on 3 weekly status meetings, a 40-page PRD template, and 3 duplicate feedback tools. Deliver a pruning plan with stack-ranking and deprecation actions.",
+      "pass_rule": "Must inventory current processes/tools, stack rank them into the Pruning Matrix (Keep, Streamline, Deprecate), and specify concrete deprecation actions.",
+      "must": [
+        [
+          "Systems Retro",
+          "systems retro",
+          "Audit",
+          "audit"
+        ],
+        [
+          "Deprecate",
+          "deprecate",
+          "Eliminate",
+          "kill"
+        ],
+        [
+          "Streamline",
+          "Automate",
+          "streamline"
+        ],
+        [
+          "Pruning Matrix",
+          "Stack-Ranking",
+          "Matrix",
+          "matrix"
+        ]
+      ],
+      "must_not": [
+        [
+          "keep all meetings without review",
+          "add more approval layers"
+        ]
+      ],
+      "pass_fixture": "### Quarterly Systems Retrospective & Pruning Plan\n\n#### 1. Systems Inventory & Utility Stack-Ranking\n| Item | Type | Utility Score | Category |\n| :--- | :--- | :---: | :--- |\n| Self-Serve Amplitude Telemetry | Tool | 9.5 / 10 | **Keep & Amplify** |\n| Release Readiness Checklist | Process | 8.0 / 10 | **Streamline & Automate** |\n| Weekly 60-min Cross-Squad Status Sync | Meeting | 2.5 / 10 | **Deprecate Immediately** |\n| 40-Page Waterfall PRD Template | Artifact | 3.0 / 10 | **Deprecate (Replace with 1-page Brief)** |\n| Redundant Feedback Google Sheets | Tool | 2.0 / 10 | **Deprecate (Consolidate into Dovetail)** |\n\n#### 2. Deprecation & Pruning Actions\n1. **Cancel Weekly Status Sync**: Replaced with async Slack weekly digest, saving 15 engineering/PM hours weekly.\n2. **Retire 40-page PRD**: Replaced with lightweight Problem Brief focused on problem scope, measurable outcomes, and BDD acceptance criteria.\n3. **Consolidate Tools**: Decommission 2 legacy spreadsheet feedback trackers; route all signals directly into central repository.",
+      "fail_fixture": "Let's keep all existing meetings and add another weekly meeting to review them."
+    }
+  ]
+}

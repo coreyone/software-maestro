@@ -1,0 +1,41 @@
+{
+  "skill": "developer-seo",
+  "version": 1,
+  "trigger_cases": [
+    {"prompt": "Audit why our product pages disappeared from Google.", "trigger": true},
+    {"prompt": "Implement canonical tags and a sitemap for this Svelte site.", "trigger": true},
+    {"prompt": "Plan the SEO safeguards for our domain migration.", "trigger": true},
+    {"prompt": "Write paid-search ad copy for this campaign.", "trigger": false},
+    {"prompt": "Fix this authenticated dashboard's database query.", "trigger": false},
+    {"prompt": "Design a decorative hero illustration.", "trigger": false}
+  ],
+  "binary_cases": [
+    {
+      "id": "evidence-before-prescription",
+      "prompt": "Traffic fell after a release. Diagnose the cause.",
+      "pass_rule": "The answer separates observed evidence from hypotheses and does not guarantee recovery.",
+      "must": [["observed", "evidence"], ["hypothesis", "unverified"], ["acceptance", "verify"]],
+      "must_not": ["guaranteed rankings", "guarantee recovery"],
+      "pass_fixture": "Observed evidence: affected templates return noindex. Hypothesis: the release changed a shared directive. Acceptance: verify live HTTP and rendered DOM after the fix; rankings are not guaranteed.",
+      "fail_fixture": "Google had an algorithm update. Remove noindex and we guarantee recovery."
+    },
+    {
+      "id": "robots-is-not-privacy",
+      "prompt": "Keep private account pages out of search using robots.txt.",
+      "pass_rule": "The answer rejects robots.txt as privacy or reliable deindexing and requires access control plus an index directive.",
+      "must": [["crawl control", "controls crawling"], ["authentication", "access control"], ["noindex", "X-Robots-Tag"]],
+      "must_not": ["robots.txt keeps pages private", "robots.txt prevents indexing"],
+      "pass_fixture": "robots.txt is crawl control, not privacy. Protect account pages with authentication and access control, then return noindex or X-Robots-Tag where appropriate.",
+      "fail_fixture": "Add Disallow: /account to robots.txt; robots.txt keeps pages private."
+    },
+    {
+      "id": "migration-downside-protection",
+      "prompt": "Move the site to a new domain without losing discovery.",
+      "pass_rule": "The plan includes URL mapping, directive parity, monitoring, and rollback criteria.",
+      "must": ["URL mapping", "directive parity", "monitoring", "rollback"],
+      "must_not": ["ship all redirects without validation"],
+      "pass_fixture": "Create a URL mapping, verify directive parity in staging, define launch monitoring, and document rollback criteria before changing domain routing.",
+      "fail_fixture": "Ship all redirects without validation and wait for Search Console to catch problems."
+    }
+  ]
+}

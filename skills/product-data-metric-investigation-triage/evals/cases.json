@@ -1,0 +1,74 @@
+{
+  "skill": "product-data-metric-investigation-triage",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Our guest checkout conversion rate dropped by 18% WoW from 4.2% to 3.4%. How do we run a metric triage and waterfall decomposition across device, channel, and app release to isolate the root cause?",
+      "trigger": true
+    },
+    {
+      "prompt": "Top-line signup conversion fell this week, but desktop and mobile conversion rates both increased slightly when analyzed separately. Is this Simpson's Paradox and how do we decompose the mix shift?",
+      "trigger": true
+    },
+    {
+      "prompt": "Why did our Day-7 retention drop for the August cohort? Triage the metric anomaly and check for cannibalization.",
+      "trigger": true
+    },
+    {
+      "prompt": "Implement a binary search tree in C++.",
+      "trigger": false
+    },
+    {
+      "prompt": "Configure an AWS CloudFront CDN distribution with SSL.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "metric-variance-waterfall-and-triage",
+      "prompt": "Our booking conversion rate dropped from 3.5% to 2.8% (-70 bps WoW). Run a metric triage investigation providing severity classification, 3-factor mathematical decomposition (Volume, Rate, Mix), dimensional slicing across OS/app version, Simpson's Paradox check, and an immediate containment action plan.",
+      "pass_rule": "Must classify severity, execute mathematical volume/rate/mix decomposition, slice by segment dimensions, check for Simpson's paradox, and deliver an actionable remediation plan.",
+      "must": [
+        [
+          "P1",
+          "P0",
+          "Severity",
+          "severity"
+        ],
+        [
+          "Decomposition",
+          "decomposition",
+          "Mix",
+          "Rate",
+          "Volume"
+        ],
+        [
+          "Simpson",
+          "Simpson's Paradox",
+          "mix shift"
+        ],
+        [
+          "Segment",
+          "iOS",
+          "Android",
+          "Desktop",
+          "Platform"
+        ],
+        [
+          "Action Plan",
+          "Containment",
+          "Remediation",
+          "Rollback"
+        ]
+      ],
+      "must_not": [
+        [
+          "just assume it is a server outage without checking data",
+          "no mathematical breakdown"
+        ]
+      ],
+      "pass_fixture": "### Product Metric Investigation: Booking Conversion Drop (-70 bps WoW)\n\n#### 1. Incident Triage & Severity Classification\n- **Severity**: **P1 (High Funnel Degradation)**.\n- **Impact**: Overall booking conversion dropped from 3.50% to 2.80% (-70 bps / -20.0% relative drop WoW).\n\n#### 2. Mathematical 3-Factor Variance Decomposition\nDecomposing the $\\Delta -70\\text{ bps}$:\n- **Rate Effect (True Conversion Drop)**: **-58 bps (82.8% of drop)** \u2014 Genuine user drop-off during checkout.\n- **Mix Shift Effect (Traffic Composition)**: **-12 bps (17.2% of drop)** \u2014 Slight increase in low-intent paid social traffic.\n- **Volume Effect**: Total visit volume remained flat (+0.4% WoW).\n\n#### 3. Dimensional Waterfall Slicing & Simpson's Paradox Check\n- **By Platform**: \n  - Desktop: 4.8% -> 4.7% (-10 bps)\n  - Android: 2.9% -> 2.8% (-10 bps)\n  - **iOS: 3.8% -> 1.9% (-190 bps)** \u2794 Primary regression driver!\n- **By iOS App Version**:\n  - iOS v12.4: 3.85% (Unchanged)\n  - **iOS v12.5 (Shipped Tuesday): 1.15% (-270 bps)**\n- **Simpson's Paradox Check**: Ruled out. The iOS sub-segment experienced an acute, localized collapse rather than a composition artifact.\n\n#### 4. Root Cause Diagnosis\nRelease `iOS v12.5` introduced an Apple Pay SDK update that fails validation for users with expired secondary cards, throwing silent payment errors on the final booking screen.\n\n#### 5. Immediate Containment & Remediation Plan\n1. **Immediate Containment**: Flip feature flag `ios_apple_pay_v2` to OFF (fallback to v12.4 native webview flow) within 15 minutes.\n2. **Hotfix Release**: Deploy iOS v12.5.1 patch with corrected card validation handler.\n3. **Telemetry Guardrail**: Add client-side error telemetry for payment gateway token exchange failures to trigger automated P0 alerts.",
+      "fail_fixture": "Conversion is down because traffic is probably worse this week. Let's wait until next week to see if it fixes itself."
+    }
+  ]
+}

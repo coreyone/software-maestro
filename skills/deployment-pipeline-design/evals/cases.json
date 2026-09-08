@@ -1,0 +1,55 @@
+{
+  "skill": "deployment-pipeline-design",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Design a multi-stage GitHub Actions CI/CD deployment pipeline with automated testing and canary rollout gates.",
+      "trigger": true
+    },
+    {
+      "prompt": "Create a GitLab CI pipeline for building container images with security scanning and rollback triggers.",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a customer support email template.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "ci-cd-canary-pipeline-architecture",
+      "prompt": "Design a zero-downtime CI/CD deployment pipeline architecture with automated test gates, security scanning, and automated rollback.",
+      "pass_rule": "Must include lint/unit test gate, container vulnerability scan, progressive canary deployment (10% -> 100%), and health-check rollback.",
+      "must": [
+        [
+          "test",
+          "lint",
+          "gate"
+        ],
+        [
+          "security",
+          "vulnerability",
+          "trivy",
+          "scan"
+        ],
+        [
+          "canary",
+          "progressive",
+          "staged"
+        ],
+        [
+          "rollback",
+          "health check"
+        ]
+      ],
+      "must_not": [
+        [
+          "deploy directly to prod with no tests",
+          "skip staging"
+        ]
+      ],
+      "pass_fixture": "### Multi-Stage CI/CD Pipeline Architecture\n- **Stage 1 (Quality Gate)**: Parallel execution of lint, unit tests, and type checking.\n- **Stage 2 (Security Scan)**: Trivy container vulnerability scan blocking high/critical CVEs.\n- **Stage 3 (Staging Deploy)**: Automated deployment to staging with E2E smoke tests.\n- **Stage 4 (Canary Production)**: Deploy to 10% traffic; monitor error rates for 15 minutes.\n- **Stage 5 (Automated Rollback)**: If 5xx error rate exceeds 0.5%, trigger automated rollback to previous revision.",
+      "fail_fixture": "Push code directly to production server via FTP."
+    }
+  ]
+}

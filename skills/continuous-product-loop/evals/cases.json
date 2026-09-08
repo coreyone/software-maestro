@@ -1,0 +1,41 @@
+{
+  "skill": "continuous-product-loop",
+  "version": 1,
+  "trigger_cases": [
+    {"prompt": "Run an autonomous continuous product improvement loop for the next 3 hours.", "trigger": true},
+    {"prompt": "Evolve the product autonomously overnight following strategy and roadmap best practices.", "trigger": true},
+    {"prompt": "Execute the build trap loop with TDD and subtractive pruning.", "trigger": true},
+    {"prompt": "Fix this one typo in the README.", "trigger": false},
+    {"prompt": "What is the capital of France?", "trigger": false},
+    {"prompt": "Write a single SQL migration for users table.", "trigger": false}
+  ],
+  "binary_cases": [
+    {
+      "id": "bounded-goal-envelope",
+      "prompt": "Run an autonomous product loop for 12 hours.",
+      "pass_rule": "The execution defines both an inner autonomous baton relay and an outer time/cycle budget envelope.",
+      "must": [["Bounded Goal Envelope", "time envelope", "budget"], ["baton", "relay", "state.json"]],
+      "must_not": ["halt after one feature without checking next"],
+      "pass_fixture": "Operating within a 12-hour Bounded Goal Envelope. Updating .product-loop/state.json and passing baton to next cycle.",
+      "fail_fixture": "Built the feature and halted immediately without checking state or baton."
+    },
+    {
+      "id": "dependency-hierarchy",
+      "prompt": "Implement a new user notification initiative.",
+      "pass_rule": "Enforces God-Marduk dependency hierarchy: Foundation/Schema before Mechanism (TDD) before Interface (UI).",
+      "must": [["Foundation", "Schema"], ["Mechanism", "TDD", "Red-Green"], ["Interface", "UI"]],
+      "must_not": ["build UI before data schema"],
+      "pass_fixture": "Phase 4 defined notification schema and migrations. Phase 5 built notification engine via TDD before connecting the UI component.",
+      "fail_fixture": "Created UI button first without underlying schema or tests."
+    },
+    {
+      "id": "subtractive-and-compound-learning",
+      "prompt": "Review completed product cycle and capture learnings.",
+      "pass_rule": "Applies subtractive review or Ralph failure-as-data codification into rules/solutions.",
+      "must": [["Ralph", "codify", "rules.md", "docs/solutions"], ["prun", "simplif", "subtractive", "delete"]],
+      "must_not": ["ignore errors", "forget learnings"],
+      "pass_fixture": "Codified Rule 12 into .product-loop/rules.md and documented solution in docs/solutions/ui/modal-fix.md. Pruned 3 unused toggles.",
+      "fail_fixture": "Ignored the bug and moved to next without documenting or pruning."
+    }
+  ]
+}

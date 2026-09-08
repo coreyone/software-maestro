@@ -1,0 +1,48 @@
+{
+  "skill": "peekaboo",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Automate clicking a button in a native macOS desktop application using Peekaboo CLI.",
+      "trigger": true
+    },
+    {
+      "prompt": "Capture a screenshot of a specific macOS application window and record the simulator UI.",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a Docker container compose file.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "peekaboo-macos-gui-automation",
+      "prompt": "Automate interacting with a native macOS application window using Peekaboo CLI commands.",
+      "pass_rule": "Must use peekaboo capture/click/type CLI commands to interact with native macOS UI elements.",
+      "must": [
+        [
+          "peekaboo"
+        ],
+        [
+          "capture",
+          "screenshot",
+          "window"
+        ],
+        [
+          "click",
+          "type",
+          "press",
+          "ui"
+        ]
+      ],
+      "must_not": [
+        [
+          "lorem ipsum"
+        ]
+      ],
+      "pass_fixture": "### macOS GUI Automation with Peekaboo\n1. `peekaboo capture --app 'Xcode' --output screenshot.png` to capture visual window state.\n2. `peekaboo click --element 'Run' --app 'Xcode'` to trigger build execution.\n3. `peekaboo wait --element 'Build Succeeded'` to confirm completion.",
+      "fail_fixture": "Use web CDP commands to control native macOS Cocoa windows."
+    }
+  ]
+}

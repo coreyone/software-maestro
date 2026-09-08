@@ -1,0 +1,49 @@
+{
+  "skill": "web-perf",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Audit our landing page Core Web Vitals and optimize our Largest Contentful Paint (LCP).",
+      "trigger": true
+    },
+    {
+      "prompt": "Analyze render-blocking resources and Cumulative Layout Shift (CLS) on our checkout page.",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a SQL query to partition user tables.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "core-web-vitals-audit",
+      "prompt": "Audit a web page with high LCP and propose specific technical optimizations.",
+      "pass_rule": "Must identify LCP metric target, diagnose render-blocking resource, and provide concrete mitigation (e.g. fetchpriority='high', preloading hero image).",
+      "must": [
+        [
+          "lcp",
+          "largest contentful paint"
+        ],
+        [
+          "render-blocking",
+          "preload",
+          "fetchpriority",
+          "resource"
+        ],
+        [
+          "cls",
+          "inp",
+          "metric"
+        ]
+      ],
+      "must_not": [
+        [
+          "lorem ipsum"
+        ]
+      ],
+      "pass_fixture": "### Web Performance Audit\n- **LCP Diagnosis**: Hero image loaded at 3.8s due to render-blocking CSS and missing priority.\n- **Remediation**:\n  1. Add `<link rel='preload' as='image' href='hero.webp' fetchpriority='high'>`.\n  2. Inline critical path CSS.\n  3. Eliminate CLS by setting explicit image dimensions `width='1200' height='600'`.",
+      "fail_fixture": "Make the images smaller."
+    }
+  ]
+}

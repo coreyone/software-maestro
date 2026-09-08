@@ -1,0 +1,41 @@
+{
+  "skill": "developer-test-driven-development",
+  "version": 1,
+  "trigger_cases": [
+    {"prompt": "Implement this bug fix test-first.", "trigger": true},
+    {"prompt": "Use Red-Green-Refactor for this parser.", "trigger": true},
+    {"prompt": "Strengthen these tests with mutation and property testing.", "trigger": true},
+    {"prompt": "Review the visual hierarchy of this page.", "trigger": false},
+    {"prompt": "Configure a canary deployment.", "trigger": false},
+    {"prompt": "Write positioning copy.", "trigger": false}
+  ],
+  "binary_cases": [
+    {
+      "id": "red-green-evidence",
+      "prompt": "Fix a production regression using TDD.",
+      "pass_rule": "The evidence shows the new regression test failing before the fix and passing afterward.",
+      "must": [["RED", "failed before"], ["GREEN", "passed after"], ["regression test", "test"]],
+      "must_not": ["test added after implementation"],
+      "pass_fixture": "RED: the regression test failed before the code change. GREEN: the same test passed after the fix.",
+      "fail_fixture": "The implementation was completed and the test added after implementation."
+    },
+    {
+      "id": "assertion-strength",
+      "prompt": "Prove that a green unit suite has meaningful assertions.",
+      "pass_rule": "The plan uses mutation testing and property or fuzz testing where the invariant supports it.",
+      "must": [["mutation", "mutant"], ["property", "fuzz"]],
+      "must_not": ["coverage alone proves"],
+      "pass_fixture": "Run mutation testing to measure mutant kills and property testing or fuzzing for the parser invariant; coverage alone does not prove assertion strength.",
+      "fail_fixture": "Coverage alone proves the tests are effective."
+    },
+    {
+      "id": "production-bug-learning-loop",
+      "prompt": "A production bug escaped. Define completion.",
+      "pass_rule": "Completion requires a fix, regression test, and monitoring.",
+      "must": ["fix", "test", ["monitor", "alert"]],
+      "must_not": ["fix only"],
+      "pass_fixture": "Complete the fix, add a regression test, and add a monitor or alert for recurrence.",
+      "fail_fixture": "Apply the fix only and close the incident."
+    }
+  ]
+}

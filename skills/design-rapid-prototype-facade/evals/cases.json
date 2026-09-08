@@ -1,0 +1,56 @@
+{
+  "skill": "design-rapid-prototype-facade",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Build a Thursday Goldilocks prototype facade using Stitch MCP for our mobile onboarding sprint.",
+      "trigger": true
+    },
+    {
+      "prompt": "Create a clickable basic wireframe prototype on tldraw Desktop for early layout testing.",
+      "trigger": true
+    },
+    {
+      "prompt": "Write a PostgreSQL migration script for user sessions.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "goldilocks-facade-execution",
+      "prompt": "Specify the role division and tooling blueprint for building a disposable prototype facade for a 12-panel checkout storyboard.",
+      "pass_rule": "Must specify fidelity tier (tldraw wireframe vs Stitch high-fidelity), role division (Maker, Stitcher, Writer, Asset Collector), zero Lorem Ipsum, and 15:00 Trial Run QA.",
+      "must": [
+        [
+          "fidelity",
+          "tldraw",
+          "stitch"
+        ],
+        [
+          "maker",
+          "stitcher",
+          "writer",
+          "asset collector"
+        ],
+        [
+          "trial run",
+          "15:00",
+          "qa"
+        ],
+        [
+          "zero lorem ipsum",
+          "authentic copy",
+          "realistic"
+        ]
+      ],
+      "must_not": [
+        [
+          "write production database code",
+          "spend 2 weeks building backend"
+        ]
+      ],
+      "pass_fixture": "### Thursday Prototype Facade Execution Blueprint\n- **Fidelity Tier**: High-Fidelity Web Facade via Google Stitch MCP (`generate_screen_from_text`) and low-fidelity structural wireframes on `tldraw` canvas.\n- **Role Division**:\n  - *Makers*: Generate 12 screen layouts using Stitch MCP.\n  - *Writer*: Write authentic copy and real product pricing (zero Lorem Ipsum).\n  - *Asset Collector*: Gather real brand logos and hero photography.\n  - *Stitcher*: Wire interactive links in `site/public/` via `stitch-loop`.\n- **15:00 Trial Run**: Rehearse end-to-end user path at 3:00 PM and fix broken navigation before 5:00 PM.",
+      "fail_fixture": "Let's start building the production backend database."
+    }
+  ]
+}

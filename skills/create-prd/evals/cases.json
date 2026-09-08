@@ -1,0 +1,41 @@
+{
+  "skill": "create-prd",
+  "version": 1,
+  "trigger_cases": [
+    {"prompt": "Write a PRD for password reset.", "trigger": true},
+    {"prompt": "Turn these product notes into requirements and acceptance criteria.", "trigger": true},
+    {"prompt": "Scope this feature with goals and non-goals.", "trigger": true},
+    {"prompt": "Implement the password reset endpoint.", "trigger": false},
+    {"prompt": "Create high-fidelity checkout mockups.", "trigger": false},
+    {"prompt": "Configure our deployment pipeline.", "trigger": false}
+  ],
+  "binary_cases": [
+    {
+      "id": "measurable-scope",
+      "prompt": "Create a PRD from a feature idea.",
+      "pass_rule": "The PRD defines a problem, measurable outcome, and explicit non-goals.",
+      "must": ["Problem", ["measurable", "Metric"], ["Non-Goals", "Out of Scope"]],
+      "must_not": ["build everything requested"],
+      "pass_fixture": "Problem: users cannot recover access. Metric: recovery completion rate. Non-Goals: account merging and support tooling.",
+      "fail_fixture": "Build everything requested and call the feature successful when it ships."
+    },
+    {
+      "id": "gherkin-acceptance",
+      "prompt": "Write implementation-ready acceptance criteria.",
+      "pass_rule": "Acceptance criteria contain an unambiguous Given/When/Then behavior scenario.",
+      "must": ["Given", "When", "Then"],
+      "must_not": ["works correctly"],
+      "pass_fixture": "Given a valid reset token, When the user submits a compliant password, Then the password changes and the token cannot be reused.",
+      "fail_fixture": "Acceptance criteria: password reset works correctly."
+    },
+    {
+      "id": "evidence-and-open-questions",
+      "prompt": "The input is incomplete. Produce the PRD without inventing facts.",
+      "pass_rule": "Unknowns remain explicit and success claims require evidence.",
+      "must": [["Open Questions", "Unknown"], ["Evidence", "validate"]],
+      "must_not": ["users definitely want", "guaranteed adoption"],
+      "pass_fixture": "Open Questions: baseline completion and token lifetime. Validate the outcome with funnel evidence after release.",
+      "fail_fixture": "Users definitely want this and adoption is guaranteed."
+    }
+  ]
+}
