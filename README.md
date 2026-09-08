@@ -171,6 +171,11 @@ The tap configuration is:
 {"repo": "coreyone/software-maestro", "path": "skills/"}
 ```
 
+The export is tap-compatible, but Hermes controls source precedence. A Hermes
+version can resolve a matching repository skill through another indexed source
+before it uses the configured tap. Check the installed skill's recorded source
+if tap provenance matters; this repository does not change that resolver.
+
 Regenerate the export after changing a canonical skill:
 
 ```bash

@@ -16,5 +16,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Test Hermes export adapter
+        run: python -m unittest discover -s scripts -p 'test_*.py'
       - name: Check Hermes compatibility export
         run: python scripts/export_hermes_skills.py
