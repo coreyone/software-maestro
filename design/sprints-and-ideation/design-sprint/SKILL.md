@@ -13,6 +13,26 @@ description: "Facilitate 5-day design sprints, problem sketches, decision matric
 >
 > **The Prime Directive**: *"Start at the end, work alone together, make visual decisions, and choose the right fidelity for the problem."*
 
+## Pencil.dev Prototyping for Crazy 8s
+
+Use Pencil.dev when the team needs eight fast visual variations that are easier to compare, refine, and export than hand-drawn sketches. Treat each `.pen` file as a disposable exploration artifact, not production UI.
+
+- **Create the board**: Use the headless `pen` CLI to create a `.pen` file with eight clearly labeled frames. Keep each frame focused on one solution variation or one target step.
+- **Prompt the variations**: Use `pen --out crazy-8s.pen --prompt-file brief.md --prompt "Create eight materially different concepts for [target step]. Label each frame 1–8. Preserve the same user, goal, and content constraints while varying layout, hierarchy, and interaction."`
+- **Work in batches**: Generate one board first, then use `pen --in crazy-8s.pen --out crazy-8s-refined.pen --prompt "Refine only frames 2, 5, and 7 using the critique notes in critique.md"` for targeted iteration.
+- **Compare and share**: Export a review image with `pen --in crazy-8s-refined.pen --export crazy-8s.png --export-scale 2`. Use the exported board for silent review, heatmap voting, and Decider selection.
+- **Keep the sprint boundary**: Do not add backend behavior, responsive completeness, polished copy, or design-system infrastructure. Carry only the selected concept and its evidence into the storyboard.
+
+### Pencil.dev Crazy 8s Prompt Contract
+
+Every Pencil.dev Crazy 8s prompt must state:
+
+1. The target step, actor, and user outcome.
+2. The fixed content and domain constraints shared by all eight frames.
+3. The dimensions of variation: layout, hierarchy, navigation, or interaction model.
+4. The required labels, frame order, and output file.
+5. The review question that will decide which concept advances.
+
 ---
 
 ## When to use
@@ -28,10 +48,13 @@ Use this skill during the initial 3 days of a Design Sprint:
   - Use `tldraw-offline` (`/api/doc/:id/exec`) to programmatically render Customer Journey Maps with bound arrows (`helpers.createArrowBetweenShapes`) and arrange Crazy 8s / 10-15 panel storyboard frames directly on the user's live canvas.
 - **Google Stitch MCP for High-Fidelity Exploration**:
   - Prompt Stitch MCP (`generate_screen_from_text`) during Tuesday Lightning Demos to explore diverse UI atmospheres (*Bento Grid*, *Glassmorphism*, *Minimalist Monospace*) and synthesize `.stitch/DESIGN.md` tokens.
+- **Pencil.dev for Crazy 8s and Disposable Visual Exploration**:
+  - Use the headless `pen` CLI to generate, revise, and export eight labeled `.pen` concepts. Use it for divergent visual exploration before the Decider locks one Target Step and Actor; use `design-rapid-prototype-facade` for the selected Thursday prototype.
 
 ## Completion gate
 
 - [ ] Clear phase artifacts generated (Map, Crazy 8s, or 10-15 panel Storyboard).
 - [ ] Exactly 1 Target Step and Actor locked by the Decider.
 - [ ] Storyboard laid out (on `tldraw` canvas, Stitch schema, or structured Markdown).
+- [ ] Crazy 8s reviewed as eight labeled Pencil.dev concepts when visual divergence is part of the sprint.
 - [ ] Storyboard ready for Thursday handoff to `design-rapid-prototype-facade`.

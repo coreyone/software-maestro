@@ -16,6 +16,26 @@ description: "Build clickable wireframes and high-fidelity UI facades for user p
 >
 > **The Prime Directive**: *"Fake it, don't build it. Match fidelity to the uncertainty being tested."*
 
+### Pencil.dev as a Disposable Exploration Facade
+
+Use Pencil.dev between Tuesday divergence and Wednesday decision when the team needs fast, visual Crazy 8s or a lightweight concept facade. The headless `pen` CLI creates and edits `.pen` files without requiring a GUI; the CLI can also export PNG, JPEG, WEBP, and PDF review artifacts.
+
+Before use, install the CLI with `npm install -g @pen.dev/cli`, confirm Node.js 22.19 or later, and authenticate with `pen login` or `PEN_CLI_KEY`. Run `pen status` before a sprint session.
+
+- **Crazy 8s**: Create eight labeled frames in one `.pen` file. Keep the target step, actor, content constraints, and viewport constant while varying composition, hierarchy, and interaction cues.
+- **Prompt with a review question**: Include the sprint brief, authentic domain copy, required frame labels, the dimensions of variation, and the question the team will use for voting.
+- **Refine selectively**: Pass critique notes as a prompt file and revise only the shortlisted frames. Preserve the original `.pen` board so the divergence evidence remains inspectable.
+- **Export for decision**: Export a single board image for silent review, heatmap voting, and the Decider’s selection. Do not treat generated screens as proof of usability or implementation feasibility.
+- **Handoff**: Carry the selected frame, target step, actor, decision rationale, and unresolved risks into the Wednesday storyboard. Use Pencil.dev for exploration; use this Thursday facade workflow only when the selected path needs clickable testing.
+
+Example:
+
+```bash
+pen --out crazy-8s.pen --prompt-file sprint-brief.md --prompt "Create eight materially different Crazy 8s concepts for the locked target step. Label frames 1–8, keep the actor and content constraints constant, and vary layout, hierarchy, and interaction cues. Use authentic copy only."
+pen --in crazy-8s.pen --out crazy-8s-shortlist.pen --prompt-file critique.md --prompt "Refine only the shortlisted frames identified in critique.md. Preserve frame labels and do not add backend behavior."
+pen --in crazy-8s-shortlist.pen --export crazy-8s.png --export-scale 2
+```
+
 ---
 
 ## When to use
@@ -23,6 +43,7 @@ description: "Build clickable wireframes and high-fidelity UI facades for user p
 Use this skill on Thursday of a Design Sprint to build the testing prototype:
 - **Tier 1 (Basic Wireframe Facade)**: Building schematic, clickable wireframe prototypes in `tldraw Desktop` via `tldraw-offline` for early structural feedback.
 - **Tier 2 (High-Fidelity Web Facade)**: Generating pixel-perfect screens and HTML/CSS via **Google Stitch MCP** (`generate_screen_from_text`, `edit_screens`) and multi-screen baton assembly (`stitch-loop`).
+- **Pre-Thursday (Disposable Visual Exploration)**: Generating and comparing Crazy 8s or selected concept frames in **Pencil.dev** with the headless `pen` CLI. Use this before storyboard lock, not as a substitute for the clickable Thursday facade.
 - Organizing the sprint team across **Maker**, **Stitcher**, **Writer**, and **Asset Collector** roles.
 - Enforcing **100% authentic copy and domain data** (strict zero *Lorem Ipsum* rule).
 - Conducting the mandatory **15:00 Trial Run QA audit**.
@@ -37,6 +58,7 @@ Do not use this skill for:
 ## Trigger cues
 
 - Request mentions: `goldilocks prototype`, `prototype facade`, `realistic UI illusion`, `stitch prototype`, `tldraw wireframe prototype`, `tldraw clickable prototype`, `rapid interactive prototype`, `hollywood set facade`, `stitch rapid facade`, `basic wireframe facade`.
+- Request mentions: `Pencil.dev`, `pencil prototype`, `pen CLI`, `Crazy 8s board`, or `disposable visual exploration`.
 
 ## Instructions
 
