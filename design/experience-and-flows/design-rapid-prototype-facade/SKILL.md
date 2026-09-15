@@ -36,6 +36,31 @@ pen --in crazy-8s.pen --out crazy-8s-shortlist.pen --prompt-file critique.md --p
 pen --in crazy-8s-shortlist.pen --export crazy-8s.png --export-scale 2
 ```
 
+### Recreating an Existing iOS App UI
+
+Pencil.dev cannot currently pull a running native iOS app into editable layers. Use this workflow when an existing app is the visual baseline:
+
+1. **Capture the runtime**: Run the app in Xcode Simulator and capture every storyboard state at the target device size. Use `xcrun simctl io booted screenshot app-state.png`, including home, loading, empty, menu, form, error, and selected states.
+2. **Import the reference**: Import each PNG into Pencil.dev and lock it behind the reconstruction. PNG and JPEG files become image layers, so they preserve pixel accuracy but are not editable UI.
+3. **Recreate the layers**: Keep the `.pen` file beside the Xcode project. Ask the AI agent to recreate the relevant SwiftUI or UIKit view as editable Pencil layers, using the screenshot as the visual source of truth and the source code as the structural source of truth.
+4. **Build prototype states**: Duplicate the recreated screen into named states such as `Home`, `Home — menu open`, `Home — loading`, and `Home — error`. Wire transitions between those states in Pencil.
+5. **Run visual QA**: Export the Pencil screen and compare it with the Simulator screenshot. Correct safe-area placement, typography, wrapping, spacing, colors, corner radii, shadows, icon sizes, and viewport dimensions before using the facade for testing.
+
+Use this prompt pattern:
+
+```text
+Recreate the UI shown in app-home.png from
+Sources/Features/Home/HomeView.swift.
+
+Match the screenshot exactly:
+- Preserve the 393x852 viewport and safe-area placement
+- Match typography, spacing, colors, corner radii, shadows, and icon sizes
+- Use editable Pencil layers and reusable components
+- Do not invent content
+```
+
+For exact native behavior, keep the prototype in SwiftUI or UIKit. Use Pencil for editable visual reconstruction, state exploration, and prototype transitions—not as a replacement for the iOS runtime.
+
 ---
 
 ## When to use

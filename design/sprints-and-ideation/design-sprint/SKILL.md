@@ -33,6 +33,17 @@ Every Pencil.dev Crazy 8s prompt must state:
 4. The required labels, frame order, and output file.
 5. The review question that will decide which concept advances.
 
+### Importing an Existing iOS UI
+
+Pencil.dev does not import a running native iOS app as editable layers. Use the Simulator as the visual source of truth, then combine screenshots with the iOS source code.
+
+1. Capture each relevant app state at the target device size with `xcrun simctl io booted screenshot app-state.png`.
+2. Import the PNG into Pencil.dev as a locked reference. PNG and JPEG imports remain flattened image layers.
+3. Keep the `.pen` file beside the Xcode project and ask the agent to recreate the relevant SwiftUI or UIKit view as editable layers using the screenshot for visual accuracy and source code for structure.
+4. Duplicate the recreated screen into interaction states, then use Pencil transitions for prototype behavior.
+
+For Crazy 8s, import one real screen as the baseline and vary only the locked target step. Keep the device viewport, brand system, typography, user, and real content constant. Vary layout hierarchy, primary-action placement, navigation, information density, and interaction reveal patterns. Treat the screenshot as exact visual evidence and the reconstruction as subject to visual QA.
+
 ---
 
 ## When to use
