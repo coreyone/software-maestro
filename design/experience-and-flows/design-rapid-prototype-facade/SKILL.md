@@ -22,6 +22,26 @@ Use Pencil.dev between Tuesday divergence and Wednesday decision when the team n
 
 Before use, install the CLI with `npm install -g @pen.dev/cli`, confirm Node.js 22.19 or later, and authenticate with `pen login` or `PEN_CLI_KEY`. Run `pen status` before a sprint session.
 
+### Required Design-System Inputs
+
+Before generating or reconstructing any screen, load the product system into Pencil:
+
+1. Keep `DESIGN.md`, the working `.pen` file, the starter `.lib.pen` library, custom fonts, and referenced images in one workspace.
+2. Read `DESIGN.md` and extract principles, aesthetic direction, accessibility, semantic colors, typography, spacing, radii, elevation, borders, motion, responsive rules, themes, and component constraints.
+3. Import the `.lib.pen` file through Pencil’s Libraries panel before using the agent. Inspect variables, themes, components, slots, icons, and fonts. Do not assume a starter kit is active merely because it exists in the folder.
+4. Attach `DESIGN.md` to CLI prompts with `--prompt-file DESIGN.md` and state that existing library instances and variables are mandatory. The CLI can edit the prepared `.pen` document; perform library setup in the desktop or IDE workflow when required.
+5. Run a design-system audit before handoff. Check token usage, component reuse, accessibility, light/dark behavior, responsive behavior, motion, and distinctive visual character. Record every intentional deviation beside the affected frame.
+
+Use this prompt prefix for every Pencil task:
+
+```text
+Read DESIGN.md before editing.
+Use the imported Pencil library, its variables, themes, components, slots,
+icons, and fonts. Reuse an existing primitive whenever it matches.
+Do not invent competing tokens or patterns. List intentional deviations
+from DESIGN.md with a reason. Keep all output editable.
+```
+
 - **Crazy 8s**: Create eight labeled frames in one `.pen` file. Keep the target step, actor, content constraints, and viewport constant while varying composition, hierarchy, and interaction cues.
 - **Prompt with a review question**: Include the sprint brief, authentic domain copy, required frame labels, the dimensions of variation, and the question the team will use for voting.
 - **Refine selectively**: Pass critique notes as a prompt file and revise only the shortlisted frames. Preserve the original `.pen` board so the divergence evidence remains inspectable.
@@ -31,7 +51,7 @@ Before use, install the CLI with `npm install -g @pen.dev/cli`, confirm Node.js 
 Example:
 
 ```bash
-pen --out crazy-8s.pen --prompt-file sprint-brief.md --prompt "Create eight materially different Crazy 8s concepts for the locked target step. Label frames 1–8, keep the actor and content constraints constant, and vary layout, hierarchy, and interaction cues. Use authentic copy only."
+pen --out crazy-8s.pen --prompt-file DESIGN.md --prompt-file sprint-brief.md --prompt "Create eight materially different Crazy 8s concepts for the locked target step. Use the imported Pencil library and DESIGN.md as mandatory constraints. Label frames 1–8, keep the actor and content constraints constant, and vary layout, hierarchy, and interaction cues. Use authentic copy only."
 pen --in crazy-8s.pen --out crazy-8s-shortlist.pen --prompt-file critique.md --prompt "Refine only the shortlisted frames identified in critique.md. Preserve frame labels and do not add backend behavior."
 pen --in crazy-8s-shortlist.pen --export crazy-8s.png --export-scale 2
 ```
@@ -103,5 +123,9 @@ Do not use this skill for:
 
 - [ ] Interactive facade covering 100% of storyboard scenes produced.
 - [ ] Zero *Lorem Ipsum* or generic placeholder text.
+- [ ] `DESIGN.md` was read and attached to the agent task.
+- [ ] The starter `.lib.pen` library was imported, and matching variables and components were reused.
+- [ ] Design-system audit passes for tokens, accessibility, themes, responsive behavior, motion, and distinctive character.
+- [ ] Intentional deviations are documented beside the affected frame.
 - [ ] Sub-150ms interaction latency on golden path.
 - [ ] 15:00 Trial Run QA report logged with zero blocker bugs.

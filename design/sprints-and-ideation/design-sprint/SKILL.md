@@ -32,6 +32,9 @@ Every Pencil.dev Crazy 8s prompt must state:
 3. The dimensions of variation: layout, hierarchy, navigation, or interaction model.
 4. The required labels, frame order, and output file.
 5. The review question that will decide which concept advances.
+6. The `DESIGN.md` path and imported starter library that the agent must use.
+7. The allowed system deviations, with a reason for each deviation.
+8. The design-system audit checks required before voting.
 
 ### Importing an Existing iOS UI
 
@@ -43,6 +46,18 @@ Pencil.dev does not import a running native iOS app as editable layers. Use the 
 4. Duplicate the recreated screen into interaction states, then use Pencil transitions for prototype behavior.
 
 For Crazy 8s, import one real screen as the baseline and vary only the locked target step. Keep the device viewport, brand system, typography, user, and real content constant. Vary layout hierarchy, primary-action placement, navigation, information density, and interaction reveal patterns. Treat the screenshot as exact visual evidence and the reconstruction as subject to visual QA.
+
+### Mandatory Pencil.dev Design-System Setup
+
+Do not start Pencil exploration from a blank canvas when a product system exists. Treat `DESIGN.md` and the imported Pencil starter library as required design inputs.
+
+1. Read `DESIGN.md` and extract the product principles, aesthetic direction, accessibility stance, tokens, themes, responsive rules, motion rules, and component constraints.
+2. Open or create the starter `.pen` file, then import its `.lib.pen` design library into the working document. Inspect variables, theme modes, components, slots, icons, fonts, and reusable patterns before generating screens.
+3. Use existing variables and component instances for every matching element. Create a new component only when the concept requires a genuinely new pattern.
+4. Include `DESIGN.md` in every agent prompt. Require the agent to cite intentional deviations and never invent a competing color, type scale, spacing scale, radius, or component pattern.
+5. Audit each shortlisted concept against the `design-system-rules` checklist: principles, tokens, visual language, accessibility, component reuse, light/dark behavior, responsive behavior, motion, and distinctive character.
+
+If no starter library exists, create the minimum viable library before Crazy 8s: semantic color variables, typography variables, spacing, radii, elevation, focus treatment, light/dark themes, and the core Button, Text, Icon, Field, Feedback, Navigation, Overlay, and Layout components.
 
 ---
 
@@ -68,4 +83,6 @@ Use this skill during the initial 3 days of a Design Sprint:
 - [ ] Exactly 1 Target Step and Actor locked by the Decider.
 - [ ] Storyboard laid out (on `tldraw` canvas, Stitch schema, or structured Markdown).
 - [ ] Crazy 8s reviewed as eight labeled Pencil.dev concepts when visual divergence is part of the sprint.
+- [ ] `DESIGN.md` and the Pencil starter library were loaded before generation.
+- [ ] Shortlisted concepts pass the design-system audit, or document intentional deviations.
 - [ ] Storyboard ready for Thursday handoff to `design-rapid-prototype-facade`.
