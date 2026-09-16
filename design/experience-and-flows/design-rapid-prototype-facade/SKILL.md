@@ -72,6 +72,8 @@ Pencil.dev cannot currently pull a running native iOS app into editable layers. 
 4. **Build prototype states**: Duplicate the recreated screen into named states such as `Home`, `Home — menu open`, `Home — loading`, and `Home — error`. Wire transitions between those states in Pencil.
 5. **Run visual QA**: Export the Pencil screen and compare it with the Simulator screenshot. Correct safe-area placement, typography, wrapping, spacing, colors, corner radii, shadows, icon sizes, and viewport dimensions before using the facade for testing.
 
+**Existing-app precedence:** The Simulator screenshot and observed runtime states are the reconstruction baseline. Use `DESIGN.md` and the imported library to identify the underlying system, preserve known tokens, and constrain proposed changes. Do not replace an existing screen with the starter system merely to make it look more consistent. Record any screenshot-versus-system mismatch as observed legacy, intentional product behavior, or proposed change.
+
 Use this prompt pattern:
 
 ```text

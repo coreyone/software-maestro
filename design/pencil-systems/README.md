@@ -37,7 +37,7 @@ For agent work, read `read_skill()`, then inspect `get_app_state()`, variables, 
 
 ## Existing iOS apps
 
-Capture Simulator screenshots with `xcrun simctl io booted screenshot`. Import them as locked references. Screenshots remain flattened; recreate SwiftUI/UIKit structure as editable Pencil layers and compare exported screens against the Simulator baseline. Pencil is the visual reconstruction and state exploration layer, not a native iOS runtime.
+Capture Simulator screenshots with `xcrun simctl io booted screenshot`. Import them as locked references. For an existing app, the screenshot and runtime behavior outrank the starter library during reconstruction: recreate the observed UI faithfully, then use `DESIGN.md` to identify tokens, accessibility rules, and proposed changes. Do not “normalize” an existing screen to the library unless the brief explicitly requests a redesign. Screenshots remain flattened; recreate SwiftUI/UIKit structure as editable Pencil layers and compare exported screens against the Simulator baseline. Pencil is the visual reconstruction and state exploration layer, not a native iOS runtime.
 
 ## Validation evidence
 

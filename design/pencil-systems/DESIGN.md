@@ -59,8 +59,9 @@ Use icon nodes from Lucide or iconoir with consistent stroke weight. Do not draw
 2. Open Pencil and import `core-ios.lib.pen` through Libraries. Verify variables, themes, components, slots, icons, and fonts before generating.
 3. Start from the appropriate template. Keep root frames clean, use `clip: true` for screens, and preserve editability.
 4. Use instances and variables first. Use Code on Canvas only for repeated or parameterized structures, then convert to editable layers when the pattern is stable.
-5. Compare every reconstruction with the simulator screenshot. Keep viewport, safe area, user, content, and target step fixed while exploring one intentional change.
-6. Record deviations, unresolved risks, and audit results in the review brief or beside the affected frame.
+5. For an existing app, treat the Simulator screenshot and observed runtime states as the visual source of truth. Use `DESIGN.md` to explain the system behind that UI and to constrain proposed changes; do not replace the existing UI with the system library during reconstruction.
+6. Keep viewport, safe area, user, content, and target step fixed while exploring one intentional change. Mark any mismatch between the screenshot and `DESIGN.md` as an observed legacy or product decision, not an automatic defect.
+7. Record deviations, unresolved risks, and audit results in the review brief or beside the affected frame.
 
 ## Handoff
 

@@ -58,6 +58,8 @@ Pencil.dev does not import a running native iOS app as editable layers. Use the 
 
 For Crazy 8s, import one real screen as the baseline and vary only the locked target step. Keep the device viewport, brand system, typography, user, and real content constant. Vary layout hierarchy, primary-action placement, navigation, information density, and interaction reveal patterns. Treat the screenshot as exact visual evidence and the reconstruction as subject to visual QA.
 
+**Existing-app precedence:** During reconstruction, the Simulator screenshot and observed runtime states are the visual source of truth. `DESIGN.md` explains the tokens and principles behind the UI and constrains proposed changes; it must not silently overwrite an existing screen. Label screenshot-versus-system mismatches as observed legacy, intentional product behavior, or proposed change.
+
 ### Mandatory Pencil.dev Design-System Setup
 
 Do not start Pencil exploration from a blank canvas when a product system exists. Treat `DESIGN.md` and the imported Pencil starter library as required design inputs.
