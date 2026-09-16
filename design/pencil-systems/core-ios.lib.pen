@@ -1,0 +1,442 @@
+{
+  "version": "2.17",
+  "children": [
+    {
+      "type": "frame",
+      "id": "jJ5um",
+      "x": 0,
+      "y": 0,
+      "name": "Button / Primary",
+      "reusable": true,
+      "width": 144,
+      "height": 48,
+      "fill": "$accent",
+      "cornerRadius": "$radius-md",
+      "gap": "$space-2",
+      "padding": "$space-3",
+      "justifyContent": "center",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "gHwy6",
+          "name": "Label",
+          "fill": "$text-on-accent",
+          "content": "Continue",
+          "fontFamily": "$font-ui",
+          "fontSize": 16,
+          "fontWeight": "600"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "j5QYnt",
+      "x": 0,
+      "y": 0,
+      "name": "Button / Secondary",
+      "reusable": true,
+      "width": 144,
+      "height": 48,
+      "fill": "$surface-raised",
+      "cornerRadius": "$radius-md",
+      "gap": "$space-2",
+      "padding": "$space-3",
+      "justifyContent": "center",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "h4j2Hp",
+          "name": "Label",
+          "fill": "$text-primary",
+          "content": "Cancel",
+          "fontFamily": "$font-ui",
+          "fontSize": 16,
+          "fontWeight": "600"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "AYKVv",
+      "x": 0,
+      "y": 0,
+      "name": "Surface / Card",
+      "reusable": true,
+      "width": 360,
+      "fill": "$surface-raised",
+      "cornerRadius": "$radius-lg",
+      "layout": "vertical",
+      "gap": "$space-3",
+      "padding": "$space-5",
+      "children": [
+        {
+          "type": "text",
+          "id": "k5uXE",
+          "name": "Title",
+          "fill": "$text-primary",
+          "textGrowth": "fixed-width",
+          "width": "fill_container",
+          "content": "Card title",
+          "fontFamily": "$font-display",
+          "fontSize": 20,
+          "fontWeight": "600"
+        },
+        {
+          "type": "text",
+          "id": "e0KEi",
+          "name": "Detail",
+          "fill": "$text-secondary",
+          "textGrowth": "fixed-width",
+          "width": "fill_container",
+          "content": "Use this surface for a meaningful group of related content.",
+          "lineHeight": 1.45,
+          "fontFamily": "$font-ui",
+          "fontSize": 15,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "O8O31",
+      "x": 0,
+      "y": 0,
+      "name": "Field / Text",
+      "reusable": true,
+      "width": 320,
+      "height": 72,
+      "layout": "vertical",
+      "gap": "$space-1",
+      "children": [
+        {
+          "type": "text",
+          "id": "wFDaE",
+          "name": "Label",
+          "fill": "$text-primary",
+          "content": "Field label",
+          "fontFamily": "$font-ui",
+          "fontSize": 14,
+          "fontWeight": "600"
+        },
+        {
+          "type": "frame",
+          "id": "V9JJe",
+          "name": "Input",
+          "width": "fill_container",
+          "height": 44,
+          "fill": "$surface-raised",
+          "cornerRadius": "$radius-sm",
+          "padding": "$space-3",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "esrTx",
+              "name": "Placeholder",
+              "fill": "$text-secondary",
+              "content": "Enter a value",
+              "fontFamily": "$font-ui",
+              "fontSize": 16,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "h5ecV",
+      "x": 0,
+      "y": 0,
+      "name": "Feedback / Status",
+      "reusable": true,
+      "width": 320,
+      "height": 56,
+      "fill": "$accent-soft",
+      "cornerRadius": "$radius-md",
+      "gap": "$space-2",
+      "padding": "$space-3",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "Emiok",
+          "name": "Message",
+          "fill": "$text-primary",
+          "textGrowth": "fixed-width",
+          "width": "fill_container",
+          "content": "Saved. Your next step is ready.",
+          "fontFamily": "$font-ui",
+          "fontSize": 14,
+          "fontWeight": "normal"
+        }
+      ]
+    }
+  ],
+  "themes": {
+    "mode": [
+      "light",
+      "dark"
+    ]
+  },
+  "variables": {
+    "surface-canvas": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F7F6F2",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#111214",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "surface-raised": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#1A1D20",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "surface-muted": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#ECEBE6",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#24282B",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "text-primary": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#151719",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F2F1ED",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "text-secondary": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#5D6468",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#B9C0C4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "text-on-accent": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#111214",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "accent": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0E6F68",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#64D7C7",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "accent-soft": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#D8EFEB",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#183B38",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "success": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#16794A",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#7BE0A8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "warning": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#93620A",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F1C56B",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "danger": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#B42318",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#FF9E98",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "font-ui": {
+      "type": "string",
+      "value": "SF Pro Text"
+    },
+    "font-display": {
+      "type": "string",
+      "value": "SF Pro Display"
+    },
+    "font-mono": {
+      "type": "string",
+      "value": "IBM Plex Mono"
+    },
+    "icon-library": {
+      "type": "string",
+      "value": "Lucide"
+    },
+    "space-1": {
+      "type": "number",
+      "value": 4
+    },
+    "space-2": {
+      "type": "number",
+      "value": 8
+    },
+    "space-3": {
+      "type": "number",
+      "value": 12
+    },
+    "space-4": {
+      "type": "number",
+      "value": 16
+    },
+    "space-5": {
+      "type": "number",
+      "value": 24
+    },
+    "space-6": {
+      "type": "number",
+      "value": 32
+    },
+    "radius-sm": {
+      "type": "number",
+      "value": 8
+    },
+    "radius-md": {
+      "type": "number",
+      "value": 12
+    },
+    "radius-lg": {
+      "type": "number",
+      "value": 20
+    },
+    "touch-min": {
+      "type": "number",
+      "value": 44
+    },
+    "focus-width": {
+      "type": "number",
+      "value": 2
+    },
+    "motion-micro-ms": {
+      "type": "number",
+      "value": 200
+    },
+    "motion-route-ms": {
+      "type": "number",
+      "value": 300
+    }
+  },
+  "fileToken": "f884403c-ee21-4571-ab9f-643819c98a13"
+}

@@ -23,6 +23,17 @@ Use Pencil.dev when the team needs eight fast visual variations that are easier 
 - **Compare and share**: Export a review image with `pen --in crazy-8s-refined.pen --export crazy-8s.png --export-scale 2`. Use the exported board for silent review, heatmap voting, and Decider selection.
 - **Keep the sprint boundary**: Do not add backend behavior, responsive completeness, polished copy, or design-system infrastructure. Carry only the selected concept and its evidence into the storyboard.
 
+### Corey Pencil system contract
+
+Use [`design/pencil-systems/DESIGN.md`](../../pencil-systems/DESIGN.md) and import [`core-ios.lib.pen`](../../pencil-systems/core-ios.lib.pen) before generating. Start from [`crazy-8s-ios-template.pen`](../../pencil-systems/templates/crazy-8s-ios-template.pen) for iOS target steps, or [`ios-reconstruction-template.pen`](../../pencil-systems/templates/ios-reconstruction-template.pen) when a real screen is the baseline. These are required inputs, not optional starter kits.
+
+- Map Pencil variables and components to the project preferences: SvelteKit and TypeScript, Vite, Bun, Biome, Vanilla CSS or Tailwind CSS, Bits UI/shadcn-svelte/Melt UI, Lucide or iconoir, Motion, and Zod or Valibot where applicable.
+- Use SF Pro Text and SF Pro Display for native iOS intent, IBM Plex Mono for data and audit notes, and declare any Pencil preview fallback. Do not silently substitute a competing type scale.
+- Read `DESIGN.md`, run `read_skill()`, inspect `get_app_state()`, variables, themes, reusable components, slots, icons, and fonts, then verify the imported library before creating frames.
+- Reuse instances and token aliases. Do not detach or invent colors, spacing, radii, type, icons, or motion without documenting the deviation. Use Code on Canvas only for repeated or parameterized structures.
+- Apply the usability and accessibility gate: 44pt targets, visible focus, WCAG AA contrast, non-color state communication, reduced motion, authentic labels, and idle/loading/empty/success/error/recovery states.
+- Keep the target step, actor, viewport, content, and brand constant across eight frames. Vary one meaningful hypothesis per frame and preserve the locked reference.
+
 ### Pencil.dev Crazy 8s Prompt Contract
 
 Every Pencil.dev Crazy 8s prompt must state:
@@ -84,5 +95,6 @@ Use this skill during the initial 3 days of a Design Sprint:
 - [ ] Storyboard laid out (on `tldraw` canvas, Stitch schema, or structured Markdown).
 - [ ] Crazy 8s reviewed as eight labeled Pencil.dev concepts when visual divergence is part of the sprint.
 - [ ] `DESIGN.md` and the Pencil starter library were loaded before generation.
+- [ ] The actual Pencil library import, variables, themes, and reusable components were verified before generation.
 - [ ] Shortlisted concepts pass the design-system audit, or document intentional deviations.
 - [ ] Storyboard ready for Thursday handoff to `design-rapid-prototype-facade`.

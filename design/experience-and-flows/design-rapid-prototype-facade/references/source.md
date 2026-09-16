@@ -16,6 +16,8 @@
 └───────────────────────────────┴────────────────────────────────┴──────────────────────────────────────────┘
 ```
 
+Pencil.dev is the system-grounded exploration tier: use it for existing iOS UI reconstruction and controlled Crazy 8s before the selected concept becomes a clickable facade.
+
 ---
 
 ## 2. Low-Fidelity Wireframing Workflow with `tldraw-offline`
@@ -40,3 +42,7 @@
 3. **Multi-Screen Baton Assembly**: Use `stitch-loop` (`.stitch/next-prompt.md`) to assemble the full golden path in `site/public/`.
 4. **Targeted Edits**: Use `edit_screens` for rapid micro-adjustments.
 5. **Local Verification**: Verify with Chrome DevTools MCP (`npx serve site/public`) before the 15:00 Trial Run.
+
+## 4. System-grounded Pencil.dev workflow
+
+Read `design/pencil-systems/DESIGN.md`, import `core-ios.lib.pen`, and inspect variables, themes, components, slots, icons, and fonts. Use `ios-reconstruction-template.pen` for a Simulator baseline and `crazy-8s-ios-template.pen` for eight controlled variations. Keep the screenshot, viewport, user, content, and target step constant; vary one hypothesis at a time. Export the selected frame, compare it with the source screenshot, and attach the token, accessibility, state, responsive, motion, and deviation audit to the handoff.

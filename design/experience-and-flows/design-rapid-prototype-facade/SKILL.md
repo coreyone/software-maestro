@@ -32,6 +32,10 @@ Before generating or reconstructing any screen, load the product system into Pen
 4. Attach `DESIGN.md` to CLI prompts with `--prompt-file DESIGN.md` and state that existing library instances and variables are mandatory. The CLI can edit the prepared `.pen` document; perform library setup in the desktop or IDE workflow when required.
 5. Run a design-system audit before handoff. Check token usage, component reuse, accessibility, light/dark behavior, responsive behavior, motion, and distinctive visual character. Record every intentional deviation beside the affected frame.
 
+For this repository, the required system assets are [`design/pencil-systems/DESIGN.md`](../../pencil-systems/DESIGN.md), [`core-ios.lib.pen`](../../pencil-systems/core-ios.lib.pen), [`ios-reconstruction-template.pen`](../../pencil-systems/templates/ios-reconstruction-template.pen), and [`crazy-8s-ios-template.pen`](../../pencil-systems/templates/crazy-8s-ios-template.pen). They encode the preferred stack and visual language: SvelteKit/TypeScript, Vite, Bun, Biome, Vanilla CSS or Tailwind CSS, Bits UI/shadcn-svelte/Melt UI, Lucide/iconoir, Motion, SF Pro Text/Display for iOS, IBM Plex Mono for data, and semantic light/dark tokens. Use the library as a visual contract; do not add a production dependency merely to satisfy Pencil.
+
+The accessibility and usability gate is mandatory: 44pt targets, visible focus, WCAG AA contrast, non-color status communication, reduced-motion behavior, clear labels, progressive disclosure, authentic copy, and explicit idle/loading/empty/success/error/recovery states. Use icon nodes from the preferred library, not hand-drawn substitutes. Preserve instances and variable aliases; document every detach or deviation.
+
 Use this prompt prefix for every Pencil task:
 
 ```text
@@ -41,6 +45,8 @@ icons, and fonts. Reuse an existing primitive whenever it matches.
 Do not invent competing tokens or patterns. List intentional deviations
 from DESIGN.md with a reason. Keep all output editable.
 ```
+
+Before a facade handoff, record the imported-library proof, variable/component reuse, simulator comparison, accessibility audit, state coverage, responsive and motion decisions, and unresolved risks. A Pencil reconstruction remains a visual artifact; SwiftUI/UIKit or the web facade remains the runtime source of truth.
 
 - **Crazy 8s**: Create eight labeled frames in one `.pen` file. Keep the target step, actor, content constraints, and viewport constant while varying composition, hierarchy, and interaction cues.
 - **Prompt with a review question**: Include the sprint brief, authentic domain copy, required frame labels, the dimensions of variation, and the question the team will use for voting.
@@ -125,6 +131,7 @@ Do not use this skill for:
 - [ ] Zero *Lorem Ipsum* or generic placeholder text.
 - [ ] `DESIGN.md` was read and attached to the agent task.
 - [ ] The starter `.lib.pen` library was imported, and matching variables and components were reused.
+- [ ] The actual imported library, themes, variables, slots, icons, fonts, and reusable components were inspected and recorded.
 - [ ] Design-system audit passes for tokens, accessibility, themes, responsive behavior, motion, and distinctive character.
 - [ ] Intentional deviations are documented beside the affected frame.
 - [ ] Sub-150ms interaction latency on golden path.

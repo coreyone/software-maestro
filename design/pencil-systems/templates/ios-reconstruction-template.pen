@@ -1,0 +1,163 @@
+{
+  "version": "2.17",
+  "children": [
+    {
+      "type": "frame",
+      "id": "hJlWV",
+      "x": 0,
+      "y": 0,
+      "name": "iOS Reconstruction / 393x852",
+      "clip": true,
+      "width": 393,
+      "height": 852,
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "oU61x",
+          "x": 0,
+          "y": 0,
+          "name": "Reference / Simulator PNG",
+          "width": 393,
+          "height": 852,
+          "fill": "#ECEBE6",
+          "children": [
+            {
+              "type": "text",
+              "id": "IbfBr",
+              "name": "DropReference",
+              "fill": "#5D6468",
+              "content": "Drop Simulator screenshot here, then move editable layers above it",
+              "fontFamily": "Noto Sans",
+              "fontSize": 16,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "X82uU7",
+          "x": 0,
+          "y": 59,
+          "name": "Editable Reconstruction / Safe Area",
+          "width": 393,
+          "height": 710,
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "MquUa",
+              "x": 16,
+              "y": 0,
+              "name": "State / Top Bar",
+              "width": 361,
+              "height": 56,
+              "padding": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "wEqvn",
+                  "name": "StateLabel",
+                  "fill": "#151719",
+                  "content": "TOP BAR / preserve source hierarchy",
+                  "fontFamily": "Noto Sans",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "zpLMt",
+              "x": 16,
+              "y": 72,
+              "name": "State / Main Content",
+              "width": 361,
+              "height": 560,
+              "layout": "vertical",
+              "gap": 16,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "r1IICa",
+                  "name": "ContentLabel",
+                  "fill": "#151719",
+                  "content": "MAIN CONTENT / editable reconstruction",
+                  "fontFamily": "Noto Sans",
+                  "fontSize": 18,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "RSkZq",
+                  "name": "QAInstruction",
+                  "fill": "#5D6468",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Use the screenshot for visual truth and SwiftUI/UIKit for structure. Preserve safe areas, real copy, states, and touch targets.",
+                  "lineHeight": 1.45,
+                  "fontFamily": "Noto Sans",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "pNBse",
+              "x": 16,
+              "y": 648,
+              "name": "State / Bottom Navigation",
+              "width": 361,
+              "height": 62,
+              "padding": 8,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "grcFG",
+                  "name": "NavLabel",
+                  "fill": "#151719",
+                  "content": "BOTTOM NAV / 44px minimum targets",
+                  "fontFamily": "Noto Sans",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "uRjbV",
+          "x": 16,
+          "y": 785,
+          "name": "Audit Notes / do not ship with output",
+          "width": 361,
+          "height": 51,
+          "fill": "#D8EFEB",
+          "padding": 8,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "v4bo6Z",
+              "name": "AuditText",
+              "fill": "#151719",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Audit: contrast • focus • reduced motion • loading • empty • error • recovery",
+              "fontFamily": "Noto Sans",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "fileToken": "17a5d6af-740a-470e-ad13-8de33caacca5"
+}
