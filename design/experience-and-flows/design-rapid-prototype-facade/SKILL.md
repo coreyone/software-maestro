@@ -20,7 +20,7 @@ description: "Build clickable wireframes and high-fidelity UI facades for user p
 
 Use Pencil.dev between Tuesday divergence and Wednesday decision when the team needs fast, visual Crazy 8s or a lightweight concept facade. The headless `pen` CLI creates and edits `.pen` files without requiring a GUI; the CLI can also export PNG, JPEG, WEBP, and PDF review artifacts.
 
-Before use, install the CLI with `npm install -g @pen.dev/cli`, confirm Node.js 22.19 or later, and authenticate with `pen login` or `PEN_CLI_KEY`. Run `pen status` before a sprint session.
+Before use, install the CLI with `npm install -g @pen.dev/cli`, confirm Node.js 22.19 or later, authenticate with `pen login` or `PEN_CLI_KEY`, and run `pen status`. Use `pen codex-login` when the CLI agent is Codex. For desktop/IDE work, open the target `.pen` file, enable Pencil MCP, reload Codex, and confirm `pencil` appears in the live MCP tool list.
 
 ### Required Design-System Inputs
 
@@ -35,6 +35,15 @@ Before generating or reconstructing any screen, load the product system into Pen
 For this repository, the required system assets are [`design/pencil-systems/DESIGN.md`](../../pencil-systems/DESIGN.md), [`core-ios.lib.pen`](../../pencil-systems/core-ios.lib.pen), [`ios-reconstruction-template.pen`](../../pencil-systems/templates/ios-reconstruction-template.pen), and [`crazy-8s-ios-template.pen`](../../pencil-systems/templates/crazy-8s-ios-template.pen). They encode the preferred stack and visual language: SvelteKit/TypeScript, Vite, Bun, Biome, Vanilla CSS or Tailwind CSS, Bits UI/shadcn-svelte/Melt UI, Lucide/iconoir, Motion, SF Pro Text/Display for iOS, IBM Plex Mono for data, and semantic light/dark tokens. Use the library as a visual contract; do not add a production dependency merely to satisfy Pencil.
 
 The accessibility and usability gate is mandatory: 44pt targets, visible focus, WCAG AA contrast, non-color status communication, reduced-motion behavior, clear labels, progressive disclosure, authentic copy, and explicit idle/loading/empty/success/error/recovery states. Use icon nodes from the preferred library, not hand-drawn substitutes. Preserve instances and variable aliases; document every detach or deviation.
+
+### Use the new import and sync capabilities
+
+- **Existing web UI:** Keep the `.pen` file in the same workspace as the source. Use Code → Design to recreate the named component or page, then use the built-in browser to import the running page or selected element for visual comparison. JavaScript interactions do not transfer.
+- **Existing iOS UI:** Attach Simulator screenshots and SwiftUI/UIKit source to the agent. Recreate editable layers from the screenshot and source. The screenshot remains authoritative for the existing app; `DESIGN.md` constrains proposed changes.
+- **Existing Figma work:** Import the complete Figma file when available. Use SVG import for editable vectors and PNG/JPEG for locked reference evidence.
+- **Design tokens:** Import CSS variables from `globals.css` or the project token file into Pencil. Export approved Pencil variable changes back to CSS only after reviewing conflicts and implementation impact.
+- **Context:** Use repeatable `--prompt-file` attachments for `DESIGN.md`, source, screenshots, briefs, and critique. Use `--repo` to expose the relevant project workspace. Use `--preview-output` or `--enable-preview` when the review requires iterative visual evidence.
+- **Icons:** Use the built-in Lucide, Phosphor, Feather, or Material Symbols library when appropriate; map production output to Lucide or iconoir according to the project preference.
 
 Use this prompt prefix for every Pencil task:
 

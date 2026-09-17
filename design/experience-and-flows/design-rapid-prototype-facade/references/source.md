@@ -16,7 +16,7 @@
 └───────────────────────────────┴────────────────────────────────┴──────────────────────────────────────────┘
 ```
 
-Pencil.dev is the system-grounded exploration tier: use it for existing iOS UI reconstruction and controlled Crazy 8s before the selected concept becomes a clickable facade.
+Pencil.dev is the system-grounded exploration tier: use it for existing web or iOS UI reconstruction, Figma/web import, token synchronization, and controlled Crazy 8s before the selected concept becomes a clickable facade.
 
 ---
 
@@ -45,4 +45,4 @@ Pencil.dev is the system-grounded exploration tier: use it for existing iOS UI r
 
 ## 4. System-grounded Pencil.dev workflow
 
-Read `design/pencil-systems/DESIGN.md`, import `core-ios.lib.pen`, and inspect variables, themes, components, slots, icons, and fonts. Use `ios-reconstruction-template.pen` for a Simulator baseline and `crazy-8s-ios-template.pen` for eight controlled variations. Keep the screenshot, viewport, user, content, and target step constant; vary one hypothesis at a time. Export the selected frame, compare it with the source screenshot, and attach the token, accessibility, state, responsive, motion, and deviation audit to the handoff.
+Read `design/pencil-systems/DESIGN.md`, import `core-ios.lib.pen`, and inspect variables, themes, components, slots, icons, and fonts. Use Code → Design for existing web components, browser import for running web pages, Figma import when a Figma source exists, and screenshot-plus-source reconstruction for iOS. Use `ios-reconstruction-template.pen` for a Simulator baseline and `crazy-8s-ios-template.pen` for eight controlled variations. Keep the screenshot, viewport, user, content, and target step constant; vary one hypothesis at a time. Synchronize CSS and Pencil variables only after conflict review. Export the selected frame, compare it with the source screenshot or running page, and attach the token, accessibility, state, responsive, motion, and deviation audit to the handoff.

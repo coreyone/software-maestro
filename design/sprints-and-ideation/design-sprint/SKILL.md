@@ -23,6 +23,17 @@ Use Pencil.dev when the team needs eight fast visual variations that are easier 
 - **Compare and share**: Export a review image with `pen --in crazy-8s-refined.pen --export crazy-8s.png --export-scale 2`. Use the exported board for silent review, heatmap voting, and Decider selection.
 - **Keep the sprint boundary**: Do not add backend behavior, responsive completeness, polished copy, or design-system infrastructure. Carry only the selected concept and its evidence into the storyboard.
 
+### Current pen.dev workflow
+
+Use the current authenticated `pen` CLI or the pen.dev desktop/IDE MCP integration. Run `pen status` first; use `pen login` for local work, `PEN_CLI_KEY` for CI/CD, and `pen codex-login` for Codex agent mode. Keep the `.pen` file beside the project and pass `--repo` when the agent must inspect source, tokens, screenshots, or assets.
+
+- For an existing web app, use Code → Design: ask Pencil to recreate the relevant component or page from source, then compare it with the running UI.
+- For an existing iOS app, attach Simulator screenshots and SwiftUI/UIKit source. Screenshots define visual truth; source defines structure. Pencil does not directly import a running native app.
+- Synchronize CSS variables and Pencil variables when the system is approved. Resolve variable conflicts explicitly; do not create duplicate token families.
+- Use desktop browser import for web pages or selected elements, Figma import for complete Figma files, SVG import for editable vectors, and PNG/JPEG import for flattened reference evidence.
+- Use the current built-in icon libraries where appropriate: Lucide, Phosphor, Feather, or Material Symbols. Keep production code on the project’s preferred Lucide or iconoir path.
+- In Codex, open the intended `.pen` file, enable the Pencil MCP integration, confirm `pencil` is in the live tool list, attach `DESIGN.md` and briefs, and include the full document path in the prompt.
+
 ### Corey Pencil system contract
 
 Use [`design/pencil-systems/DESIGN.md`](../../pencil-systems/DESIGN.md) and import [`core-ios.lib.pen`](../../pencil-systems/core-ios.lib.pen) before generating. Start from [`crazy-8s-ios-template.pen`](../../pencil-systems/templates/crazy-8s-ios-template.pen) for iOS target steps, or [`ios-reconstruction-template.pen`](../../pencil-systems/templates/ios-reconstruction-template.pen) when a real screen is the baseline. These are required inputs, not optional starter kits.
