@@ -5,6 +5,7 @@
     {"prompt": "Design a Jev workflow to classify support intent and confidence-gate routing.", "trigger": true},
     {"prompt": "Evaluate Jev against our current model with a labeled holdout and calibration thresholds.", "trigger": true},
     {"prompt": "Add TypeSafe Jev to a backend for typed risk decisions.", "trigger": true},
+    {"prompt": "Use structured Jev criteria to classify products through a deep taxonomy.", "trigger": true},
     {"prompt": "Generate a customer support reply in a warm tone.", "trigger": false},
     {"prompt": "Fix the CSS spacing on the settings page.", "trigger": false},
     {"prompt": "Compare two deterministic date-parser implementations.", "trigger": false}
@@ -54,6 +55,22 @@
       "must_not": ["log raw sensitive state", "retry a side effect blindly", "use Jev for arithmetic"],
       "pass_fixture": "Call the official API server-side with the API key in secret storage. Handle 429 and 529 with bounded backoff, log model version and question-set version, minimize and redact sensitive state, and keep arithmetic and side effects in code.",
       "fail_fixture": "Put the API key in client code, log raw sensitive state, retry a side effect blindly, and use Jev for arithmetic."
+    },
+    {
+      "id": "jev-structured-hierarchy",
+      "prompt": "Classify a product through a deep taxonomy with Jev.",
+      "pass_rule": "Uses structured instructions and criteria, explicit option boundaries, and a code-owned hierarchical walk that uses probabilities for close branches.",
+      "must": [
+        ["structured", "JSON", "object"],
+        ["instructions", "criteria"],
+        ["cover", "exclude", "boundary"],
+        ["taxonomy", "hierarch", "tree"],
+        ["probabil", "beam", "multiple branches"],
+        ["code", "each level", "current node"]
+      ],
+      "must_not": ["flatten the taxonomy into one prose string", "let Jev walk the tree autonomously", "ignore close probabilities"],
+      "pass_fixture": "Keep instructions and criteria as structured JSON objects. Define each option's coverage, exclusions, and examples. Walk the taxonomy in code one level at a time from the current node, pass child subtrees, and retain multiple branches when probabilities are close. Trim oversized branches before inference.",
+      "fail_fixture": "Flatten the taxonomy into one prose string and let Jev walk the tree autonomously; ignore close probabilities and send the entire tree every time."
     }
   ]
 }

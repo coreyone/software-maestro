@@ -22,6 +22,9 @@ Read `references/jev.md` before implementation or when current model limits, pri
 - Use `Noul` for a single yes/no probability. It has probability but no confidence field.
 - Split broad judgments into atomic questions. Batch independent questions in one request; use speculative fan-out when several candidate checks can run in parallel. Keep dependent questions in separate code-controlled steps.
 - Ask literal, contrastive questions. Include only relevant state, criteria, examples, and boundary cases. Do not rely on Jev for counting, arithmetic, date comparison, code, structural invariants, or long irrelevant context.
+- Preserve structure when it improves the judgment. `instructions` and `criteria` accept strings, objects, arrays, or `null`; use labeled JSON for multi-part questions, schemas, taxonomies, database rows, definitions, exclusions, and examples instead of flattening them into prose.
+- Make boundaries explicit in structured `Choice` rubrics and structured `Noul` true/false criteria. State what each option covers and excludes.
+- For deep taxonomies, walk one `Choice` level at a time in code. Pass the current node's children and enough subtree context, use probabilities to keep or beam-search close branches, and trim oversized subtrees before sending them.
 
 ## Build the workflow
 
