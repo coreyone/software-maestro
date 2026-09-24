@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "American Dialect Evidence Feature",
+  "type": "object",
+  "required": [
+    "id",
+    "form",
+    "category",
+    "scope",
+    "evidence",
+    "guards"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "form": {
+      "type": "string"
+    },
+    "category": {
+      "enum": [
+        "lexical",
+        "grammar",
+        "phonology",
+        "usage"
+      ]
+    },
+    "scope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "source_id",
+          "evidence_class"
+        ],
+        "properties": {
+          "source_id": {
+            "type": "string"
+          },
+          "evidence_class": {
+            "enum": [
+              "direct-hds",
+              "peer-reviewed",
+              "academic-book",
+              "academic-project",
+              "dissertation"
+            ]
+          }
+        }
+      }
+    },
+    "guards": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "hds_question": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1,
+      "maximum": 122
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

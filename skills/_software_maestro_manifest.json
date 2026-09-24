@@ -7,6 +7,10 @@
       "source": "quality/a11y-debugging"
     },
     {
+      "slug": "american-dialect",
+      "source": "growth/american-dialect"
+    },
+    {
       "slug": "analytics-event-tracking",
       "source": "growth/analytics-event-tracking"
     },

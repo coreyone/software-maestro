@@ -1,0 +1,94 @@
+{
+  "skill": "american-dialect",
+  "version": 1,
+  "trigger_cases": [
+    {
+      "prompt": "Rewrite this dialogue in Midwestern American English.",
+      "trigger": true
+    },
+    {
+      "prompt": "/american-dialect --region upper-midwest --intensity medium",
+      "trigger": true
+    },
+    {
+      "prompt": "Make this character speak with a natural Inland North / Great Lakes dialect.",
+      "trigger": true
+    },
+    {
+      "prompt": "How would someone in the Midland dialect area say this sentence?",
+      "trigger": true
+    },
+    {
+      "prompt": "Audit this text for regional American dialect features using the Harvard Dialect Survey.",
+      "trigger": true
+    },
+    {
+      "prompt": "Implement a distributed rate limiter in Go with Redis.",
+      "trigger": false
+    },
+    {
+      "prompt": "Configure an AWS S3 bucket lifecycle policy with Terraform.",
+      "trigger": false
+    },
+    {
+      "prompt": "Write a quarterly performance review for my direct report.",
+      "trigger": false
+    }
+  ],
+  "binary_cases": [
+    {
+      "id": "midwest-lexical-rewrite",
+      "prompt": "Rewrite \"/american-dialect -midwest: Pick up some soda before you come over.\" using Midwestern English.",
+      "pass_rule": "Uses research-backed beverage term \"pop\" without adding comic stereotypes like \"ope\" or \"you betcha\".",
+      "must": [
+        [
+          "pop",
+          "Pick up some pop"
+        ]
+      ],
+      "must_not": [
+        "ope",
+        "you betcha",
+        "dontcha know"
+      ],
+      "pass_fixture": "Pick up some pop before you come over.",
+      "fail_fixture": "Ope, you betcha, grab some pop there, dontcha know."
+    },
+    {
+      "id": "upper-midwest-motion-particle",
+      "prompt": "Rewrite \"Do you want to come along?\" for Upper Midwest at medium intensity.",
+      "pass_rule": "Uses Upper Midwest motion verb particle \"come with\" without caricature or slang.",
+      "must": [
+        [
+          "come with?",
+          "come with"
+        ]
+      ],
+      "must_not": [
+        "needs washed",
+        "ope",
+        "dontcha know"
+      ],
+      "pass_fixture": "Do you want to come with?",
+      "fail_fixture": "Ope, do you want to come along, dontcha know?"
+    },
+    {
+      "id": "midland-passive-participle",
+      "prompt": "Rewrite \"The car needs to be washed.\" for the Midland dialect area.",
+      "pass_rule": "Uses Midland need + past participle construction \"needs washed\" without comic dialect exaggeration.",
+      "must": [
+        [
+          "needs washed",
+          "needs washed."
+        ]
+      ],
+      "must_not": [
+        "ope",
+        "you betcha",
+        "dontcha know"
+      ],
+      "pass_fixture": "The car needs washed.",
+      "fail_fixture": "Ope, the car needs to be washed, you betcha."
+    }
+  ]
+}

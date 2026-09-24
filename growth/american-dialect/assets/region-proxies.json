@@ -1,0 +1,71 @@
+{
+  "version": "0.1.0",
+  "note": "State groups are computational proxies for aggregating state-level HDS data, not dialect boundaries.",
+  "regions": {
+    "midwest": {
+      "states": [
+        "IL",
+        "IN",
+        "IA",
+        "KS",
+        "MI",
+        "MN",
+        "MO",
+        "NE",
+        "ND",
+        "OH",
+        "SD",
+        "WI"
+      ],
+      "linguistic_status": "broad convenience alias; crosses multiple dialect zones"
+    },
+    "upper-midwest": {
+      "states": [
+        "MN",
+        "ND",
+        "SD",
+        "WI",
+        "IA"
+      ],
+      "linguistic_status": "state-level proxy overlapping North-Central / Upper Midwestern English; Wisconsin/Iowa are internally mixed"
+    },
+    "north-central": {
+      "states": [
+        "MN",
+        "ND",
+        "SD"
+      ],
+      "linguistic_status": "conservative anchor-state proxy for North-Central evidence"
+    },
+    "great-lakes": {
+      "states": [
+        "IL",
+        "IN",
+        "MI",
+        "OH",
+        "WI"
+      ],
+      "linguistic_status": "broad state-level proxy overlapping Inland North / Great Lakes speech; each state contains internal variation"
+    },
+    "inland-north": {
+      "states": [
+        "MI",
+        "WI",
+        "IL",
+        "IN",
+        "OH"
+      ],
+      "linguistic_status": "state-level proxy only; ANAE dialect boundaries are sub-state"
+    },
+    "midland": {
+      "states": [
+        "KS",
+        "MO",
+        "NE",
+        "IN",
+        "OH"
+      ],
+      "linguistic_status": "conservative state-level proxy for central/western Midland tendencies; Indiana/Ohio are internally mixed"
+    }
+  }
+}

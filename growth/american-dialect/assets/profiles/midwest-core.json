@@ -1,0 +1,159 @@
+{
+  "profile": "midwest-core",
+  "version": "0.1.0",
+  "purpose": "Small starter set of research-backed candidates. Not a complete dialect model.",
+  "features": [
+    {
+      "id": "hds-q105-pop",
+      "form": "pop",
+      "category": "lexical",
+      "scope": [
+        "midwest"
+      ],
+      "hds_question": 105,
+      "evidence": [
+        {
+          "source_id": "Vaux-Golder-2003-HDS",
+          "evidence_class": "direct-hds"
+        },
+        {
+          "source_id": "Grieve-Asnaghi-Ruette-2013",
+          "evidence_class": "peer-reviewed"
+        }
+      ],
+      "guards": [
+        "Only for a generic sweetened carbonated beverage.",
+        "Do not override a more specific state/city profile.",
+        "Do not insert beverages when the concept is absent.",
+        "Treat as a tendency, not a categorical rule."
+      ],
+      "notes": "Widely documented Midwest lexical tendency; local exceptions exist."
+    },
+    {
+      "id": "hds-q73-gym-shoes",
+      "form": "gym shoes",
+      "category": "lexical",
+      "scope": [
+        "midwest",
+        "great-lakes"
+      ],
+      "hds_question": 73,
+      "evidence": [
+        {
+          "source_id": "Vaux-Golder-2003-HDS",
+          "evidence_class": "direct-hds"
+        },
+        {
+          "source_id": "Grieve-Asnaghi-Ruette-2013",
+          "evidence_class": "peer-reviewed"
+        }
+      ],
+      "guards": [
+        "Only for generic rubber-soled athletic footwear.",
+        "Prefer a generated local profile before forcing this choice.",
+        "Tennis shoes is also common across much of the U.S.; do not treat gym shoes as universal Midwest usage."
+      ],
+      "notes": "Grieve et al. report the HDS gym-shoes region as especially Midwestern."
+    },
+    {
+      "id": "upper-midwest-come-with",
+      "form": "come with",
+      "category": "grammar",
+      "scope": [
+        "upper-midwest",
+        "north-central"
+      ],
+      "hds_question": null,
+      "evidence": [
+        {
+          "source_id": "Spartz-2008",
+          "evidence_class": "dissertation"
+        },
+        {
+          "source_id": "Yale-YGDP-come-with",
+          "evidence_class": "academic-project"
+        }
+      ],
+      "guards": [
+        "Use only informal accompaniment contexts.",
+        "Do not generalize particle with to arbitrary verbs.",
+        "Do not use as a generic broad-Midwest marker at subtle intensity."
+      ],
+      "notes": "Best-supported with come; related motion verbs show variable acceptance."
+    },
+    {
+      "id": "midland-positive-anymore",
+      "form": "positive anymore",
+      "category": "grammar",
+      "scope": [
+        "midland"
+      ],
+      "hds_question": 54,
+      "evidence": [
+        {
+          "source_id": "Vaux-Golder-2003-HDS-q54-q57",
+          "evidence_class": "direct-hds"
+        },
+        {
+          "source_id": "Strelluf-2019",
+          "evidence_class": "peer-reviewed"
+        },
+        {
+          "source_id": "Blanchette-Keppenne-2024",
+          "evidence_class": "peer-reviewed"
+        }
+      ],
+      "guards": [
+        "Use only with the meaning nowadays/these days in a positive-polarity context.",
+        "Use sparingly because production frequency is low and varies within the Midland.",
+        "Do not use automatically for Kansas City or St. Louis merely because they are Midland cities."
+      ],
+      "notes": "Strongly diagnostic academically, but not high-frequency conversational decoration."
+    },
+    {
+      "id": "midland-needs-washed",
+      "form": "need + passive participle",
+      "category": "grammar",
+      "scope": [
+        "midland"
+      ],
+      "hds_question": null,
+      "evidence": [
+        {
+          "source_id": "Wood-Holubkov-Neidel-Gahm-2022",
+          "evidence_class": "academic-project"
+        },
+        {
+          "source_id": "Yale-YGDP-needs-washed",
+          "evidence_class": "academic-project"
+        }
+      ],
+      "guards": [
+        "Use only in supported Midland contexts.",
+        "Do not use for upper-midwest profiles; research reports strong rejection in much of Minnesota and Wisconsin.",
+        "Preserve the passive meaning."
+      ],
+      "notes": "Example: The car needs washed."
+    },
+    {
+      "id": "midland-wants-in",
+      "form": "want/need + directional preposition",
+      "category": "grammar",
+      "scope": [
+        "midland"
+      ],
+      "hds_question": null,
+      "evidence": [
+        {
+          "source_id": "Yale-YGDP-wants-in",
+          "evidence_class": "academic-project"
+        }
+      ],
+      "guards": [
+        "Use casually and conservatively.",
+        "Want + in/out is safer than extending the pattern to arbitrary verb/preposition pairs."
+      ],
+      "notes": "Example: The cat wants in."
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # software-maestro
 
-A capability orchestra of 71 lean agent skills for AI IDE agents (Claude Code, Codex, Antigravity, Gemini, and Hermes Agent).
+A capability orchestra of 72 lean agent skills for AI IDE agents (Claude Code, Codex, Antigravity, Gemini, and Hermes Agent).
 
 ---
 
@@ -92,13 +92,14 @@ A capability orchestra of 71 lean agent skills for AI IDE agents (Claude Code, C
 </details>
 
 <details>
-<summary><strong><code>growth/</code></strong> (5 skills)</summary>
+<summary><strong><code>growth/</code></strong> (6 skills)</summary>
 
 *   **`analytics-event-tracking`**: Behavioral telemetry taxonomies, retention modeling, and CRM lifecycle automation.
 *   **`commerce-ux-rules`**: Shopping cart optimization, checkout friction reduction, and multi-step wizard forms.
 *   **`developer-seo`**: Technical search engine optimization, semantic metadata, and structured schema tags.
 *   **`experimentation-hypothesis-engine`**: Statistical A/B testing, MDE sample sizing, SRM validation, and 3-way post-mortems.
 *   **`conversion-copywriting`**: High-conversion landing page copy, value propositions, and concise prose.
+*   **`american-dialect`**: Research-backed regional American English rewrites that preserve author voice and avoid caricature.
 
 </details>
 
@@ -152,7 +153,7 @@ A capability orchestra of 71 lean agent skills for AI IDE agents (Claude Code, C
 ├── ops/                      # SEV-0 incident command, crisis comms & blameless RCA (1 skill)
 ├── data-and-api/             # API guidelines, caching, causal inference, semantic layer, metric triage (5 skills)
 ├── security/                 # Developer security & auth/identity rules (2 skills)
-├── growth/                   # Telemetry, commerce UX, SEO, experimentation, copy (5 skills)
+├── growth/                   # Telemetry, commerce UX, SEO, experimentation, regional copy (6 skills)
 ├── quality/                  # CI/CD, FinOps, dogfooding, a11y, observability, web perf, peekaboo (8 skills)
 └── productivity-maestro/      # Executive memos, meeting intelligence & 3-tier Scrum cadences (5 skills)
     ├── executive-and-async/  # Meeting intelligence & Smart Brevity async memos (2 skills)
