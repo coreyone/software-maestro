@@ -16,6 +16,88 @@ description: "Build clickable wireframes and high-fidelity UI facades for user p
 >
 > **The Prime Directive**: *"Fake it, don't build it. Match fidelity to the uncertainty being tested."*
 
+### Pencil.dev as a Disposable Exploration Facade
+
+Use Pencil.dev between Tuesday divergence and Wednesday decision when the team needs fast, visual Crazy 8s or a lightweight concept facade. The headless `pen` CLI creates and edits `.pen` files without requiring a GUI; the CLI can also export PNG, JPEG, WEBP, and PDF review artifacts.
+
+Before use, install the CLI with `npm install -g @pen.dev/cli`, confirm Node.js 22.19 or later, authenticate with `pen login` or `PEN_CLI_KEY`, and run `pen status`. Use `pen codex-login` when the CLI agent is Codex. For desktop/IDE work, open the target `.pen` file, enable Pencil MCP, reload Codex, and confirm `pencil` appears in the live MCP tool list.
+
+### Required Design-System Inputs
+
+Before generating or reconstructing any screen, load the product system into Pencil:
+
+1. Keep `DESIGN.md`, the working `.pen` file, the starter `.lib.pen` library, custom fonts, and referenced images in one workspace.
+2. Read `DESIGN.md` and extract principles, aesthetic direction, accessibility, semantic colors, typography, spacing, radii, elevation, borders, motion, responsive rules, themes, and component constraints.
+3. Import the `.lib.pen` file through Pencil’s Libraries panel before using the agent. Inspect variables, themes, components, slots, icons, and fonts. Do not assume a starter kit is active merely because it exists in the folder.
+4. Attach `DESIGN.md` to CLI prompts with `--prompt-file DESIGN.md` and state that existing library instances and variables are mandatory. The CLI can edit the prepared `.pen` document; perform library setup in the desktop or IDE workflow when required.
+5. Run a design-system audit before handoff. Check token usage, component reuse, accessibility, light/dark behavior, responsive behavior, motion, and distinctive visual character. Record every intentional deviation beside the affected frame.
+
+For this repository, the required system assets are [`design/pencil-systems/DESIGN.md`](../../pencil-systems/DESIGN.md), [`core-ios.lib.pen`](../../pencil-systems/core-ios.lib.pen), [`ios-reconstruction-template.pen`](../../pencil-systems/templates/ios-reconstruction-template.pen), and [`crazy-8s-ios-template.pen`](../../pencil-systems/templates/crazy-8s-ios-template.pen). They encode the preferred stack and visual language: SvelteKit/TypeScript, Vite, Bun, Biome, Vanilla CSS or Tailwind CSS, Bits UI/shadcn-svelte/Melt UI, Lucide/iconoir, Motion, SF Pro Text/Display for iOS, IBM Plex Mono for data, and semantic light/dark tokens. Use the library as a visual contract; do not add a production dependency merely to satisfy Pencil.
+
+The accessibility and usability gate is mandatory: 44pt targets, visible focus, WCAG AA contrast, non-color status communication, reduced-motion behavior, clear labels, progressive disclosure, authentic copy, and explicit idle/loading/empty/success/error/recovery states. Use icon nodes from the preferred library, not hand-drawn substitutes. Preserve instances and variable aliases; document every detach or deviation.
+
+### Use the new import and sync capabilities
+
+- **Existing web UI:** Keep the `.pen` file in the same workspace as the source. Use Code → Design to recreate the named component or page, then use the built-in browser to import the running page or selected element for visual comparison. JavaScript interactions do not transfer.
+- **Existing iOS UI:** Attach Simulator screenshots and SwiftUI/UIKit source to the agent. Recreate editable layers from the screenshot and source. The screenshot remains authoritative for the existing app; `DESIGN.md` constrains proposed changes.
+- **Existing Figma work:** Import the complete Figma file when available. Use SVG import for editable vectors and PNG/JPEG for locked reference evidence.
+- **Design tokens:** Import CSS variables from `globals.css` or the project token file into Pencil. Export approved Pencil variable changes back to CSS only after reviewing conflicts and implementation impact.
+- **Context:** Use repeatable `--prompt-file` attachments for `DESIGN.md`, source, screenshots, briefs, and critique. Use `--repo` to expose the relevant project workspace. Use `--preview-output` or `--enable-preview` when the review requires iterative visual evidence.
+- **Icons:** Use the built-in Lucide, Phosphor, Feather, or Material Symbols library when appropriate; map production output to Lucide or iconoir according to the project preference.
+
+Use this prompt prefix for every Pencil task:
+
+```text
+Read DESIGN.md before editing.
+Use the imported Pencil library, its variables, themes, components, slots,
+icons, and fonts. Reuse an existing primitive whenever it matches.
+Do not invent competing tokens or patterns. List intentional deviations
+from DESIGN.md with a reason. Keep all output editable.
+```
+
+Before a facade handoff, record the imported-library proof, variable/component reuse, simulator comparison, accessibility audit, state coverage, responsive and motion decisions, and unresolved risks. A Pencil reconstruction remains a visual artifact; SwiftUI/UIKit or the web facade remains the runtime source of truth.
+
+- **Crazy 8s**: Create eight labeled frames in one `.pen` file. Keep the target step, actor, content constraints, and viewport constant while varying composition, hierarchy, and interaction cues.
+- **Prompt with a review question**: Include the sprint brief, authentic domain copy, required frame labels, the dimensions of variation, and the question the team will use for voting.
+- **Refine selectively**: Pass critique notes as a prompt file and revise only the shortlisted frames. Preserve the original `.pen` board so the divergence evidence remains inspectable.
+- **Export for decision**: Export a single board image for silent review, heatmap voting, and the Decider’s selection. Do not treat generated screens as proof of usability or implementation feasibility.
+- **Handoff**: Carry the selected frame, target step, actor, decision rationale, and unresolved risks into the Wednesday storyboard. Use Pencil.dev for exploration; use this Thursday facade workflow only when the selected path needs clickable testing.
+
+Example:
+
+```bash
+pen --out crazy-8s.pen --prompt-file DESIGN.md --prompt-file sprint-brief.md --prompt "Create eight materially different Crazy 8s concepts for the locked target step. Use the imported Pencil library and DESIGN.md as mandatory constraints. Label frames 1–8, keep the actor and content constraints constant, and vary layout, hierarchy, and interaction cues. Use authentic copy only."
+pen --in crazy-8s.pen --out crazy-8s-shortlist.pen --prompt-file critique.md --prompt "Refine only the shortlisted frames identified in critique.md. Preserve frame labels and do not add backend behavior."
+pen --in crazy-8s-shortlist.pen --export crazy-8s.png --export-scale 2
+```
+
+### Recreating an Existing iOS App UI
+
+Pencil.dev cannot currently pull a running native iOS app into editable layers. Use this workflow when an existing app is the visual baseline:
+
+1. **Capture the runtime**: Run the app in Xcode Simulator and capture every storyboard state at the target device size. Use `xcrun simctl io booted screenshot app-state.png`, including home, loading, empty, menu, form, error, and selected states.
+2. **Import the reference**: Import each PNG into Pencil.dev and lock it behind the reconstruction. PNG and JPEG files become image layers, so they preserve pixel accuracy but are not editable UI.
+3. **Recreate the layers**: Keep the `.pen` file beside the Xcode project. Ask the AI agent to recreate the relevant SwiftUI or UIKit view as editable Pencil layers, using the screenshot as the visual source of truth and the source code as the structural source of truth.
+4. **Build prototype states**: Duplicate the recreated screen into named states such as `Home`, `Home — menu open`, `Home — loading`, and `Home — error`. Wire transitions between those states in Pencil.
+5. **Run visual QA**: Export the Pencil screen and compare it with the Simulator screenshot. Correct safe-area placement, typography, wrapping, spacing, colors, corner radii, shadows, icon sizes, and viewport dimensions before using the facade for testing.
+
+**Existing-app precedence:** The Simulator screenshot and observed runtime states are the reconstruction baseline. Use `DESIGN.md` and the imported library to identify the underlying system, preserve known tokens, and constrain proposed changes. Do not replace an existing screen with the starter system merely to make it look more consistent. Record any screenshot-versus-system mismatch as observed legacy, intentional product behavior, or proposed change.
+
+Use this prompt pattern:
+
+```text
+Recreate the UI shown in app-home.png from
+Sources/Features/Home/HomeView.swift.
+
+Match the screenshot exactly:
+- Preserve the 393x852 viewport and safe-area placement
+- Match typography, spacing, colors, corner radii, shadows, and icon sizes
+- Use editable Pencil layers and reusable components
+- Do not invent content
+```
+
+For exact native behavior, keep the prototype in SwiftUI or UIKit. Use Pencil for editable visual reconstruction, state exploration, and prototype transitions—not as a replacement for the iOS runtime.
+
 ---
 
 ## When to use
@@ -23,6 +105,7 @@ description: "Build clickable wireframes and high-fidelity UI facades for user p
 Use this skill on Thursday of a Design Sprint to build the testing prototype:
 - **Tier 1 (Basic Wireframe Facade)**: Building schematic, clickable wireframe prototypes in `tldraw Desktop` via `tldraw-offline` for early structural feedback.
 - **Tier 2 (High-Fidelity Web Facade)**: Generating pixel-perfect screens and HTML/CSS via **Google Stitch MCP** (`generate_screen_from_text`, `edit_screens`) and multi-screen baton assembly (`stitch-loop`).
+- **Pre-Thursday (Disposable Visual Exploration)**: Generating and comparing Crazy 8s or selected concept frames in **Pencil.dev** with the headless `pen` CLI. Use this before storyboard lock, not as a substitute for the clickable Thursday facade.
 - Organizing the sprint team across **Maker**, **Stitcher**, **Writer**, and **Asset Collector** roles.
 - Enforcing **100% authentic copy and domain data** (strict zero *Lorem Ipsum* rule).
 - Conducting the mandatory **15:00 Trial Run QA audit**.
@@ -37,6 +120,7 @@ Do not use this skill for:
 ## Trigger cues
 
 - Request mentions: `goldilocks prototype`, `prototype facade`, `realistic UI illusion`, `stitch prototype`, `tldraw wireframe prototype`, `tldraw clickable prototype`, `rapid interactive prototype`, `hollywood set facade`, `stitch rapid facade`, `basic wireframe facade`.
+- Request mentions: `Pencil.dev`, `pencil prototype`, `pen CLI`, `Crazy 8s board`, or `disposable visual exploration`.
 
 ## Instructions
 
@@ -56,5 +140,10 @@ Do not use this skill for:
 
 - [ ] Interactive facade covering 100% of storyboard scenes produced.
 - [ ] Zero *Lorem Ipsum* or generic placeholder text.
+- [ ] `DESIGN.md` was read and attached to the agent task.
+- [ ] The starter `.lib.pen` library was imported, and matching variables and components were reused.
+- [ ] The actual imported library, themes, variables, slots, icons, fonts, and reusable components were inspected and recorded.
+- [ ] Design-system audit passes for tokens, accessibility, themes, responsive behavior, motion, and distinctive character.
+- [ ] Intentional deviations are documented beside the affected frame.
 - [ ] Sub-150ms interaction latency on golden path.
 - [ ] 15:00 Trial Run QA report logged with zero blocker bugs.

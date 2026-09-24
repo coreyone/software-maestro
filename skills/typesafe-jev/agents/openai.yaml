@@ -1,0 +1,4 @@
+interface:
+  display_name: "TypeSafe Jev"
+  short_description: "Design safe typed Jev workflows"
+  default_prompt: "Use $typesafe-jev to design or review this TypeSafe Jev workflow."

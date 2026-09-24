@@ -7,6 +7,7 @@
     {"prompt": "Compare these two agent prompts with reproducible evals.", "trigger": true},
     {"prompt": "A model migration regressed tool selection. Add evals and fix it.", "trigger": true},
     {"prompt": "Use EDD to improve this classifier without overfitting.", "trigger": true},
+    {"prompt": "Evaluate a Jev confidence-gated classifier before enabling auto-routing.", "trigger": true},
     {"prompt": "Write unit tests for this deterministic date parser.", "trigger": false},
     {"prompt": "Review this pull request for security issues.", "trigger": false},
     {"prompt": "Improve the visual hierarchy of this checkout page.", "trigger": false}
@@ -92,6 +93,22 @@
       "must_not": ["fix only"],
       "pass_fixture": "Minimize the failure, add it to the regression dataset, add an evaluator that catches it, fix the system, and monitor for recurrence.",
       "fail_fixture": "Apply a fix only and close the incident."
+    },
+    {
+      "id": "jev-layered-evaluation",
+      "prompt": "Evaluate a Jev classifier that routes support requests automatically.",
+      "pass_rule": "Separates typed response validity, semantic correctness, calibration, and deterministic action policy, with versioned thresholds and a safe fallback.",
+      "must": [
+        ["schema", "typed response", "validity"],
+        ["semantic", "labeled", "human"],
+        ["calibrat", "probability", "confidence"],
+        ["deterministic", "policy", "code"],
+        ["threshold", "fallback", "escalat"],
+        ["model version", "question-set version"]
+      ],
+      "must_not": ["valid schema proves correctness", "reuse one threshold for every action", "let Jev execute the side effect"],
+      "pass_fixture": "Evaluate four layers separately: typed response validity, semantic correctness against labeled examples or human review, probability and confidence calibration, and deterministic policy behavior in code. Record the model version, question-set version, threshold, and fallback; route uncertain cases to escalation and let code execute side effects.",
+      "fail_fixture": "The valid schema proves correctness, so reuse one threshold for every action and let Jev execute the side effect."
     }
   ]
 }

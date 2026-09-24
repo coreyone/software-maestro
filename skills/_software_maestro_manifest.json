@@ -183,6 +183,10 @@
       "source": "engineering/cloud-and-infrastructure/multi-cloud-architecture"
     },
     {
+      "slug": "negotiation-maximizer",
+      "source": "growth/negotiation-maximizer"
+    },
+    {
       "slug": "now-next-later-roadmaps",
       "source": "product/planning-and-cadence/now-next-later-roadmaps"
     },
@@ -277,6 +281,14 @@
     {
       "slug": "trust-safety-fraud-and-claims",
       "source": "trust/trust-safety-fraud-and-claims"
+    },
+    {
+      "slug": "typesafe-ai",
+      "source": ".agents/skills/typesafe-ai"
+    },
+    {
+      "slug": "typesafe-jev",
+      "source": "engineering/development-and-quality/typesafe-jev"
     },
     {
       "slug": "user-story-mapping",
