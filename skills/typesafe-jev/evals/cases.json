@@ -1,0 +1,76 @@
+{
+  "skill": "typesafe-jev",
+  "version": 1,
+  "trigger_cases": [
+    {"prompt": "Design a Jev workflow to classify support intent and confidence-gate routing.", "trigger": true},
+    {"prompt": "Evaluate Jev against our current model with a labeled holdout and calibration thresholds.", "trigger": true},
+    {"prompt": "Add TypeSafe Jev to a backend for typed risk decisions.", "trigger": true},
+    {"prompt": "Use structured Jev criteria to classify products through a deep taxonomy.", "trigger": true},
+    {"prompt": "Generate a customer support reply in a warm tone.", "trigger": false},
+    {"prompt": "Fix the CSS spacing on the settings page.", "trigger": false},
+    {"prompt": "Compare two deterministic date-parser implementations.", "trigger": false}
+  ],
+  "binary_cases": [
+    {
+      "id": "jev-decision-contract",
+      "prompt": "Design a safe Jev workflow for routing support requests.",
+      "pass_rule": "Defines the decision contract, chooses a typed primitive, keeps deterministic rules and side effects in code, and routes uncertainty safely.",
+      "must": [
+        ["actor", "decision", "allowed outputs"],
+        ["Choice", "Score", "Noul"],
+        ["deterministic", "code"],
+        ["confidence", "probability"],
+        ["review", "fallback", "escalate"]
+      ],
+      "must_not": ["Jev generates the reply", "high confidence is permission", "Jev guarantees correctness"],
+      "pass_fixture": "Define the actor, decision, allowed outputs, risk, and fallback. Use Choice for fixed routes, keep authorization and side effects in deterministic code, and use probability or confidence to route uncertain cases to review. A separate generative model writes the reply.",
+      "fail_fixture": "Let Jev generate the reply and approve the route because high confidence is permission; Jev guarantees correctness."
+    },
+    {
+      "id": "jev-evaluation-gate",
+      "prompt": "Decide whether a calibrated Jev classifier is ready for production auto-routing.",
+      "pass_rule": "Uses a baseline, versioned labeled slices, an untouched holdout, calibration, risk metrics, and a critical-regression gate.",
+      "must": [
+        ["baseline", "comparison"],
+        ["labeled", "holdout"],
+        ["calibrat", "threshold"],
+        ["false", "auto-action"],
+        ["regression", "block"]
+      ],
+      "must_not": ["ship from aggregate score alone", "use every case for tuning", "schema validity proves semantic correctness"],
+      "pass_fixture": "Preserve a baseline and compare on versioned labeled normal, ambiguous, adversarial, and regression slices. Keep the holdout untouched, calibrate the threshold, measure false auto-actions, and block on a critical regression even if the aggregate improves. Schema validity does not prove semantic correctness.",
+      "fail_fixture": "Ship from aggregate score alone after tuning on every case; the schema is valid, so semantic correctness is proven."
+    },
+    {
+      "id": "jev-boundary-and-reliability",
+      "prompt": "Integrate Jev into a server-side workflow with retries and privacy controls.",
+      "pass_rule": "Uses the official API boundary, secret storage, bounded retry behavior, version logging, and minimized sensitive state while excluding unsupported tasks.",
+      "must": [
+        ["server-side", "official API"],
+        ["secret", "API key"],
+        ["429", "529", "backoff"],
+        ["model version", "question-set version"],
+        ["redact", "minimize"]
+      ],
+      "must_not": ["log raw sensitive state", "retry a side effect blindly", "use Jev for arithmetic"],
+      "pass_fixture": "Call the official API server-side with the API key in secret storage. Handle 429 and 529 with bounded backoff, log model version and question-set version, minimize and redact sensitive state, and keep arithmetic and side effects in code.",
+      "fail_fixture": "Put the API key in client code, log raw sensitive state, retry a side effect blindly, and use Jev for arithmetic."
+    },
+    {
+      "id": "jev-structured-hierarchy",
+      "prompt": "Classify a product through a deep taxonomy with Jev.",
+      "pass_rule": "Uses structured instructions and criteria, explicit option boundaries, and a code-owned hierarchical walk that uses probabilities for close branches.",
+      "must": [
+        ["structured", "JSON", "object"],
+        ["instructions", "criteria"],
+        ["cover", "exclude", "boundary"],
+        ["taxonomy", "hierarch", "tree"],
+        ["probabil", "beam", "multiple branches"],
+        ["code", "each level", "current node"]
+      ],
+      "must_not": ["flatten the taxonomy into one prose string", "let Jev walk the tree autonomously", "ignore close probabilities"],
+      "pass_fixture": "Keep instructions and criteria as structured JSON objects. Define each option's coverage, exclusions, and examples. Walk the taxonomy in code one level at a time from the current node, pass child subtrees, and retain multiple branches when probabilities are close. Trim oversized branches before inference.",
+      "fail_fixture": "Flatten the taxonomy into one prose string and let Jev walk the tree autonomously; ignore close probabilities and send the entire tree every time."
+    }
+  ]
+}

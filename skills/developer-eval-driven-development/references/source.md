@@ -45,6 +45,7 @@ Write the contract before changing the application. It should state:
 - dataset slices and provenance
 - criterion-to-evaluator mapping
 - pass rule for each criterion
+- for typed-decision systems, separate response validity, semantic correctness, calibration, and downstream policy correctness
 - critical failures that cannot be averaged away
 - quality, safety, cost, and latency budgets
 - experiment budget and stopping rule
@@ -145,6 +146,21 @@ An evaluator is another model or program that can fail. Before making it a gate:
 5. Version the evaluator prompt, model, code, and calibration set.
 
 For high-stakes decisions, sample human review even after calibration. Investigate judge disagreement rather than averaging it away.
+
+### Use Jev for bounded typed judgments
+
+Jev is useful in EDD when the criterion is a bounded semantic judgment and the application benefits from a typed answer, probability distribution, or confidence signal. Treat the Jev question contract as a versioned evaluator artifact, not as an informal prompt.
+
+- `Choice` fits unordered fixed labels such as intent or route.
+- `Score` fits ordered levels with explicit anchors such as severity or completeness.
+- `Noul` fits a clear yes/no condition when the probability itself is useful.
+- Keep each question atomic. Batch independent questions in one request and combine them in code. Use a second request only when the first answer creates the next state or question.
+- Evaluate four layers separately: typed response/schema validity, semantic agreement with labeled references or human review, probability/confidence calibration, and deterministic downstream policy behavior.
+- Calibrate thresholds on labeled development data for each action and risk level. Keep holdout data untouched. Do not reuse thresholds across primitives or assume `Noul` probability equals `Choice`/`Score` confidence.
+- Preserve the pinned Jev model version, question-set version, primitive, criteria, probabilities, confidence or probability, threshold, fallback, and action-policy result.
+- Keep arithmetic, dates, authorization, structural invariants, and side effects in code. Jev is not an agent or a generation evaluator; test the complete workflow that consumes its answer.
+
+Typed output prevents parsing errors, not semantic errors. A Jev-based evaluator still needs known-good, known-bad, boundary, adversarial, and ambiguous cases, plus human calibration when the release decision is consequential.
 
 ## 5. Experiment design
 

@@ -1,6 +1,6 @@
 # software-maestro
 
-A capability orchestra of 72 lean agent skills for AI IDE agents (Claude Code, Codex, Antigravity, Gemini, and Hermes Agent).
+A capability orchestra of 74 lean agent skills for AI IDE agents (Claude Code, Codex, Antigravity, Gemini, and Hermes Agent).
 
 ---
 
@@ -36,9 +36,9 @@ A capability orchestra of 72 lean agent skills for AI IDE agents (Claude Code, C
 </details>
 
 <details>
-<summary><strong><code>engineering/</code></strong> (10 skills across 3 subdomains)</summary>
+<summary><strong><code>engineering/</code></strong> (11 skills across 3 subdomains)</summary>
 
-*   **`engineering/development-and-quality/`** (7 skills): Core engineering craft, code review checklists, Test-Driven Development (TDD), evaluation-driven AI development, ASD-STE100 technical writing standards, info-to-ink token compression, and open source contribution etiquette with Conventional Commits (`developer-development-rules`, `developer-code-review-rules`, `developer-test-driven-development`, `developer-eval-driven-development`, `technical-language-rules`, `info-to-ink`, `open-source-contributor`).
+*   **`engineering/development-and-quality/`** (8 skills): Core engineering craft, code review checklists, Test-Driven Development (TDD), evaluation-driven AI development, ASD-STE100 technical writing standards, info-to-ink token compression, open source contribution etiquette, and TypeSafe Jev workflow design (`developer-development-rules`, `developer-code-review-rules`, `developer-test-driven-development`, `developer-eval-driven-development`, `technical-language-rules`, `info-to-ink`, `open-source-contributor`, `typesafe-jev`).
 *   **`engineering/architecture-and-resiliency/`** (2 skills): Clean/Hexagonal system architecture with circuit breakers and zero-key web search grounding (`system-architecture-rules`, `grounded-search-rules`).
 *   **`engineering/cloud-and-infrastructure/`** (1 skill): Multi-cloud architecture, hybrid cloud networking, and reusable Terraform IaC modules (`multi-cloud-architecture`).
 
@@ -92,7 +92,7 @@ A capability orchestra of 72 lean agent skills for AI IDE agents (Claude Code, C
 </details>
 
 <details>
-<summary><strong><code>growth/</code></strong> (6 skills)</summary>
+<summary><strong><code>growth/</code></strong> (7 skills)</summary>
 
 *   **`analytics-event-tracking`**: Behavioral telemetry taxonomies, retention modeling, and CRM lifecycle automation.
 *   **`commerce-ux-rules`**: Shopping cart optimization, checkout friction reduction, and multi-step wizard forms.
@@ -100,6 +100,7 @@ A capability orchestra of 72 lean agent skills for AI IDE agents (Claude Code, C
 *   **`experimentation-hypothesis-engine`**: Statistical A/B testing, MDE sample sizing, SRM validation, and 3-way post-mortems.
 *   **`conversion-copywriting`**: High-conversion landing page copy, value propositions, and concise prose.
 *   **`american-dialect`**: Research-backed regional American English rewrites that preserve author voice and avoid caricature.
+*   **`negotiation-maximizer`**: Ethical, low-theater negotiation for compensation, purchases, renewals, contracts, and commercial terms.
 
 </details>
 
@@ -143,8 +144,8 @@ A capability orchestra of 72 lean agent skills for AI IDE agents (Claude Code, C
 │   ├── interaction-and-layout/  # Responsive layouts, animation physics, IA wayfinding (3 skills)
 │   ├── experience-and-flows/    # Onboarding UX, Prototype Facade, Chart viz (3 skills)
 │   └── evaluation-and-quality/  # Usability heuristics & 5-Act interview testing (2 skills)
-├── engineering/              # Code Quality, Architecture, Cloud & IaC (10 skills)
-│   ├── development-and-quality/ # TDD, evals, code reviews, craft, STE prose, info-to-ink, OSS etiquette (7 skills)
+├── engineering/              # Code Quality, Architecture, Cloud & IaC (11 skills)
+│   ├── development-and-quality/ # TDD, evals, code reviews, craft, STE prose, info-to-ink, OSS etiquette, Jev (8 skills)
 │   ├── architecture-and-resiliency/ # System architecture, grounded search (2 skills)
 │   └── cloud-and-infrastructure/ # Multi-cloud architecture & Terraform IaC (1 skill)
 ├── finance/                  # Settlement rails, tax nexus, chargebacks & treasury (1 skill)
@@ -153,7 +154,7 @@ A capability orchestra of 72 lean agent skills for AI IDE agents (Claude Code, C
 ├── ops/                      # SEV-0 incident command, crisis comms & blameless RCA (1 skill)
 ├── data-and-api/             # API guidelines, caching, causal inference, semantic layer, metric triage (5 skills)
 ├── security/                 # Developer security & auth/identity rules (2 skills)
-├── growth/                   # Telemetry, commerce UX, SEO, experimentation, regional copy (6 skills)
+├── growth/                   # Telemetry, commerce UX, SEO, experimentation, regional copy, negotiation (7 skills)
 ├── quality/                  # CI/CD, FinOps, dogfooding, a11y, observability, web perf, peekaboo (8 skills)
 └── productivity-maestro/      # Executive memos, meeting intelligence & 3-tier Scrum cadences (5 skills)
     ├── executive-and-async/  # Meeting intelligence & Smart Brevity async memos (2 skills)
@@ -188,7 +189,7 @@ The export copies each skill package, including `references/`, `scripts/`, and `
 
 ## 🔍 Local Skill Discovery CLI
 
-Instantly search, discover, and inspect all 71 local skills from your terminal:
+Instantly search, discover, and inspect all 74 local skills from your terminal:
 
 ```bash
 # Keyword search across names, triggers, and expert frameworks
