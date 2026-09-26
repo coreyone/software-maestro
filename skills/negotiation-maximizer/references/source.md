@@ -32,6 +32,10 @@
 
 - Robert Cialdini, PhD — _Influence_ and _Pre-Suasion_: evidence-based ethical influence principles.
 
+- Dale Carnegie — _How to Win Friends and Influence People_: human-relations principles that emphasize listening, sincere appreciation, perspective-taking, and treating people with respect. Apply them as genuine interpersonal practice, not as a script for manipulating a service agent.
+  https://www.dalecarnegie.com/en/books/how-to-win-friends-influence-people
+  https://www.dalecarnegie.com/en/resources/dale-carnegies-secrets-of-success
+
 - Neil Rackham — _SPIN Selling_: research-derived consultative selling based on large-scale observation of sales calls; diagnose the buyer/seller decision problem instead of feature-dumping.
 
 - Chris Voss — _Never Split the Difference_: calibrated questions, labeling, tactical empathy, and inviting the counterpart to solve constraints. Use as practitioner communication mechanics, not as a claim that commercial bargaining is equivalent to hostage negotiation.
